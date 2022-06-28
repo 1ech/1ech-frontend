@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
-    "dev": "next dev",
+    "dev": "next dev -p 9191",
     "build": "next build",
     "start": "next start",
     "test": "jest",

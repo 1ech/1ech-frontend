@@ -2,6 +2,17 @@
 # yarn lockfile v1
 
 
+"@1ech/sdk@https://github.com/1ech/1ech-swap-sdk.git":
+  version "2.4.3"
+  resolved "https://github.com/1ech/1ech-swap-sdk.git#5fb3f0c82f21ddd5e9f8794af95c1166074cb5e9"
+  dependencies:
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.4"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
 "@ampproject/remapping@^2.1.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.1.2.tgz#4edca94973ded9630d20101cd8559cedb8d8bd34"
@@ -3028,18 +3039,6 @@
   integrity sha512-s1zLBjWhdEI2zwaoSgyOFoKSl109CUcVBCc7biPJ3aAf6LGLU6szDvi31JPU7bxfla2lqfhjbbg/5DdFNxOwHw==
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
-
-"@1ech/sdk@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@1ech/sdk/-/sdk-2.4.5.tgz#783c02efc7ca89d2297b0b07040639d90c3e610d"
-  integrity sha512-qfHOPGXitDQ5y1dmYloe6UQe/0Ki0enow4MLtr5W49Jl7ZXr8oB6XV7usYtT63R7vqLSKY83rd8Wyw18vxP7dA==
-  dependencies:
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.4"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
 
 "@pedrouid/environment@^1.0.1":
   version "1.0.1"
