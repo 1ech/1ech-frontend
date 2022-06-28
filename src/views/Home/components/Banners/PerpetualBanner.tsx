@@ -34,7 +34,7 @@ const PerpetualBanner = () => {
     currentLanguage: { code },
   } = useTranslation()
   const { isDesktop } = useMatchBreakpointsContext()
-  const perpetualUrl = useMemo(() => `https://perp.pancakeswap.finance/${perpLangMap(code)}/futures/BTCUSDT`, [code])
+  const perpetualUrl = useMemo(() => `https://perp.1ech.com/${perpLangMap(code)}/futures/BTCUSDT`, [code])
 
   return (
     <S.Wrapper>

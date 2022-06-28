@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { Currency, Token, ETHER } from '@pancakeswap/sdk'
+import { Currency, Token, ETHER } from '@1ech/sdk'
 import { Field, selectCurrency, switchCurrencies, typeInput, setRecipient } from './actions'
 import { useAppDispatch } from '../index'
 

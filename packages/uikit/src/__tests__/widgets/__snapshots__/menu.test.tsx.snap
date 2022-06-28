@@ -1814,7 +1814,7 @@ exports[`renders correctly 1`] = `
           >
             <a
               class="c27"
-              href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+              href="https://1ech.com/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
               target="_blank"
             >
               <svg
@@ -2169,7 +2169,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/contact-us"
+                    href="https://docs.1ech.com/contact-us"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2195,7 +2195,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/contact-us/telegram"
+                    href="https://docs.1ech.com/contact-us/telegram"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2208,7 +2208,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/tokenomics/cake"
+                    href="https://docs.1ech.com/tokenomics/cake"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2252,7 +2252,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="Support https://docs.pancakeswap.finance/contact-us/customer-support"
+                    href="Support https://docs.1ech.com/contact-us/customer-support"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2265,7 +2265,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/help/troubleshooting"
+                    href="https://docs.1ech.com/help/troubleshooting"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2278,7 +2278,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/get-started"
+                    href="https://docs.1ech.com/get-started"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2313,7 +2313,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance"
+                    href="https://docs.1ech.com"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2326,7 +2326,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://app.gitbook.com/@pancakeswap-1/s/pancakeswap/code/bug-bounty"
+                    href="https://app.gitbook.com/@1ech-1/s/pancakeswap/code/bug-bounty"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2339,7 +2339,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/help/faq#is-pancakeswap-safe-has-pancakeswap-been-audited"
+                    href="https://docs.1ech.com/help/faq#is-pancakeswap-safe-has-pancakeswap-been-audited"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2352,7 +2352,7 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.pancakeswap.finance/hiring/become-a-chef"
+                    href="https://docs.1ech.com/hiring/become-a-chef"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
@@ -2989,7 +2989,7 @@ exports[`renders correctly 1`] = `
                 >
                   <a
                     class="c27"
-                    href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+                    href="https://1ech.com/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
                     target="_blank"
                   >
                     <svg
@@ -3052,7 +3052,7 @@ exports[`renders correctly 1`] = `
                 </div>
                 <a
                   class="c92"
-                  href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
+                  href="https://1ech.com/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
                   scale="sm"
                   target="_blank"
                 >

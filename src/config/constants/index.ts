@@ -1,5 +1,5 @@
 // used to construct the list of all pairs we consider by default in the frontend
-import { ChainId, Token } from '@pancakeswap/sdk'
+import { ChainId, Token } from '@1ech/sdk'
 import { mainnetTokens, testnetTokens } from './tokens'
 import { ChainTokenList } from './types'
 
@@ -46,6 +46,6 @@ export const FARM_AUCTION_HOSTING_IN_SECONDS = 604800
 // Gelato uses this address to define a native currency in all chains
 export const GELATO_NATIVE = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
 
-export const EXCHANGE_DOCS_URLS = 'https://docs.pancakeswap.finance/products/pancakeswap-exchange'
+export const EXCHANGE_DOCS_URLS = 'https://docs.1ech.com/products/pancakeswap-exchange'
 
 export const GALAXY_NFT_CAMPAIGN_ID = 'GCpp2UUxqQ'

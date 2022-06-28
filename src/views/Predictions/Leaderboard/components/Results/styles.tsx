@@ -1,4 +1,4 @@
-import { Token } from '@pancakeswap/sdk'
+import { Token } from '@1ech/sdk'
 import { Flex, FlexProps, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import useBUSDPrice from 'hooks/useBUSDPrice'

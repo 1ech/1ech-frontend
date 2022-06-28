@@ -2,7 +2,7 @@ import { useEffect, useCallback, useState, useMemo, useRef, createContext } from
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import { Image, Heading, RowType, Toggle, Text, Button, ArrowForwardIcon, Flex, Link } from '@pancakeswap/uikit'
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId } from '@1ech/sdk'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
@@ -440,7 +440,7 @@ const Farms: React.FC = ({ children }) => {
                 external
                 color="failure"
                 fontSize={['16px', null, '20px']}
-                href="https://v1-farms.pancakeswap.finance/farms/history"
+                href="https://v1-farms.1ech.com/farms/history"
               >
                 {t('check out v1 farms')}.
               </FinishedTextLink>

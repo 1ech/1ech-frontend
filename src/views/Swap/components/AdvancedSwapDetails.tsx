@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@pancakeswap/sdk'
+import { Trade, TradeType } from '@1ech/sdk'
 import { Text } from '@pancakeswap/uikit'
 import { Field } from 'state/swap/actions'
 import { useTranslation } from 'contexts/Localization'

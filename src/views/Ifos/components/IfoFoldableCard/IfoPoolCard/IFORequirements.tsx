@@ -22,7 +22,7 @@ const NotOkNFT = ({ admissionProfile }) => {
         <>
           <LinkExternal
             style={{ display: 'inline' }}
-            href={`https://pancakeswap.finance/nfts/collections/${admissionProfile}`}
+            href={`https://1ech.com/nfts/collections/${admissionProfile}`}
           >
             {t('Pancake Squad NFT')}
           </LinkExternal>
@@ -50,7 +50,7 @@ const NotOkProfilePoints = ({ pointThreshold }) => {
           <br />
           <LinkExternal
             style={{ display: 'inline' }}
-            href={`https://pancakeswap.finance/nfts/profile/${account}/achievements/`}
+            href={`https://1ech.com/nfts/profile/${account}/achievements/`}
           >
             {t('Pancake Profile')}
           </LinkExternal>

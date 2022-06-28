@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Percent, Token } from '@pancakeswap/sdk'
+import { ChainId, JSBI, Percent, Token } from '@1ech/sdk'
 import { BigNumber } from '@ethersproject/bignumber'
 import { mainnetTokens, testnetTokens } from './tokens'
 import { ChainTokenList } from './types'
@@ -93,4 +93,4 @@ export const DEFAULT_OUTPUT_CURRENCY = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE
 export const GELATO_HANDLER = 'pancakeswap'
 export const GENERIC_GAS_LIMIT_ORDER_EXECUTION = BigNumber.from(500000)
 
-export const LIMIT_ORDERS_DOCS_URL = 'https://docs.pancakeswap.finance/products/pancakeswap-exchange/limit-orders'
+export const LIMIT_ORDERS_DOCS_URL = 'https://docs.1ech.com/products/pancakeswap-exchange/limit-orders'

@@ -5,7 +5,7 @@ import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useRouter } from 'next/router'
 import useToast from 'hooks/useToast'
-import { Currency, currencyEquals, ETHER, Percent, WETH } from '@pancakeswap/sdk'
+import { Currency, currencyEquals, ETHER, Percent, WETH } from '@1ech/sdk'
 import {
   Button,
   Text,
