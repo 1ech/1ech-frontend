@@ -12,6 +12,14 @@ interface TokenList {
 export const defineTokens = <T extends TokenList>(t: T) => t
 
 export const mainnetTokens = defineTokens({
+  wech: new Token(
+    MAINNET,
+    '0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8',
+    18,
+    'WECH',
+    'Wrapped Echelon',
+    'https://ech.network/',
+  ),
   wbnb: new Token(
     MAINNET,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
@@ -20,6 +28,8 @@ export const mainnetTokens = defineTokens({
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
+  // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
+  ech: new Token(MAINNET, '0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8', 18, 'ECH', 'ECH', 'https://ech.network/'),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
