@@ -1,0 +1,29 @@
+{
+  "name": "1ECH Default",
+  "timestamp": "2022-03-01T08:37:04.410Z",
+  "version": {
+    "major": 2,
+    "minor": 16,
+    "patch": 5
+  },
+  "logoURI": "https://1ech.com/1ech.png",
+  "keywords": ["1ech", "default"],
+  "tokens": [
+    {
+      "name": "Wrapped Echelon",
+      "symbol": "WECH",
+      "address": "0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/25498/large/SpO_F8a0_400x400.jpg?1652077746"
+    },
+    {
+      "name": "Metronotes",
+      "symbol": "XMN",
+      "address": "0xCf153fC756D062bc6c8F0712c4E8c348ca9Be214",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    }
+  ]
+}

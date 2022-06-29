@@ -1,5 +1,5 @@
 import { Currency, ETHER, Token } from '@1ech/sdk'
-import { BinanceIcon } from '@pancakeswap/uikit'
+import { EchelonIcon } from '@pancakeswap/uikit'
 import { useMemo } from 'react'
 import styled from 'styled-components'
 import { WrappedTokenInfo } from 'state/types'
@@ -37,7 +37,7 @@ export default function CurrencyLogo({
   }, [currency, uriLocations])
 
   if (currency === ETHER) {
-    return <BinanceIcon width={size} style={style} />
+    return <EchelonIcon width={size} style={style} />
   }
 
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />
