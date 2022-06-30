@@ -17,7 +17,7 @@ const sousStake = async (sousChefContract, amount, decimals = 18) => {
   })
 }
 
-const sousStakeBnb = async (sousChefContract, amount) => {
+const sousStakeEch = async (sousChefContract, amount) => {
   const gasPrice = getGasPrice()
   return sousChefContract.deposit(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(), {
     ...options,
@@ -25,17 +25,17 @@ const sousStakeBnb = async (sousChefContract, amount) => {
   })
 }
 
-const useStakePool = (sousId: number, isUsingBnb = false) => {
+const useStakePool = (sousId: number, isUsingEch = false) => {
   const sousChefContract = useSousChef(sousId)
 
   const handleStake = useCallback(
     async (amount: string, decimals: number) => {
-      if (isUsingBnb) {
-        return sousStakeBnb(sousChefContract, amount)
+      if (isUsingEch) {
+        return sousStakeEch(sousChefContract, amount)
       }
       return sousStake(sousChefContract, amount, decimals)
     },
-    [isUsingBnb, sousChefContract],
+    [isUsingEch, sousChefContract],
   )
 
   return { onStake: handleStake }

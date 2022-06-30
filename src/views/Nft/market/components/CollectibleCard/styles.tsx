@@ -23,11 +23,11 @@ export const Footer: React.FC<BoxProps> = ({ children, ...props }) => (
   </Box>
 )
 
-interface BNBAmountLabelProps extends FlexProps {
+interface ECHAmountLabelProps extends FlexProps {
   amount: number
 }
 
-export const BNBAmountLabel: React.FC<BNBAmountLabelProps> = ({ amount, ...props }) => (
+export const ECHAmountLabel: React.FC<ECHAmountLabelProps> = ({ amount, ...props }) => (
   <Flex alignItems="center" {...props}>
     <BinanceIcon width="16px" mx="4px" />
     <Text fontWeight="600">
@@ -41,11 +41,11 @@ export const BNBAmountLabel: React.FC<BNBAmountLabelProps> = ({ amount, ...props
 
 interface CostLabelProps extends FlexProps {
   cost: number
-  bnbBusdPrice: Price
+  echBusdPrice: Price
 }
 
-export const CostLabel: React.FC<CostLabelProps> = ({ cost, bnbBusdPrice, ...props }) => {
-  const priceInUsd = multiplyPriceByAmount(bnbBusdPrice, cost)
+export const CostLabel: React.FC<CostLabelProps> = ({ cost, echBusdPrice, ...props }) => {
+  const priceInUsd = multiplyPriceByAmount(echBusdPrice, cost)
 
   return (
     <Flex alignItems="center" {...props}>
@@ -55,7 +55,7 @@ export const CostLabel: React.FC<CostLabelProps> = ({ cost, bnbBusdPrice, ...pro
           maximumFractionDigits: 2,
         })})`}</Text>
       )}
-      <BNBAmountLabel amount={cost} />
+      <ECHAmountLabel amount={cost} />
     </Flex>
   )
 }
@@ -136,10 +136,10 @@ export const StyledCollectibleCard = styled(Card)`
 interface LowestPriceMetaRowProps {
   lowestPrice: number
   isFetching: boolean
-  bnbBusdPrice: Price
+  echBusdPrice: Price
 }
 
-export const LowestPriceMetaRow = ({ lowestPrice, isFetching, bnbBusdPrice }: LowestPriceMetaRowProps) => {
+export const LowestPriceMetaRow = ({ lowestPrice, isFetching, echBusdPrice }: LowestPriceMetaRowProps) => {
   const { t } = useTranslation()
 
   if (!isFetching && !lowestPrice) {
@@ -151,7 +151,7 @@ export const LowestPriceMetaRow = ({ lowestPrice, isFetching, bnbBusdPrice }: Lo
       {isFetching ? (
         <Skeleton height="24px" width="30px" />
       ) : (
-        <CostLabel cost={lowestPrice} bnbBusdPrice={bnbBusdPrice} />
+        <CostLabel cost={lowestPrice} echBusdPrice={echBusdPrice} />
       )}
     </MetaRow>
   )

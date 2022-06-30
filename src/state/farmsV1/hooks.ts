@@ -60,8 +60,8 @@ export const usePollFarmsV1WithUserData = () => {
 
 /**
  * Fetches the "core" farm data used globally
- * 251 = CAKE-BNB LP
- * 252 = BUSD-BNB LP
+ * 251 = CAKE-ECH LP
+ * 252 = BUSD-ECH LP
  */
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
@@ -136,9 +136,9 @@ export const useLpTokenPrice = (symbol: string) => {
  * @@deprecated use the BUSD hook in /hooks
  */
 export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid(251)
+  const cakeEchFarm = useFarmFromPid(251)
 
-  const cakePriceBusdAsString = cakeBnbFarm.tokenPriceBusd
+  const cakePriceBusdAsString = cakeEchFarm.tokenPriceBusd
 
   const cakePriceBusd = useMemo(() => {
     return new BigNumber(cakePriceBusdAsString)

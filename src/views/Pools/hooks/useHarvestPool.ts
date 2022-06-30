@@ -13,21 +13,21 @@ const harvestPool = async (sousChefContract) => {
   return sousChefContract.deposit('0', { ...options, gasPrice })
 }
 
-const harvestPoolBnb = async (sousChefContract) => {
+const harvestPoolEch = async (sousChefContract) => {
   const gasPrice = getGasPrice()
   return sousChefContract.deposit({ ...options, value: BIG_ZERO, gasPrice })
 }
 
-const useHarvestPool = (sousId, isUsingBnb = false) => {
+const useHarvestPool = (sousId, isUsingEch = false) => {
   const sousChefContract = useSousChef(sousId)
 
   const handleHarvest = useCallback(async () => {
-    if (isUsingBnb) {
-      return harvestPoolBnb(sousChefContract)
+    if (isUsingEch) {
+      return harvestPoolEch(sousChefContract)
     }
 
     return harvestPool(sousChefContract)
-  }, [isUsingBnb, sousChefContract])
+  }, [isUsingEch, sousChefContract])
 
   return { onReward: handleHarvest }
 }

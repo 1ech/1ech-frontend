@@ -30,7 +30,7 @@ const LoadingWrapper = styled.div<{ $isDark: boolean }>`
   }
 `
 
-const bnbToWBNBSymbol = (sym: string) => (sym === 'BNB' ? 'WBNB' : sym)
+const echToWECHSymbol = (sym: string) => (sym === 'ECH' ? 'WECH' : sym)
 
 const ID = 'TV_SWAP_CHART'
 const SYMBOL_PREFIX = 'PANCAKESWAP:'
@@ -46,8 +46,8 @@ const TradingViewChart = ({ outputSymbol, inputSymbol, isDark, onTwChartSymbol }
       return null
     }
 
-    const input = bnbToWBNBSymbol(inputSymbol)
-    const output = bnbToWBNBSymbol(outputSymbol)
+    const input = echToWECHSymbol(inputSymbol)
+    const output = echToWECHSymbol(outputSymbol)
     return `${input}${output}`
   }, [inputSymbol, outputSymbol])
 

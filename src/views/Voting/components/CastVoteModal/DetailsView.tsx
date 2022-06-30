@@ -19,7 +19,7 @@ interface DetailsViewProps {
   cakeVaultBalance?: number
   cakePoolBalance?: number
   poolsBalance?: number
-  cakeBnbLpBalance?: number
+  cakeEchLpBalance?: number
   ifoPoolBalance?: number
   block: number
 }
@@ -30,7 +30,7 @@ const DetailsView: React.FC<DetailsViewProps> = ({
   cakeVaultBalance,
   cakePoolBalance,
   poolsBalance,
-  cakeBnbLpBalance,
+  cakeEchLpBalance,
   ifoPoolBalance,
   block,
 }) => {
@@ -98,12 +98,12 @@ const DetailsView: React.FC<DetailsViewProps> = ({
           <Text textAlign="right">{formatNumber(poolsBalance, 0, 3)}</Text>
         </Flex>
       )}
-      {Number.isFinite(cakeBnbLpBalance) && (
+      {Number.isFinite(cakeEchLpBalance) && (
         <Flex alignItems="center" justifyContent="space-between" mb="4px">
           <Text color="textSubtle" fontSize="16px">
-            {t('CAKE BNB LP')}
+            {t('CAKE ECH LP')}
           </Text>
-          <Text textAlign="right">{formatNumber(cakeBnbLpBalance, 0, 3)}</Text>
+          <Text textAlign="right">{formatNumber(cakeEchLpBalance, 0, 3)}</Text>
         </Flex>
       )}
     </ModalInner>

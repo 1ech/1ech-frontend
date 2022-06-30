@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { formatRoundTime, padTime, formatBnbv2, formatUsdv2 } from 'views/Predictions/helpers'
+import { formatRoundTime, padTime, formatEchv2, formatUsdv2 } from 'views/Predictions/helpers'
 
 describe('padTime', () => {
   it.each([
@@ -52,7 +52,7 @@ describe('formatUsdv2', () => {
   )
 })
 
-describe('formatBnbv2', () => {
+describe('formatEchv2', () => {
   it.each`
     priceDifference             | expectedPriceDifferenceFormatted
     ${'1000000000000'}          | ${'<0.001'}
@@ -77,6 +77,6 @@ describe('formatBnbv2', () => {
   `(
     'should format $priceDifference to $expectedPriceDifferenceFormatted',
     ({ priceDifference, expectedPriceDifferenceFormatted }) =>
-      expect(formatBnbv2(BigNumber.from(priceDifference))).toEqual(expectedPriceDifferenceFormatted),
+      expect(formatEchv2(BigNumber.from(priceDifference))).toEqual(expectedPriceDifferenceFormatted),
   )
 })

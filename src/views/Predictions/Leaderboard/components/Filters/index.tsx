@@ -35,8 +35,8 @@ const Filters = () => {
   const { token } = useConfig()
 
   const orderByOptions = [
-    { label: t('Net Winnings'), value: 'netBNB' },
-    { label: t('Total %symbol%', { symbol: token.symbol }), value: 'totalBNB' },
+    { label: t('Net Winnings'), value: 'netECH' },
+    { label: t('Total %symbol%', { symbol: token.symbol }), value: 'totalECH' },
     { label: t('Rounds Played'), value: 'totalBets' },
     { label: t('Win Rate'), value: 'winRate' },
   ]

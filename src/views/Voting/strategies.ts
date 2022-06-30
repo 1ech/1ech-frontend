@@ -111,7 +111,7 @@ export const cakePoolBalanceStrategy = (version: 'v0' | 'v1') => ({
   },
 })
 
-export const cakeBnbLpBalanceStrategy = (version: 'v0' | 'v1') => ({
+export const cakeEchLpBalanceStrategy = (version: 'v0' | 'v1') => ({
   name: 'contract-call',
   params: {
     address: votePowerAddress[version],
@@ -124,7 +124,7 @@ export const cakeBnbLpBalanceStrategy = (version: 'v0' | 'v1') => ({
           type: 'address',
         },
       ],
-      name: 'getCakeBnbLpBalance',
+      name: 'getCakeEchLpBalance',
       outputs: [
         {
           internalType: 'uint256',

@@ -9,9 +9,9 @@ import orderBy from 'lodash/orderBy'
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks'
 
 /**
- * Returns a map of the given addresses to their eventually consistent BNB balances.
+ * Returns a map of the given addresses to their eventually consistent ECH balances.
  */
-export function useBNBBalances(uncheckedAddresses?: (string | undefined)[]): {
+export function useECHBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount | undefined
 } {
   const multicallContract = useMulticallContract()
@@ -105,18 +105,18 @@ export function useCurrencyBalances(
   )
 
   const tokenBalances = useTokenBalances(account, tokens)
-  const containsBNB: boolean = useMemo(() => currencies?.some((currency) => currency === ETHER) ?? false, [currencies])
-  const bnbBalance = useBNBBalances(containsBNB ? [account] : [])
+  const containsECH: boolean = useMemo(() => currencies?.some((currency) => currency === ETHER) ?? false, [currencies])
+  const echBalance = useECHBalances(containsECH ? [account] : [])
 
   return useMemo(
     () =>
       currencies?.map((currency) => {
         if (!account || !currency) return undefined
         if (currency instanceof Token) return tokenBalances[currency.address]
-        if (currency === ETHER) return bnbBalance[account]
+        if (currency === ETHER) return echBalance[account]
         return undefined
       }) ?? [],
-    [account, currencies, bnbBalance, tokenBalances],
+    [account, currencies, echBalance, tokenBalances],
   )
 }
 

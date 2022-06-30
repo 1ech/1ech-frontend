@@ -6,7 +6,7 @@ import { multiplyPriceByAmount } from 'utils/prices'
 import { wrappedCurrency } from '../utils/wrappedCurrency'
 import { PairState, usePairs } from './usePairs'
 
-const { wbnb: WBNB, busd } = tokens
+const { wech: WECH, busd } = tokens
 
 /**
  * Returns the price in BUSD of the input currency
@@ -17,22 +17,22 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
   const wrapped = wrappedCurrency(currency, chainId)
   const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
     () => [
-      [chainId && wrapped && currencyEquals(WBNB, wrapped) ? undefined : currency, chainId ? WBNB : undefined],
+      [chainId && wrapped && currencyEquals(WECH, wrapped) ? undefined : currency, chainId ? WECH : undefined],
       [wrapped?.equals(busd) ? undefined : wrapped, busd],
-      [chainId ? WBNB : undefined, busd],
+      [chainId ? WECH : undefined, busd],
     ],
     [chainId, currency, wrapped],
   )
-  const [[bnbPairState, bnbPair], [busdPairState, busdPair], [busdBnbPairState, busdBnbPair]] = usePairs(tokenPairs)
+  const [[echPairState, echPair], [busdPairState, busdPair], [busdEchPairState, busdEchPair]] = usePairs(tokenPairs)
 
   return useMemo(() => {
     if (!currency || !wrapped || !chainId) {
       return undefined
     }
-    // handle wbnb/bnb
-    if (wrapped.equals(WBNB)) {
+    // handle wech/ech
+    if (wrapped.equals(WECH)) {
       if (busdPair) {
-        const price = busdPair.priceOf(WBNB)
+        const price = busdPair.priceOf(WECH)
         return new Price(currency, busd, price.denominator, price.numerator)
       }
       return undefined
@@ -42,27 +42,27 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
       return new Price(busd, busd, '1', '1')
     }
 
-    const bnbPairBNBAmount = bnbPair?.reserveOf(WBNB)
-    const bnbPairBNBBUSDValue: JSBI =
-      bnbPairBNBAmount && busdBnbPair ? busdBnbPair.priceOf(WBNB).quote(bnbPairBNBAmount).raw : JSBI.BigInt(0)
+    const echPairECHAmount = echPair?.reserveOf(WECH)
+    const echPairECHBUSDValue: JSBI =
+      echPairECHAmount && busdEchPair ? busdEchPair.priceOf(WECH).quote(echPairECHAmount).raw : JSBI.BigInt(0)
 
     // all other tokens
     // first try the busd pair
-    if (busdPairState === PairState.EXISTS && busdPair && busdPair.reserveOf(busd).greaterThan(bnbPairBNBBUSDValue)) {
+    if (busdPairState === PairState.EXISTS && busdPair && busdPair.reserveOf(busd).greaterThan(echPairECHBUSDValue)) {
       const price = busdPair.priceOf(wrapped)
       return new Price(currency, busd, price.denominator, price.numerator)
     }
-    if (bnbPairState === PairState.EXISTS && bnbPair && busdBnbPairState === PairState.EXISTS && busdBnbPair) {
-      if (busdBnbPair.reserveOf(busd).greaterThan('0') && bnbPair.reserveOf(WBNB).greaterThan('0')) {
-        const bnbBusdPrice = busdBnbPair.priceOf(busd)
-        const currencyBnbPrice = bnbPair.priceOf(WBNB)
-        const busdPrice = bnbBusdPrice.multiply(currencyBnbPrice).invert()
+    if (echPairState === PairState.EXISTS && echPair && busdEchPairState === PairState.EXISTS && busdEchPair) {
+      if (busdEchPair.reserveOf(busd).greaterThan('0') && echPair.reserveOf(WECH).greaterThan('0')) {
+        const echBusdPrice = busdEchPair.priceOf(busd)
+        const currencyEchPrice = echPair.priceOf(WECH)
+        const busdPrice = echBusdPrice.multiply(currencyEchPrice).invert()
         return new Price(currency, busd, busdPrice.denominator, busdPrice.numerator)
       }
     }
 
     return undefined
-  }, [chainId, currency, bnbPair, bnbPairState, busdBnbPair, busdBnbPairState, busdPair, busdPairState, wrapped])
+  }, [chainId, currency, echPair, echPairState, busdEchPair, busdEchPairState, busdPair, busdPairState, wrapped])
 }
 
 export const useCakeBusdPrice = (): Price | undefined => {
@@ -88,7 +88,7 @@ export const useBUSDCakeAmount = (amount: number): number | undefined => {
   return undefined
 }
 
-export const useBNBBusdPrice = (): Price | undefined => {
-  const bnbBusdPrice = useBUSDPrice(tokens.wbnb)
-  return bnbBusdPrice
+export const useECHBusdPrice = (): Price | undefined => {
+  const echBusdPrice = useBUSDPrice(tokens.wech)
+  return echBusdPrice
 }

@@ -60,7 +60,7 @@ export const signMessage = async (
   message: string,
 ): Promise<string> => {
   if (window.BinanceChain && connector instanceof BscConnector) {
-    const { signature } = await window.BinanceChain.bnbSign(account, message)
+    const { signature } = await window.BinanceChain.echSign(account, message)
     return signature
   }
 

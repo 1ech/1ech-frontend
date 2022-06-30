@@ -8,11 +8,11 @@ import { nodes } from './getRpcUrl'
 
 const NETWORK_CONFIG = {
   [ChainId.MAINNET]: {
-    name: 'BNB Smart Chain Mainnet',
+    name: 'Echelon Mainnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.MAINNET],
   },
   [ChainId.TESTNET]: {
-    name: 'BNB Smart Chain Testnet',
+    name: 'Echelon Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.TESTNET],
   },
 }
@@ -45,8 +45,8 @@ export const setupNetwork = async (externalProvider?: ExternalProvider) => {
                 chainId: `0x${chainId.toString(16)}`,
                 chainName: NETWORK_CONFIG[chainId].name,
                 nativeCurrency: {
-                  name: 'BNB',
-                  symbol: 'bnb',
+                  name: 'ECH',
+                  symbol: 'ech',
                   decimals: 18,
                 },
                 rpcUrls: nodes,

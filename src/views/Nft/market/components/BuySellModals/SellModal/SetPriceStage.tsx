@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react'
 import { Flex, Grid, Box, Text, Button, BinanceIcon, ErrorIcon, useTooltip, Skeleton } from '@pancakeswap/uikit'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { escapeRegExp } from 'utils'
-import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHBusdPrice } from 'hooks/useBUSDPrice'
 import { useTranslation } from 'contexts/Localization'
 import { NftToken } from 'state/nftMarket/types'
 import { useGetCollection } from 'state/nftMarket/hooks'
 import { Divider } from '../shared/styles'
-import { GreyedOutContainer, BnbAmountCell, RightAlignedInput, FeeAmountCell } from './styles'
+import { GreyedOutContainer, EchAmountCell, RightAlignedInput, FeeAmountCell } from './styles'
 
 interface SetPriceStageProps {
   nftToSell: NftToken
@@ -43,9 +43,9 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
   const { creatorFee = '', tradingFee = '' } = useGetCollection(nftToSell.collectionAddress) || {}
   const creatorFeeAsNumber = parseFloat(creatorFee)
   const tradingFeeAsNumber = parseFloat(tradingFee)
-  const bnbPrice = useBNBBusdPrice()
+  const echPrice = useECHBusdPrice()
   const priceAsFloat = parseFloat(price)
-  const priceInUsd = multiplyPriceByAmount(bnbPrice, priceAsFloat)
+  const priceInUsd = multiplyPriceByAmount(echPrice, priceAsFloat)
 
   const priceIsOutOfRange = priceAsFloat > MAX_PRICE || priceAsFloat < MIN_PRICE
 
@@ -59,7 +59,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
     <>
       <Text>
         {t(
-          'When selling NFTs from this collection, a portion of the BNB paid will be diverted before reaching the seller:',
+          'When selling NFTs from this collection, a portion of the ECH paid will be diverted before reaching the seller:',
         )}
       </Text>
       {creatorFeeAsNumber > 0 && (
@@ -97,7 +97,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
         <Flex>
           <Flex flex="1" alignItems="center">
             <BinanceIcon width={24} height={24} mr="4px" />
-            <Text bold>WBNB</Text>
+            <Text bold>WECH</Text>
           </Flex>
           <Flex flex="2">
             <RightAlignedInput
@@ -126,7 +126,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
         </Flex>
         {priceIsOutOfRange && (
           <Text fontSize="12px" color="failure">
-            {t('Allowed price range is between %minPrice% and %maxPrice% WBNB', {
+            {t('Allowed price range is between %minPrice% and %maxPrice% WECH', {
               minPrice: MIN_PRICE,
               maxPrice: MAX_PRICE,
             })}
@@ -154,7 +154,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
             {t('Platform fee if sold')}
           </Text>
           {Number.isFinite(creatorFeeAsNumber) && Number.isFinite(tradingFeeAsNumber) ? (
-            <FeeAmountCell bnbAmount={priceAsFloat} creatorFee={creatorFeeAsNumber} tradingFee={tradingFeeAsNumber} />
+            <FeeAmountCell echAmount={priceAsFloat} creatorFee={creatorFeeAsNumber} tradingFee={tradingFeeAsNumber} />
           ) : (
             <Skeleton width={40} />
           )}
@@ -164,7 +164,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
             <Text small color="textSubtle">
               {t('Lowest price on market')}
             </Text>
-            <BnbAmountCell bnbAmount={lowestPrice} />
+            <EchAmountCell echAmount={lowestPrice} />
           </Flex>
         )}
       </GreyedOutContainer>
@@ -177,7 +177,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
             {t('The NFT will be removed from your wallet and put on sale at this price.')}
           </Text>
           <Text small color="textSubtle">
-            {t('Sales are in WBNB. You can swap WBNB to BNB 1:1 for free with PancakeSwap.')}
+            {t('Sales are in WECH. You can swap WECH to ECH 1:1 for free with PancakeSwap.')}
           </Text>
         </Box>
       </Grid>

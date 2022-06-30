@@ -20,7 +20,7 @@ export const mainnetTokens = defineTokens({
     'Wrapped Echelon',
     'https://ech.network/',
   ),
-  wbnb: new Token(
+  wech: new Token(
     MAINNET,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
@@ -30,8 +30,8 @@ export const mainnetTokens = defineTokens({
   ),
   // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
   ech: new Token(MAINNET, '0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8', 18, 'ECH', 'ECH', 'https://ech.network/'),
-  // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  // ech here points to the wech contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
+  ech: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
     '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -2080,7 +2080,7 @@ export const mainnetTokens = defineTokens({
     'https://wizardia.io/',
   ),
   ceek: new Token(MAINNET, '0xe0F94Ac5462997D2BC57287Ac3a3aE4C31345D66', 18, 'CEEK', 'CEEK', 'https://www.ceek.com/'),
-  abnbc: new Token(
+  aechc: new Token(
     MAINNET,
     '0xE85aFCcDaFBE7F2B096f268e31ccE3da8dA2990A',
     18,
@@ -2125,7 +2125,7 @@ export const mainnetTokens = defineTokens({
 } as const)
 
 export const testnetTokens = defineTokens({
-  wbnb: new Token(
+  wech: new Token(
     TESTNET,
     '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
     18,

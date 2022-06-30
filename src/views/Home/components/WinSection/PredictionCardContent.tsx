@@ -6,7 +6,7 @@ import { useTranslation } from 'contexts/Localization'
 import { formatLocalisedCompactNumber } from 'utils/formatBalance'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
 import { getTotalWon } from 'state/predictions/helpers'
-import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHBusdPrice } from 'hooks/useBUSDPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import useSWR from 'swr'
 import { SLOW_INTERVAL } from 'config/constants'
@@ -15,16 +15,16 @@ const StyledLink = styled(NextLinkFromReactRouter)`
   width: 100%;
 `
 
-const PredictionCardHeader: React.FC<{ preText: string; bnbWon: number }> = ({ preText, bnbWon }) => {
-  const bnbBusdPrice = useBNBBusdPrice()
-  const bnbWonInUsd = multiplyPriceByAmount(bnbBusdPrice, bnbWon)
+const PredictionCardHeader: React.FC<{ preText: string; echWon: number }> = ({ preText, echWon }) => {
+  const echBusdPrice = useECHBusdPrice()
+  const echWonInUsd = multiplyPriceByAmount(echBusdPrice, echWon)
 
-  const localisedBnbUsdString = formatLocalisedCompactNumber(bnbWonInUsd)
+  const localisedEchUsdString = formatLocalisedCompactNumber(echWonInUsd)
 
   return (
     <Heading color="#280D5F" my="8px" scale="xl" bold>
       {preText}
-      {localisedBnbUsdString}
+      {localisedEchUsdString}
     </Heading>
   )
 }
@@ -33,12 +33,12 @@ const PredictionCardContent = () => {
   const { t } = useTranslation()
   const { observerRef, isIntersecting } = useIntersectionObserver()
   const [loadData, setLoadData] = useState(false)
-  const { data: bnbWon = 0 } = useSWR(loadData ? ['prediction', 'bnbWon'] : null, getTotalWon, {
+  const { data: echWon = 0 } = useSWR(loadData ? ['prediction', 'echWon'] : null, getTotalWon, {
     refreshInterval: SLOW_INTERVAL,
   })
 
-  const bnbWonText = t('$%bnbWonInUsd% in BNB won so far', { bnbWonInUsd: '#placeholder#' })
-  const [pretext, wonSoFar] = bnbWonText.split('#placeholder#')
+  const echWonText = t('$%echWonInUsd% in ECH won so far', { echWonInUsd: '#placeholder#' })
+  const [pretext, wonSoFar] = echWonText.split('#placeholder#')
 
   useEffect(() => {
     if (isIntersecting) {
@@ -52,8 +52,8 @@ const PredictionCardContent = () => {
         <Text color="#280D5F" bold fontSize="16px">
           {t('Prediction')}
         </Text>
-        {bnbWon ? (
-          <PredictionCardHeader preText={pretext} bnbWon={bnbWon} />
+        {echWon ? (
+          <PredictionCardHeader preText={pretext} echWon={echWon} />
         ) : (
           <>
             <Skeleton width={230} height={40} my="8px" />
@@ -64,7 +64,7 @@ const PredictionCardContent = () => {
           {wonSoFar}
         </Text>
         <Text color="#280D5F" mb="40px">
-          {t('Will BNB price rise or fall? guess correctly to win!')}
+          {t('Will ECH price rise or fall? guess correctly to win!')}
         </Text>
       </Flex>
       <Flex alignItems="center" justifyContent="center">

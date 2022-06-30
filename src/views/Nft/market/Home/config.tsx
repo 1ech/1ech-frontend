@@ -4,12 +4,12 @@ import { ContextApi } from 'contexts/Localization/types'
 const config = (t: ContextApi['t']) => {
   return [
     {
-      title: t('I sold an NFT, where’s my BNB?'),
+      title: t('I sold an NFT, where’s my ECH?'),
       description: [
         t(
-          'Trades are settled in WBNB, which is a wrapped version of BNB used on BNB Smart Chain. That means that when you sell an item, WBNB is sent to your wallet instead of BNB.',
+          'Trades are settled in WECH, which is a wrapped version of ECH used on Echelon. That means that when you sell an item, WECH is sent to your wallet instead of ECH.',
         ),
-        t('You can instantly swap your WBNB for BNB with no trading fees on PancakeSwap.'),
+        t('You can instantly swap your WECH for ECH with no trading fees on PancakeSwap.'),
       ],
     },
     {

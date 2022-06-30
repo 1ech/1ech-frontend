@@ -104,9 +104,9 @@ function CurrencySearch({
 
   const [audioPlay] = useAudioModeManager()
 
-  const showBNB: boolean = useMemo(() => {
+  const showECH: boolean = useMemo(() => {
     const s = debouncedQuery.toLowerCase().trim()
-    return s === '' || s === 'b' || s === 'bn' || s === 'bnb'
+    return s === '' || s === 'e' || s === 'ec' || s === 'ech'
   }, [debouncedQuery])
 
   const filteredTokens: Token[] = useMemo(() => {
@@ -150,7 +150,7 @@ function CurrencySearch({
     (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
         const s = debouncedQuery.toLowerCase().trim()
-        if (s === 'bnb') {
+        if (s === 'ech') {
           handleCurrencySelect(ETHER)
         } else if (filteredSortedTokens.length > 0) {
           if (
@@ -183,7 +183,7 @@ function CurrencySearch({
       <Box margin="24px -24px">
         <CurrencyList
           height={390}
-          showBNB={showBNB}
+          showECH={showECH}
           currencies={filteredSortedTokens}
           inactiveCurrencies={filteredInactiveTokens}
           breakIndex={
@@ -214,7 +214,7 @@ function CurrencySearch({
     searchTokenIsAdded,
     selectedCurrency,
     setImportToken,
-    showBNB,
+    showECH,
     showImportView,
     t,
   ])

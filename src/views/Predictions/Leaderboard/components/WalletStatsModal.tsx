@@ -111,9 +111,9 @@ const WalletStatsModal: React.FC<WalletStatsModalProps> = ({
               ) : (
                 <NetWinningsView
                   token={token}
-                  amount={result?.netBNB}
-                  textPrefix={result?.netBNB > 0 ? '+' : ''}
-                  textColor={result?.netBNB > 0 ? 'success' : 'failure'}
+                  amount={result?.netECH}
+                  textPrefix={result?.netECH > 0 ? '+' : ''}
+                  textColor={result?.netECH > 0 ? 'success' : 'failure'}
                   alignItems="flex-end"
                 />
               )}

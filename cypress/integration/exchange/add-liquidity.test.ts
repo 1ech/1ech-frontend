@@ -5,22 +5,22 @@ describe('Add Liquidity', () => {
     cy.get('#add-liquidity-input-tokenb #pair').should('contain.text', 'BUSD')
   })
 
-  it('loads the BNB and tokens', () => {
-    cy.visit('/add/BNB/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
-    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'BNB')
+  it('loads the ECH and tokens', () => {
+    cy.visit('/add/ECH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
+    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'ECH')
     cy.get('#add-liquidity-input-tokenb #pair').should('contain.text', 'CAKE')
   })
 
-  it('loads the WBNB and tokens', () => {
+  it('loads the WECH and tokens', () => {
     cy.visit('/add/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
-    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'WBNB')
+    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'WECH')
     cy.get('#add-liquidity-input-tokenb #pair').should('contain.text', 'CAKE')
   })
 
-  it('does not crash if BNB is duplicated', () => {
-    cy.visit('/add/BNB/BNB')
-    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'BNB')
-    cy.get('#add-liquidity-input-tokenb #pair').should('not.contain.text', 'BNB')
+  it('does not crash if ECH is duplicated', () => {
+    cy.visit('/add/ECH/ECH')
+    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'ECH')
+    cy.get('#add-liquidity-input-tokenb #pair').should('not.contain.text', 'ECH')
   })
 
   it('does not crash if address is duplicated', () => {
@@ -40,8 +40,8 @@ describe('Add Liquidity', () => {
     cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'QUACK')
     cy.visit('/add/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
     cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'BUSD')
-    cy.visit('/add/BNB')
-    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'BNB')
+    cy.visit('/add/ECH')
+    cy.get('#add-liquidity-input-tokena #pair').should('contain.text', 'ECH')
   })
 
   it('redirects /add/token-token to add/token/token', () => {
@@ -52,17 +52,17 @@ describe('Add Liquidity', () => {
     )
   })
 
-  it('redirects /add/BNB-token to /add/BNB/token', () => {
-    cy.visit('/add/BNB-0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
-    cy.url().should('contain', '/add/BNB/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
+  it('redirects /add/ECH-token to /add/ECH/token', () => {
+    cy.visit('/add/ECH-0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
+    cy.url().should('contain', '/add/ECH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
   })
 
-  it('redirects /add/token-BNB to /add/token/BNB', () => {
-    cy.visit('/add/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82-BNB')
-    cy.url().should('contain', '/add/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82/BNB')
+  it('redirects /add/token-ECH to /add/token/ECH', () => {
+    cy.visit('/add/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82-ECH')
+    cy.url().should('contain', '/add/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82/ECH')
   })
 
-  it('redirects /add/WBNB to /add/WBNB/token', () => {
+  it('redirects /add/WECH to /add/WECH/token', () => {
     cy.visit('/add/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c-0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
     cy.url().should(
       'contain',
@@ -70,7 +70,7 @@ describe('Add Liquidity', () => {
     )
   })
 
-  it('redirects /add/token-WBNB to /add/token/WBNB', () => {
+  it('redirects /add/token-WECH to /add/token/WECH', () => {
     cy.visit('/add/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82-0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c')
     cy.url().should(
       'contain',

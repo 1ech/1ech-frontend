@@ -3329,7 +3329,7 @@ const finishedPools = [
   },
   {
     sousId: 20,
-    stakingToken: serializedTokens.bnb,
+    stakingToken: serializedTokens.ech,
     earningToken: serializedTokens.cake,
     contractAddress: {
       97: '',
@@ -3343,7 +3343,7 @@ const finishedPools = [
   {
     sousId: 19,
     stakingToken: serializedTokens.cake,
-    earningToken: serializedTokens.bnb,
+    earningToken: serializedTokens.ech,
     contractAddress: {
       97: '',
       3000: '0x326D754c64329aD7cb35744770D56D0E1f3B3124',

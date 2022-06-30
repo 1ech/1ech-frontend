@@ -3,8 +3,8 @@ export const getBaseNftFields = () => `
   metadataUrl
   currentAskPrice
   currentSeller
-  latestTradedPriceInBNB
-  tradeVolumeBNB
+  latestTradedPriceInECH
+  tradeVolumeECH
   totalTrades
   isTradable
   updatedAt
@@ -20,7 +20,7 @@ export const getBaseTransactionFields = () => `
   timestamp
   askPrice
   netPrice
-  withBNB
+  withECH
   buyer {
     id
   }
@@ -35,7 +35,7 @@ export const getCollectionBaseFields = () => `
   symbol
   active
   totalTrades
-  totalVolumeBNB
+  totalVolumeECH
   numberTokensListed
   creatorAddress
   tradingFee

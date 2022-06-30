@@ -21,7 +21,7 @@ export interface Transaction {
   netPrice: string
   buyer: { id: string }
   seller: { id: string }
-  withBNB: boolean
+  withECH: boolean
   nft?: TokenMarketData
 }
 
@@ -65,8 +65,8 @@ export interface TokenMarketData {
   currentSeller: string
   isTradable: boolean
   metadataUrl?: string
-  latestTradedPriceInBNB?: string
-  tradeVolumeBNB?: string
+  latestTradedPriceInECH?: string
+  tradeVolumeECH?: string
   totalTrades?: string
   otherId?: string
   updatedAt?: string
@@ -126,7 +126,7 @@ export interface Collection {
   description?: string
   symbol: string
   active: boolean
-  totalVolumeBNB: string
+  totalVolumeECH: string
   numberTokensListed: string
   tradingFee: string
   creatorFee: string
@@ -271,7 +271,7 @@ export interface CollectionMarketDataBaseFields {
   symbol: string
   active: boolean
   totalTrades: string
-  totalVolumeBNB: string
+  totalVolumeECH: string
   numberTokensListed: string
   creatorAddress: string
   tradingFee: string

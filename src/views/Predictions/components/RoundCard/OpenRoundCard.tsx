@@ -20,7 +20,7 @@ import useTheme from 'hooks/useTheme'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
 import CardFlip from '../CardFlip'
-import { formatBnbv2 } from '../../helpers'
+import { formatEchv2 } from '../../helpers'
 import { RoundResultBox, PrizePoolRow } from '../RoundResult'
 import MultiplierArrow from './MultiplierArrow'
 import CardHeader, { getBorderBackground } from './CardHeader'
@@ -63,7 +63,7 @@ const OpenRoundCard: React.FC<OpenRoundCardProps> = ({
   const [isBufferPhase, setIsBufferPhase] = useState(false)
   const positionDisplay = position === BetPosition.BULL ? t('Up').toUpperCase() : t('Down').toUpperCase()
   const { targetRef, tooltipVisible, tooltip } = useTooltip(
-    <div style={{ whiteSpace: 'nowrap' }}>{`${formatBnbv2(betAmount)} ${token.symbol}`}</div>,
+    <div style={{ whiteSpace: 'nowrap' }}>{`${formatEchv2(betAmount)} ${token.symbol}`}</div>,
     { placement: 'top' },
   )
 

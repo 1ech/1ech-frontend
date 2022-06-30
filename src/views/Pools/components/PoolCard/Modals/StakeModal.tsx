@@ -32,7 +32,7 @@ import useStakePool from '../../../hooks/useStakePool'
 import useUnstakePool from '../../../hooks/useUnstakePool'
 
 interface StakeModalProps {
-  isBnbPool: boolean
+  isEchPool: boolean
   pool: DeserializedPool
   stakingTokenBalance: BigNumber
   stakingTokenPrice: number
@@ -57,7 +57,7 @@ const AnnualRoiDisplay = styled(Text)`
 `
 
 const StakeModal: React.FC<StakeModalProps> = ({
-  isBnbPool,
+  isEchPool,
   pool,
   stakingTokenBalance,
   stakingTokenPrice,
@@ -69,7 +69,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const { theme } = useTheme()
-  const { onStake } = useStakePool(sousId, isBnbPool)
+  const { onStake } = useStakePool(sousId, isEchPool)
   const { onUnstake } = useUnstakePool(sousId, pool.enableEmergencyWithdraw)
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()

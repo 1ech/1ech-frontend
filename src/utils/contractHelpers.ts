@@ -54,7 +54,7 @@ import masterChef from 'config/abi/masterchef.json'
 import masterChefV1 from 'config/abi/masterchefV1.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefV2 from 'config/abi/sousChefV2.json'
-import sousChefBnb from 'config/abi/sousChefBnb.json'
+import sousChefEch from 'config/abi/sousChefEch.json'
 import claimRefundAbi from 'config/abi/claimRefund.json'
 import tradingCompetitionEasterAbi from 'config/abi/tradingCompetitionEaster.json'
 import tradingCompetitionFanTokenAbi from 'config/abi/tradingCompetitionFanToken.json'
@@ -139,7 +139,7 @@ export const getIfoV2Contract = (address: string, signer?: Signer | Provider) =>
 }
 export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
-  const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
+  const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefEch : sousChef
   return getContract(abi, getAddress(config.contractAddress), signer) as SousChef
 }
 export const getSouschefV2Contract = (id: number, signer?: Signer | Provider) => {

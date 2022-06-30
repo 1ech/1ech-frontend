@@ -11,13 +11,13 @@ const priceHelperLps: SerializedFarmConfig[] = [
    */
   {
     pid: null,
-    lpSymbol: 'ANKR-BNB LP',
+    lpSymbol: 'ANKR-ECH LP',
     lpAddresses: {
       97: '',
       3000: '0x3147F98B8f9C53Acdf8F16332eaD12B592a1a4ae',
     },
     token: tokens.ankr,
-    quoteToken: tokens.wbnb,
+    quoteToken: tokens.wech,
   },
   {
     pid: null,

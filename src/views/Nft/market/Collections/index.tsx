@@ -8,7 +8,7 @@ import {
   Text,
   Td,
   ProfileAvatar,
-  BnbUsdtPairTokenIcon,
+  EchUsdtPairTokenIcon,
   Table,
   Th,
   Card,
@@ -33,13 +33,13 @@ import { nftsBaseUrl } from 'views/Nft/market/constants'
 import PageLoader from 'components/Loader/PageLoader'
 import ToggleView from 'components/ToggleView/ToggleView'
 import { CollectionCard } from '../components/CollectibleCard'
-import { BNBAmountLabel } from '../components/CollectibleCard/styles'
+import { ECHAmountLabel } from '../components/CollectibleCard/styles'
 
 export const ITEMS_PER_PAGE = 9
 
 const SORT_FIELD = {
   createdAt: 'createdAt',
-  volumeBNB: 'totalVolumeBNB',
+  volumeECH: 'totalVolumeECH',
   items: 'numberTokensListed',
   supply: 'totalSupply',
   lowestPrice: 'lowestPrice',
@@ -195,7 +195,7 @@ const Collectible = () => {
                     },
                     {
                       label: t('Volume'),
-                      value: SORT_FIELD.volumeBNB,
+                      value: SORT_FIELD.volumeECH,
                     },
                     {
                       label: t('Items'),
@@ -235,10 +235,10 @@ const Collectible = () => {
                       <Th
                         textAlign="left"
                         style={{ cursor: 'pointer' }}
-                        onClick={() => handleSort(SORT_FIELD.volumeBNB)}
+                        onClick={() => handleSort(SORT_FIELD.volumeECH)}
                       >
                         {t('Volume')}
-                        {arrow(SORT_FIELD.volumeBNB)}
+                        {arrow(SORT_FIELD.volumeECH)}
                       </Th>
                       <Th
                         textAlign="left"
@@ -269,8 +269,8 @@ const Collectible = () => {
                   <tbody>
                     {sortedCollections
                       .map((collection) => {
-                        const volume = collection.totalVolumeBNB
-                          ? parseFloat(collection.totalVolumeBNB).toLocaleString(undefined, {
+                        const volume = collection.totalVolumeECH
+                          ? parseFloat(collection.totalVolumeECH).toLocaleString(undefined, {
                               minimumFractionDigits: 3,
                               maximumFractionDigits: 3,
                             })
@@ -288,7 +288,7 @@ const Collectible = () => {
                             <Td>
                               <Flex alignItems="center">
                                 {volume}
-                                <BnbUsdtPairTokenIcon ml="8px" />
+                                <EchUsdtPairTokenIcon ml="8px" />
                               </Flex>
                             </Td>
                             <Td>
@@ -334,8 +334,8 @@ const Collectible = () => {
                         <Text fontSize="12px" color="textSubtle">
                           {t('Volume')}
                         </Text>
-                        <BNBAmountLabel
-                          amount={collection.totalVolumeBNB ? parseFloat(collection.totalVolumeBNB) : 0}
+                        <ECHAmountLabel
+                          amount={collection.totalVolumeECH ? parseFloat(collection.totalVolumeECH) : 0}
                         />
                       </Flex>
                     </CollectionCard>

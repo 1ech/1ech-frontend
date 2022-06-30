@@ -4,8 +4,8 @@ import { Box, Flex, FlexProps, Skeleton, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { BetPosition, NodeRound, Round } from 'state/types'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
-import { formatUsdv2, formatBnbv2, getRoundPosition, getPriceDifference } from '../../helpers'
-import { formatBnb, formatUsd } from '../History/helpers'
+import { formatUsdv2, formatEchv2, getRoundPosition, getPriceDifference } from '../../helpers'
+import { formatEch, formatUsd } from '../History/helpers'
 import PositionTag from '../PositionTag'
 
 // PrizePoolRow
@@ -18,7 +18,7 @@ const getPrizePoolAmount = (totalAmount: PrizePoolRowProps['totalAmount']) => {
     return '0'
   }
 
-  return formatBnbv2(totalAmount)
+  return formatEchv2(totalAmount)
 }
 
 const Row = ({ children, ...props }) => {
@@ -63,7 +63,7 @@ export const PayoutRow: React.FC<PayoutRowProps> = ({ positionLabel, multiplier,
           {t('%multiplier% Payout', { multiplier: formattedMultiplier })}
         </Text>
         <Text mx="4px">|</Text>
-        <Text fontSize="12px" lineHeight="18px">{`${formatBnb(amount)} ${token.symbol}`}</Text>
+        <Text fontSize="12px" lineHeight="18px">{`${formatEch(amount)} ${token.symbol}`}</Text>
       </Flex>
     </Row>
   )
@@ -194,7 +194,7 @@ const getPrizePoolAmountHistory = (totalAmount: PrizePoolHistoryRowProps['totalA
     return '0'
   }
 
-  return formatBnb(totalAmount)
+  return formatEch(totalAmount)
 }
 
 export const PrizePoolHistoryRow: React.FC<PrizePoolHistoryRowProps> = ({ totalAmount, ...props }) => {

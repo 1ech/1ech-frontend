@@ -23,7 +23,7 @@ import { useWeb3React } from '@web3-react/core'
 import { useGetMinBetAmount } from 'state/predictions/hooks'
 import { useTranslation } from 'contexts/Localization'
 import { usePredictionsContract } from 'hooks/useContract'
-import { useGetBnbBalance } from 'hooks/useTokenBalance'
+import { useGetEchBalance } from 'hooks/useTokenBalance'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { BetPosition } from 'state/types'
@@ -34,7 +34,7 @@ import PositionTag from '../PositionTag'
 import FlexRow from '../FlexRow'
 
 const LOGOS = {
-  BNB: BinanceIcon,
+  ECH: BinanceIcon,
   CAKE: LogoIcon,
 }
 
@@ -49,16 +49,16 @@ interface SetPositionCardProps {
 const dust = parseUnits('0.001', 18)
 const percentShortcuts = [10, 25, 50, 75]
 
-const getButtonProps = (value: BigNumber, bnbBalance: BigNumber, minBetAmountBalance: BigNumber) => {
+const getButtonProps = (value: BigNumber, echBalance: BigNumber, minBetAmountBalance: BigNumber) => {
   const hasSufficientBalance = () => {
     if (value.gt(0)) {
-      return value.lte(bnbBalance)
+      return value.lte(echBalance)
     }
-    return bnbBalance.gt(0)
+    return echBalance.gt(0)
   }
 
   if (!hasSufficientBalance()) {
-    return { key: 'Insufficient BNB balance', disabled: true }
+    return { key: 'Insufficient ECH balance', disabled: true }
   }
 
   if (value.eq(0)) {
@@ -79,7 +79,7 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
   const [percent, setPercent] = useState(0)
 
   const { account } = useWeb3React()
-  const { balance: bnbBalance } = useGetBnbBalance()
+  const { balance: echBalance } = useGetEchBalance()
   const minBetAmount = useGetMinBetAmount()
   const { t } = useTranslation()
   const { fetchWithCatchTxError, loading: isTxPending } = useCatchTxError()
@@ -88,9 +88,9 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
   const predictionsContract = usePredictionsContract(predictionsAddress)
 
   const maxBalance = useMemo(() => {
-    return bnbBalance.gt(dust) ? bnbBalance.sub(dust) : Zero
-  }, [bnbBalance])
-  const balanceDisplay = formatBigNumber(bnbBalance)
+    return echBalance.gt(dust) ? echBalance.sub(dust) : Zero
+  }, [echBalance])
+  const balanceDisplay = formatBigNumber(echBalance)
 
   const valueAsBn = getValueAsEthersBn(value)
   const showFieldWarning = account && valueAsBn.gt(0) && errorMessage !== null

@@ -34,7 +34,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account }) => {
   const hasEarnings = account && earnings.gt(0)
   const fullBalance = getFullDisplayBalance(earnings, earningToken.decimals)
   const formattedBalance = formatNumber(earningTokenBalance, 3, 3)
-  const isBnbPool = poolCategory === PoolCategory.BINANCE
+  const isEchPool = poolCategory === PoolCategory.BINANCE
 
   const labelText = t('%asset% Earned', { asset: earningToken.symbol })
 
@@ -45,7 +45,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account }) => {
       earningToken={earningToken}
       earningsDollarValue={earningTokenDollarBalance}
       sousId={sousId}
-      isBnbPool={isBnbPool}
+      isEchPool={isEchPool}
       isCompoundPool={isManualCakePool}
     />,
   )

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useMemo } from 'react'
 import { useCountUp } from 'react-countup'
 import styled from 'styled-components'
-import { BnbUsdtPairTokenIcon, LogoRoundIcon, Box, Flex, PocketWatchIcon, Text } from '@pancakeswap/uikit'
+import { EchUsdtPairTokenIcon, LogoRoundIcon, Box, Flex, PocketWatchIcon, Text } from '@pancakeswap/uikit'
 import { formatBigNumberToFixed } from 'utils/formatBalance'
 import { useGetCurrentRoundCloseTimestamp } from 'state/predictions/hooks'
 import { useTranslation } from 'contexts/Localization'
@@ -11,7 +11,7 @@ import usePollOraclePrice from '../hooks/usePollOraclePrice'
 import { useConfig } from '../context/ConfigProvider'
 
 const TOKEN_LOGOS = {
-  BNB: <BnbUsdtPairTokenIcon />,
+  ECH: <EchUsdtPairTokenIcon />,
   CAKE: <LogoRoundIcon />,
 }
 

@@ -13,7 +13,7 @@
       },
       {
         "internalType": "address",
-        "name": "_WBNBAddress",
+        "name": "_WECHAddress",
         "type": "address"
       },
       {
@@ -360,7 +360,7 @@
       {
         "indexed": false,
         "internalType": "bool",
-        "name": "withBNB",
+        "name": "withECH",
         "type": "bool"
       }
     ],
@@ -382,7 +382,7 @@
   },
   {
     "inputs": [],
-    "name": "WBNB",
+    "name": "WECH",
     "outputs": [
       {
         "internalType": "address",
@@ -452,7 +452,7 @@
         "type": "uint256"
       }
     ],
-    "name": "buyTokenUsingBNB",
+    "name": "buyTokenUsingECH",
     "outputs": [],
     "stateMutability": "payable",
     "type": "function"
@@ -475,7 +475,7 @@
         "type": "uint256"
       }
     ],
-    "name": "buyTokenUsingWBNB",
+    "name": "buyTokenUsingWECH",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

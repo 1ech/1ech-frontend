@@ -10,16 +10,16 @@ import { queryParametersToSwapState, useDerivedSwapInfo, useSwapState } from './
 
 describe('hooks', () => {
   describe('#queryParametersToSwapState', () => {
-    test('BNB to DAI', () => {
+    test('ECH to DAI', () => {
       expect(
         queryParametersToSwapState(
           parse(
-            'inputCurrency=BNB&outputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&exactAmount=20.5&exactField=outPUT',
+            'inputCurrency=ECH&outputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&exactAmount=20.5&exactField=outPUT',
           ),
         ),
       ).toEqual({
         [Field.OUTPUT]: { currencyId: '0x6B175474E89094C44Da98b954EedeAC495271d0F' },
-        [Field.INPUT]: { currencyId: 'BNB' },
+        [Field.INPUT]: { currencyId: 'ECH' },
         typedValue: '20.5',
         independentField: Field.OUTPUT,
         pairDataById: {},
@@ -28,10 +28,10 @@ describe('hooks', () => {
       })
     })
 
-    test('should return BNB BUSD pair by default', () => {
+    test('should return ECH BUSD pair by default', () => {
       expect(queryParametersToSwapState(parse(''))).toEqual({
         [Field.OUTPUT]: { currencyId: DEFAULT_OUTPUT_CURRENCY },
-        [Field.INPUT]: { currencyId: 'BNB' },
+        [Field.INPUT]: { currencyId: 'ECH' },
         typedValue: '',
         independentField: Field.INPUT,
         pairDataById: {},
@@ -40,10 +40,10 @@ describe('hooks', () => {
       })
     })
 
-    test('does not duplicate BNB for invalid output token', () => {
+    test('does not duplicate ECH for invalid output token', () => {
       expect(queryParametersToSwapState(parse('outputCurrency=invalid'))).toEqual({
         [Field.INPUT]: { currencyId: '' },
-        [Field.OUTPUT]: { currencyId: 'BNB' },
+        [Field.OUTPUT]: { currencyId: 'ECH' },
         typedValue: '',
         independentField: Field.INPUT,
         pairDataById: {},
@@ -52,9 +52,9 @@ describe('hooks', () => {
       })
     })
 
-    test('output BNB only', () => {
-      expect(queryParametersToSwapState(parse('outputCurrency=bnb&exactAmount=20.5'))).toEqual({
-        [Field.OUTPUT]: { currencyId: 'BNB' },
+    test('output ECH only', () => {
+      expect(queryParametersToSwapState(parse('outputCurrency=ech&exactAmount=20.5'))).toEqual({
+        [Field.OUTPUT]: { currencyId: 'ECH' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
@@ -65,8 +65,8 @@ describe('hooks', () => {
     })
 
     test('invalid recipient', () => {
-      expect(queryParametersToSwapState(parse('outputCurrency=BNB&exactAmount=20.5&recipient=abc'))).toEqual({
-        [Field.OUTPUT]: { currencyId: 'BNB' },
+      expect(queryParametersToSwapState(parse('outputCurrency=ECH&exactAmount=20.5&recipient=abc'))).toEqual({
+        [Field.OUTPUT]: { currencyId: 'ECH' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
@@ -79,10 +79,10 @@ describe('hooks', () => {
     test('valid recipient', () => {
       expect(
         queryParametersToSwapState(
-          parse('outputCurrency=BNB&exactAmount=20.5&recipient=0x0fF2D1eFd7A57B7562b2bf27F3f37899dB27F4a5'),
+          parse('outputCurrency=ECH&exactAmount=20.5&recipient=0x0fF2D1eFd7A57B7562b2bf27F3f37899dB27F4a5'),
         ),
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: 'BNB' },
+        [Field.OUTPUT]: { currencyId: 'ECH' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
@@ -161,8 +161,8 @@ describe('#useDerivedSwapInfo', () => {
         wrapper: createReduxWrapper({
           swap: {
             typedValue: '0.11',
-            [Field.INPUT]: { currencyId: 'BNB' },
-            [Field.OUTPUT]: { currencyId: 'BNB' },
+            [Field.INPUT]: { currencyId: 'ECH' },
+            [Field.OUTPUT]: { currencyId: 'ECH' },
           },
         }),
       },

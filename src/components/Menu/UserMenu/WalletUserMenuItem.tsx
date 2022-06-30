@@ -1,8 +1,8 @@
 import { Flex, UserMenuItem, WarningIcon } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { useGetBnbBalance } from 'hooks/useTokenBalance'
+import { useGetEchBalance } from 'hooks/useTokenBalance'
 import { FetchStatus } from 'config/constants/types'
-import { LOW_BNB_BALANCE } from './WalletModal'
+import { LOW_ECH_BALANCE } from './WalletModal'
 
 interface WalletUserMenuItemProps {
   isWrongNetwork: boolean
@@ -11,14 +11,14 @@ interface WalletUserMenuItemProps {
 
 const WalletUserMenuItem: React.FC<WalletUserMenuItemProps> = ({ isWrongNetwork, onPresentWalletModal }) => {
   const { t } = useTranslation()
-  const { balance, fetchStatus } = useGetBnbBalance()
-  const hasLowBnbBalance = fetchStatus === FetchStatus.Fetched && balance.lte(LOW_BNB_BALANCE)
+  const { balance, fetchStatus } = useGetEchBalance()
+  const hasLowEchBalance = fetchStatus === FetchStatus.Fetched && balance.lte(LOW_ECH_BALANCE)
 
   return (
     <UserMenuItem as="button" onClick={onPresentWalletModal}>
       <Flex alignItems="center" justifyContent="space-between" width="100%">
         {t('Wallet')}
-        {hasLowBnbBalance && !isWrongNetwork && <WarningIcon color="warning" width="24px" />}
+        {hasLowEchBalance && !isWrongNetwork && <WarningIcon color="warning" width="24px" />}
         {isWrongNetwork && <WarningIcon color="failure" width="24px" />}
       </Flex>
     </UserMenuItem>

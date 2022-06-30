@@ -31,8 +31,8 @@ export const NetWinningsView: React.FC<NetWinningsProps & { token: Token }> = ({
   textColor = 'text',
   ...props
 }) => {
-  const bnbBusdPrice = useBUSDPrice(token)
-  const value = multiplyPriceByAmount(bnbBusdPrice, Math.abs(amount))
+  const echBusdPrice = useBUSDPrice(token)
+  const value = multiplyPriceByAmount(echBusdPrice, Math.abs(amount))
 
   if (!amount) {
     return null

@@ -5,7 +5,7 @@ import { getLanguageCodeFromLS } from 'contexts/Localization/helpers'
 import { getFullDecimalMultiplier } from './getFullDecimalMultiplier'
 
 /**
- * Take a formatted amount, e.g. 15 BNB and convert it to full decimal value, e.g. 15000000000000000
+ * Take a formatted amount, e.g. 15 ECH and convert it to full decimal value, e.g. 15000000000000000
  */
 export const getDecimalAmount = (amount: BigNumber, decimals = 18) => {
   return new BigNumber(amount).times(getFullDecimalMultiplier(decimals))

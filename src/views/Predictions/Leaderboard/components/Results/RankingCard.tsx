@@ -104,7 +104,7 @@ const RankingCard: React.FC<RankingCardProps> = ({ rank, user }) => {
             {`${user.winRate.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}%`}
           </Text>
         </Row>
-        <NetWinningsRow amount={user.netBNB} />
+        <NetWinningsRow amount={user.netECH} />
         <Row>
           <Text fontSize="12px" color="textSubtle">
             {t('Rounds Won')}

@@ -4,7 +4,7 @@ import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { Collection } from 'state/nftMarket/types'
 import { useTranslation } from 'contexts/Localization'
 import { CollectionCard } from '../components/CollectibleCard'
-import { BNBAmountLabel } from '../components/CollectibleCard/styles'
+import { ECHAmountLabel } from '../components/CollectibleCard/styles'
 
 const Collections: React.FC<{ title: string; testId: string; collections: Collection[] }> = ({
   title,
@@ -43,7 +43,7 @@ const Collections: React.FC<{ title: string; testId: string; collections: Collec
                 <Text fontSize="12px" color="textSubtle">
                   {t('Volume')}
                 </Text>
-                <BNBAmountLabel amount={collection.totalVolumeBNB ? parseFloat(collection.totalVolumeBNB) : 0} />
+                <ECHAmountLabel amount={collection.totalVolumeECH ? parseFloat(collection.totalVolumeECH) : 0} />
               </Flex>
             </CollectionCard>
           )

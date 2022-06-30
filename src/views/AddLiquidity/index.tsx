@@ -59,7 +59,7 @@ export default function AddLiquidity() {
     }
   }, [dispatch, currencyIdA, currencyIdB])
 
-  const oneCurrencyIsWBNB = Boolean(
+  const oneCurrencyIsWECH = Boolean(
     chainId &&
       ((currencyA && currencyEquals(currencyA, WETH[chainId])) ||
         (currencyB && currencyEquals(currencyB, WETH[chainId]))),
@@ -162,18 +162,18 @@ export default function AddLiquidity() {
     let args: Array<string | string[] | number>
     let value: BigNumber | null
     if (currencyA === ETHER || currencyB === ETHER) {
-      const tokenBIsBNB = currencyB === ETHER
+      const tokenBIsECH = currencyB === ETHER
       estimate = routerContract.estimateGas.addLiquidityETH
       method = routerContract.addLiquidityETH
       args = [
-        wrappedCurrency(tokenBIsBNB ? currencyA : currencyB, chainId)?.address ?? '', // token
-        (tokenBIsBNB ? parsedAmountA : parsedAmountB).raw.toString(), // token desired
-        amountsMin[tokenBIsBNB ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), // token min
-        amountsMin[tokenBIsBNB ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), // eth min
+        wrappedCurrency(tokenBIsECH ? currencyA : currencyB, chainId)?.address ?? '', // token
+        (tokenBIsECH ? parsedAmountA : parsedAmountB).raw.toString(), // token desired
+        amountsMin[tokenBIsECH ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), // token min
+        amountsMin[tokenBIsECH ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), // eth min
         account,
         deadline.toHexString(),
       ]
-      value = BigNumber.from((tokenBIsBNB ? parsedAmountB : parsedAmountA).raw.toString())
+      value = BigNumber.from((tokenBIsECH ? parsedAmountB : parsedAmountA).raw.toString())
     } else {
       estimate = routerContract.estimateGas.addLiquidity
       method = routerContract.addLiquidity
@@ -251,7 +251,7 @@ export default function AddLiquidity() {
           router.replace(`/add/${newCurrencyIdB}`, undefined, { shallow: true })
         }
       } else {
-        router.replace(`/add/${currencyIdA || 'BNB'}/${newCurrencyIdB}`, undefined, { shallow: true })
+        router.replace(`/add/${currencyIdA || 'ECH'}/${newCurrencyIdB}`, undefined, { shallow: true })
       }
     },
     [currencyIdA, router, currencyIdB],
@@ -446,7 +446,7 @@ export default function AddLiquidity() {
       {!(addIsUnsupported || addIsWarning) ? (
         pair && !noLiquidity && pairState !== PairState.INVALID ? (
           <AutoColumn style={{ minWidth: '20rem', width: '100%', maxWidth: '400px', marginTop: '1rem' }}>
-            <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />
+            <MinimalPositionCard showUnwrapped={oneCurrencyIsWECH} pair={pair} />
           </AutoColumn>
         ) : null
       ) : (

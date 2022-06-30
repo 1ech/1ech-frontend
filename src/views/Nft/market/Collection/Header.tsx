@@ -21,11 +21,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ collection }) => {
   const router = useRouter()
   const collectionAddress = router.query.collectionAddress as string
-  const { totalSupply, numberTokensListed, totalVolumeBNB, banner, avatar } = collection
+  const { totalSupply, numberTokensListed, totalVolumeECH, banner, avatar } = collection
   const { t } = useTranslation()
 
-  const volume = totalVolumeBNB
-    ? parseFloat(totalVolumeBNB).toLocaleString(undefined, {
+  const volume = totalVolumeECH
+    ? parseFloat(totalVolumeECH).toLocaleString(undefined, {
         minimumFractionDigits: 3,
         maximumFractionDigits: 3,
       })
@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ collection }) => {
               stat={numberTokensListed ? formatNumber(Number(numberTokensListed), 0, 0) : '0'}
             />
             <LowestPriceStatBoxItem collectionAddress={collection.address} />
-            <StatBoxItem title={t('Vol. (%symbol%)', { symbol: 'BNB' })} stat={volume} />
+            <StatBoxItem title={t('Vol. (%symbol%)', { symbol: 'ECH' })} stat={volume} />
           </StatBox>
         </MarketPageTitle>
       </MarketPageHeader>

@@ -83,7 +83,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const handleApprove = vaultKey ? handleVaultApprove : handlePoolApprove
   const pendingTx = vaultKey ? pendingVaultTx : pendingPoolTx
 
-  const isBnbPool = poolCategory === PoolCategory.BINANCE
+  const isEchPool = poolCategory === PoolCategory.BINANCE
   const allowance = userData?.allowance ? new BigNumber(userData.allowance) : BIG_ZERO
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
   const isNotVaultAndHasStake = !vaultKey && stakedBalance.gt(0)
@@ -116,13 +116,13 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const isVaultWithShares = vaultKey && hasSharesStaked
   const stakedAutoDollarValue = getBalanceNumber(cakeAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
 
-  const needsApproval = vaultKey ? !isVaultApproved : !allowance.gt(0) && !isBnbPool
+  const needsApproval = vaultKey ? !isVaultApproved : !allowance.gt(0) && !isEchPool
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)
 
   const [onPresentStake] = useModal(
     <StakeModal
-      isBnbPool={isBnbPool}
+      isEchPool={isEchPool}
       pool={pool}
       stakingTokenBalance={stakingTokenBalance}
       stakingTokenPrice={stakingTokenPrice}
@@ -134,7 +134,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const [onPresentUnstake] = useModal(
     <StakeModal
       stakingTokenBalance={stakingTokenBalance}
-      isBnbPool={isBnbPool}
+      isEchPool={isEchPool}
       pool={pool}
       stakingTokenPrice={stakingTokenPrice}
       isRemovingStake

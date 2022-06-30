@@ -29,7 +29,7 @@ const HarvestAction: React.FunctionComponent<DeserializedPool> = ({
   const fullBalance = getFullDisplayBalance(earnings, earningToken.decimals)
   const formattedBalance = formatNumber(earningTokenBalance, 3, 3)
   const isCompoundPool = sousId === 0
-  const isBnbPool = poolCategory === PoolCategory.BINANCE
+  const isEchPool = poolCategory === PoolCategory.BINANCE
 
   const [onPresentCollect] = useModal(
     <CollectModal
@@ -38,7 +38,7 @@ const HarvestAction: React.FunctionComponent<DeserializedPool> = ({
       earningToken={earningToken}
       earningsDollarValue={earningTokenDollarBalance}
       sousId={sousId}
-      isBnbPool={isBnbPool}
+      isEchPool={isEchPool}
       isCompoundPool={isCompoundPool}
     />,
   )

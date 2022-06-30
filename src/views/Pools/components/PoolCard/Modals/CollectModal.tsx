@@ -30,7 +30,7 @@ interface CollectModalProps {
   earningToken: Token
   earningsDollarValue: number
   sousId: number
-  isBnbPool: boolean
+  isEchPool: boolean
   isCompoundPool?: boolean
   onDismiss?: () => void
 }
@@ -41,7 +41,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
   earningToken,
   earningsDollarValue,
   sousId,
-  isBnbPool,
+  isEchPool,
   isCompoundPool = false,
   onDismiss,
 }) => {
@@ -51,8 +51,8 @@ const CollectModal: React.FC<CollectModalProps> = ({
   const { account } = useWeb3React()
   const dispatch = useAppDispatch()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
-  const { onReward } = useHarvestPool(sousId, isBnbPool)
-  const { onStake } = useStakePool(sousId, isBnbPool)
+  const { onReward } = useHarvestPool(sousId, isEchPool)
+  const { onStake } = useStakePool(sousId, isEchPool)
   const [shouldCompound, setShouldCompound] = useState(isCompoundPool)
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>

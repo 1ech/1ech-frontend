@@ -1,5 +1,5 @@
 import { BetPosition } from 'state/types'
-import { formatBnb, formatUsd, getMultiplier, getPayout } from 'views/Predictions/components/History/helpers'
+import { formatEch, formatUsd, getMultiplier, getPayout } from 'views/Predictions/components/History/helpers'
 
 describe('formatUsd', () => {
   it.each([
@@ -16,18 +16,18 @@ describe('formatUsd', () => {
   })
 })
 
-describe('formatBnb', () => {
+describe('formatEch', () => {
   it.each([
     [20, '20.000'],
     [265.22, '265.220'],
     [689.889, '689.889'],
     [10.8829, '10.883'],
-  ])('format %i BNB correctly with 3 decimals', (value, expected) => {
-    expect(formatBnb(value)).toEqual(expected)
+  ])('format %i ECH correctly with 3 decimals', (value, expected) => {
+    expect(formatEch(value)).toEqual(expected)
   })
 
-  it('returns 0 if BNB is undefined', () => {
-    expect(formatBnb(undefined)).toEqual('0')
+  it('returns 0 if ECH is undefined', () => {
+    expect(formatEch(undefined)).toEqual('0')
   })
 })
 
@@ -56,7 +56,7 @@ describe('getPayout', () => {
       address: 'bet1address',
       block: 1000,
       totalBets: 0,
-      totalBNB: 0,
+      totalECH: 0,
     },
     round: {
       id: 'round',
@@ -92,7 +92,7 @@ describe('getPayout', () => {
       address: 'bet1address',
       block: 1000,
       totalBets: 0,
-      totalBNB: 0,
+      totalECH: 0,
     },
     round: {
       id: 'round',
@@ -127,7 +127,7 @@ describe('getPayout', () => {
       address: 'bet2address',
       block: 1000,
       totalBets: 0,
-      totalBNB: 0,
+      totalECH: 0,
     },
     round: {
       id: 'round',
@@ -162,7 +162,7 @@ describe('getPayout', () => {
       address: 'bet2address',
       block: 1000,
       totalBets: 0,
-      totalBNB: 0,
+      totalECH: 0,
     },
     round: {
       id: 'round',

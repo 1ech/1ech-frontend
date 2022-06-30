@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import tryParseAmount from 'utils/tryParseAmount'
 import { useTransactionAdder } from '../state/transactions/hooks'
 import { useCurrencyBalance } from '../state/wallet/hooks'
-import { useWBNBContract } from './useContract'
+import { useWECHContract } from './useContract'
 import { useCallWithGasPrice } from './useCallWithGasPrice'
 
 export enum WrapType {
@@ -29,14 +29,14 @@ export default function useWrapCallback(
   const { t } = useTranslation()
   const { chainId, account } = useActiveWeb3React()
   const { callWithGasPrice } = useCallWithGasPrice()
-  const wbnbContract = useWBNBContract()
+  const wechContract = useWECHContract()
   const balance = useCurrencyBalance(account ?? undefined, inputCurrency)
   // we can always parse the amount typed as the input currency, since wrapping is 1:1
   const inputAmount = useMemo(() => tryParseAmount(typedValue, inputCurrency), [inputCurrency, typedValue])
   const addTransaction = useTransactionAdder()
 
   return useMemo(() => {
-    if (!wbnbContract || !chainId || !inputCurrency || !outputCurrency) return NOT_APPLICABLE
+    if (!wechContract || !chainId || !inputCurrency || !outputCurrency) return NOT_APPLICABLE
 
     const sufficientBalance = inputAmount && balance && !balance.lessThan(inputAmount)
 
@@ -47,11 +47,11 @@ export default function useWrapCallback(
           sufficientBalance && inputAmount
             ? async () => {
                 try {
-                  const txReceipt = await callWithGasPrice(wbnbContract, 'deposit', undefined, {
+                  const txReceipt = await callWithGasPrice(wechContract, 'deposit', undefined, {
                     value: `0x${inputAmount.raw.toString(16)}`,
                   })
                   addTransaction(txReceipt, {
-                    summary: `Wrap ${inputAmount.toSignificant(6)} BNB to WBNB`,
+                    summary: `Wrap ${inputAmount.toSignificant(6)} ECH to WECH`,
                     type: 'wrap',
                   })
                 } catch (error) {
@@ -59,7 +59,7 @@ export default function useWrapCallback(
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : t('Insufficient BNB balance'),
+        inputError: sufficientBalance ? undefined : t('Insufficient ECH balance'),
       }
     }
     if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER) {
@@ -69,18 +69,18 @@ export default function useWrapCallback(
           sufficientBalance && inputAmount
             ? async () => {
                 try {
-                  const txReceipt = await callWithGasPrice(wbnbContract, 'withdraw', [
+                  const txReceipt = await callWithGasPrice(wechContract, 'withdraw', [
                     `0x${inputAmount.raw.toString(16)}`,
                   ])
-                  addTransaction(txReceipt, { summary: `Unwrap ${inputAmount.toSignificant(6)} WBNB to BNB` })
+                  addTransaction(txReceipt, { summary: `Unwrap ${inputAmount.toSignificant(6)} WECH to ECH` })
                 } catch (error) {
                   console.error('Could not withdraw', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : t('Insufficient WBNB balance'),
+        inputError: sufficientBalance ? undefined : t('Insufficient WECH balance'),
       }
     }
     return NOT_APPLICABLE
-  }, [wbnbContract, chainId, inputCurrency, outputCurrency, t, inputAmount, balance, addTransaction, callWithGasPrice])
+  }, [wechContract, chainId, inputCurrency, outputCurrency, t, inputAmount, balance, addTransaction, callWithGasPrice])
 }

@@ -145,12 +145,12 @@ export const fetchPoolsPublicDataAsync = (currentBlockNumber: number) => async (
     const poolsWithDifferentFarmToken =
       activePriceHelperLpsConfig.length > 0 ? await fetchFarms(priceHelperLpsConfig) : []
     const farmsData = getState().farms.data
-    const bnbBusdFarm =
+    const echBusdFarm =
       activePriceHelperLpsConfig.length > 0
-        ? farmsData.find((farm) => farm.token.symbol === 'BUSD' && farm.quoteToken.symbol === 'WBNB')
+        ? farmsData.find((farm) => farm.token.symbol === 'BUSD' && farm.quoteToken.symbol === 'WECH')
         : null
-    const farmsWithPricesOfDifferentTokenPools = bnbBusdFarm
-      ? getFarmsPrices([bnbBusdFarm, ...poolsWithDifferentFarmToken])
+    const farmsWithPricesOfDifferentTokenPools = echBusdFarm
+      ? getFarmsPrices([echBusdFarm, ...poolsWithDifferentFarmToken])
       : []
 
     const prices = getTokenPricesFromFarm([...farmsData, ...farmsWithPricesOfDifferentTokenPools])

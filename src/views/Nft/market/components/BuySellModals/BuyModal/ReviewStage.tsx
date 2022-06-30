@@ -6,7 +6,7 @@ import { NftToken } from 'state/nftMarket/types'
 import { getBscScanLinkForNft } from 'utils'
 import { FetchStatus } from 'config/constants/types'
 import { Divider, RoundedImage } from '../shared/styles'
-import { BorderedBox, BnbAmountCell } from './styles'
+import { BorderedBox, EchAmountCell } from './styles'
 import { PaymentCurrency } from './types'
 
 interface ReviewStageProps {
@@ -16,7 +16,7 @@ interface ReviewStageProps {
   nftPrice: number
   walletBalance: number
   walletFetchStatus: FetchStatus
-  notEnoughBnbForPurchase: boolean
+  notEnoughEchForPurchase: boolean
   continueToNextStage: () => void
 }
 
@@ -27,7 +27,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
   nftPrice,
   walletBalance,
   walletFetchStatus,
-  notEnoughBnbForPurchase,
+  notEnoughEchForPurchase,
   continueToNextStage,
 }) => {
   const { t } = useTranslation()
@@ -70,40 +70,40 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
             scale="sm"
             variant="subtle"
           >
-            <ButtonMenuItem>BNB</ButtonMenuItem>
-            <ButtonMenuItem>WBNB</ButtonMenuItem>
+            <ButtonMenuItem>ECH</ButtonMenuItem>
+            <ButtonMenuItem>WECH</ButtonMenuItem>
           </ButtonMenu>
           <Text small color="textSubtle">
             {t('Total payment')}
           </Text>
-          <BnbAmountCell bnbAmount={nftPrice} />
+          <EchAmountCell echAmount={nftPrice} />
           <Text small color="textSubtle">
-            {t('%symbol% in wallet', { symbol: paymentCurrency === PaymentCurrency.BNB ? 'BNB' : 'WBNB' })}
+            {t('%symbol% in wallet', { symbol: paymentCurrency === PaymentCurrency.ECH ? 'ECH' : 'WECH' })}
           </Text>
           {!account ? (
             <Flex justifySelf="flex-end">
               <ConnectWalletButton scale="sm" />
             </Flex>
           ) : (
-            <BnbAmountCell
-              bnbAmount={walletBalance}
+            <EchAmountCell
+              echAmount={walletBalance}
               isLoading={walletFetchStatus !== FetchStatus.Fetched}
-              isInsufficient={walletFetchStatus === FetchStatus.Fetched && notEnoughBnbForPurchase}
+              isInsufficient={walletFetchStatus === FetchStatus.Fetched && notEnoughEchForPurchase}
             />
           )}
         </BorderedBox>
-        {walletFetchStatus === FetchStatus.Fetched && notEnoughBnbForPurchase && (
+        {walletFetchStatus === FetchStatus.Fetched && notEnoughEchForPurchase && (
           <Message p="8px" variant="danger">
             <Text>
               {t('Not enough %symbol% to purchase this NFT', {
-                symbol: paymentCurrency === PaymentCurrency.BNB ? 'BNB' : 'WBNB',
+                symbol: paymentCurrency === PaymentCurrency.ECH ? 'ECH' : 'WECH',
               })}
             </Text>
           </Message>
         )}
         <Flex alignItems="center">
           <Text my="16px" mr="4px">
-            {t('Convert between BNB and WBNB for free')}:
+            {t('Convert between ECH and WECH for free')}:
           </Text>
           <Button
             as={Link}
@@ -111,7 +111,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
             height="16px"
             external
             variant="text"
-            href="/swap?inputCurrency=BNB&outputCurrency=0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+            href="/swap?inputCurrency=ECH&outputCurrency=0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8"
           >
             {t('Convert')}
           </Button>
@@ -121,13 +121,13 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
       <Flex px="24px" pb="24px" flexDirection="column">
         <Button
           onClick={continueToNextStage}
-          disabled={walletFetchStatus !== FetchStatus.Fetched || notEnoughBnbForPurchase}
+          disabled={walletFetchStatus !== FetchStatus.Fetched || notEnoughEchForPurchase}
           mb="8px"
         >
           {t('Checkout')}
         </Button>
-        <Button as={Link} external style={{ width: '100%' }} href="/swap?outputCurrency=BNB" variant="secondary">
-          {t('Get %symbol1% or %symbol2%', { symbol1: 'BNB', symbol2: 'WBNB' })}
+        <Button as={Link} external style={{ width: '100%' }} href="/swap?outputCurrency=ECH" variant="secondary">
+          {t('Get %symbol1% or %symbol2%', { symbol1: 'ECH', symbol2: 'WECH' })}
         </Button>
       </Flex>
     </>

@@ -52,9 +52,9 @@ export const useBurnedBalance = (tokenAddress: string) => {
   return data ? new BigNumber(data.toString()) : BIG_ZERO
 }
 
-export const useGetBnbBalance = () => {
+export const useGetEchBalance = () => {
   const { account } = useWeb3React()
-  const { status, data, mutate } = useSWR([account, 'bnbBalance'], async () => {
+  const { status, data, mutate } = useSWR([account, 'echBalance'], async () => {
     return simpleRpcProvider.getBalance(account)
   })
 

@@ -1044,8 +1044,8 @@ export const attachMarketDataToWalletNfts = (
         currentSeller: null,
         isTradable: null,
         currentAskPrice: null,
-        latestTradedPriceInBNB: null,
-        tradeVolumeBNB: null,
+        latestTradedPriceInECH: null,
+        tradeVolumeECH: null,
         totalTrades: null,
         otherId: null,
       }

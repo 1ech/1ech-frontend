@@ -8,7 +8,7 @@ import CollapsibleCard from 'components/CollapsibleCard'
 import orderBy from 'lodash/orderBy'
 import { useGetCollection } from 'state/nftMarket/hooks'
 import { useGetLowestPriceFromBunnyId } from '../../hooks/useGetLowestPrice'
-import { BNBAmountLabel } from '../../components/CollectibleCard/styles'
+import { ECHAmountLabel } from '../../components/CollectibleCard/styles'
 import { nftsBaseUrl } from '../../constants'
 import { SortType } from '../../types'
 import { ClickableRow, NftName, StyledSortButton, TableWrapper } from './styles'
@@ -33,7 +33,7 @@ const LowestPriceCell: React.FC<{ bunnyId: string }> = ({ bunnyId }) => {
     return null
   }
 
-  return <BNBAmountLabel justifyContent="flex-end" amount={lowestPrice} width="100px" />
+  return <ECHAmountLabel justifyContent="flex-end" amount={lowestPrice} width="100px" />
 }
 
 const PancakeBunniesTraits: React.FC<PancakeBunniesTraitsProps> = ({ collectionAddress }) => {

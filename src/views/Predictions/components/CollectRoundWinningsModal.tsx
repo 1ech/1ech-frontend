@@ -97,10 +97,10 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
   const { fetchWithCatchTxError, loading: isPendingTx } = useCatchTxError()
   const { callWithGasPrice } = useCallWithGasPrice()
   const predictionsContract = usePredictionsContract(predictionsAddress)
-  const bnbBusdPrice = useBUSDPrice(token)
+  const echBusdPrice = useBUSDPrice(token)
 
   const { epochs, total } = calculateClaimableRounds(history)
-  const totalBnb = multiplyPriceByAmount(bnbBusdPrice, total)
+  const totalEch = multiplyPriceByAmount(echBusdPrice, total)
 
   useEffect(() => {
     // Fetch history if they have not opened the history pane yet
@@ -155,7 +155,7 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
           <Box style={{ textAlign: 'right' }}>
             <Text>{`${formatNumber(total, 0, 4)} ${token.symbol}`}</Text>
             <Text fontSize="12px" color="textSubtle">
-              {`~$${totalBnb.toFixed(2)}`}
+              {`~$${totalEch.toFixed(2)}`}
             </Text>
           </Box>
         </Flex>

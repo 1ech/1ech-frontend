@@ -1,5 +1,5 @@
 import { CurrencyAmount, ETHER, JSBI } from '@1ech/sdk'
-import { MIN_BNB, BIG_INT_ZERO } from 'config/constants/exchange'
+import { MIN_ECH, BIG_INT_ZERO } from 'config/constants/exchange'
 
 /**
  * Given some token amount, return the max that can be spent of it
@@ -8,8 +8,8 @@ import { MIN_BNB, BIG_INT_ZERO } from 'config/constants/exchange'
 export function maxAmountSpend(currencyAmount?: CurrencyAmount): CurrencyAmount | undefined {
   if (!currencyAmount) return undefined
   if (currencyAmount.currency === ETHER) {
-    if (JSBI.greaterThan(currencyAmount.raw, MIN_BNB)) {
-      return CurrencyAmount.ether(JSBI.subtract(currencyAmount.raw, MIN_BNB))
+    if (JSBI.greaterThan(currencyAmount.raw, MIN_ECH)) {
+      return CurrencyAmount.ether(JSBI.subtract(currencyAmount.raw, MIN_ECH))
     }
     return CurrencyAmount.ether(BIG_INT_ZERO)
   }

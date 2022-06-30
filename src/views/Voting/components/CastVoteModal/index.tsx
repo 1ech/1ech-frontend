@@ -30,7 +30,7 @@ const CastVoteModal: React.FC<CastVoteModalProps> = ({ onSuccess, proposalId, vo
     cakeVaultBalance,
     cakePoolBalance,
     poolsBalance,
-    cakeBnbLpBalance,
+    cakeEchLpBalance,
     ifoPoolBalance,
   } = useGetVotingPower(block, modalIsOpen)
 
@@ -106,7 +106,7 @@ const CastVoteModal: React.FC<CastVoteModalProps> = ({ onSuccess, proposalId, vo
             cakeVaultBalance={cakeVaultBalance}
             cakePoolBalance={cakePoolBalance}
             poolsBalance={poolsBalance}
-            cakeBnbLpBalance={cakeBnbLpBalance}
+            cakeEchLpBalance={cakeEchLpBalance}
             block={block}
           />
         )}

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Modal, Grid, Flex, Text, BinanceIcon, Skeleton } from '@pancakeswap/uikit'
-import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHBusdPrice } from 'hooks/useBUSDPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { BuyingStage } from './types'
 
@@ -32,14 +32,14 @@ export const BorderedBox = styled(Grid)`
   grid-row-gap: 8px;
 `
 
-interface BnbAmountCellProps {
-  bnbAmount: number
+interface EchAmountCellProps {
+  echAmount: number
   isLoading?: boolean
   isInsufficient?: boolean
 }
 
-export const BnbAmountCell: React.FC<BnbAmountCellProps> = ({ bnbAmount, isLoading, isInsufficient }) => {
-  const bnbBusdPrice = useBNBBusdPrice()
+export const EchAmountCell: React.FC<EchAmountCellProps> = ({ echAmount, isLoading, isInsufficient }) => {
+  const echBusdPrice = useECHBusdPrice()
   if (isLoading) {
     return (
       <Flex flexDirection="column" justifySelf="flex-end">
@@ -48,12 +48,12 @@ export const BnbAmountCell: React.FC<BnbAmountCellProps> = ({ bnbAmount, isLoadi
       </Flex>
     )
   }
-  const usdAmount = multiplyPriceByAmount(bnbBusdPrice, bnbAmount)
+  const usdAmount = multiplyPriceByAmount(echBusdPrice, echAmount)
   return (
     <Flex justifySelf="flex-end" flexDirection="column">
       <Flex justifyContent="flex-end">
         <BinanceIcon height={16} width={16} mr="4px" />
-        <Text bold color={isInsufficient ? 'failure' : 'text'}>{`${bnbAmount.toLocaleString(undefined, {
+        <Text bold color={isInsufficient ? 'failure' : 'text'}>{`${echAmount.toLocaleString(undefined, {
           minimumFractionDigits: 3,
           maximumFractionDigits: 5,
         })}`}</Text>

@@ -3,14 +3,14 @@ import { Flex, Text } from '@pancakeswap/uikit'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { useTranslation } from 'contexts/Localization'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
-import { formatBnb } from '../helpers'
+import { formatEch } from '../helpers'
 
 type SummaryType = 'won' | 'lost' | 'entered'
 
 interface SummaryRowProps {
   type: SummaryType
   summary: any
-  bnbBusdPrice: Price
+  echBusdPrice: Price
 }
 
 const summaryTypeColors = {
@@ -25,7 +25,7 @@ const summaryTypeSigns = {
   entered: '',
 }
 
-const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, bnbBusdPrice }) => {
+const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, echBusdPrice }) => {
   const { t } = useTranslation()
 
   const color = summaryTypeColors[type]
@@ -34,7 +34,7 @@ const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, bnbBusdPrice }) 
   const roundsInPercents = ((rounds * 100) / totalRounds).toFixed(2)
   const typeTranslationKey = type.charAt(0).toUpperCase() + type.slice(1)
   const displayAmount = type === 'won' ? summary[type].payout : amount
-  const amountInUsd = multiplyPriceByAmount(bnbBusdPrice, displayAmount)
+  const amountInUsd = multiplyPriceByAmount(echBusdPrice, displayAmount)
   const { token } = useConfig()
   const roundsInPercentsDisplay = !Number.isNaN(parseFloat(roundsInPercents)) ? `${roundsInPercents}%` : '0%'
 
@@ -54,7 +54,7 @@ const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, bnbBusdPrice }) 
         </Flex>
         <Flex flex="3" flexDirection="column">
           <Text bold fontSize="20px" color={color}>
-            {`${summaryTypeSigns[type]}${formatBnb(displayAmount)} ${token.symbol}`}
+            {`${summaryTypeSigns[type]}${formatEch(displayAmount)} ${token.symbol}`}
           </Text>
           <Text fontSize="12px" color="textSubtle">
             {`~$${amountInUsd.toFixed(2)}`}

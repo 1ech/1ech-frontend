@@ -74,8 +74,8 @@ export const transformBetResponse = (betResponse: BetResponse): Bet => {
     claimedAt: numberOrNull(betResponse.claimedAt),
     claimedBlock: numberOrNull(betResponse.claimedBlock),
     claimedHash: betResponse.claimedHash,
-    claimedBNB: betResponse.claimedBNB ? parseFloat(betResponse.claimedBNB) : 0,
-    claimedNetBNB: betResponse.claimedNetBNB ? parseFloat(betResponse.claimedNetBNB) : 0,
+    claimedECH: betResponse.claimedECH ? parseFloat(betResponse.claimedECH) : 0,
+    claimedNetECH: betResponse.claimedNetECH ? parseFloat(betResponse.claimedNetECH) : 0,
     createdAt: numberOrNull(betResponse.createdAt),
     updatedAt: numberOrNull(betResponse.updatedAt),
   } as Bet
@@ -100,14 +100,14 @@ export const transformUserResponse = (userResponse: UserResponse): PredictionUse
     totalBets,
     totalBetsBull,
     totalBetsBear,
-    totalBNB,
-    totalBNBBull,
-    totalBNBBear,
+    totalECH,
+    totalECHBull,
+    totalECHBear,
     totalBetsClaimed,
-    totalBNBClaimed,
+    totalECHClaimed,
     winRate,
-    averageBNB,
-    netBNB,
+    averageECH,
+    netECH,
   } = userResponse
 
   return {
@@ -118,14 +118,14 @@ export const transformUserResponse = (userResponse: UserResponse): PredictionUse
     totalBets: numberOrNull(totalBets),
     totalBetsBull: numberOrNull(totalBetsBull),
     totalBetsBear: numberOrNull(totalBetsBear),
-    totalBNB: totalBNB ? parseFloat(totalBNB) : 0,
-    totalBNBBull: totalBNBBull ? parseFloat(totalBNBBull) : 0,
-    totalBNBBear: totalBNBBear ? parseFloat(totalBNBBear) : 0,
+    totalECH: totalECH ? parseFloat(totalECH) : 0,
+    totalECHBull: totalECHBull ? parseFloat(totalECHBull) : 0,
+    totalECHBear: totalECHBear ? parseFloat(totalECHBear) : 0,
     totalBetsClaimed: numberOrNull(totalBetsClaimed),
-    totalBNBClaimed: totalBNBClaimed ? parseFloat(totalBNBClaimed) : 0,
+    totalECHClaimed: totalECHClaimed ? parseFloat(totalECHClaimed) : 0,
     winRate: winRate ? parseFloat(winRate) : 0,
-    averageBNB: averageBNB ? parseFloat(averageBNB) : 0,
-    netBNB: netBNB ? parseFloat(netBNB) : 0,
+    averageECH: averageECH ? parseFloat(averageECH) : 0,
+    netECH: netECH ? parseFloat(netECH) : 0,
   }
 }
 
@@ -224,17 +224,17 @@ export const getTotalWon = async (): Promise<number> => {
     gql`
       query getTotalWonData {
         market(id: 1) {
-          totalBNB
-          totalBNBTreasury
+          totalECH
+          totalECHTreasury
         }
       }
     `,
   )) as { market: TotalWonMarketResponse }
 
-  const totalBNB = market.totalBNB ? parseFloat(market.totalBNB) : 0
-  const totalBNBTreasury = market.totalBNBTreasury ? parseFloat(market.totalBNBTreasury) : 0
+  const totalECH = market.totalECH ? parseFloat(market.totalECH) : 0
+  const totalECHTreasury = market.totalECHTreasury ? parseFloat(market.totalECHTreasury) : 0
 
-  return Math.max(totalBNB - totalBNBTreasury, 0)
+  return Math.max(totalECH - totalECHTreasury, 0)
 }
 
 type WhereClause = Record<string, string | number | boolean | string[]>

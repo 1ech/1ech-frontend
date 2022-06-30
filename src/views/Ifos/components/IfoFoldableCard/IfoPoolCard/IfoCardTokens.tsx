@@ -17,7 +17,7 @@ import { useWeb3React } from '@web3-react/core'
 import { Token } from '@1ech/sdk'
 import { Ifo, PoolIds } from 'config/constants/types'
 import tokens from 'config/constants/tokens'
-import { cakeBnbLpToken } from 'config/constants/ifo'
+import { cakeEchLpToken } from 'config/constants/ifo'
 import { PublicIfoData, WalletIfoData } from 'views/Ifos/types'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -65,8 +65,8 @@ const TokenSection: React.FC<TokenSectionProps> = ({ primaryToken, secondaryToke
 }
 
 const CommitTokenSection: React.FC<TokenSectionProps & { commitToken: Token }> = ({ commitToken, ...props }) => {
-  if (commitToken.equals(cakeBnbLpToken)) {
-    return <TokenSection primaryToken={tokens.cake} secondaryToken={tokens.wbnb} {...props} />
+  if (commitToken.equals(cakeEchLpToken)) {
+    return <TokenSection primaryToken={tokens.cake} secondaryToken={tokens.wech} {...props} />
   }
   return <TokenSection primaryToken={commitToken} {...props} />
 }

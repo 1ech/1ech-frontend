@@ -1,8 +1,8 @@
 import { Currency } from '@1ech/sdk'
 import useTheme from 'hooks/useTheme'
 import { useCallback, useState } from 'react'
-import BnbWbnbNotice from './BnbWbnbNotice'
-import { BNB_ADDRESS } from './constants'
+import EchWechNotice from './EchWechNotice'
+import { ECH_ADDRESS } from './constants'
 import PriceChart from './PriceChart'
 import { getTokenAddress } from './utils'
 
@@ -44,10 +44,10 @@ const PriceChartContainer: React.FC<PriceChartContainerProps> = ({
     return null
   }
 
-  const isBnbWbnb = token0Address === BNB_ADDRESS && token1Address === BNB_ADDRESS
+  const isEchWech = token0Address === ECH_ADDRESS && token1Address === ECH_ADDRESS
 
-  if (isBnbWbnb) {
-    return <BnbWbnbNotice isDark={isDark} isChartExpanded={isChartExpanded} />
+  if (isEchWech) {
+    return <EchWechNotice isDark={isDark} isChartExpanded={isChartExpanded} />
   }
 
   return (

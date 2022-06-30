@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Modal, Box, Flex, Text, BinanceIcon, Input } from '@pancakeswap/uikit'
-import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHBusdPrice } from 'hooks/useBUSDPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { SellingStage } from './types'
 
@@ -37,13 +37,13 @@ export const RightAlignedInput = styled(Input)`
   text-align: right;
 `
 
-interface BnbAmountCellProps {
-  bnbAmount: number
+interface EchAmountCellProps {
+  echAmount: number
 }
 
-export const BnbAmountCell: React.FC<BnbAmountCellProps> = ({ bnbAmount }) => {
-  const bnbBusdPrice = useBNBBusdPrice()
-  if (!bnbAmount || bnbAmount === 0) {
+export const EchAmountCell: React.FC<EchAmountCellProps> = ({ echAmount }) => {
+  const echBusdPrice = useECHBusdPrice()
+  if (!echAmount || echAmount === 0) {
     return (
       <Flex alignItems="center" justifyContent="flex-end">
         <BinanceIcon width={16} height={16} mr="4px" />
@@ -53,11 +53,11 @@ export const BnbAmountCell: React.FC<BnbAmountCellProps> = ({ bnbAmount }) => {
       </Flex>
     )
   }
-  const usdAmount = multiplyPriceByAmount(bnbBusdPrice, bnbAmount)
+  const usdAmount = multiplyPriceByAmount(echBusdPrice, echAmount)
   return (
     <Flex alignItems="center" justifyContent="flex-end">
       <BinanceIcon width={16} height={16} mr="4px" />
-      <Text bold mr="4px">{`${bnbAmount.toLocaleString(undefined, {
+      <Text bold mr="4px">{`${echAmount.toLocaleString(undefined, {
         minimumFractionDigits: 3,
         maximumFractionDigits: 3,
       })}`}</Text>
@@ -72,13 +72,13 @@ export const BnbAmountCell: React.FC<BnbAmountCellProps> = ({ bnbAmount }) => {
 }
 
 interface FeeAmountCellProps {
-  bnbAmount: number
+  echAmount: number
   creatorFee: number
   tradingFee: number
 }
 
-export const FeeAmountCell: React.FC<FeeAmountCellProps> = ({ bnbAmount, creatorFee, tradingFee }) => {
-  if (!bnbAmount || bnbAmount === 0) {
+export const FeeAmountCell: React.FC<FeeAmountCellProps> = ({ echAmount, creatorFee, tradingFee }) => {
+  if (!echAmount || echAmount === 0) {
     return (
       <Flex alignItems="center" justifyContent="flex-end">
         <BinanceIcon width={16} height={16} mr="4px" />
@@ -91,7 +91,7 @@ export const FeeAmountCell: React.FC<FeeAmountCellProps> = ({ bnbAmount, creator
 
   const totalFee = creatorFee + tradingFee
   const totalFeeAsDecimal = totalFee / 100
-  const feeAmount = bnbAmount * totalFeeAsDecimal
+  const feeAmount = echAmount * totalFeeAsDecimal
   return (
     <Flex alignItems="center" justifyContent="flex-end">
       <BinanceIcon width={16} height={16} mr="4px" />

@@ -8,28 +8,28 @@ import BigNumber from 'bignumber.js'
 import uniq from 'lodash/uniq'
 
 // Pool 0, Cake / Cake is a different kind of contract (master chef)
-// BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'BNB')
-const bnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'BNB')
+// ECH pools use the native ECH token (wrapping ? unwrapping is done at the contract level)
+const nonEchPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'ECH')
+const echPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'ECH')
 const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 0)
 
 export const fetchPoolsAllowance = async (account) => {
-  const calls = nonBnbPools.map((pool) => ({
+  const calls = nonEchPools.map((pool) => ({
     address: pool.stakingToken.address,
     name: 'allowance',
     params: [account, getAddress(pool.contractAddress)],
   }))
 
   const allowances = await multicall(erc20ABI, calls)
-  return nonBnbPools.reduce(
+  return nonEchPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
     {},
   )
 }
 
 export const fetchUserBalances = async (account) => {
-  // Non BNB pools
-  const tokens = uniq(nonBnbPools.map((pool) => pool.stakingToken.address))
+  // Non ECH pools
+  const tokens = uniq(nonEchPools.map((pool) => pool.stakingToken.address))
   const calls = tokens.map((token) => ({
     address: token,
     name: 'balanceOf',
@@ -37,7 +37,7 @@ export const fetchUserBalances = async (account) => {
   }))
   const tokenBalancesRaw = await multicall(erc20ABI, calls)
   const tokenBalances = tokens.reduce((acc, token, index) => ({ ...acc, [token]: tokenBalancesRaw[index] }), {})
-  const poolTokenBalances = nonBnbPools.reduce(
+  const poolTokenBalances = nonEchPools.reduce(
     (acc, pool) => ({
       ...acc,
       ...(tokenBalances[pool.stakingToken.address] && {
@@ -47,14 +47,14 @@ export const fetchUserBalances = async (account) => {
     {},
   )
 
-  // BNB pools
-  const bnbBalance = await simpleRpcProvider.getBalance(account)
-  const bnbBalances = bnbPools.reduce(
-    (acc, pool) => ({ ...acc, [pool.sousId]: new BigNumber(bnbBalance.toString()).toJSON() }),
+  // ECH pools
+  const echBalance = await simpleRpcProvider.getBalance(account)
+  const echBalances = echPools.reduce(
+    (acc, pool) => ({ ...acc, [pool.sousId]: new BigNumber(echBalance.toString()).toJSON() }),
     {},
   )
 
-  return { ...poolTokenBalances, ...bnbBalances }
+  return { ...poolTokenBalances, ...echBalances }
 }
 
 export const fetchUserStakeBalances = async (account) => {

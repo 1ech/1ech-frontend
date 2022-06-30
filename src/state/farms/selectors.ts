@@ -91,8 +91,8 @@ export const makeUserFarmFromPidSelector = (pid: number) =>
     }
   })
 
-export const priceCakeFromPidSelector = createSelector([selectCakeFarm], (cakeBnbFarm) => {
-  const cakePriceBusdAsString = cakeBnbFarm.tokenPriceBusd
+export const priceCakeFromPidSelector = createSelector([selectCakeFarm], (cakeEchFarm) => {
+  const cakePriceBusdAsString = cakeEchFarm.tokenPriceBusd
   return new BigNumber(cakePriceBusdAsString)
 })
 

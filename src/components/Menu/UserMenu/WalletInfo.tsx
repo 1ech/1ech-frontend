@@ -4,21 +4,21 @@ import tokens from 'config/constants/tokens'
 import { FetchStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 import useAuth from 'hooks/useAuth'
-import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
+import useTokenBalance, { useGetEchBalance } from 'hooks/useTokenBalance'
 
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import CopyAddress from './CopyAddress'
 
 interface WalletInfoProps {
-  hasLowBnbBalance: boolean
+  hasLowEchBalance: boolean
   onDismiss: InjectedModalProps['onDismiss']
 }
 
-const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) => {
+const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowEchBalance, onDismiss }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
-  const { balance, fetchStatus } = useGetBnbBalance()
+  const { balance, fetchStatus } = useGetEchBalance()
   const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(tokens.cake.address)
   const { logout } = useAuth()
 
@@ -33,16 +33,16 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
         {t('Your Address')}
       </Text>
       <CopyAddress account={account} mb="24px" />
-      {hasLowBnbBalance && (
+      {hasLowEchBalance && (
         <Message variant="warning" mb="24px">
           <Box>
-            <Text fontWeight="bold">{t('BNB Balance Low')}</Text>
-            <Text as="p">{t('You need BNB for transaction fees.')}</Text>
+            <Text fontWeight="bold">{t('ECH Balance Low')}</Text>
+            <Text as="p">{t('You need ECH for transaction fees.')}</Text>
           </Box>
         </Message>
       )}
       <Flex alignItems="center" justifyContent="space-between">
-        <Text color="textSubtle">{t('BNB Balance')}</Text>
+        <Text color="textSubtle">{t('ECH Balance')}</Text>
         {fetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (

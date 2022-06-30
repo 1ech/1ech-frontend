@@ -60,7 +60,7 @@ const Home = () => {
 
   const hotCollections = orderBy(
     collections,
-    (collection) => (collection.totalVolumeBNB ? parseFloat(collection.totalVolumeBNB) : 0),
+    (collection) => (collection.totalVolumeECH ? parseFloat(collection.totalVolumeECH) : 0),
     'desc',
   )
 
@@ -80,7 +80,7 @@ const Home = () => {
               {t('NFT Marketplace')}
             </Heading>
             <Heading scale="lg" color="text">
-              {t('Buy and Sell NFTs on BNB Smart Chain')}
+              {t('Buy and Sell NFTs on Echelon')}
             </Heading>
             {account && (
               <Button as={NextLinkFromReactRouter} to={`${nftsBaseUrl}/profile/${account.toLowerCase()}`} mt="32px">

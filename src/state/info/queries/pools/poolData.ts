@@ -58,7 +58,7 @@ const POOL_AT_BLOCK = (block: number | null, pools: string[]) => {
   return `pairs(
     where: { id_in: ${addressesString} }
     ${blockString}
-    orderBy: trackedReserveBNB
+    orderBy: trackedReserveECH
     orderDirection: desc
   ) {
     id

@@ -5,7 +5,7 @@ import getTimePeriods from 'utils/getTimePeriods'
 import { NegativeOne, One, Zero } from '@ethersproject/constants'
 
 const MIN_PRICE_USD_DISPLAYED = BigNumber.from(100000)
-const MIN_PRICE_BNB_DISPLAYED = BigNumber.from('1000000000000000')
+const MIN_PRICE_ECH_DISPLAYED = BigNumber.from('1000000000000000')
 const DISPLAYED_DECIMALS = 3
 
 type formatPriceDifferenceProps = {
@@ -35,8 +35,8 @@ export const formatUsdv2 = (usd: BigNumber) => {
   return formatPriceDifference({ price: usd, minPriceDisplayed: MIN_PRICE_USD_DISPLAYED, unitPrefix: '$', decimals: 8 })
 }
 
-export const formatBnbv2 = (bnb: BigNumber) => {
-  return formatPriceDifference({ price: bnb, minPriceDisplayed: MIN_PRICE_BNB_DISPLAYED, unitPrefix: '', decimals: 18 })
+export const formatEchv2 = (ech: BigNumber) => {
+  return formatPriceDifference({ price: ech, minPriceDisplayed: MIN_PRICE_ECH_DISPLAYED, unitPrefix: '', decimals: 18 })
 }
 
 export const padTime = (num: number) => num.toString().padStart(2, '0')

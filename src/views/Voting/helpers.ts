@@ -93,11 +93,11 @@ export const VOTING_POWER_BLOCK = {
  */
 export const getVotingPower = async (account: string, poolAddresses: string[], blockNumber?: number) => {
   if (blockNumber && blockNumber >= VOTING_POWER_BLOCK.v1) {
-    const [cakeBalance, cakeBnbLpBalance, cakePoolBalance, poolsBalance, total] = await getScores(
+    const [cakeBalance, cakeEchLpBalance, cakePoolBalance, poolsBalance, total] = await getScores(
       PANCAKE_SPACE,
       [
         strategies.cakeBalanceStrategy('v1'),
-        strategies.cakeBnbLpBalanceStrategy('v1'),
+        strategies.cakeEchLpBalanceStrategy('v1'),
         strategies.cakePoolBalanceStrategy('v1'),
         strategies.creatPoolsBalanceStrategy(poolAddresses, 'v1'),
         strategies.createTotalStrategy(poolAddresses, 'v1'),
@@ -112,18 +112,18 @@ export const getVotingPower = async (account: string, poolAddresses: string[], b
       total: total[account] ? total[account] : 0,
       cakeBalance: cakeBalance[account] ? cakeBalance[account] : 0,
       cakePoolBalance: cakePoolBalance[account] ? cakePoolBalance[account] : 0,
-      cakeBnbLpBalance: cakeBnbLpBalance[account] ? cakeBnbLpBalance[account] : 0,
+      cakeEchLpBalance: cakeEchLpBalance[account] ? cakeEchLpBalance[account] : 0,
       voter: account,
     }
   }
 
   if (blockNumber && blockNumber >= VOTING_POWER_BLOCK.v0) {
-    const [cakeBalance, cakeBnbLpBalance, cakePoolBalance, cakeVaultBalance, ifoPoolBalance, poolsBalance, total] =
+    const [cakeBalance, cakeEchLpBalance, cakePoolBalance, cakeVaultBalance, ifoPoolBalance, poolsBalance, total] =
       await getScores(
         PANCAKE_SPACE,
         [
           strategies.cakeBalanceStrategy('v0'),
-          strategies.cakeBnbLpBalanceStrategy('v0'),
+          strategies.cakeEchLpBalanceStrategy('v0'),
           strategies.cakePoolBalanceStrategy('v0'),
           strategies.cakeVaultBalanceStrategy,
           strategies.ifoPoolBalanceStrategy,
@@ -142,7 +142,7 @@ export const getVotingPower = async (account: string, poolAddresses: string[], b
       cakeVaultBalance: cakeVaultBalance[account] ? cakeVaultBalance[account] : 0,
       ifoPoolBalance: ifoPoolBalance[account] ? ifoPoolBalance[account] : 0,
       cakePoolBalance: cakePoolBalance[account] ? cakePoolBalance[account] : 0,
-      cakeBnbLpBalance: cakeBnbLpBalance[account] ? cakeBnbLpBalance[account] : 0,
+      cakeEchLpBalance: cakeEchLpBalance[account] ? cakeEchLpBalance[account] : 0,
       voter: account,
     }
   }

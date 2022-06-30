@@ -7,16 +7,16 @@ describe('Remove Liquidity', () => {
     )
   })
 
-  it('bnb-cake remove', () => {
-    cy.visit('/remove/BNB/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
-    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'BNB')
+  it('ech-cake remove', () => {
+    cy.visit('/remove/ECH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82')
+    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'ECH')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'CAKE')
   })
 
-  it('cake-bnb remove', () => {
-    cy.visit('/remove/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82/BNB')
+  it('cake-ech remove', () => {
+    cy.visit('/remove/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82/ECH')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'CAKE')
-    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BNB')
+    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'ECH')
   })
 
   it('loads the two correct tokens', () => {
@@ -25,10 +25,10 @@ describe('Remove Liquidity', () => {
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BUSD')
   })
 
-  it('does not crash if BNB is duplicated', () => {
-    cy.visit('/remove/BNB/BNB')
-    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'BNB')
-    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BNB')
+  it('does not crash if ECH is duplicated', () => {
+    cy.visit('/remove/ECH/ECH')
+    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'ECH')
+    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'ECH')
   })
 
   it('does not crash if token is duplicated', () => {

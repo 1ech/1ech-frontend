@@ -321,7 +321,7 @@
     "name": "pancakePrediction",
     "outputs": [
       {
-        "internalType": "contract BnbPricePrediction",
+        "internalType": "contract EchPricePrediction",
         "name": "",
         "type": "address"
       }

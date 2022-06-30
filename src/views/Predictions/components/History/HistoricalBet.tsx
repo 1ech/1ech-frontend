@@ -20,7 +20,7 @@ import { useGetCurrentEpoch, useGetIsClaimable, useGetPredictionsStatus } from '
 import { fetchLedgerData, markAsCollected } from 'state/predictions'
 import { getRoundResult, Result } from 'state/predictions/helpers'
 import { useTranslation } from 'contexts/Localization'
-import { formatBnb, getNetPayout } from './helpers'
+import { formatEch, getNetPayout } from './helpers'
 import CollectWinningsButton from '../CollectWinningsButton'
 import ReclaimPositionButton from '../ReclaimPositionButton'
 import BetDetails from './BetDetails'
@@ -141,7 +141,7 @@ const HistoricalBet: React.FC<BetProps> = ({ bet }) => {
               </Flex>
             </>
           ) : (
-            `${resultTextPrefix}${formatBnb(payout)}`
+            `${resultTextPrefix}${formatEch(payout)}`
           )}
         </Text>
       </>

@@ -4,8 +4,8 @@ import farms from './farms'
 import { Ifo } from './types'
 
 /** dust llc: temporarily change cake */
-// export const cakeBnbLpToken = new Token(ChainId.MAINNET, farms[1].lpAddresses[ChainId.MAINNET], 18, farms[1].lpSymbol)
-export const cakeBnbLpToken = '0x0000000000000000000000000000000000001234'
+// export const cakeEchLpToken = new Token(ChainId.MAINNET, farms[1].lpAddresses[ChainId.MAINNET], 18, farms[1].lpSymbol)
+export const cakeEchLpToken = '0x0000000000000000000000000000000000001234'
 
 const ifos: Ifo[] = [
   {
@@ -211,7 +211,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$153,125',
       distributionRatio: 0.7,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.dkt,
     releaseBlockNumber: 12130750,
     campaignId: '511120000',
@@ -236,7 +236,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$1,250,000',
       distributionRatio: 0.7,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.kalm,
     releaseBlockNumber: 7707736,
     campaignId: '511110000',
@@ -261,7 +261,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$875,000',
       distributionRatio: 0.7,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.hotcross,
     releaseBlockNumber: 7477900,
     campaignId: '511100000',
@@ -286,7 +286,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$875,000',
       distributionRatio: 0.7,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.hzn,
     releaseBlockNumber: 6581111,
     campaignId: '511090000',
@@ -305,7 +305,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$1,500,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.belt,
     releaseBlockNumber: 5493919,
     campaignId: '511080000',
@@ -324,7 +324,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$400,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.watch,
     releaseBlockNumber: 5294924,
     campaignId: '511070000',
@@ -343,7 +343,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$500,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.bry,
     releaseBlockNumber: 4750968,
     campaignId: '511060000',
@@ -362,7 +362,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$262,500',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.wsote,
     releaseBlockNumber: 4086064,
     campaignId: '511050000',
@@ -381,7 +381,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$500,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.helmet,
     releaseBlockNumber: 3771926,
     campaignId: '511040000',
@@ -400,7 +400,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$500,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.ten,
     releaseBlockNumber: 3483883,
     campaignId: '511030000',
@@ -419,7 +419,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$315,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.ditto,
     releaseBlockNumber: 3279767,
     campaignId: '511020000',
@@ -438,7 +438,7 @@ const ifos: Ifo[] = [
       cakeToBurn: '$500,000',
       distributionRatio: 1,
     },
-    currency: cakeBnbLpToken,
+    currency: cakeEchLpToken,
     token: tokens.blink,
     releaseBlockNumber: 3279767,
     campaignId: '511010000',
