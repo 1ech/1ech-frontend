@@ -3,17 +3,17 @@
 import { ExternalProvider } from '@ethersproject/providers'
 import { ChainId } from '@1ech/sdk'
 import { BAD_SRCS } from 'components/Logo/Logo'
-import { BASE_BSC_SCAN_URLS } from 'config'
+import { BASE_ECH_SCAN_URLS } from 'config'
 import { nodes } from './getRpcUrl'
 
 const NETWORK_CONFIG = {
   [ChainId.MAINNET]: {
     name: 'Echelon Mainnet',
-    scanURL: BASE_BSC_SCAN_URLS[ChainId.MAINNET],
+    scanURL: BASE_ECH_SCAN_URLS[ChainId.MAINNET],
   },
   [ChainId.TESTNET]: {
     name: 'Echelon Testnet',
-    scanURL: BASE_BSC_SCAN_URLS[ChainId.TESTNET],
+    scanURL: BASE_ECH_SCAN_URLS[ChainId.TESTNET],
   },
 }
 

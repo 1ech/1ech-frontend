@@ -3,8 +3,8 @@
 
 
 "@1ech/sdk@https://github.com/1ech/1ech-swap-sdk.git":
-  version "2.4.3"
-  resolved "https://github.com/1ech/1ech-swap-sdk.git#5fb3f0c82f21ddd5e9f8794af95c1166074cb5e9"
+  version "2.4.8"
+  resolved "https://github.com/1ech/1ech-swap-sdk.git#e6e3057c5153109e75726998228065641e218cc0"
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"

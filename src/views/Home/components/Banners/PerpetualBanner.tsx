@@ -53,9 +53,13 @@ const PerpetualBanner = () => {
         </S.LeftWrapper>
         <RightWrapper>
           {isDesktop ? (
-            <Image src={perpetualImage} alt="PerpetualBanner" width={392} height={232} placeholder="blur" />
+            <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+              {}
+            </Text>
           ) : (
-            <Image src={perpetualMobileImage} alt="PerpetualBanner" width={208} height={208} placeholder="blur" />
+            <Text color="invertedContrast" bold fontSize="16px" mr="4px">
+              {}
+            </Text>
           )}
         </RightWrapper>
       </S.Inner>

@@ -129,7 +129,9 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Heading scale="xxl" color="secondary" mb="24px">
+              Rech for the stars
+            </Heading>
           </BunnyWrapper>
           <StarsWrapper>
             <CompositeImage {...starsImage} />

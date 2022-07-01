@@ -10,9 +10,9 @@
   "keywords": ["1ech", "default"],
   "tokens": [
     {
-      "name": "Wrapped Echelon",
+      "name": "Wrapped ECH",
       "symbol": "WECH",
-      "address": "0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8",
+      "address": "0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343",
       "chainId": 3000,
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/25498/large/SpO_F8a0_400x400.jpg?1652077746"

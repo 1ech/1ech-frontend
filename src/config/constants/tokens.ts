@@ -14,13 +14,13 @@ export const defineTokens = <T extends TokenList>(t: T) => t
 export const mainnetTokens = defineTokens({
   wech: new Token(
     MAINNET,
-    '0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8',
+    '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343',
     18,
     'WECH',
-    'Wrapped Echelon',
+    'Wrapped ECH',
     'https://ech.network/',
   ),
-  wech: new Token(
+  wbnb: new Token(
     MAINNET,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
@@ -29,9 +29,9 @@ export const mainnetTokens = defineTokens({
     'https://www.binance.com/',
   ),
   // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
-  ech: new Token(MAINNET, '0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8', 18, 'ECH', 'ECH', 'https://ech.network/'),
+  ech: new Token(MAINNET, '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343', 18, 'ECH', 'ECH', 'https://ech.network/'),
   // ech here points to the wech contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  ech: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
     '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',

@@ -5,7 +5,7 @@ import { PageMeta } from './types'
 export const DEFAULT_META: PageMeta = {
   title: '1ECH',
   description:
-    'The most popular AMM on BSC by user count! Earn RECH through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by 1ECH), NFTs, and more, on a platform you can trust.',
+    'The most popular AMM on ECH by user count! Earn RECH through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by 1ECH), NFTs, and more, on a platform you can trust.',
   image: 'https://1ech.com/images/hero.png',
 }
 
@@ -43,7 +43,7 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/nfts/profile': { basePath: true, title: t('Profile') },
       '/pancake-squad': { basePath: true, title: t('Pancake Squad') },
     },
-    defaultTitleSuffix: t('PancakeSwap'),
+    defaultTitleSuffix: t('1ECH'),
   }
 }
 
