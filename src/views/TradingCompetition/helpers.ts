@@ -2,7 +2,7 @@ import { ReactText } from 'react'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { easterPrizes, PrizesConfig } from 'config/constants/trading-competition/prizes'
 import BigNumber from 'bignumber.js'
-import useBUSDPrice, { useCakeBusdPrice } from 'hooks/useBUSDPrice'
+import useBUSDPrice, { useRechBusdPrice } from 'hooks/useBUSDPrice'
 import tokens from 'config/constants/tokens'
 import { multiplyPriceByAmount } from 'utils/prices'
 
@@ -11,12 +11,12 @@ export const localiseTradingVolume = (value: number, decimals = 0) => {
 }
 
 export const useCompetitionCakeRewards = (userCakeReward: ReactText) => {
-  const cakeAsBigNumber = new BigNumber(userCakeReward as string)
-  const cakeBalance = getBalanceNumber(cakeAsBigNumber)
-  const cakePriceBusd = useCakeBusdPrice()
+  const rechAsBigNumber = new BigNumber(userCakeReward as string)
+  const rechAalance = getBalanceNumber(rechAsBigNumber)
+  const rechPriceBusd = useRechBusdPrice()
   return {
-    cakeReward: cakeBalance,
-    dollarValueOfCakeReward: multiplyPriceByAmount(cakePriceBusd, cakeBalance),
+    cakeReward: rechAalance,
+    dollarValueOfCakeReward: multiplyPriceByAmount(rechPriceBusd, rechAalance),
   }
 }
 
@@ -34,26 +34,26 @@ export const useFanTokenCompetitionRewards = ({
   const lazioPriceBUSD = useBUSDPrice(tokens.lazio)
   const portoPriceBUSD = useBUSDPrice(tokens.porto)
   const santosPriceBUSD = useBUSDPrice(tokens.santos)
-  const cakeAsBigNumber = new BigNumber(userCakeRewards as string)
+  const rechAsBigNumber = new BigNumber(userCakeRewards as string)
   const lazioAsBigNumber = new BigNumber(userLazioRewards as string)
   const portoAsBigNumber = new BigNumber(userPortoRewards as string)
   const santosAsBigNumber = new BigNumber(userSantosRewards as string)
-  const cakeBalance = getBalanceNumber(cakeAsBigNumber)
+  const rechAalance = getBalanceNumber(rechAsBigNumber)
   const lazioBalance = getBalanceNumber(lazioAsBigNumber, 8)
   const portoBalance = getBalanceNumber(portoAsBigNumber, 8)
   const santosBalance = getBalanceNumber(santosAsBigNumber, 8)
-  const cakePriceBusd = useCakeBusdPrice()
+  const rechPriceBusd = useRechBusdPrice()
 
   const dollarValueOfTokensReward =
-    cakePriceBusd && lazioPriceBUSD && portoPriceBUSD && santosPriceBUSD
-      ? multiplyPriceByAmount(cakePriceBusd, cakeBalance) +
+    rechPriceBusd && lazioPriceBUSD && portoPriceBUSD && santosPriceBUSD
+      ? multiplyPriceByAmount(rechPriceBusd, rechAalance) +
         multiplyPriceByAmount(lazioPriceBUSD, lazioBalance, 8) +
         multiplyPriceByAmount(portoPriceBUSD, portoBalance, 8) +
         multiplyPriceByAmount(santosPriceBUSD, santosBalance, 8)
       : null
 
   return {
-    cakeReward: cakeBalance,
+    cakeReward: rechAalance,
     lazioReward: lazioBalance,
     portoReward: portoBalance,
     santosReward: santosBalance,
@@ -69,19 +69,19 @@ export const useMoboxCompetitionRewards = ({
   userMoboxRewards: ReactText
 }) => {
   const moboxPriceBUSD = useBUSDPrice(tokens.mbox)
-  const cakeAsBigNumber = new BigNumber(userCakeRewards as string)
+  const rechAsBigNumber = new BigNumber(userCakeRewards as string)
   const moboxAsBigNumber = new BigNumber(userMoboxRewards as string)
-  const cakeBalance = getBalanceNumber(cakeAsBigNumber)
+  const rechAalance = getBalanceNumber(rechAsBigNumber)
   const moboxBalance = getBalanceNumber(moboxAsBigNumber)
-  const cakePriceBusd = useCakeBusdPrice()
+  const rechPriceBusd = useRechBusdPrice()
 
   const dollarValueOfTokensReward =
-    cakePriceBusd && moboxPriceBUSD
-      ? multiplyPriceByAmount(cakePriceBusd, cakeBalance) + multiplyPriceByAmount(moboxPriceBUSD, moboxBalance, 8)
+    rechPriceBusd && moboxPriceBUSD
+      ? multiplyPriceByAmount(rechPriceBusd, rechAalance) + multiplyPriceByAmount(moboxPriceBUSD, moboxBalance, 8)
       : null
 
   return {
-    cakeReward: cakeBalance,
+    cakeReward: rechAalance,
     moboxReward: moboxBalance,
     dollarValueOfTokensReward,
   }
@@ -95,20 +95,20 @@ export const useModCompetitionRewards = ({
   userDarRewards: ReactText
 }) => {
   const darPriceBUSD = useBUSDPrice(tokens.dar)
-  const cakeAsBigNumber = new BigNumber(userCakeRewards as string)
+  const rechAsBigNumber = new BigNumber(userCakeRewards as string)
   const darAsBigNumber = new BigNumber(userDarRewards as string)
-  const cakeBalance = getBalanceNumber(cakeAsBigNumber)
+  const rechAalance = getBalanceNumber(rechAsBigNumber)
   const darBalance = getBalanceNumber(darAsBigNumber, tokens.dar.decimals)
-  const cakePriceBusd = useCakeBusdPrice()
+  const rechPriceBusd = useRechBusdPrice()
 
   const dollarValueOfTokensReward =
-    cakePriceBusd && darPriceBUSD
-      ? multiplyPriceByAmount(cakePriceBusd, cakeBalance) +
+    rechPriceBusd && darPriceBUSD
+      ? multiplyPriceByAmount(rechPriceBusd, rechAalance) +
         multiplyPriceByAmount(darPriceBUSD, darBalance, tokens.dar.decimals)
       : null
 
   return {
-    cakeReward: cakeBalance,
+    cakeReward: rechAalance,
     darReward: darBalance,
     dollarValueOfTokensReward,
   }

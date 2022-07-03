@@ -7,7 +7,7 @@ import { simpleRpcProvider } from 'utils/providers'
 import BigNumber from 'bignumber.js'
 import uniq from 'lodash/uniq'
 
-// Pool 0, Cake / Cake is a different kind of contract (master chef)
+// Pool 0, Rech / Rech is a different kind of contract (master chef)
 // ECH pools use the native ECH token (wrapping ? unwrapping is done at the contract level)
 const nonEchPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'ECH')
 const echPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'ECH')

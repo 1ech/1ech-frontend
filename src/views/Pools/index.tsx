@@ -24,10 +24,10 @@ import Loading from 'components/Loading'
 import { useInitialBlock } from 'state/block/hooks'
 import { BSC_BLOCK_TIME } from 'config'
 import PoolCard from './components/PoolCard'
-import CakeVaultCard from './components/CakeVaultCard'
+import RechVaultCard from './components/RechVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import PoolsTable from './components/PoolsTable/PoolsTable'
-import { getCakeVaultEarnings } from './helpers'
+import { getRechVaultEarnings } from './helpers'
 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;
@@ -109,9 +109,9 @@ const sortPools = (account: string, sortOption: string, pools: DeserializedPool[
             if (!vault.userData || !vault.userData.userShares) {
               return 0
             }
-            return getCakeVaultEarnings(
+            return getRechVaultEarnings(
               account,
-              vault.userData.cakeAtLastUserAction,
+              vault.userData.rechAtLastUserAction,
               vault.userData.userShares,
               vault.pricePerFullShare,
               vault.earningTokenPrice,
@@ -129,9 +129,9 @@ const sortPools = (account: string, sortOption: string, pools: DeserializedPool[
           let totalStaked = Number.NaN
           if (pool.vaultKey) {
             const vault = pool as DeserializedPoolVault
-            if (pool.stakingTokenPrice && vault.totalCakeInVault.isFinite()) {
+            if (pool.stakingTokenPrice && vault.totalRechInVault.isFinite()) {
               totalStaked =
-                +formatUnits(EthersBigNumber.from(vault.totalCakeInVault.toString()), pool.stakingToken.decimals) *
+                +formatUnits(EthersBigNumber.from(vault.totalRechInVault.toString()), pool.stakingToken.decimals) *
                 pool.stakingTokenPrice
             }
           } else if (pool.totalStaked?.isFinite() && pool.stakingTokenPrice) {
@@ -243,7 +243,7 @@ const Pools: React.FC = () => {
     <CardLayout>
       {chosenPools.map((pool) =>
         pool.vaultKey ? (
-          <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
+          <RechVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
         ) : (
           <PoolCard key={pool.sousId} pool={pool} account={account} />
         ),

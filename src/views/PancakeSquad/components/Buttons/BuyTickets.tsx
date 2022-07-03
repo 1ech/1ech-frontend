@@ -7,7 +7,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { MaxUint256 } from '@ethersproject/constants'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
-import { useCake, useNftSaleContract } from 'hooks/useContract'
+import { useRech, useNftSaleContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { DefaultTheme } from 'styled-components'
 import { requiresApproval } from 'utils/requiresApproval'
@@ -31,7 +31,7 @@ type BuyTicketsProps = {
   numberTicketsOfUser: number
   numberTicketsForGen0: number
   numberTicketsUsedForGen0: number
-  cakeBalance: BigNumber
+  rechAalance: BigNumber
   pricePerTicket: BigNumber
   startTimestamp: number
 }
@@ -48,7 +48,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
   numberTicketsOfUser,
   numberTicketsForGen0,
   numberTicketsUsedForGen0,
-  cakeBalance,
+  rechAalance,
   pricePerTicket,
   startTimestamp,
 }) => {
@@ -57,7 +57,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
   const { callWithGasPrice } = useCallWithGasPrice()
   const nftSaleContract = useNftSaleContract()
   const { toastSuccess } = useToast()
-  const { reader: cakeContractReader, signer: cakeContractApprover } = useCake()
+  const { reader: cakeContractReader, signer: cakeContractApprover } = useRech()
   const { isUserEnabled, setIsUserEnabled } = useContext(PancakeSquadContext)
 
   const canBuySaleTicket =
@@ -129,7 +129,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
       title={t('Buy Minting Tickets')}
       buyTicketCallBack={handleConfirm}
       headerBackground={theme.colors.gradients.cardHeader}
-      cakeBalance={cakeBalance}
+      rechAalance={rechAalance}
       maxPerAddress={maxPerAddress}
       maxPerTransaction={maxPerTransaction}
       numberTicketsForGen0={numberTicketsForGen0}

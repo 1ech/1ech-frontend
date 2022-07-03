@@ -63,7 +63,7 @@ export default {
     3000: '0x23c41D28A239dDCAABd1bb1deF8d057189510066',
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
-  cakeVault: {
+  rechVault: {
     3000: '0x45c54210128a065de780C4B0Df3d16664f7f859e',
     97: '',
   },
@@ -75,7 +75,7 @@ export default {
     3000: '0xD276fCF34D54A926773c399eBAa772C12ec394aC',
     97: '',
   },
-  bunnySpecialCakeVault: {
+  bunnySpecialRechVault: {
     3000: '0x5B4a770Abe7Eafb2601CA4dF9d73EA99363E60a4',
     97: '',
   },

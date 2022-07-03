@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js'
 import { useFastRefreshEffect } from 'hooks/useRefreshEffect'
 import { SerializedPool } from 'state/types'
 import { transformPool } from 'state/pools/helpers'
-import { getCakeContract } from 'utils/contractHelpers'
+import { getRechContract } from 'utils/contractHelpers'
 import { CHAIN_ID } from 'config/constants/networks'
 import { PoolCategory } from 'config/constants/types'
 import { serializeTokens } from 'config/constants/tokens'
@@ -15,13 +15,13 @@ export interface PoolsState {
 }
 
 const serializedTokens = serializeTokens()
-const cakeContract = getCakeContract()
+const cakeContract = getRechContract()
 
 const initialData = {
   data: {
     sousId: 0,
-    stakingToken: serializedTokens.cake,
-    earningToken: serializedTokens.cake,
+    stakingToken: serializedTokens.rech,
+    earningToken: serializedTokens.rech,
     contractAddress: {
       97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
       3000: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',

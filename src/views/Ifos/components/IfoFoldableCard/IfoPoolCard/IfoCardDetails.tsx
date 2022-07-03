@@ -40,7 +40,7 @@ const FooterEntry: React.FC<FooterEntryProps> = ({ label, value }) => {
 }
 
 const MaxTokenEntry = ({ maxToken, ifo, poolId }: { maxToken: number; ifo: Ifo; poolId: PoolIds }) => {
-  const isCurrencyCake = ifo.currency === tokens.cake
+  const isCurrencyCake = ifo.currency === tokens.rech
   const isV3 = ifo.version === 3 || ifo.version === 3.1
   const { t } = useTranslation()
 

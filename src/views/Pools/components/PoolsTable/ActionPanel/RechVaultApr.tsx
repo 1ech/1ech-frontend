@@ -7,13 +7,13 @@ import { VaultPosition } from 'utils/cakePool'
 import { MAX_LOCK_DURATION } from 'config/constants/pools'
 import { VaultRoiCalculatorModal } from '../../Vault/VaultRoiCalculatorModal'
 
-interface CakeVaultAprProps {
+interface RechVaultAprProps {
   pool: DeserializedPool
   userData: DeserializedLockedVaultUser
   vaultPosition: VaultPosition
 }
 
-const CakeVaultApr: React.FC<CakeVaultAprProps> = ({ pool, userData, vaultPosition }) => {
+const RechVaultApr: React.FC<RechVaultAprProps> = ({ pool, userData, vaultPosition }) => {
   const { t } = useTranslation()
 
   const { flexibleApy, lockedApy } = useVaultApy({
@@ -87,4 +87,4 @@ const CakeVaultApr: React.FC<CakeVaultAprProps> = ({ pool, userData, vaultPositi
   )
 }
 
-export default CakeVaultApr
+export default RechVaultApr

@@ -30,8 +30,8 @@ const LockedStakingApy: React.FC<LockedStakingApyPropsType> = ({ stakingToken, s
   )
 
   const currentLockedAmountAsBigNumber = useMemo(() => {
-    return userData?.balance?.cakeAsBigNumber
-  }, [userData?.balance?.cakeAsBigNumber])
+    return userData?.balance?.rechAsBigNumber
+  }, [userData?.balance?.rechAsBigNumber])
 
   const currentLockedAmount = getBalanceNumber(currentLockedAmountAsBigNumber)
 
@@ -46,8 +46,8 @@ const LockedStakingApy: React.FC<LockedStakingApyPropsType> = ({ stakingToken, s
 
   // earningTokenBalance includes overdue fee if any
   const earningTokenBalance = useMemo(() => {
-    return getBalanceNumber(currentLockedAmountAsBigNumber.minus(userData?.cakeAtLastUserAction))
-  }, [currentLockedAmountAsBigNumber, userData?.cakeAtLastUserAction])
+    return getBalanceNumber(currentLockedAmountAsBigNumber.minus(userData?.rechAtLastUserAction))
+  }, [currentLockedAmountAsBigNumber, userData?.rechAtLastUserAction])
 
   const tooltipContent = t(
     'Calculated based on current rates and subject to change based on pool conditions. It is an estimate provided for your convenience only, and by no means represents guaranteed returns.',

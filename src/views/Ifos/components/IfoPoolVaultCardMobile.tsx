@@ -9,7 +9,7 @@ import { TokenPairImage } from 'components/TokenImage'
 import { useRouter } from 'next/router'
 import BigNumber from 'bignumber.js'
 import { DeserializedPool } from 'state/types'
-import { convertSharesToCake, getCakeVaultEarnings } from 'views/Pools/helpers'
+import { convertSharesToCake, getRechVaultEarnings } from 'views/Pools/helpers'
 import { useVaultPoolByKeyV1 } from 'views/Migration/hook/V1/Pool/useFetchIfoPool'
 
 const StyledCardMobile = styled(Card)`
@@ -61,25 +61,25 @@ const IfoPoolVaultCardMobile: React.FC<IfoPoolVaultCardMobileProps> = ({ account
 
   const { vaultPoolData } = useVaultPoolByKeyV1(pool.vaultKey)
   const { pricePerFullShare } = vaultPoolData
-  const { userShares, cakeAtLastUserAction } = vaultPoolData.userData
+  const { userShares, rechAtLastUserAction } = vaultPoolData.userData
 
-  let cakeAsNumberBalance = 0
+  let rechAsNumberBalance = 0
   let earningTokenBalance = 0
   if (pricePerFullShare) {
-    const { cakeAsNumberBalance: cakeBalance } = convertSharesToCake(userShares, pricePerFullShare)
-    const { autoCakeToDisplay } = getCakeVaultEarnings(
+    const { rechAsNumberBalance: rechBalance } = convertSharesToCake(userShares, pricePerFullShare)
+    const { autoCakeToDisplay } = getRechVaultEarnings(
       account,
-      cakeAtLastUserAction,
+      rechAtLastUserAction,
       userShares,
       pricePerFullShare,
       pool.earningTokenPrice,
     )
 
-    cakeAsNumberBalance = cakeBalance
+    rechAsNumberBalance = rechBalance
     earningTokenBalance = autoCakeToDisplay
   }
 
-  const stakedBalance = Number.isNaN(cakeAsNumberBalance) ? 0 : cakeAsNumberBalance
+  const stakedBalance = Number.isNaN(rechAsNumberBalance) ? 0 : rechAsNumberBalance
 
   const isShowMigrationButton = account && new BigNumber(stakedBalance).gt(0)
 
@@ -97,7 +97,7 @@ const IfoPoolVaultCardMobile: React.FC<IfoPoolVaultCardMobileProps> = ({ account
         <StyledEndedTag>{t('Ended')}</StyledEndedTag>
         <Flex justifyContent="space-between" alignItems="center">
           <StyledTokenContent alignItems="center" flex={1}>
-            <TokenPairImage width={24} height={24} primaryToken={tokens.cake} secondaryToken={tokens.cake} />
+            <TokenPairImage width={24} height={24} primaryToken={tokens.rech} secondaryToken={tokens.rech} />
             <Box ml="8px">
               <Text small bold>
                 {t('IFO CAKE')}

@@ -6,7 +6,7 @@ import BigNumber from 'bignumber.js'
 import { useVaultApy } from './useVaultApy'
 
 describe('useVaultApy', () => {
-  const mockUseCakeVault = jest.spyOn(PoolHooks, 'useCakeVault')
+  const mockUseRechVault = jest.spyOn(PoolHooks, 'useRechVault')
 
   it.each([
     [
@@ -21,7 +21,7 @@ describe('useVaultApy', () => {
       },
     ],
   ])('should get correct vault apy', (cases, want) => {
-    mockUseCakeVault.mockReturnValue({
+    mockUseRechVault.mockReturnValue({
       totalShares: cases.totalShares,
       pricePerFullShare: cases.pricePerFullShare,
     })
@@ -36,7 +36,7 @@ describe('useVaultApy', () => {
       },
       {
         wrapper: createSWRWrapper({
-          'masterChef-total-cake-pool-emission': cases.emission,
+          'masterChef-total-rech-pool-emission': cases.emission,
         }),
       },
     )

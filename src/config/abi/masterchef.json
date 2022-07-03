@@ -8,7 +8,7 @@
       },
       {
         "internalType": "contract IBEP20",
-        "name": "_cake",
+        "name": "_rech",
         "type": "address"
       },
       {
@@ -210,7 +210,7 @@
         "type": "uint256"
       }
     ],
-    "name": "UpdateCakeRate",
+    "name": "UpdateRechRate",
     "type": "event"
   },
   {
@@ -237,7 +237,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "accCakePerShare",
+        "name": "accRechPerShare",
         "type": "uint256"
       }
     ],
@@ -315,7 +315,7 @@
   },
   {
     "inputs": [],
-    "name": "CAKE",
+    "name": "RECH",
     "outputs": [
       {
         "internalType": "contract IBEP20",
@@ -408,7 +408,7 @@
   },
   {
     "inputs": [],
-    "name": "burnCake",
+    "name": "burnRech",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -421,7 +421,7 @@
         "type": "bool"
       }
     ],
-    "name": "cakePerBlock",
+    "name": "rechPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -434,7 +434,7 @@
   },
   {
     "inputs": [],
-    "name": "cakePerBlockToBurn",
+    "name": "rechPerBlockToBurn",
     "outputs": [
       {
         "internalType": "uint256",
@@ -447,7 +447,7 @@
   },
   {
     "inputs": [],
-    "name": "cakeRateToBurn",
+    "name": "rechRateToBurn",
     "outputs": [
       {
         "internalType": "uint256",
@@ -460,7 +460,7 @@
   },
   {
     "inputs": [],
-    "name": "cakeRateToRegularFarm",
+    "name": "rechRateToRegularFarm",
     "outputs": [
       {
         "internalType": "uint256",
@@ -473,7 +473,7 @@
   },
   {
     "inputs": [],
-    "name": "cakeRateToSpecialFarm",
+    "name": "rechRateToSpecialFarm",
     "outputs": [
       {
         "internalType": "uint256",
@@ -637,7 +637,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingCake",
+    "name": "pendingRech",
     "outputs": [
       {
         "internalType": "uint256",
@@ -660,7 +660,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "accCakePerShare",
+        "name": "accRechPerShare",
         "type": "uint256"
       },
       {
@@ -818,7 +818,7 @@
         "type": "uint256"
       }
     ],
-    "name": "updateCakeRate",
+    "name": "updateRechRate",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -837,7 +837,7 @@
         "components": [
           {
             "internalType": "uint256",
-            "name": "accCakePerShare",
+            "name": "accRechPerShare",
             "type": "uint256"
           },
           {

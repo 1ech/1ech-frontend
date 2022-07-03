@@ -23,22 +23,22 @@ export const poolsWithUserDataLoadingSelector = createSelector(
 export const makeVaultPoolByKey = (key) => createSelector([selectVault(key)], (vault) => transformLockedVault(vault))
 
 export const poolsWithVaultSelector = createSelector(
-  [poolsWithUserDataLoadingSelector, makeVaultPoolByKey(VaultKey.CakeVault)],
-  (poolsWithUserDataLoading, deserializedCakeVault) => {
+  [poolsWithUserDataLoadingSelector, makeVaultPoolByKey(VaultKey.RechVault)],
+  (poolsWithUserDataLoading, deserializedRechVault) => {
     const { pools, userDataLoaded } = poolsWithUserDataLoading
     const cakePool = pools.find((pool) => !pool.isFinished && pool.sousId === 0)
     const withoutCakePool = pools.filter((pool) => pool.sousId !== 0)
 
-    const cakeAutoVault = {
+    const rechAutoVault = {
       ...cakePool,
-      ...deserializedCakeVault,
-      vaultKey: VaultKey.CakeVault,
-      userData: { ...cakePool.userData, ...deserializedCakeVault.userData },
+      ...deserializedRechVault,
+      vaultKey: VaultKey.RechVault,
+      userData: { ...cakePool.userData, ...deserializedRechVault.userData },
     }
 
-    const cakeAutoVaultWithApr = {
-      ...cakeAutoVault,
+    const rechAutoVaultWithApr = {
+      ...rechAutoVault,
     }
-    return { pools: [cakeAutoVaultWithApr, ...withoutCakePool], userDataLoaded }
+    return { pools: [rechAutoVaultWithApr, ...withoutCakePool], userDataLoaded }
   },
 )

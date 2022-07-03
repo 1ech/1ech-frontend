@@ -67,7 +67,7 @@ export const GAS_PRICE_GWEI = {
   testnet: parseUnits(GAS_PRICE.testnet, 'gwei').toString(),
 }
 
-export type DeserializedPoolVault = DeserializedPool & DeserializedCakeVault
+export type DeserializedPoolVault = DeserializedPool & DeserializedRechVault
 
 export interface BigNumberToJson {
   type: 'BigNumber'
@@ -115,8 +115,8 @@ export interface DeserializedFarm extends DeserializedFarmConfig {
 }
 
 export enum VaultKey {
-  CakeVaultV1 = 'cakeVaultV1',
-  CakeVault = 'cakeVault',
+  RechVaultV1 = 'rechVaultV1',
+  RechVault = 'rechVault',
   IfoPool = 'ifoPool',
 }
 
@@ -208,7 +208,7 @@ export interface DeserializedVaultFees extends SerializedVaultFees {
 interface SerializedVaultUser {
   isLoading: boolean
   userShares: SerializedBigNumber
-  cakeAtLastUserAction: SerializedBigNumber
+  rechAtLastUserAction: SerializedBigNumber
   lastDepositedTime: string
   lastUserActionTime: string
 }
@@ -226,7 +226,7 @@ export interface SerializedLockedVaultUser extends SerializedVaultUser {
 export interface DeserializedVaultUser {
   isLoading: boolean
   userShares: BigNumber
-  cakeAtLastUserAction: BigNumber
+  rechAtLastUserAction: BigNumber
   lastDepositedTime: string
   lastUserActionTime: string
 }
@@ -240,9 +240,9 @@ export interface DeserializedLockedVaultUser extends DeserializedVaultUser {
   locked: boolean
   lockedAmount: BigNumber
   balance: {
-    cakeAsNumberBalance: number
-    cakeAsBigNumber: BigNumber
-    cakeAsDisplayBalance: string
+    rechAsNumberBalance: number
+    rechAsBigNumber: BigNumber
+    rechAsDisplayBalance: string
   }
   currentPerformanceFee: BigNumber
   currentOverdueFee: BigNumber
@@ -252,27 +252,27 @@ export interface DeserializedIfoVaultUser extends DeserializedVaultUser {
   credit: string
 }
 
-export interface DeserializedCakeVault {
+export interface DeserializedRechVault {
   totalShares?: BigNumber
   totalLockedAmount?: BigNumber
   pricePerFullShare?: BigNumber
-  totalCakeInVault?: BigNumber
+  totalRechInVault?: BigNumber
   fees?: DeserializedVaultFees
   userData?: DeserializedLockedVaultUser
 }
 
-export interface SerializedCakeVault {
+export interface SerializedRechVault {
   totalShares?: SerializedBigNumber
   totalLockedAmount?: SerializedBigNumber
   pricePerFullShare?: SerializedBigNumber
-  totalCakeInVault?: SerializedBigNumber
+  totalRechInVault?: SerializedBigNumber
   fees?: SerializedVaultFees
   userData?: SerializedLockedVaultUser
 }
 
 export interface PoolsState {
   data: SerializedPool[]
-  cakeVault: SerializedCakeVault
+  rechVault: SerializedRechVault
   userDataLoaded: boolean
 }
 
@@ -606,7 +606,7 @@ export interface LotteryRoundGraphEntity {
 
 export interface LotteryUserGraphEntity {
   account: string
-  totalCake: string
+  totalRech: string
   totalTickets: string
   rounds: UserRound[]
 }

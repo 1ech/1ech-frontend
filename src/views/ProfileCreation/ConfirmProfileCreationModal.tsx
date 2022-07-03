@@ -2,7 +2,7 @@ import { Modal, Flex, Text } from '@pancakeswap/uikit'
 import { BigNumber } from '@ethersproject/bignumber'
 import { formatUnits } from '@ethersproject/units'
 import { useTranslation } from 'contexts/Localization'
-import { useCake, useProfileContract } from 'hooks/useContract'
+import { useRech, useProfileContract } from 'hooks/useContract'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
 import { useProfile } from 'state/profile/hooks'
 import useToast from 'hooks/useToast'
@@ -35,7 +35,7 @@ const ConfirmProfileCreationModal: React.FC<Props> = ({
   const profileContract = useProfileContract()
   const { refresh: refreshProfile } = useProfile()
   const { toastSuccess } = useToast()
-  const { reader: cakeContractReader, signer: cakeContractApprover } = useCake()
+  const { reader: cakeContractReader, signer: cakeContractApprover } = useRech()
   const { callWithGasPrice } = useCallWithGasPrice()
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =

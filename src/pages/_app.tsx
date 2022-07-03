@@ -64,7 +64,7 @@ function MyApp(props: AppProps) {
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="🥞 PancakeSwap - A next evolution DeFi exchange on Echelon" />
-        <title>PancakeSwap</title>
+        <title>1ECH</title>
       </Head>
       <Providers store={store}>
         <Blocklist>

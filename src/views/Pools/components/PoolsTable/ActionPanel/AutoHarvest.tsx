@@ -1,6 +1,6 @@
 import { Text, Flex, Skeleton, Heading, Box, useMatchBreakpointsContext } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
-import { getCakeVaultEarnings } from 'views/Pools/helpers'
+import { getRechVaultEarnings } from 'views/Pools/helpers'
 import { useTranslation } from 'contexts/Localization'
 import { BalanceWithLoading } from 'components/Balance'
 import { useVaultPoolByKey } from 'state/pools/hooks'
@@ -9,7 +9,7 @@ import { getVaultPosition, VaultPosition } from 'utils/cakePool'
 import { useVaultApy } from 'hooks/useVaultApy'
 
 import { ActionContainer, ActionTitles, ActionContent, RowActionContainer } from './styles'
-import UnstakingFeeCountdownRow from '../../CakeVaultCard/UnstakingFeeCountdownRow'
+import UnstakingFeeCountdownRow from '../../RechVaultCard/UnstakingFeeCountdownRow'
 import useUserDataInVaultPresenter from '../../LockedPool/hooks/useUserDataInVaultPresenter'
 
 const AutoHarvestAction: React.FunctionComponent<DeserializedPool> = ({
@@ -23,7 +23,7 @@ const AutoHarvestAction: React.FunctionComponent<DeserializedPool> = ({
 
   const {
     userData: {
-      cakeAtLastUserAction,
+      rechAtLastUserAction,
       userShares,
       currentOverdueFee,
       currentPerformanceFee,
@@ -34,9 +34,9 @@ const AutoHarvestAction: React.FunctionComponent<DeserializedPool> = ({
     },
     pricePerFullShare,
   } = useVaultPoolByKey(vaultKey)
-  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
+  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getRechVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    rechAtLastUserAction,
     userShares,
     pricePerFullShare,
     earningTokenPrice,

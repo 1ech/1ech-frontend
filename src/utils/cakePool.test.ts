@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js'
 import { UNLOCK_FREE_DURATION, BOOST_WEIGHT, DURATION_FACTOR, MAX_LOCK_DURATION } from 'config/constants/pools'
 import { addWeeks, addDays } from 'date-fns'
 import { VaultPosition, getVaultPosition } from './cakePool'
-import { getCakeVaultV2Contract } from './contractHelpers'
+import { getRechVaultV2Contract } from './contractHelpers'
 
 describe('cakePool', () => {
   it.each([
@@ -11,8 +11,8 @@ describe('cakePool', () => {
     ['DURATION_FACTOR', DURATION_FACTOR],
     ['MAX_LOCK_DURATION', MAX_LOCK_DURATION],
   ])('%s should be equal to SC: %s', async (method, result) => {
-    const cakeVault = getCakeVaultV2Contract()
-    const got = await cakeVault[method]()
+    const rechVault = getRechVaultV2Contract()
+    const got = await rechVault[method]()
     expect(got.eq(result)).toBe(true)
   })
   const NOW = new Date('2022-01-01').getTime()

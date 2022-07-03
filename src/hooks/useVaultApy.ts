@@ -4,7 +4,7 @@ import _toString from 'lodash/toString'
 import { BLOCKS_PER_YEAR } from 'config'
 import masterChefAbi from 'config/abi/masterchef.json'
 import { useCallback, useMemo } from 'react'
-import { useCakeVault } from 'state/pools/hooks'
+import { useRechVault } from 'state/pools/hooks'
 import useSWRImmutable from 'swr/immutable'
 import { getMasterChefAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
@@ -19,11 +19,11 @@ const DEFAULT_PERFORMANCE_FEE_DECIMALS = 2
 const PRECISION_FACTOR = BigNumber.from('1000000000000')
 
 const getFlexibleApy = (
-  totalCakePoolEmissionPerYear: FixedNumber,
+  totalRechPoolEmissionPerYear: FixedNumber,
   pricePerFullShare: FixedNumber,
   totalShares: FixedNumber,
 ) =>
-  totalCakePoolEmissionPerYear
+  totalRechPoolEmissionPerYear
     .mulUnsafe(FixedNumber.from(WeiPerEther))
     .divUnsafe(pricePerFullShare)
     .divUnsafe(totalShares)
@@ -46,12 +46,12 @@ export function useVaultApy({ duration = MAX_LOCK_DURATION }: { duration?: numbe
     totalShares = BIG_ZERO,
     pricePerFullShare = BIG_ZERO,
     fees: { performanceFeeAsDecimal } = { performanceFeeAsDecimal: DEFAULT_PERFORMANCE_FEE_DECIMALS },
-  } = useCakeVault()
+  } = useRechVault()
 
   const totalSharesAsEtherBN = useMemo(() => FixedNumber.from(totalShares.toString()), [totalShares])
   const pricePerFullShareAsEtherBN = useMemo(() => FixedNumber.from(pricePerFullShare.toString()), [pricePerFullShare])
 
-  const { data: totalCakePoolEmissionPerYear } = useSWRImmutable('masterChef-total-cake-pool-emission', async () => {
+  const { data: totalRechPoolEmissionPerYear } = useSWRImmutable('masterChef-total-rech-pool-emission', async () => {
     const calls = [
       {
         address: masterChefAddress,
@@ -81,11 +81,11 @@ export function useVaultApy({ duration = MAX_LOCK_DURATION }: { duration?: numbe
 
   const flexibleApy = useMemo(
     () =>
-      totalCakePoolEmissionPerYear &&
+      totalRechPoolEmissionPerYear &&
       !pricePerFullShareAsEtherBN.isZero() &&
       !totalSharesAsEtherBN.isZero() &&
-      getFlexibleApy(totalCakePoolEmissionPerYear, pricePerFullShareAsEtherBN, totalSharesAsEtherBN).toString(),
-    [pricePerFullShareAsEtherBN, totalCakePoolEmissionPerYear, totalSharesAsEtherBN],
+      getFlexibleApy(totalRechPoolEmissionPerYear, pricePerFullShareAsEtherBN, totalSharesAsEtherBN).toString(),
+    [pricePerFullShareAsEtherBN, totalRechPoolEmissionPerYear, totalSharesAsEtherBN],
   )
 
   const boostFactor = useMemo(() => _getBoostFactor(BOOST_WEIGHT, duration, DURATION_FACTOR), [duration])

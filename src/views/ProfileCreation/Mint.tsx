@@ -4,8 +4,8 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
-import { useCake, useBunnyFactory } from 'hooks/useContract'
-import { useGetCakeBalance } from 'hooks/useTokenBalance'
+import { useRech, useBunnyFactory } from 'hooks/useContract'
+import { useGetRechBalance } from 'hooks/useTokenBalance'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import ApproveConfirmButtons from 'components/ApproveConfirmButtons'
 import useToast from 'hooks/useToast'
@@ -30,11 +30,11 @@ const Mint: React.FC = () => {
   const { toastSuccess } = useToast()
 
   const { account } = useWeb3React()
-  const { reader: cakeContractReader, signer: cakeContractApprover } = useCake()
+  const { reader: cakeContractReader, signer: cakeContractApprover } = useRech()
   const bunnyFactoryContract = useBunnyFactory()
   const { t } = useTranslation()
-  const { balance: cakeBalance, fetchStatus } = useGetCakeBalance()
-  const hasMinimumCakeRequired = fetchStatus === FetchStatus.Fetched && cakeBalance.gte(MINT_COST)
+  const { balance: rechAalance, fetchStatus } = useGetRechBalance()
+  const hasMinimumCakeRequired = fetchStatus === FetchStatus.Fetched && rechAalance.gte(MINT_COST)
   const { callWithGasPrice } = useCallWithGasPrice()
 
   useEffect(() => {

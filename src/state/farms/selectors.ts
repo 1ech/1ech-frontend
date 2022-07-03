@@ -91,9 +91,9 @@ export const makeUserFarmFromPidSelector = (pid: number) =>
     }
   })
 
-export const priceCakeFromPidSelector = createSelector([selectCakeFarm], (cakeEchFarm) => {
-  const cakePriceBusdAsString = cakeEchFarm.tokenPriceBusd
-  return new BigNumber(cakePriceBusdAsString)
+export const priceRechFromPidSelector = createSelector([selectCakeFarm], (cakeEchFarm) => {
+  const rechPriceBusdAsString = cakeEchFarm.tokenPriceBusd
+  return new BigNumber(rechPriceBusdAsString)
 })
 
 export const farmFromLpSymbolSelector = (lpSymbol: string) =>

@@ -28,18 +28,27 @@ export const mainnetTokens = defineTokens({
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
+  mwmatic: new Token(
+    MAINNET,
+    '0x15B39ff9e45Fe67f49D66C7dA629CAbf2041657E',
+    18,
+    'mWMATIC',
+    'Metro Wrapped Matic',
+    'https://polygon.technology/',
+  ),
+  lgt: new Token(
+    MAINNET,
+    '0xb60b0218d167Bc02746d1f40d56C676a6b09Cb28',
+    18,
+    'LGT',
+    'Lite Governance Token',
+    'https://litescan.org',
+  ),
   // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
   ech: new Token(MAINNET, '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343', 18, 'ECH', 'ECH', 'https://ech.network/'),
   // ech here points to the wech contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
-  cake: new Token(
-    MAINNET,
-    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
-    18,
-    'CAKE',
-    'PancakeSwap Token',
-    'https://1ech.com/',
-  ),
+  rech: new Token(MAINNET, '0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
   beta: new Token(
@@ -2133,14 +2142,7 @@ export const testnetTokens = defineTokens({
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  cake: new Token(
-    TESTNET,
-    '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
-    18,
-    'CAKE',
-    'PancakeSwap Token',
-    'https://1ech.com/',
-  ),
+  rech: new Token(TESTNET, '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
   busd: new Token(
     TESTNET,
     '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',

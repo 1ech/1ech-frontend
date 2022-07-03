@@ -36,13 +36,13 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool }) => {
   // vault
   const {
     userData: {
-      balance: { cakeAsBigNumber, cakeAsNumberBalance },
+      balance: { rechAsBigNumber, rechAsNumberBalance },
     },
   } = useVaultPoolByKey(pool.vaultKey)
 
   // pool
   const { stakingTokenPrice, stakingToken, userData } = pool
-  const stakedAutoDollarValue = getBalanceNumber(cakeAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
+  const stakedAutoDollarValue = getBalanceNumber(rechAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)
   const stakedTokenDollarBalance = getBalanceNumber(
@@ -51,7 +51,7 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool }) => {
   )
 
   const labelText = `${pool.stakingToken.symbol} ${t('Staked')}`
-  const hasStaked = pool.vaultKey ? (Number.isNaN(cakeAsNumberBalance) ? 0 : cakeAsNumberBalance) : stakedTokenBalance
+  const hasStaked = pool.vaultKey ? (Number.isNaN(rechAsNumberBalance) ? 0 : rechAsNumberBalance) : stakedTokenBalance
 
   return (
     <StyledCell role="cell" flex={pool.vaultKey ? '1 0 100px' : '2 0 100px'}>

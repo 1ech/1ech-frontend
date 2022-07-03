@@ -3,8 +3,8 @@ import {
   SerializedFarm,
   DeserializedPool,
   SerializedPool,
-  SerializedCakeVault,
-  DeserializedCakeVault,
+  SerializedRechVault,
+  DeserializedRechVault,
 } from 'state/types'
 import { deserializeToken } from 'state/user/hooks/helpers'
 import { BIG_ZERO } from 'utils/bigNumber'
@@ -65,17 +65,17 @@ export const transformPool = (pool: SerializedPool): DeserializedPool => {
   }
 }
 
-export const transformLockedVault = (vault: SerializedCakeVault): DeserializedCakeVault => {
+export const transformLockedVault = (vault: SerializedRechVault): DeserializedRechVault => {
   const {
     totalShares: totalSharesAsString,
     totalLockedAmount: totalLockedAmountAsString,
     pricePerFullShare: pricePerFullShareAsString,
-    totalCakeInVault: totalCakeInVaultAsString,
+    totalRechInVault: totalRechInVaultAsString,
     fees: { performanceFee, withdrawalFee, withdrawalFeePeriod },
     userData: {
       isLoading,
       userShares: userSharesAsString,
-      cakeAtLastUserAction: cakeAtLastUserActionAsString,
+      rechAtLastUserAction: rechAtLastUserActionAsString,
       lastDepositedTime,
       lastUserActionTime,
       userBoostedShare: userBoostedShareAsString,
@@ -91,9 +91,9 @@ export const transformLockedVault = (vault: SerializedCakeVault): DeserializedCa
   const totalShares = totalSharesAsString ? new BigNumber(totalSharesAsString) : BIG_ZERO
   const totalLockedAmount = new BigNumber(totalLockedAmountAsString)
   const pricePerFullShare = pricePerFullShareAsString ? new BigNumber(pricePerFullShareAsString) : BIG_ZERO
-  const totalCakeInVault = new BigNumber(totalCakeInVaultAsString)
+  const totalRechInVault = new BigNumber(totalRechInVaultAsString)
   const userShares = new BigNumber(userSharesAsString)
-  const cakeAtLastUserAction = new BigNumber(cakeAtLastUserActionAsString)
+  const rechAtLastUserAction = new BigNumber(rechAtLastUserActionAsString)
   const lockedAmount = new BigNumber(lockedAmountAsString)
   const userBoostedShare = new BigNumber(userBoostedShareAsString)
   const currentOverdueFee = currentOverdueFeeAsString ? new BigNumber(currentOverdueFeeAsString) : BIG_ZERO
@@ -113,12 +113,12 @@ export const transformLockedVault = (vault: SerializedCakeVault): DeserializedCa
     totalShares,
     totalLockedAmount,
     pricePerFullShare,
-    totalCakeInVault,
+    totalRechInVault,
     fees: { performanceFee, withdrawalFee, withdrawalFeePeriod, performanceFeeAsDecimal },
     userData: {
       isLoading,
       userShares,
-      cakeAtLastUserAction,
+      rechAtLastUserAction,
       lastDepositedTime,
       lastUserActionTime,
       lockEndTime,

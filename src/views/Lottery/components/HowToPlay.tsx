@@ -332,7 +332,7 @@ const HowToPlay: React.FC = () => {
                 {t(
                   'An average total of 35,000 CAKE from the treasury is added to lottery rounds over the course of a week. This CAKE is of course also included in rollovers! Read more in our guide to ',
                 )}
-                <InlineLink href="https://docs.1ech.com/tokenomics/cake/cake-tokenomics">
+                <InlineLink href="https://docs.1ech.com/tokenomics/rech/rech-tokenomics">
                   {t('CAKE Tokenomics')}
                 </InlineLink>
               </Text>

@@ -19,15 +19,15 @@ const StyledCell = styled(BaseCell)`
 const TotalStakedCell: React.FC<TotalStakedCellProps> = ({ pool }) => {
   const { t } = useTranslation()
   const { stakingToken, totalStaked, vaultKey } = pool
-  const { totalCakeInVault } = useVaultPoolByKey(vaultKey)
+  const { totalRechInVault } = useVaultPoolByKey(vaultKey)
 
   const totalStakedBalance = useMemo(() => {
     if (vaultKey) {
-      return getBalanceNumber(totalCakeInVault, stakingToken.decimals)
+      return getBalanceNumber(totalRechInVault, stakingToken.decimals)
     }
 
     return getBalanceNumber(totalStaked, stakingToken.decimals)
-  }, [vaultKey, totalCakeInVault, totalStaked, stakingToken.decimals])
+  }, [vaultKey, totalRechInVault, totalStaked, stakingToken.decimals])
 
   return (
     <StyledCell role="cell">

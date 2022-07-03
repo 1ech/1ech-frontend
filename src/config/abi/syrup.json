@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract CakeToken",
+        "internalType": "contract RechToken",
         "name": "_cake",
         "type": "address"
       }
@@ -242,10 +242,10 @@
   },
   {
     "inputs": [],
-    "name": "cake",
+    "name": "rech",
     "outputs": [
       {
-        "internalType": "contract CakeToken",
+        "internalType": "contract RechToken",
         "name": "",
         "type": "address"
       }

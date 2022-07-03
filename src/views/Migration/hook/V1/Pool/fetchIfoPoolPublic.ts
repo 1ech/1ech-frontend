@@ -15,11 +15,11 @@ export const fetchPublicIfoPoolData = async (ifoPoolAddress: string) => {
 
     const totalSharesAsBigNumber = shares ? new BigNumber(shares.toString()) : BIG_ZERO
     const sharePriceAsBigNumber = sharePrice ? new BigNumber(sharePrice.toString()) : BIG_ZERO
-    const totalCakeInVaultEstimate = convertSharesToCake(totalSharesAsBigNumber, sharePriceAsBigNumber)
+    const totalRechInVaultEstimate = convertSharesToCake(totalSharesAsBigNumber, sharePriceAsBigNumber)
     return {
       totalShares: totalSharesAsBigNumber.toJSON(),
       pricePerFullShare: sharePriceAsBigNumber.toJSON(),
-      totalCakeInVault: totalCakeInVaultEstimate.cakeAsBigNumber.toJSON(),
+      totalRechInVault: totalRechInVaultEstimate.rechAsBigNumber.toJSON(),
       creditStartBlock: startBlock.toNumber(),
       creditEndBlock: endBlock.toNumber(),
     }
@@ -27,7 +27,7 @@ export const fetchPublicIfoPoolData = async (ifoPoolAddress: string) => {
     return {
       totalShares: null,
       pricePerFullShare: null,
-      totalCakeInVault: null,
+      totalRechInVault: null,
     }
   }
 }

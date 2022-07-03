@@ -31,7 +31,7 @@ import isUndefinedOrNull from 'utils/isUndefinedOrNull'
 import useUserDataInVaultPresenter from 'views/Pools/components/LockedPool/hooks/useUserDataInVaultPresenter'
 
 import { useApprovePool, useCheckVaultApprovalStatus, useVaultApprove } from '../../../hooks/useApprove'
-import VaultStakeModal from '../../CakeVaultCard/VaultStakeModal'
+import VaultStakeModal from '../../RechVaultCard/VaultStakeModal'
 import NotEnoughTokensModal from '../../PoolCard/Modals/NotEnoughTokensModal'
 import StakeModal from '../../PoolCard/Modals/StakeModal'
 import { ProfileRequirementWarning } from '../../ProfileRequirementWarning'
@@ -102,7 +102,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
       lockEndTime,
       locked,
       lockStartTime,
-      balance: { cakeAsBigNumber, cakeAsNumberBalance },
+      balance: { rechAsBigNumber, rechAsNumberBalance },
       currentOverdueFee,
     },
   } = useVaultPoolByKey(pool.vaultKey)
@@ -114,7 +114,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
 
   const hasSharesStaked = userShares && userShares.gt(0)
   const isVaultWithShares = vaultKey && hasSharesStaked
-  const stakedAutoDollarValue = getBalanceNumber(cakeAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
+  const stakedAutoDollarValue = getBalanceNumber(rechAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
 
   const needsApproval = vaultKey ? !isVaultApproved : !allowance.gt(0) && !isEchPool
 
@@ -141,7 +141,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
     />,
   )
 
-  const [onPresentVaultUnstake] = useModal(<VaultStakeModal stakingMax={cakeAsBigNumber} pool={pool} isRemovingStake />)
+  const [onPresentVaultUnstake] = useModal(<VaultStakeModal stakingMax={rechAsBigNumber} pool={pool} isRemovingStake />)
 
   const [openPresentLockedStakeModal] = useModal(
     <LockedStakedModal
@@ -261,7 +261,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                     bold
                     fontSize="20px"
                     decimals={5}
-                    value={vaultKey ? cakeAsNumberBalance : stakedTokenBalance}
+                    value={vaultKey ? rechAsNumberBalance : stakedTokenBalance}
                   />
                   <SkeletonV2
                     isDataReady={Number.isFinite(vaultKey ? stakedAutoDollarValue : stakedTokenDollarBalance)}
@@ -286,7 +286,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                   <AddCakeButton
                     lockEndTime={lockEndTime}
                     lockStartTime={lockStartTime}
-                    currentLockedAmount={cakeAsBigNumber}
+                    currentLockedAmount={rechAsBigNumber}
                     stakingToken={stakingToken}
                     currentBalance={stakingTokenBalance}
                     stakingTokenBalance={stakingTokenBalance}
@@ -322,7 +322,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
                       lockEndTime={lockEndTime}
                       lockStartTime={lockStartTime}
                       stakingToken={stakingToken}
-                      currentLockedAmount={cakeAsNumberBalance}
+                      currentLockedAmount={rechAsNumberBalance}
                     >
                       {t('Extend')}
                     </ExtendButton>
@@ -401,7 +401,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
             <AfterLockedActions
               isInline
               position={vaultPosition}
-              currentLockedAmount={cakeAsNumberBalance}
+              currentLockedAmount={rechAsNumberBalance}
               stakingToken={stakingToken}
               lockEndTime="0"
               lockStartTime="0"
@@ -415,7 +415,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
             ml={['0', '0', '12px', '12px', '32px']}
             mr={['0', '0', '12px', '12px', '0']}
           >
-            <ConvertToLock stakingToken={stakingToken} currentStakedAmount={cakeAsNumberBalance} isInline />
+            <ConvertToLock stakingToken={stakingToken} currentStakedAmount={rechAsNumberBalance} isInline />
           </Box>
         )}
       </>

@@ -3,7 +3,7 @@ import { Box, Button, Card, CardBody, Flex, Step, Stepper, Text } from '@pancake
 import { useTranslation } from 'contexts/Localization'
 import { StyledWaveContainer, LandingBodyWrapper } from 'views/PancakeSquad/styles'
 import useTheme from 'hooks/useTheme'
-import { useGetCakeBalance } from 'hooks/useTokenBalance'
+import { useGetRechBalance } from 'hooks/useTokenBalance'
 import EventStepsBottomWave from '../../assets/EventStepsBottomWave'
 import EventStepsTopWave from '../../assets/EventStepsTopWave'
 import stepsConfigBuilder from './config'
@@ -13,8 +13,8 @@ import { EventStepsProps } from './types'
 const EventStepsSection: React.FC<EventStepsProps> = ({ eventInfos, userInfos, isLoading, userStatus, account }) => {
   const { t } = useTranslation()
   const { theme, isDark } = useTheme()
-  const { balance: cakeBalance } = useGetCakeBalance()
-  const stepsConfig = stepsConfigBuilder({ t, eventInfos, userInfos, userStatus, account, theme, cakeBalance })
+  const { balance: rechAalance } = useGetRechBalance()
+  const stepsConfig = stepsConfigBuilder({ t, eventInfos, userInfos, userStatus, account, theme, rechAalance })
   const isMintingFinished = userInfos && eventInfos && eventInfos.maxSupply === eventInfos.totalSupplyMinted
   return (
     <StyledEventStepsSectionContainer justifyContent="center" $isDark={isDark}>

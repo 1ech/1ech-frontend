@@ -15,8 +15,8 @@ const StyledLinkExternal = styled(LinkExternal)`
 
 interface DetailsViewProps {
   total: number
-  cakeBalance?: number
-  cakeVaultBalance?: number
+  rechAalance?: number
+  rechVaultBalance?: number
   cakePoolBalance?: number
   poolsBalance?: number
   cakeEchLpBalance?: number
@@ -26,8 +26,8 @@ interface DetailsViewProps {
 
 const DetailsView: React.FC<DetailsViewProps> = ({
   total,
-  cakeBalance,
-  cakeVaultBalance,
+  rechAalance,
+  rechVaultBalance,
   cakePoolBalance,
   poolsBalance,
   cakeEchLpBalance,
@@ -58,12 +58,12 @@ const DetailsView: React.FC<DetailsViewProps> = ({
           {block}
         </StyledLinkExternal>
       </Text>
-      {Number.isFinite(cakeBalance) && (
+      {Number.isFinite(rechAalance) && (
         <Flex alignItems="center" justifyContent="space-between" mb="4px">
           <Text color="textSubtle" fontSize="16px">
             {t('Wallet')}
           </Text>
-          <Text textAlign="right">{formatNumber(cakeBalance, 0, 3)}</Text>
+          <Text textAlign="right">{formatNumber(rechAalance, 0, 3)}</Text>
         </Flex>
       )}
       {Number.isFinite(cakePoolBalance) && (
@@ -74,12 +74,12 @@ const DetailsView: React.FC<DetailsViewProps> = ({
           <Text textAlign="right">{formatNumber(cakePoolBalance, 0, 3)}</Text>
         </Flex>
       )}
-      {Number.isFinite(cakeVaultBalance) && (
+      {Number.isFinite(rechVaultBalance) && (
         <Flex alignItems="center" justifyContent="space-between" mb="4px">
           <Text color="textSubtle" fontSize="16px">
             {t('Auto CAKE Pool')}
           </Text>
-          <Text textAlign="right">{formatNumber(cakeVaultBalance, 0, 3)}</Text>
+          <Text textAlign="right">{formatNumber(rechVaultBalance, 0, 3)}</Text>
         </Flex>
       )}
       {Number.isFinite(ifoPoolBalance) && (

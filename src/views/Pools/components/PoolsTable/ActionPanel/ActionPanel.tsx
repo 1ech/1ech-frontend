@@ -14,7 +14,7 @@ import { VaultPositionTagWithLabel } from '../../Vault/VaultPositionTag'
 import YieldBoostRow from '../../LockedPool/Common/YieldBoostRow'
 import LockDurationRow from '../../LockedPool/Common/LockDurationRow'
 import useUserDataInVaultPresenter from '../../LockedPool/hooks/useUserDataInVaultPresenter'
-import CakeVaultApr from './CakeVaultApr'
+import RechVaultApr from './RechVaultApr'
 import PoolStatsInfo from '../../PoolStatsInfo'
 
 const expandAnimation = keyframes`
@@ -128,7 +128,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, expanded }) =>
     userData: {
       lockEndTime,
       lockStartTime,
-      balance: { cakeAsBigNumber },
+      balance: { rechAsBigNumber },
       locked,
     },
   } = vaultPool
@@ -139,7 +139,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, expanded }) =>
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
 
   const poolStakingTokenBalance = vaultKey
-    ? cakeAsBigNumber.plus(stakingTokenBalance)
+    ? rechAsBigNumber.plus(stakingTokenBalance)
     : stakedBalance.plus(stakingTokenBalance)
 
   const manualTooltipText = t('You must harvest and compound your earnings from this pool manually.')
@@ -174,7 +174,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, expanded }) =>
       </InfoSection>
       <ActionContainer>
         {isMobile && vaultKey && vaultPosition === VaultPosition.None && (
-          <CakeVaultApr pool={pool} userData={vaultPool.userData} vaultPosition={vaultPosition} />
+          <RechVaultApr pool={pool} userData={vaultPool.userData} vaultPosition={vaultPosition} />
         )}
         <Box width="100%">
           {pool.vaultKey && (

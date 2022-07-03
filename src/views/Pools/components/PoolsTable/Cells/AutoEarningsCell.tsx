@@ -4,7 +4,7 @@ import { DeserializedPool } from 'state/types'
 import Balance from 'components/Balance'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { useTranslation } from 'contexts/Localization'
-import { getCakeVaultEarnings } from 'views/Pools/helpers'
+import { getRechVaultEarnings } from 'views/Pools/helpers'
 import BaseCell, { CellContent } from './BaseCell'
 import AutoEarningsBreakdown from '../../AutoEarningsBreakdown'
 
@@ -32,7 +32,7 @@ const AutoEarningsCell: React.FC<AutoEarningsCellProps> = ({ pool, account }) =>
   const {
     userData: {
       isLoading: userDataLoading,
-      cakeAtLastUserAction,
+      rechAtLastUserAction,
       userShares,
       currentOverdueFee,
       currentPerformanceFee,
@@ -40,9 +40,9 @@ const AutoEarningsCell: React.FC<AutoEarningsCellProps> = ({ pool, account }) =>
     },
     pricePerFullShare,
   } = useVaultPoolByKey(pool.vaultKey)
-  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
+  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getRechVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    rechAtLastUserAction,
     userShares,
     pricePerFullShare,
     earningTokenPrice,

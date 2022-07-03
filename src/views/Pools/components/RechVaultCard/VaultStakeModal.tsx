@@ -18,7 +18,7 @@ import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 
-import { usePriceCakeBusd } from 'state/farms/hooks'
+import { usePriceRechBusd } from 'state/farms/hooks'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { useVaultApy } from 'hooks/useVaultApy'
 
@@ -29,7 +29,7 @@ import BigNumber from 'bignumber.js'
 import { getFullDisplayBalance, formatNumber, getDecimalAmount } from 'utils/formatBalance'
 import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
-import { fetchCakeVaultUserData } from 'state/pools'
+import { fetchRechVaultUserData } from 'state/pools'
 import { DeserializedPool } from 'state/types'
 import { getInterestBreakdown } from 'utils/compoundApyHelpers'
 import { ToastDescriptionWithTx } from 'components/Toast'
@@ -84,7 +84,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
     userData: {
       lastDepositedTime,
       userShares,
-      balance: { cakeAsBigNumber, cakeAsNumberBalance },
+      balance: { rechAsBigNumber, rechAsNumberBalance },
     },
   } = useVaultPoolByKey(pool.vaultKey)
   const { t } = useTranslation()
@@ -94,9 +94,9 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
   const [percent, setPercent] = useState(0)
   const [showRoiCalculator, setShowRoiCalculator] = useState(false)
   const { hasUnstakingFee } = useWithdrawalFeeTimer(parseInt(lastDepositedTime, 10), userShares)
-  const cakePriceBusd = usePriceCakeBusd()
-  const usdValueStaked = new BigNumber(stakeAmount).times(cakePriceBusd)
-  const formattedUsdValueStaked = cakePriceBusd.gt(0) && stakeAmount ? formatNumber(usdValueStaked.toNumber()) : ''
+  const rechPriceBusd = usePriceRechBusd()
+  const usdValueStaked = new BigNumber(stakeAmount).times(rechPriceBusd)
+  const formattedUsdValueStaked = rechPriceBusd.gt(0) && stakeAmount ? formatNumber(usdValueStaked.toNumber()) : ''
 
   const { flexibleApy } = useVaultApy()
 
@@ -160,7 +160,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
         </ToastDescriptionWithTx>,
       )
       onDismiss?.()
-      dispatch(fetchCakeVaultUserData({ account }))
+      dispatch(fetchRechVaultUserData({ account }))
     }
   }
 
@@ -180,7 +180,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
         </ToastDescriptionWithTx>,
       )
       onDismiss?.()
-      dispatch(fetchCakeVaultUserData({ account }))
+      dispatch(fetchRechVaultUserData({ account }))
     }
   }
 
@@ -200,7 +200,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
         pool={pool}
         linkLabel={t('Get %symbol%', { symbol: stakingToken.symbol })}
         linkHref={getTokenLink}
-        stakingTokenBalance={cakeAsBigNumber.plus(stakingMax)}
+        stakingTokenBalance={rechAsBigNumber.plus(stakingMax)}
         onBack={() => setShowRoiCalculator(false)}
         initialValue={stakeAmount}
         performanceFee={performanceFee}
@@ -226,7 +226,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
       <BalanceInput
         value={stakeAmount}
         onUserInput={handleStakeInputChange}
-        currencyValue={cakePriceBusd.gt(0) && `~${formattedUsdValueStaked || 0} USD`}
+        currencyValue={rechPriceBusd.gt(0) && `~${formattedUsdValueStaked || 0} USD`}
         decimals={stakingToken.decimals}
       />
       <Text mt="8px" ml="auto" color="textSubtle" fontSize="12px" mb="8px">
@@ -280,9 +280,9 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
           )}
         </Flex>
       )}
-      {cakeAsNumberBalance ? (
+      {rechAsNumberBalance ? (
         <Box mt="8px" maxWidth="370px">
-          <ConvertToLock stakingToken={stakingToken} currentStakedAmount={cakeAsNumberBalance} />
+          <ConvertToLock stakingToken={stakingToken} currentStakedAmount={rechAsNumberBalance} />
         </Box>
       ) : null}
       <Button

@@ -41,7 +41,7 @@ const fetchMarketDataNfts = async (
   return { newNfts: moreTokensWithRequestedBunnyId, isPageLast: moreTokensWithRequestedBunnyId.length < itemsPerPage }
 }
 
-export const usePancakeBunnyOnSaleNfts = (
+export const usePancakeAunnyOnSaleNfts = (
   bunnyId: string,
   nftMetadata: ApiResponseCollectionTokens,
   itemsPerPage: number,

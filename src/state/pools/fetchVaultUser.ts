@@ -1,26 +1,26 @@
 import BigNumber from 'bignumber.js'
 import { SerializedLockedVaultUser } from 'state/types'
-import { getCakeVaultAddress } from 'utils/addressHelpers'
-import cakeVaultAbi from 'config/abi/cakeVaultV2.json'
+import { getRechVaultAddress } from 'utils/addressHelpers'
+import rechVaultAbi from 'config/abi/rechVaultV2.json'
 import { multicallv2 } from 'utils/multicall'
 
-const cakeVaultAddress = getCakeVaultAddress()
+const rechVaultAddress = getRechVaultAddress()
 
 const fetchVaultUser = async (account: string): Promise<SerializedLockedVaultUser> => {
   try {
     const calls = ['userInfo', 'calculatePerformanceFee', 'calculateOverdueFee'].map((method) => ({
-      address: cakeVaultAddress,
+      address: rechVaultAddress,
       name: method,
       params: [account],
     }))
 
-    const [userContractResponse, [currentPerformanceFee], [currentOverdueFee]] = await multicallv2(cakeVaultAbi, calls)
+    const [userContractResponse, [currentPerformanceFee], [currentOverdueFee]] = await multicallv2(rechVaultAbi, calls)
     return {
       isLoading: false,
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),
       lastDepositedTime: userContractResponse.lastDepositedTime.toString(),
       lastUserActionTime: userContractResponse.lastUserActionTime.toString(),
-      cakeAtLastUserAction: new BigNumber(userContractResponse.cakeAtLastUserAction.toString()).toJSON(),
+      rechAtLastUserAction: new BigNumber(userContractResponse.rechAtLastUserAction.toString()).toJSON(),
       userBoostedShare: new BigNumber(userContractResponse.userBoostedShare.toString()).toJSON(),
       locked: userContractResponse.locked,
       lockEndTime: userContractResponse.lockEndTime.toString(),
@@ -35,7 +35,7 @@ const fetchVaultUser = async (account: string): Promise<SerializedLockedVaultUse
       userShares: null,
       lastDepositedTime: null,
       lastUserActionTime: null,
-      cakeAtLastUserAction: null,
+      rechAtLastUserAction: null,
       userBoostedShare: null,
       lockEndTime: null,
       lockStartTime: null,

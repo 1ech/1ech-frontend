@@ -4,8 +4,8 @@ import { gql } from 'graphql-request'
 import { GetStaticProps } from 'next'
 import { SWRConfig } from 'swr'
 import { bitQueryServerClient, infoServerClient } from 'utils/graphql'
-import { getCakeVaultAddress } from 'utils/addressHelpers'
-import { getCakeContract } from 'utils/contractHelpers'
+import { getRechVaultAddress } from 'utils/addressHelpers'
+import { getRechContract } from 'utils/contractHelpers'
 import { getBlocksFromTimestamps } from 'utils/getBlocksFromTimestamps'
 import { formatEther } from '@ethersproject/units'
 import Home from '../views/Home'
@@ -121,10 +121,10 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `)
     const { totalLiquidityUSD } = result.pancakeFactories[0]
-    const cakeVaultV2 = getCakeVaultAddress()
-    const cakeContract = getCakeContract()
-    const totalCakeInVault = await cakeContract.balanceOf(cakeVaultV2)
-    results.tvl = parseFloat(formatEther(totalCakeInVault)) * result.token.derivedUSD + parseFloat(totalLiquidityUSD)
+    const rechVaultV2 = getRechVaultAddress()
+    const cakeContract = getRechContract()
+    const totalRechInVault = await cakeContract.balanceOf(rechVaultV2)
+    results.tvl = parseFloat(formatEther(totalRechInVault)) * result.token.derivedUSD + parseFloat(totalLiquidityUSD)
   } catch (error) {
     if (process.env.NODE_ENV === 'production') {
       console.error('Error when fetching tvl stats', error)

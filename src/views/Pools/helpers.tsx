@@ -15,20 +15,20 @@ export const convertSharesToCake = (
 ) => {
   const sharePriceNumber = getBalanceNumber(cakePerFullShare, decimals)
   const amountInCake = new BigNumber(shares.multipliedBy(sharePriceNumber)).minus(fee || BIG_ZERO)
-  const cakeAsNumberBalance = getBalanceNumber(amountInCake, decimals)
-  const cakeAsBigNumber = getDecimalAmount(new BigNumber(cakeAsNumberBalance), decimals)
-  const cakeAsDisplayBalance = getFullDisplayBalance(amountInCake, decimals, decimalsToRound)
-  return { cakeAsNumberBalance, cakeAsBigNumber, cakeAsDisplayBalance }
+  const rechAsNumberBalance = getBalanceNumber(amountInCake, decimals)
+  const rechAsBigNumber = getDecimalAmount(new BigNumber(rechAsNumberBalance), decimals)
+  const rechAsDisplayBalance = getFullDisplayBalance(amountInCake, decimals, decimalsToRound)
+  return { rechAsNumberBalance, rechAsBigNumber, rechAsDisplayBalance }
 }
 
 export const convertCakeToShares = (
-  cake: BigNumber,
+  rech: BigNumber,
   cakePerFullShare: BigNumber,
   decimals = 18,
   decimalsToRound = 3,
 ) => {
   const sharePriceNumber = getBalanceNumber(cakePerFullShare, decimals)
-  const amountInShares = new BigNumber(cake.dividedBy(sharePriceNumber))
+  const amountInShares = new BigNumber(rech.dividedBy(sharePriceNumber))
   const sharesAsNumberBalance = getBalanceNumber(amountInShares, decimals)
   const sharesAsBigNumber = getDecimalAmount(new BigNumber(sharesAsNumberBalance), decimals)
   const sharesAsDisplayBalance = getFullDisplayBalance(amountInShares, decimals, decimalsToRound)
@@ -52,18 +52,18 @@ export const getAprData = (pool: DeserializedPool, performanceFee: number) => {
   return { apr, autoCompoundFrequency }
 }
 
-export const getCakeVaultEarnings = (
+export const getRechVaultEarnings = (
   account: string,
-  cakeAtLastUserAction: BigNumber,
+  rechAtLastUserAction: BigNumber,
   userShares: BigNumber,
   pricePerFullShare: BigNumber,
   earningTokenPrice: number,
   fee?: BigNumber,
 ) => {
   const hasAutoEarnings =
-    account && cakeAtLastUserAction && cakeAtLastUserAction.gt(0) && userShares && userShares.gt(0)
-  const { cakeAsBigNumber } = convertSharesToCake(userShares, pricePerFullShare)
-  const autoCakeProfit = cakeAsBigNumber.minus(fee || BIG_ZERO).minus(cakeAtLastUserAction)
+    account && rechAtLastUserAction && rechAtLastUserAction.gt(0) && userShares && userShares.gt(0)
+  const { rechAsBigNumber } = convertSharesToCake(userShares, pricePerFullShare)
+  const autoCakeProfit = rechAsBigNumber.minus(fee || BIG_ZERO).minus(rechAtLastUserAction)
   const autoCakeToDisplay = autoCakeProfit.gte(0) ? getBalanceNumber(autoCakeProfit, 18) : 0
 
   const autoUsdProfit = autoCakeProfit.times(earningTokenPrice)

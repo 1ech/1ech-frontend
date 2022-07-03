@@ -27,7 +27,7 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool, account }) => {
       locked,
       isLoading: vaultUserDataLoading,
       userShares,
-      balance: { cakeAsBigNumber, cakeAsNumberBalance },
+      balance: { rechAsBigNumber, rechAsNumberBalance },
     },
   } = useVaultPoolByKey(pool.vaultKey)
   const hasSharesStaked = userShares && userShares.gt(0)
@@ -35,7 +35,7 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool, account }) => {
 
   // pool
   const { stakingTokenPrice, stakingToken, userData } = pool
-  const stakedAutoDollarValue = getBalanceNumber(cakeAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
+  const stakedAutoDollarValue = getBalanceNumber(rechAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals)
   const stakedTokenDollarBalance = getBalanceNumber(
@@ -70,9 +70,9 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool, account }) => {
                   value={
                     hasStaked
                       ? pool.vaultKey
-                        ? Number.isNaN(cakeAsNumberBalance)
+                        ? Number.isNaN(rechAsNumberBalance)
                           ? 0
-                          : cakeAsNumberBalance
+                          : rechAsNumberBalance
                         : stakedTokenBalance
                       : 0
                   }

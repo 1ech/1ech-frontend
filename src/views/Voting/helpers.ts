@@ -36,7 +36,7 @@ export interface Message {
   sig: string
 }
 
-const STRATEGIES = [{ name: 'cake', params: { symbol: 'CAKE', address: tokens.cake.address, decimals: 18, max: 300 } }]
+const STRATEGIES = [{ name: 'rech', params: { symbol: 'CAKE', address: tokens.rech.address, decimals: 18, max: 300 } }]
 const NETWORK = '56'
 
 /**
@@ -93,10 +93,10 @@ export const VOTING_POWER_BLOCK = {
  */
 export const getVotingPower = async (account: string, poolAddresses: string[], blockNumber?: number) => {
   if (blockNumber && blockNumber >= VOTING_POWER_BLOCK.v1) {
-    const [cakeBalance, cakeEchLpBalance, cakePoolBalance, poolsBalance, total] = await getScores(
+    const [rechAalance, cakeEchLpBalance, cakePoolBalance, poolsBalance, total] = await getScores(
       PANCAKE_SPACE,
       [
-        strategies.cakeBalanceStrategy('v1'),
+        strategies.rechAalanceStrategy('v1'),
         strategies.cakeEchLpBalanceStrategy('v1'),
         strategies.cakePoolBalanceStrategy('v1'),
         strategies.creatPoolsBalanceStrategy(poolAddresses, 'v1'),
@@ -110,7 +110,7 @@ export const getVotingPower = async (account: string, poolAddresses: string[], b
     return {
       poolsBalance: poolsBalance[account] ? poolsBalance[account] : 0,
       total: total[account] ? total[account] : 0,
-      cakeBalance: cakeBalance[account] ? cakeBalance[account] : 0,
+      rechAalance: rechAalance[account] ? rechAalance[account] : 0,
       cakePoolBalance: cakePoolBalance[account] ? cakePoolBalance[account] : 0,
       cakeEchLpBalance: cakeEchLpBalance[account] ? cakeEchLpBalance[account] : 0,
       voter: account,
@@ -118,14 +118,14 @@ export const getVotingPower = async (account: string, poolAddresses: string[], b
   }
 
   if (blockNumber && blockNumber >= VOTING_POWER_BLOCK.v0) {
-    const [cakeBalance, cakeEchLpBalance, cakePoolBalance, cakeVaultBalance, ifoPoolBalance, poolsBalance, total] =
+    const [rechAalance, cakeEchLpBalance, cakePoolBalance, rechVaultBalance, ifoPoolBalance, poolsBalance, total] =
       await getScores(
         PANCAKE_SPACE,
         [
-          strategies.cakeBalanceStrategy('v0'),
+          strategies.rechAalanceStrategy('v0'),
           strategies.cakeEchLpBalanceStrategy('v0'),
           strategies.cakePoolBalanceStrategy('v0'),
-          strategies.cakeVaultBalanceStrategy,
+          strategies.rechVaultBalanceStrategy,
           strategies.ifoPoolBalanceStrategy,
           strategies.creatPoolsBalanceStrategy(poolAddresses, 'v0'),
           strategies.createTotalStrategy(poolAddresses, 'v0'),
@@ -138,8 +138,8 @@ export const getVotingPower = async (account: string, poolAddresses: string[], b
     return {
       poolsBalance: poolsBalance[account] ? poolsBalance[account] : 0,
       total: total[account] ? total[account] : 0,
-      cakeBalance: cakeBalance[account] ? cakeBalance[account] : 0,
-      cakeVaultBalance: cakeVaultBalance[account] ? cakeVaultBalance[account] : 0,
+      rechAalance: rechAalance[account] ? rechAalance[account] : 0,
+      rechVaultBalance: rechVaultBalance[account] ? rechVaultBalance[account] : 0,
       ifoPoolBalance: ifoPoolBalance[account] ? ifoPoolBalance[account] : 0,
       cakePoolBalance: cakePoolBalance[account] ? cakePoolBalance[account] : 0,
       cakeEchLpBalance: cakeEchLpBalance[account] ? cakeEchLpBalance[account] : 0,

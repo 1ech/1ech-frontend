@@ -3,7 +3,7 @@ import { useAppDispatch } from 'state'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { DeserializedPool } from 'state/types'
-import { fetchCakeVaultFees, fetchPoolsPublicDataAsync, fetchCakeVaultPublicData } from 'state/pools'
+import { fetchRechVaultFees, fetchPoolsPublicDataAsync, fetchRechVaultPublicData } from 'state/pools'
 import { usePoolsWithVault } from 'state/pools/hooks'
 import { useInitialBlock } from 'state/block/hooks'
 import { FetchStatus } from 'config/constants/types'
@@ -24,8 +24,8 @@ const useGetTopPoolsByApr = (isIntersecting: boolean) => {
       try {
         // It should all be blocking calls since data only fetched once
         await Promise.all([
-          dispatch(fetchCakeVaultFees()),
-          dispatch(fetchCakeVaultPublicData()),
+          dispatch(fetchRechVaultFees()),
+          dispatch(fetchRechVaultPublicData()),
           dispatch(fetchPoolsPublicDataAsync(initialBlock)),
         ])
         setFetchStatus(FetchStatus.Fetched)

@@ -18,14 +18,14 @@ export const VaultRoiCalculatorModal = ({
 }: { pool: DeserializedPool; initialView?: number } & Partial<RoiCalculatorModalProps>) => {
   const {
     userData: {
-      balance: { cakeAsBigNumber },
+      balance: { rechAsBigNumber },
     },
   } = useVaultPoolByKey(pool.vaultKey)
 
   const { getLockedApy, flexibleApy } = useVaultApy()
   const { t } = useTranslation()
 
-  const [cakeVaultView, setCakeVaultView] = useState(initialView || 0)
+  const [rechVaultView, setRechVaultView] = useState(initialView || 0)
 
   const [duration, setDuration] = useState(() => weeksToSeconds(1))
 
@@ -38,8 +38,8 @@ export const VaultRoiCalculatorModal = ({
   )
 
   const apy = useMemo(() => {
-    return cakeVaultView === 0 ? flexibleApy : getLockedApy(duration)
-  }, [cakeVaultView, getLockedApy, flexibleApy, duration])
+    return rechVaultView === 0 ? flexibleApy : getLockedApy(duration)
+  }, [rechVaultView, getLockedApy, flexibleApy, duration])
 
   return (
     <RoiCalculatorModal
@@ -55,11 +55,11 @@ export const VaultRoiCalculatorModal = ({
       earningTokenPrice={pool.earningTokenPrice}
       stakingTokenPrice={pool.stakingTokenPrice}
       stakingTokenBalance={
-        pool.userData?.stakingTokenBalance ? cakeAsBigNumber.plus(pool.userData?.stakingTokenBalance) : cakeAsBigNumber
+        pool.userData?.stakingTokenBalance ? rechAsBigNumber.plus(pool.userData?.stakingTokenBalance) : rechAsBigNumber
       }
       autoCompoundFrequency={1}
       strategy={
-        cakeVaultView
+        rechVaultView
           ? (state, dispatch) => (
               <LockedRoiStrategy
                 state={state}
@@ -77,15 +77,15 @@ export const VaultRoiCalculatorModal = ({
           fullWidth
           scale="sm"
           variant="subtle"
-          activeIndex={cakeVaultView}
-          onItemClick={setCakeVaultView}
+          activeIndex={rechVaultView}
+          onItemClick={setRechVaultView}
         >
           {buttonMenuItems}
         </ButtonMenu>
       }
       {...rest}
     >
-      {cakeVaultView && (
+      {rechVaultView && (
         <Box mt="16px">
           <LockDurationField duration={duration} setDuration={setDuration} isOverMax={false} />
         </Box>

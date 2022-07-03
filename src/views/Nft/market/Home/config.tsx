@@ -9,7 +9,7 @@ const config = (t: ContextApi['t']) => {
         t(
           'Trades are settled in WECH, which is a wrapped version of ECH used on Echelon. That means that when you sell an item, WECH is sent to your wallet instead of ECH.',
         ),
-        t('You can instantly swap your WECH for ECH with no trading fees on PancakeSwap.'),
+        t('You can instantly swap your WECH for ECH with no trading fees on 1ECH.'),
       ],
     },
     {

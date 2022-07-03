@@ -135,14 +135,14 @@ export const useLpTokenPrice = (symbol: string) => {
 /**
  * @@deprecated use the BUSD hook in /hooks
  */
-export const usePriceCakeBusd = (): BigNumber => {
+export const usePriceRechBusd = (): BigNumber => {
   const cakeEchFarm = useFarmFromPid(251)
 
-  const cakePriceBusdAsString = cakeEchFarm.tokenPriceBusd
+  const rechPriceBusdAsString = cakeEchFarm.tokenPriceBusd
 
-  const cakePriceBusd = useMemo(() => {
-    return new BigNumber(cakePriceBusdAsString)
-  }, [cakePriceBusdAsString])
+  const rechPriceBusd = useMemo(() => {
+    return new BigNumber(rechPriceBusdAsString)
+  }, [rechPriceBusdAsString])
 
-  return cakePriceBusd
+  return rechPriceBusd
 }

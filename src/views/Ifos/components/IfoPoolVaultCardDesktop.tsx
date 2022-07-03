@@ -7,7 +7,7 @@ import tokens from 'config/constants/tokens'
 import { TokenPairImage } from 'components/TokenImage'
 import { useRouter } from 'next/router'
 import { DeserializedPool } from 'state/types'
-import { convertSharesToCake, getCakeVaultEarnings } from 'views/Pools/helpers'
+import { convertSharesToCake, getRechVaultEarnings } from 'views/Pools/helpers'
 import { useVaultPoolByKeyV1 } from 'views/Migration/hook/V1/Pool/useFetchIfoPool'
 
 const StyledCardDesktop = styled(Card)`
@@ -52,25 +52,25 @@ const IfoPoolVaultCardDesktop: React.FC<IfoPoolVaultCardDesktopProps> = ({ accou
 
   const { vaultPoolData } = useVaultPoolByKeyV1(pool.vaultKey)
   const { pricePerFullShare } = vaultPoolData
-  const { userShares, cakeAtLastUserAction } = vaultPoolData.userData
+  const { userShares, rechAtLastUserAction } = vaultPoolData.userData
 
-  let cakeAsNumberBalance = 0
+  let rechAsNumberBalance = 0
   let earningTokenBalance = 0
   if (pricePerFullShare) {
-    const { cakeAsNumberBalance: cakeBalance } = convertSharesToCake(userShares, pricePerFullShare)
-    const { autoCakeToDisplay } = getCakeVaultEarnings(
+    const { rechAsNumberBalance: rechBalance } = convertSharesToCake(userShares, pricePerFullShare)
+    const { autoCakeToDisplay } = getRechVaultEarnings(
       account,
-      cakeAtLastUserAction,
+      rechAtLastUserAction,
       userShares,
       pricePerFullShare,
       pool.earningTokenPrice,
     )
 
-    cakeAsNumberBalance = cakeBalance
+    rechAsNumberBalance = rechBalance
     earningTokenBalance = autoCakeToDisplay
   }
 
-  const stakedBalance = Number.isNaN(cakeAsNumberBalance) ? 0 : cakeAsNumberBalance
+  const stakedBalance = Number.isNaN(rechAsNumberBalance) ? 0 : rechAsNumberBalance
 
   const isShowMigrationButton = account && new BigNumber(stakedBalance).gt(0)
 
@@ -95,7 +95,7 @@ const IfoPoolVaultCardDesktop: React.FC<IfoPoolVaultCardDesktopProps> = ({ accou
               {t('Stake CAKE to participate in IFO')}
             </Text>
           </Box>
-          <TokenPairImage width={64} height={64} primaryToken={tokens.cake} secondaryToken={tokens.cake} />
+          <TokenPairImage width={64} height={64} primaryToken={tokens.rech} secondaryToken={tokens.rech} />
         </StyledTokenContent>
       </CardHeader>
       <StyledCardBody>

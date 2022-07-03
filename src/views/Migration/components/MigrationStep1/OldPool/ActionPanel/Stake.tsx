@@ -36,20 +36,20 @@ const Staked: React.FC<StackedActionProps> = ({ pool }) => {
   const { pricePerFullShare } = vaultPoolData
   const { userShares } = vaultPoolData.userData
 
-  let cakeAsBigNumber = new BigNumber(0)
-  let cakeAsNumberBalance = 0
+  let rechAsBigNumber = new BigNumber(0)
+  let rechAsNumberBalance = 0
   if (pricePerFullShare) {
-    const { cakeAsBigNumber: cakeBigBumber, cakeAsNumberBalance: cakeBalance } = convertSharesToCake(
+    const { rechAsBigNumber: rechBigBumber, rechAsNumberBalance: rechBalance } = convertSharesToCake(
       userShares,
       pricePerFullShare,
     )
-    cakeAsBigNumber = cakeBigBumber
-    cakeAsNumberBalance = cakeBalance
+    rechAsBigNumber = rechBigBumber
+    rechAsNumberBalance = rechBalance
   }
 
-  const stakedAutoDollarValue = getBalanceNumber(cakeAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
+  const stakedAutoDollarValue = getBalanceNumber(rechAsBigNumber.multipliedBy(stakingTokenPrice), stakingToken.decimals)
 
-  const balance = vaultKey ? (Number.isNaN(cakeAsNumberBalance) ? 0 : cakeAsNumberBalance) : stakedTokenBalance
+  const balance = vaultKey ? (Number.isNaN(rechAsNumberBalance) ? 0 : rechAsNumberBalance) : stakedTokenBalance
   const isBalanceZero = balance === 0
 
   return (

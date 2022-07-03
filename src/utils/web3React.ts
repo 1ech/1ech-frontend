@@ -36,8 +36,8 @@ export const connectorsByName = {
     const { WalletLinkConnector } = await import('@web3-react/walletlink-connector')
     return new WalletLinkConnector({
       url: rpcUrl,
-      appName: 'PancakeSwap',
-      appLogoUrl: 'https://pancakeswap.com/logo.png',
+      appName: '1ECH',
+      appLogoUrl: 'https://1ech.com/1ech.png',
       supportedChainIds: [ChainId.MAINNET, ChainId.TESTNET],
     })
   },

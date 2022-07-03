@@ -27,7 +27,7 @@ const farms: SerializedFarmConfig[] = [
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
       3000: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
     },
-    token: serializedTokens.cake,
+    token: serializedTokens.rech,
     quoteToken: serializedTokens.wech,
   },
   {
@@ -227,7 +227,7 @@ const farms: SerializedFarmConfig[] = [
       3000: '0x1CCc3cC95c8148477Afd18a552f03835Be9D182a',
     },
     token: serializedTokens.froyo,
-    quoteToken: serializedTokens.cake,
+    quoteToken: serializedTokens.rech,
   },
   {
     pid: 87,
@@ -249,7 +249,7 @@ const farms: SerializedFarmConfig[] = [
       3000: '0xbDF0aA1D1985Caa357A6aC6661D838DA8691c569',
     },
     token: serializedTokens.duet,
-    quoteToken: serializedTokens.cake,
+    quoteToken: serializedTokens.rech,
   },
   {
     pid: 85,
@@ -677,7 +677,7 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       3000: '0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b',
     },
-    token: serializedTokens.cake,
+    token: serializedTokens.rech,
     quoteToken: serializedTokens.usdt,
   },
   {
@@ -754,7 +754,7 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       3000: '0x804678fa97d91B974ec2af3c843270886528a9E6',
     },
-    token: serializedTokens.cake,
+    token: serializedTokens.rech,
     quoteToken: serializedTokens.busd,
   },
   {

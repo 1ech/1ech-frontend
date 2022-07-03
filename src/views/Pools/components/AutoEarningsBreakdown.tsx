@@ -3,7 +3,7 @@ import { useTranslation } from 'contexts/Localization'
 import { differenceInHours } from 'date-fns'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { DeserializedPool } from 'state/types'
-import { getCakeVaultEarnings } from '../helpers'
+import { getRechVaultEarnings } from '../helpers'
 
 interface AutoEarningsBreakdownProps {
   pool: DeserializedPool
@@ -16,7 +16,7 @@ const AutoEarningsBreakdown: React.FC<AutoEarningsBreakdownProps> = ({ pool, acc
   const { earningTokenPrice } = pool
   const {
     userData: {
-      cakeAtLastUserAction,
+      rechAtLastUserAction,
       userShares,
       lastUserActionTime,
       currentOverdueFee,
@@ -25,9 +25,9 @@ const AutoEarningsBreakdown: React.FC<AutoEarningsBreakdownProps> = ({ pool, acc
     },
     pricePerFullShare,
   } = useVaultPoolByKey(pool.vaultKey)
-  const { autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
+  const { autoCakeToDisplay, autoUsdToDisplay } = getRechVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    rechAtLastUserAction,
     userShares,
     pricePerFullShare,
     earningTokenPrice,

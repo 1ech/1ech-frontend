@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Trade #useAllCommonPairs should get all pair combinations wech, cake 1`] = `
+exports[`Trade #useAllCommonPairs should get all pair combinations wech, rech 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [

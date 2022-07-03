@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import {
   getBep20Contract,
-  getCakeContract,
+  getRechContract,
   getBunnyFactoryContract,
   getBunnySpecialContract,
   getPancakeBunniesContract,
@@ -20,11 +20,11 @@ import {
   getTradingCompetitionContractMoD,
   getEasterNftContract,
   getErc721Contract,
-  getCakeVaultV2Contract,
+  getRechVaultV2Contract,
   getPredictionsContract,
   getChainlinkOracleContract,
   getLotteryV2Contract,
-  getBunnySpecialCakeVaultContract,
+  getBunnySpecialRechVaultContract,
   getBunnySpecialPredictionContract,
   getFarmAuctionContract,
   getBunnySpecialLotteryContract,
@@ -37,7 +37,7 @@ import {
   getGalaxyNTFClaimingContract,
 } from 'utils/contractHelpers'
 import { getMulticallAddress } from 'utils/addressHelpers'
-import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVaultV2 } from 'config/abi/types'
+import { Erc20, Erc20Bytes32, Multicall, Weth, Rech, Erc721collection, RechVaultV2 } from 'config/abi/types'
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts'
@@ -86,12 +86,12 @@ export const useERC721 = (address: string, withSignerIfPossible = true) => {
   return useMemo(() => getErc721Contract(address, signer), [address, signer])
 }
 
-export const useCake = (): { reader: Cake; signer: Cake } => {
+export const useRech = (): { reader: Rech; signer: Rech } => {
   const { account, library } = useActiveWeb3React()
   return useMemo(
     () => ({
-      reader: getCakeContract(null),
-      signer: getCakeContract(getProviderOrSigner(library, account)),
+      reader: getRechContract(null),
+      signer: getRechContract(getProviderOrSigner(library, account)),
     }),
     [account, library],
   )
@@ -196,18 +196,18 @@ export const useEasterNftContract = () => {
   return useMemo(() => getEasterNftContract(library.getSigner()), [library])
 }
 
-export const useVaultPoolContract = (): CakeVaultV2 => {
+export const useVaultPoolContract = (): RechVaultV2 => {
   const { library } = useActiveWeb3React()
-  return useMemo(() => getCakeVaultV2Contract(library.getSigner()), [library])
+  return useMemo(() => getRechVaultV2Contract(library.getSigner()), [library])
 }
 
-export const useCakeVaultContract = (withSignerIfPossible = true) => {
+export const useRechVaultContract = (withSignerIfPossible = true) => {
   const { library, account } = useActiveWeb3React()
   const signer = useMemo(
     () => (withSignerIfPossible ? getProviderOrSigner(library, account) : null),
     [withSignerIfPossible, library, account],
   )
-  return useMemo(() => getCakeVaultV2Contract(signer), [signer])
+  return useMemo(() => getRechVaultV2Contract(signer), [signer])
 }
 
 export const usePredictionsContract = (address: string) => {
@@ -224,9 +224,9 @@ export const useChainlinkOracleContract = (address, withSignerIfPossible = true)
   return useMemo(() => getChainlinkOracleContract(address, signer), [signer, address])
 }
 
-export const useSpecialBunnyCakeVaultContract = () => {
+export const useSpecialBunnyRechVaultContract = () => {
   const { library } = useActiveWeb3React()
-  return useMemo(() => getBunnySpecialCakeVaultContract(library.getSigner()), [library])
+  return useMemo(() => getBunnySpecialRechVaultContract(library.getSigner()), [library])
 }
 
 export const useSpecialBunnyPredictionContract = () => {

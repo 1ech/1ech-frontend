@@ -3,7 +3,7 @@ const votePowerAddress = {
   v1: '0x67Dfbb197602FDB9A9D305cC7A43b95fB63a0A56',
 }
 
-export const cakeBalanceStrategy = (version: 'v0' | 'v1') => ({
+export const rechAalanceStrategy = (version: 'v0' | 'v1') => ({
   name: 'contract-call',
   params: {
     address: votePowerAddress[version],
@@ -16,7 +16,7 @@ export const cakeBalanceStrategy = (version: 'v0' | 'v1') => ({
           type: 'address',
         },
       ],
-      name: 'getCakeBalance',
+      name: 'getRechBalance',
       outputs: [
         {
           internalType: 'uint256',
@@ -30,7 +30,7 @@ export const cakeBalanceStrategy = (version: 'v0' | 'v1') => ({
   },
 })
 
-export const cakeVaultBalanceStrategy = {
+export const rechVaultBalanceStrategy = {
   name: 'contract-call',
   params: {
     address: votePowerAddress.v0,
@@ -43,7 +43,7 @@ export const cakeVaultBalanceStrategy = {
           type: 'address',
         },
       ],
-      name: 'getCakeVaultBalance',
+      name: 'getrechVaultBalance',
       outputs: [
         {
           internalType: 'uint256',
@@ -97,7 +97,7 @@ export const cakePoolBalanceStrategy = (version: 'v0' | 'v1') => ({
           type: 'address',
         },
       ],
-      name: 'getCakePoolBalance',
+      name: 'getRechPoolBalance',
       outputs: [
         {
           internalType: 'uint256',
@@ -124,7 +124,7 @@ export const cakeEchLpBalanceStrategy = (version: 'v0' | 'v1') => ({
           type: 'address',
         },
       ],
-      name: 'getCakeEchLpBalance',
+      name: 'getRechEchLpBalance',
       outputs: [
         {
           internalType: 'uint256',

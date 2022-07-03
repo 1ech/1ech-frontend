@@ -48,7 +48,7 @@ const PoolStatsInfo: React.FC<ExpandedFooterProps> = ({
   const stakedBalance = poolUserData?.stakedBalance ? poolUserData.stakedBalance : BIG_ZERO
 
   const {
-    totalCakeInVault,
+    totalRechInVault,
     totalLockedAmount,
     fees: { performanceFeeAsDecimal },
     userData,
@@ -56,7 +56,7 @@ const PoolStatsInfo: React.FC<ExpandedFooterProps> = ({
 
   const tokenAddress = earningToken.address || ''
   const poolContractAddress = getAddress(contractAddress)
-  const cakeVaultContractAddress = getVaultPoolAddress(vaultKey)
+  const rechVaultContractAddress = getVaultPoolAddress(vaultKey)
   const isMetaMaskInScope = !!window.ethereum?.isMetaMask
 
   const { shouldShowBlockCountdown, blocksUntilStart, blocksRemaining, hasPoolStarted, blocksToDisplay } =
@@ -79,7 +79,7 @@ const PoolStatsInfo: React.FC<ExpandedFooterProps> = ({
       )}
       {!vaultKey && <AprInfo pool={pool} stakedBalance={stakedBalance} />}
       {showTotalStaked && (
-        <TotalStaked totalStaked={vaultKey ? totalCakeInVault : totalStaked} stakingToken={stakingToken} />
+        <TotalStaked totalStaked={vaultKey ? totalRechInVault : totalStaked} stakingToken={stakingToken} />
       )}
       {vaultKey && <TotalLocked totalLocked={totalLockedAmount} lockedToken={stakingToken} />}
       {vaultKey && <DurationAvg />}
@@ -126,7 +126,7 @@ const PoolStatsInfo: React.FC<ExpandedFooterProps> = ({
       )}
       {vaultKey && (
         <Flex mb="2px" justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
-          <LinkExternal href="https://docs.1ech.com/products/syrup-pool/new-cake-pool" bold={false} small>
+          <LinkExternal href="https://docs.1ech.com/products/syrup-pool/new-rech-pool" bold={false} small>
             {t('View Tutorial')}
           </LinkExternal>
         </Flex>
@@ -134,7 +134,7 @@ const PoolStatsInfo: React.FC<ExpandedFooterProps> = ({
       {poolContractAddress && (
         <Flex mb="2px" justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
           <LinkExternal
-            href={`${BASE_BSC_SCAN_URL}/address/${vaultKey ? cakeVaultContractAddress : poolContractAddress}`}
+            href={`${BASE_BSC_SCAN_URL}/address/${vaultKey ? rechVaultContractAddress : poolContractAddress}`}
             bold={false}
             small
           >

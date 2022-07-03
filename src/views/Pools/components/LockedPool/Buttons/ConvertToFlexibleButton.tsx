@@ -3,7 +3,7 @@ import { Button, ButtonProps } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 
 import { useAppDispatch } from 'state'
-import { fetchCakeVaultUserData } from 'state/pools'
+import { fetchRechVaultUserData } from 'state/pools'
 import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
@@ -25,7 +25,7 @@ const ConvertToFlexibleButton: React.FC<ButtonProps> = (props) => {
 
   const handleUnlock = useCallback(async () => {
     const callOptions = {
-      gasLimit: vaultPoolConfig[VaultKey.CakeVault].gasLimit,
+      gasLimit: vaultPoolConfig[VaultKey.RechVault].gasLimit,
     }
 
     const receipt = await fetchWithCatchTxError(() => {
@@ -40,7 +40,7 @@ const ConvertToFlexibleButton: React.FC<ButtonProps> = (props) => {
           {t('Your funds have been staked in the pool')}
         </ToastDescriptionWithTx>,
       )
-      dispatch(fetchCakeVaultUserData({ account }))
+      dispatch(fetchRechVaultUserData({ account }))
     }
   }, [t, toastSuccess, account, callWithGasPrice, dispatch, fetchWithCatchTxError, vaultPoolContract])
 

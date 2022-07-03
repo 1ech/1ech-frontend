@@ -14,11 +14,11 @@ describe('Trade', () => {
       mockUsePairs.mockReturnValue([
         [
           PairState.EXISTS,
-          new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1')),
+          new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1')),
         ],
         [
           PairState.INVALID,
-          new Pair(new TokenAmount(mainnetTokens.busd, '1'), new TokenAmount(mainnetTokens.cake, '1')),
+          new Pair(new TokenAmount(mainnetTokens.busd, '1'), new TokenAmount(mainnetTokens.rech, '1')),
         ],
         [
           PairState.LOADING,
@@ -28,49 +28,49 @@ describe('Trade', () => {
       ])
 
       const { result } = renderHook(() => {
-        const pairs = Trades.useAllCommonPairs(mainnetTokens.wech, mainnetTokens.cake)
+        const pairs = Trades.useAllCommonPairs(mainnetTokens.wech, mainnetTokens.rech)
         return {
           pairs,
         }
       })
 
       expect(result.current.pairs).toStrictEqual([
-        new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1')),
+        new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1')),
       ])
     })
     it('should filter out duplicated Pair', () => {
       mockUsePairs.mockReturnValue([
         [
           PairState.EXISTS,
-          new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1')),
+          new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1')),
         ],
         [
           PairState.EXISTS,
-          new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1')),
+          new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1')),
         ],
         [
           PairState.EXISTS,
-          new Pair(new TokenAmount(mainnetTokens.cake, '1'), new TokenAmount(mainnetTokens.wech, '1')),
+          new Pair(new TokenAmount(mainnetTokens.rech, '1'), new TokenAmount(mainnetTokens.wech, '1')),
         ],
         [PairState.EXISTS, null],
       ])
 
       const { result } = renderHook(() => {
-        const pairs = Trades.useAllCommonPairs(mainnetTokens.wech, mainnetTokens.cake)
+        const pairs = Trades.useAllCommonPairs(mainnetTokens.wech, mainnetTokens.rech)
         return {
           pairs,
         }
       })
 
       expect(result.current.pairs).toStrictEqual([
-        new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1')),
+        new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1')),
       ])
     })
 
-    it('should get all pair combinations wech, cake', () => {
+    it('should get all pair combinations wech, rech', () => {
       mockUsePairs.mockClear()
       renderHook(() => {
-        Trades.useAllCommonPairs(mainnetTokens.wech, mainnetTokens.cake)
+        Trades.useAllCommonPairs(mainnetTokens.wech, mainnetTokens.rech)
       })
 
       expect(mockUsePairs).toMatchSnapshot()
@@ -92,9 +92,9 @@ describe('Trade', () => {
     const mockTradeExactOut = jest.spyOn(Trade, 'bestTradeExactOut')
 
     it('should call with maxHops 1 with singleHopOnly', () => {
-      const allowPairs = [new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1'))]
+      const allowPairs = [new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1'))]
       const argA = CurrencyAmount.ether('1000000')
-      const argB = mainnetTokens.cake
+      const argB = mainnetTokens.rech
       renderHook(
         () => {
           mockUseAllCommonPairs.mockReturnValue(allowPairs)
@@ -123,9 +123,9 @@ describe('Trade', () => {
     })
 
     it('should call with 3 times without singleHopOnly', () => {
-      const allowPairs = [new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.cake, '1'))]
+      const allowPairs = [new Pair(new TokenAmount(mainnetTokens.wech, '1'), new TokenAmount(mainnetTokens.rech, '1'))]
       const argA = CurrencyAmount.ether('1000000')
-      const argB = mainnetTokens.cake
+      const argB = mainnetTokens.rech
       renderHook(
         () => {
           mockUseAllCommonPairs.mockReturnValue(allowPairs)

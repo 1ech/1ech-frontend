@@ -5,13 +5,13 @@ import {
   PoolsState,
   SerializedPool,
   SerializedVaultFees,
-  SerializedCakeVault,
+  SerializedRechVault,
   SerializedLockedVaultUser,
 } from 'state/types'
 import { getPoolApr } from 'utils/apr'
 import { BIG_ZERO } from 'utils/bigNumber'
-import cakeAbi from 'config/abi/cake.json'
-import { getCakeVaultAddress } from 'utils/addressHelpers'
+import rechAbi from 'config/abi/rech.json'
+import { getRechVaultAddress } from 'utils/addressHelpers'
 import { multicallv2 } from 'utils/multicall'
 import tokens from 'config/constants/tokens'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -40,7 +40,7 @@ export const initialPoolVaultState = Object.freeze({
   totalShares: null,
   totalLockedAmount: null,
   pricePerFullShare: null,
-  totalCakeInVault: null,
+  totalRechInVault: null,
   fees: {
     performanceFee: null,
     withdrawalFee: null,
@@ -49,7 +49,7 @@ export const initialPoolVaultState = Object.freeze({
   userData: {
     isLoading: true,
     userShares: null,
-    cakeAtLastUserAction: null,
+    rechAtLastUserAction: null,
     lastDepositedTime: null,
     lastUserActionTime: null,
     credit: null,
@@ -67,21 +67,21 @@ export const initialPoolVaultState = Object.freeze({
 const initialState: PoolsState = {
   data: [...poolsConfig],
   userDataLoaded: false,
-  cakeVault: initialPoolVaultState,
+  rechVault: initialPoolVaultState,
 }
 
-const cakeVaultAddress = getCakeVaultAddress()
+const rechVaultAddress = getRechVaultAddress()
 
-export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => {
+export const fetchRechPoolPublicDataAsync = () => async (dispatch, getState) => {
   const farmsData = getState().farms.data
   const prices = getTokenPricesFromFarm(farmsData)
 
-  const cakePool = poolsConfig.filter((p) => p.sousId === 0)[0]
+  const rechPool = poolsConfig.filter((p) => p.sousId === 0)[0]
 
-  const stakingTokenAddress = cakePool.stakingToken.address ? cakePool.stakingToken.address.toLowerCase() : null
+  const stakingTokenAddress = rechPool.stakingToken.address ? rechPool.stakingToken.address.toLowerCase() : null
   const stakingTokenPrice = stakingTokenAddress ? prices[stakingTokenAddress] : 0
 
-  const earningTokenAddress = cakePool.earningToken.address ? cakePool.earningToken.address.toLowerCase() : null
+  const earningTokenAddress = rechPool.earningToken.address ? rechPool.earningToken.address.toLowerCase() : null
   const earningTokenPrice = earningTokenAddress ? prices[earningTokenAddress] : 0
 
   dispatch(
@@ -95,19 +95,19 @@ export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => 
   )
 }
 
-export const fetchCakePoolUserDataAsync = (account: string) => async (dispatch) => {
+export const fetchRechPoolUserDataAsync = (account: string) => async (dispatch) => {
   const allowanceCall = {
-    address: tokens.cake.address,
+    address: tokens.rech.address,
     name: 'allowance',
-    params: [account, cakeVaultAddress],
+    params: [account, rechVaultAddress],
   }
   const balanceOfCall = {
-    address: tokens.cake.address,
+    address: tokens.rech.address,
     name: 'balanceOf',
     params: [account],
   }
-  const cakeContractCalls = [allowanceCall, balanceOfCall]
-  const [[allowance], [stakingTokenBalance]] = await multicallv2(cakeAbi, cakeContractCalls)
+  const rechContractCalls = [allowanceCall, balanceOfCall]
+  const [[allowance], [stakingTokenBalance]] = await multicallv2(rechAbi, rechContractCalls)
 
   dispatch(
     setPoolUserData({
@@ -280,18 +280,18 @@ export const updateUserPendingReward = createAsyncThunk<
   return { sousId, field: 'pendingReward', value: pendingRewards[sousId] }
 })
 
-export const fetchCakeVaultPublicData = createAsyncThunk<SerializedCakeVault>('cakeVault/fetchPublicData', async () => {
+export const fetchRechVaultPublicData = createAsyncThunk<SerializedRechVault>('rechVault/fetchPublicData', async () => {
   const publicVaultInfo = await fetchPublicVaultData()
   return publicVaultInfo
 })
 
-export const fetchCakeVaultFees = createAsyncThunk<SerializedVaultFees>('cakeVault/fetchFees', async () => {
+export const fetchRechVaultFees = createAsyncThunk<SerializedVaultFees>('rechVault/fetchFees', async () => {
   const vaultFees = await fetchVaultFees()
   return vaultFees
 })
 
-export const fetchCakeVaultUserData = createAsyncThunk<SerializedLockedVaultUser, { account: string }>(
-  'cakeVault/fetchUser',
+export const fetchRechVaultUserData = createAsyncThunk<SerializedLockedVaultUser, { account: string }>(
+  'rechVault/fetchUser',
   async ({ account }) => {
     const userData = await fetchVaultUser(account)
     return userData
@@ -334,7 +334,7 @@ export const PoolsSlice = createSlice({
         return { ...pool }
       })
       state.userDataLoaded = false
-      state.cakeVault = { ...state.cakeVault, userData: initialPoolVaultState.userData }
+      state.rechVault = { ...state.rechVault, userData: initialPoolVaultState.userData }
     })
     builder.addCase(
       fetchPoolsUserDataAsync.fulfilled,
@@ -356,19 +356,19 @@ export const PoolsSlice = createSlice({
       console.error('[Pools Action] Error fetching pool user data', action.payload)
     })
     // Vault public data that updates frequently
-    builder.addCase(fetchCakeVaultPublicData.fulfilled, (state, action: PayloadAction<SerializedCakeVault>) => {
-      state.cakeVault = { ...state.cakeVault, ...action.payload }
+    builder.addCase(fetchRechVaultPublicData.fulfilled, (state, action: PayloadAction<SerializedRechVault>) => {
+      state.rechVault = { ...state.rechVault, ...action.payload }
     })
     // Vault fees
-    builder.addCase(fetchCakeVaultFees.fulfilled, (state, action: PayloadAction<SerializedVaultFees>) => {
+    builder.addCase(fetchRechVaultFees.fulfilled, (state, action: PayloadAction<SerializedVaultFees>) => {
       const fees = action.payload
-      state.cakeVault = { ...state.cakeVault, fees }
+      state.rechVault = { ...state.rechVault, fees }
     })
     // Vault user data
-    builder.addCase(fetchCakeVaultUserData.fulfilled, (state, action: PayloadAction<SerializedLockedVaultUser>) => {
+    builder.addCase(fetchRechVaultUserData.fulfilled, (state, action: PayloadAction<SerializedLockedVaultUser>) => {
       const userData = action.payload
       userData.isLoading = false
-      state.cakeVault = { ...state.cakeVault, userData }
+      state.rechVault = { ...state.rechVault, userData }
     })
     builder.addMatcher(
       isAnyOf(

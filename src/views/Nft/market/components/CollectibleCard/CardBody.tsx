@@ -13,7 +13,7 @@ const CollectibleCardBody: React.FC<CollectibleCardProps> = ({ nft, nftLocation,
   const { t } = useTranslation()
   const { name } = nft
   const echBusdPrice = useECHBusdPrice()
-  const isPancakeBunny = nft.collectionAddress?.toLowerCase() === pancakeBunniesAddress.toLowerCase()
+  const isPancakeunny = nft.collectionAddress?.toLowerCase() === pancakeBunniesAddress.toLowerCase()
   const { isFetching, lowestPrice } = useGetLowestPriceFromNft(nft)
 
   return (
@@ -31,7 +31,7 @@ const CollectibleCardBody: React.FC<CollectibleCardProps> = ({ nft, nftLocation,
         {name}
       </Text>
       <Box borderTop="1px solid" borderTopColor="cardBorder" pt="8px">
-        {isPancakeBunny && (
+        {isPancakeunny && (
           <LowestPriceMetaRow lowestPrice={lowestPrice} isFetching={isFetching} echBusdPrice={echBusdPrice} />
         )}
         {currentAskPrice && (

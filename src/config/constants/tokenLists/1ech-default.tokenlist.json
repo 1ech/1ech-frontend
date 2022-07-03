@@ -24,6 +24,38 @@
       "chainId": 3000,
       "decimals": 9,
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
+      "name": "Rech Token",
+      "symbol": "Rech",
+      "address": "0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://1ech.com/1ech.png"
+    },
+    {
+      "name": "Metro Wrapped MATIC",
+      "symbol": "mWMATIC",
+      "address": "0x15B39ff9e45Fe67f49D66C7dA629CAbf2041657E",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/4713/large/matic-token-icon.png?1624446912"
+    },
+    {
+      "name": "Lite Governance Token",
+      "symbol": "LGT",
+      "address": "0xb60b0218d167Bc02746d1f40d56C676a6b09Cb28",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://github.com/litetokens/litetokens.github.io/raw/main/img/xlt-slate.png"
+    },
+    {
+      "name": "Bridged USDC",
+      "symbol": "bUSDC",
+      "address": "0xc42974d6554F9054265b477723C3f689d8699239",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://coin.top/production/upload/logo/TEkxiTehnzSmSe2XqrBj4w32RUN966rdz81.png"
     }
   ]
 }

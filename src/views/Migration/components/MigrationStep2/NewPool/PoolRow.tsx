@@ -33,10 +33,10 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account }) => {
   const [expanded, setExpanded] = useState(false)
   const shouldRenderActionPanel = useDelayedUnmount(expanded, 300)
 
-  const { totalCakeInVault } = useVaultPoolByKey(pool.vaultKey)
+  const { totalRechInVault } = useVaultPoolByKey(pool.vaultKey)
   const vaultPools = useVaultPools()
   const cakeInVaults = Object.values(vaultPools).reduce((total, vault) => {
-    return total.plus(vault.totalCakeInVault)
+    return total.plus(vault.totalRechInVault)
   }, BIG_ZERO)
 
   const toggleExpanded = () => {
@@ -47,15 +47,15 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account }) => {
     <>
       <StyledRow role="row" onClick={toggleExpanded}>
         <NameCell pool={pool} />
-        {isXLargerScreen && pool.vaultKey === VaultKey.CakeVault && <StakedCell pool={pool} account={account} />}
+        {isXLargerScreen && pool.vaultKey === VaultKey.RechVault && <StakedCell pool={pool} account={account} />}
         {pool.vaultKey ? (
-          isXLargerScreen && pool.vaultKey === VaultKey.CakeVault && <AutoEarningsCell pool={pool} account={account} />
+          isXLargerScreen && pool.vaultKey === VaultKey.RechVault && <AutoEarningsCell pool={pool} account={account} />
         ) : (
           <EarningsCell pool={pool} account={account} />
         )}
         {pool.vaultKey ? <AutoAprCell pool={pool} /> : <AprCell pool={pool} />}
         {isLargerScreen && (
-          <TotalStakedCell pool={pool} totalCakeInVault={totalCakeInVault} cakeInVaults={cakeInVaults} />
+          <TotalStakedCell pool={pool} totalRechInVault={totalRechInVault} cakeInVaults={cakeInVaults} />
         )}
         <ExpandActionCell expanded={expanded} isFullLayout={isTablet || isDesktop} />
       </StyledRow>

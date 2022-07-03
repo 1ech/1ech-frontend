@@ -7,9 +7,9 @@ import farmsConfig from 'config/constants/farms'
 import {
   fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
-  fetchCakeVaultPublicData,
-  fetchCakeVaultUserData,
-  fetchCakeVaultFees,
+  fetchRechVaultPublicData,
+  fetchRechVaultUserData,
+  fetchRechVaultFees,
   fetchPoolsStakingLimitsAsync,
 } from '.'
 import { DeserializedPool, VaultKey } from '../types'
@@ -52,32 +52,32 @@ export const usePoolsPageFetch = () => {
 
   useFastRefreshEffect(() => {
     batch(() => {
-      dispatch(fetchCakeVaultPublicData())
+      dispatch(fetchRechVaultPublicData())
       if (account) {
         dispatch(fetchPoolsUserDataAsync(account))
-        dispatch(fetchCakeVaultUserData({ account }))
+        dispatch(fetchRechVaultUserData({ account }))
       }
     })
   }, [account, dispatch])
 
   useEffect(() => {
     batch(() => {
-      dispatch(fetchCakeVaultFees())
+      dispatch(fetchRechVaultFees())
     })
   }, [dispatch])
 }
 
-export const useCakeVault = () => {
-  return useVaultPoolByKey(VaultKey.CakeVault)
+export const useRechVault = () => {
+  return useVaultPoolByKey(VaultKey.RechVault)
 }
 
 export const useVaultPools = () => {
-  const cakeVault = useVaultPoolByKey(VaultKey.CakeVault)
+  const rechVault = useVaultPoolByKey(VaultKey.RechVault)
   const vaults = useMemo(() => {
     return {
-      [VaultKey.CakeVault]: cakeVault,
+      [VaultKey.RechVault]: rechVault,
     }
-  }, [cakeVault])
+  }, [rechVault])
   return vaults
 }
 

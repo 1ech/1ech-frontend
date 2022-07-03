@@ -43,10 +43,10 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool }) => {
   const hasSharesStaked = userShares && userShares.gt(0)
   const isVaultWithShares = pool.vaultKey && hasSharesStaked
 
-  let cakeAsNumberBalance = 0
+  let rechAsNumberBalance = 0
   if (pricePerFullShare) {
-    const { cakeAsNumberBalance: cakeBalance } = convertSharesToCake(userShares, pricePerFullShare)
-    cakeAsNumberBalance = cakeBalance
+    const { rechAsNumberBalance: rechBalance } = convertSharesToCake(userShares, pricePerFullShare)
+    rechAsNumberBalance = rechBalance
   }
 
   // pool
@@ -71,7 +71,7 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool }) => {
               fontSize={isMobile ? '14px' : '16px'}
               color={hasStaked ? 'text' : 'textDisabled'}
               decimals={hasStaked ? 5 : 1}
-              value={pool.vaultKey ? (Number.isNaN(cakeAsNumberBalance) ? 0 : cakeAsNumberBalance) : stakedTokenBalance}
+              value={pool.vaultKey ? (Number.isNaN(rechAsNumberBalance) ? 0 : rechAsNumberBalance) : stakedTokenBalance}
             />
           </Box>
         </Flex>

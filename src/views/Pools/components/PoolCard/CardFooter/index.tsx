@@ -10,7 +10,7 @@ import PoolStatsInfo from '../../PoolStatsInfo'
 interface FooterProps {
   pool: DeserializedPool
   account: string
-  totalCakeInVault?: BigNumber
+  totalRechInVault?: BigNumber
   defaultExpanded?: boolean
 }
 

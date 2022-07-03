@@ -5,7 +5,7 @@ import { MaxUint256 } from '@ethersproject/constants'
 import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { useTranslation } from 'contexts/Localization'
-import { useCake, useSousChef, useVaultPoolContract } from 'hooks/useContract'
+import { useRech, useSousChef, useVaultPoolContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
@@ -57,7 +57,7 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const vaultPoolContract = useVaultPoolContract()
   const { callWithGasPrice } = useCallWithGasPrice()
-  const { signer: cakeContract } = useCake()
+  const { signer: cakeContract } = useRech()
 
   const handleApprove = async () => {
     const receipt = await fetchWithCatchTxError(() => {
@@ -79,7 +79,7 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
 
 export const useCheckVaultApprovalStatus = () => {
   const { account } = useWeb3React()
-  const { reader: cakeContract } = useCake()
+  const { reader: cakeContract } = useRech()
   const vaultPoolContract = useVaultPoolContract()
 
   const key = useMemo<UseSWRContractKey>(

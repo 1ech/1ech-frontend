@@ -1,12 +1,12 @@
 import BigNumber from 'bignumber.js'
 import { Flex, Skeleton, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceCakeBusd } from 'state/farms/hooks'
+import { usePriceRechBusd } from 'state/farms/hooks'
 import Balance from 'components/Balance'
 import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
 
 interface RewardBracketDetailProps {
-  cakeAmount: BigNumber
+  rechAmount: BigNumber
   rewardBracket?: number
   numberWinners?: string
   isBurn?: boolean
@@ -16,14 +16,14 @@ interface RewardBracketDetailProps {
 
 const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
   rewardBracket,
-  cakeAmount,
+  rechAmount,
   numberWinners,
   isHistoricRound,
   isBurn,
   isLoading,
 }) => {
   const { t } = useTranslation()
-  const cakePriceBusd = usePriceCakeBusd()
+  const rechPriceBusd = usePriceRechBusd()
 
   const getRewardText = () => {
     const numberMatch = rewardBracket + 1
@@ -46,12 +46,12 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
         </Text>
       )}
       <>
-        {isLoading || cakeAmount.isNaN() ? (
+        {isLoading || rechAmount.isNaN() ? (
           <Skeleton my="4px" mr="10px" height={20} width={110} />
         ) : (
-          <Balance fontSize="20px" bold unit=" CAKE" value={getBalanceNumber(cakeAmount)} decimals={0} />
+          <Balance fontSize="20px" bold unit=" CAKE" value={getBalanceNumber(rechAmount)} decimals={0} />
         )}
-        {isLoading || cakeAmount.isNaN() ? (
+        {isLoading || rechAmount.isNaN() ? (
           <>
             <Skeleton mt="4px" mb="16px" height={12} width={70} />
           </>
@@ -60,15 +60,15 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
             fontSize="12px"
             color="textSubtle"
             prefix="~$"
-            value={getBalanceNumber(cakeAmount.times(cakePriceBusd))}
+            value={getBalanceNumber(rechAmount.times(rechPriceBusd))}
             decimals={0}
           />
         )}
-        {isHistoricRound && cakeAmount && (
+        {isHistoricRound && rechAmount && (
           <>
             {numberWinners !== '0' && (
               <Text fontSize="12px" color="textSubtle">
-                {getFullDisplayBalance(cakeAmount.div(parseInt(numberWinners, 10)), 18, 2)} CAKE {t('each')}
+                {getFullDisplayBalance(rechAmount.div(parseInt(numberWinners, 10)), 18, 2)} CAKE {t('each')}
               </Text>
             )}
             <Text fontSize="12px" color="textSubtle">
