@@ -8,7 +8,7 @@ import {
   Text,
   Td,
   ProfileAvatar,
-  EchUsdtPairTokenIcon,
+  BnbUsdtPairTokenIcon,
   Table,
   Th,
   Card,
@@ -288,7 +288,7 @@ const Collectible = () => {
                             <Td>
                               <Flex alignItems="center">
                                 {volume}
-                                <EchUsdtPairTokenIcon ml="8px" />
+                                <BnbUsdtPairTokenIcon ml="8px" />
                               </Flex>
                             </Td>
                             <Td>

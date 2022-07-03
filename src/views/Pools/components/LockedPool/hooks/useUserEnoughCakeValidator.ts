@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 
 export const useUserEnoughCakeValidator = (rechAmount: string, stakingTokenBalance: BigNumber) => {
   const { t } = useTranslation()
-  const errorMessage = t('Insufficient CAKE balance')
+  const errorMessage = t('Insufficient RECH balance')
 
   const userNotEnoughCake = useMemo(() => {
     if (new BigNumber(rechAmount).gt(getBalanceAmount(stakingTokenBalance, 18))) return true

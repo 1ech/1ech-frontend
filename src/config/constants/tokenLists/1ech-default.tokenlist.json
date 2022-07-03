@@ -27,7 +27,7 @@
     },
     {
       "name": "Rech Token",
-      "symbol": "Rech",
+      "symbol": "RECH",
       "address": "0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964",
       "chainId": 3000,
       "decimals": 18,

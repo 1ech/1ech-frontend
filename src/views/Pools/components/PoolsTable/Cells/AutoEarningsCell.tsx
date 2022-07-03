@@ -49,7 +49,7 @@ const AutoEarningsCell: React.FC<AutoEarningsCellProps> = ({ pool, account }) =>
     currentPerformanceFee.plus(currentOverdueFee).plus(userBoostedShare),
   )
 
-  const labelText = t('Recent CAKE profit')
+  const labelText = t('Recent RECH profit')
   const earningTokenBalance = autoCakeToDisplay
   const hasEarnings = hasAutoEarnings
   const earningTokenDollarBalance = autoUsdToDisplay

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
-  getAllPancakeunniesLowestPrice,
-  getAllPancakeunniesRecentUpdatedAt,
+  getAllPancakeBunniesLowestPrice,
+  getAllPancakeBunniesRecentUpdatedAt,
   getNftsFromCollectionApi,
 } from 'state/nftMarket/helpers'
 import { NftToken } from 'state/nftMarket/types'
@@ -24,8 +24,8 @@ const useAllPancakeunnyNfts = (collectionAddress: string) => {
       const { data } = response
       const bunnyIds = Object.keys(data)
       const [lowestPrices, latestUpdates] = await Promise.all([
-        getAllPancakeunniesLowestPrice(bunnyIds),
-        getAllPancakeunniesRecentUpdatedAt(bunnyIds),
+        getAllPancakeBunniesLowestPrice(bunnyIds),
+        getAllPancakeBunniesRecentUpdatedAt(bunnyIds),
       ])
       const allBunnies: NftToken[] = bunnyIds.map((bunnyId) => {
         return {

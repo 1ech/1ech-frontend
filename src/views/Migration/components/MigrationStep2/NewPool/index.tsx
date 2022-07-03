@@ -4,11 +4,11 @@ import { useRechVault, usePoolsWithVault } from 'state/pools/hooks'
 import { useFastRefreshEffect } from 'hooks/useRefreshEffect'
 import { useAppDispatch } from 'state'
 import {
-  fetchCakePoolUserDataAsync,
+  fetchRechPoolUserDataAsync,
   fetchRechVaultFees,
   fetchRechVaultPublicData,
   fetchRechVaultUserData,
-  fetchCakePoolPublicDataAsync,
+  fetchRechPoolPublicDataAsync,
 } from 'state/pools'
 import PoolsTable from './PoolTable'
 
@@ -28,10 +28,10 @@ const NewPool: React.FC = () => {
 
   useFastRefreshEffect(() => {
     dispatch(fetchRechVaultPublicData())
-    dispatch(fetchCakePoolPublicDataAsync())
+    dispatch(fetchRechPoolPublicDataAsync())
     if (account) {
       dispatch(fetchRechVaultUserData({ account }))
-      dispatch(fetchCakePoolUserDataAsync(account))
+      dispatch(fetchRechPoolUserDataAsync(account))
     }
   }, [account, dispatch])
 

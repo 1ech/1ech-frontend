@@ -42,7 +42,7 @@ const AddCakeButton: React.FC<AddButtonProps> = ({
 
   return userDataLoaded ? (
     <Button onClick={handleClicked} width="100%">
-      {t('Add CAKE')}
+      {t('Add RECH')}
     </Button>
   ) : (
     <Skeleton height={48} />

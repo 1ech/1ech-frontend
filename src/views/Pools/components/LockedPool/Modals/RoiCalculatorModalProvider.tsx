@@ -22,7 +22,7 @@ const RoiCalculatorModalProvider: React.FC<{ children: React.ReactNode; lockedAm
     return (
       <VaultRoiCalculatorModal
         pool={pool}
-        linkLabel={t('Get %symbol%', { symbol: 'CAKE' })}
+        linkLabel={t('Get %symbol%', { symbol: 'RECH' })}
         linkHref={stakingTokenAddress ? `/swap?outputCurrency=${stakingTokenAddress}` : '/swap'}
         stakingTokenBalance={pool?.userData?.stakingTokenBalance}
         onBack={() => setShowRoiCalculator(false)}

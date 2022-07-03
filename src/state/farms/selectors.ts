@@ -68,7 +68,8 @@ const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
   }
 }
 
-const selectCakeFarm = (state: State) => state.farms.data.find((f) => f.pid === 2)
+// dust: next line selects default rech farm
+const selectRechFarm = (state: State) => state.farms.data.find((f) => f.pid === 1)
 const selectFarmByKey = (key: string, value: string | number) => (state: State) =>
   state.farms.data.find((f) => f[key] === value)
 
@@ -91,8 +92,8 @@ export const makeUserFarmFromPidSelector = (pid: number) =>
     }
   })
 
-export const priceRechFromPidSelector = createSelector([selectCakeFarm], (cakeEchFarm) => {
-  const rechPriceBusdAsString = cakeEchFarm.tokenPriceBusd
+export const priceRechFromPidSelector = createSelector([selectRechFarm], (rechEchFarm) => {
+  const rechPriceBusdAsString = rechEchFarm.tokenPriceBusd
   return new BigNumber(rechPriceBusdAsString)
 })
 

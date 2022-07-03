@@ -16,7 +16,7 @@ import { footerLinks } from './config/footerConfig'
 
 const Menu = (props) => {
   const { isDark, setTheme } = useTheme()
-  const cakePriceUsd = usePriceRechBusd()
+  const rechPriceUsd = usePriceRechBusd()
   const { currentLanguage, setLanguage, t } = useTranslation()
   const { pathname } = useRouter()
   const [showPhishingWarningBanner] = usePhishingBannerManager()
@@ -47,13 +47,13 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
-      cakePriceUsd={cakePriceUsd.toNumber()}
+      rechPriceUsd={rechPriceUsd.toNumber()}
       links={menuItems}
       subLinks={activeMenuItem?.hideSubNav || activeSubMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
       footerLinks={getFooterLinks}
       activeItem={activeMenuItem?.href}
       activeSubItem={activeSubMenuItem?.href}
-      buyCakeLabel={t('Buy CAKE')}
+      buyCakeLabel={t('Buy RECH')}
       {...props}
     />
   )

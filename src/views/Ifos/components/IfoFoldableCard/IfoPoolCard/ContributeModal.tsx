@@ -87,7 +87,7 @@ const ContributeModal: React.FC<Props> = ({
   const raisingTokenContractApprover = useERC20(currency.address)
   const { t } = useTranslation()
   const valueWithTokenDecimals = new BigNumber(value).times(DEFAULT_TOKEN_DECIMAL)
-  const label = currency === tokens.rech ? t('Max. CAKE entry') : t('Max. token entry')
+  const label = currency === tokens.rech ? t('Max. RECH entry') : t('Max. token entry')
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({
@@ -144,11 +144,11 @@ const ContributeModal: React.FC<Props> = ({
   }, [maximumTokenEntry, userCurrencyBalance])
 
   const basicTooltipContent = t(
-    'For the private sale, each eligible participant will be able to commit any amount of CAKE up to the maximum commit limit, which is published along with the IFO voting proposal.',
+    'For the private sale, each eligible participant will be able to commit any amount of RECH up to the maximum commit limit, which is published along with the IFO voting proposal.',
   )
 
   const unlimitedToolipContent = t(
-    'For the public sale, Max CAKE entry is capped by your average CAKE balance in the IFO CAKE pool. To increase the max entry, Stake more CAKE into the IFO CAKE pool',
+    'For the public sale, Max RECH entry is capped by your average RECH balance in the IFO RECH pool. To increase the max entry, Stake more RECH into the IFO RECH pool',
   )
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
@@ -209,7 +209,7 @@ const ContributeModal: React.FC<Props> = ({
             >
               {valueWithTokenDecimals.isGreaterThan(userCurrencyBalance)
                 ? t('Insufficient Balance')
-                : t('Exceeded max CAKE entry')}
+                : t('Exceeded max RECH entry')}
             </Text>
           )}
           <Text color="textSubtle" textAlign="right" fontSize="12px" mb="16px">
@@ -232,7 +232,7 @@ const ContributeModal: React.FC<Props> = ({
           </Flex>
           <Text color="textSubtle" fontSize="12px" mb="24px">
             {t(
-              'If you don’t commit enough CAKE, you may not receive any IFO tokens at all and will only receive a full refund of your CAKE.',
+              'If you don’t commit enough RECH, you may not receive any IFO tokens at all and will only receive a full refund of your RECH.',
             )}
             <Link
               fontSize="12px"

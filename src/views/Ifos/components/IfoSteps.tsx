@@ -72,12 +72,12 @@ const Step1 = () => {
     <CardBody>
       {tooltipVisible && tooltip}
       <Heading as="h4" color="secondary" mb="16px">
-        {t('Stake CAKE in IFO pool')}
+        {t('Stake RECH in IFO pool')}
       </Heading>
       <Box>
         <Text color="textSubtle" small>
           {t(
-            'The maximum amount of CAKE user can commit to the Public Sale, is equal to the average CAKE balance in the IFO CAKE pool prior to the IFO. Stake more CAKE to increase the maximum CAKE you can commit to the sale. Missed this IFO? You can keep staking in the IFO CAKE Pool to join the next IFO sale.',
+            'The maximum amount of RECH user can commit to the Public Sale, is equal to the average RECH balance in the IFO RECH pool prior to the IFO. Stake more RECH to increase the maximum RECH you can commit to the sale. Missed this IFO? You can keep staking in the IFO RECH Pool to join the next IFO sale.',
           )}
         </Text>
         <TooltipText as="span" fontWeight={700} ref={targetRef} color="textSubtle" small>
@@ -93,10 +93,10 @@ const Step2 = () => {
   return (
     <CardBody>
       <Heading as="h4" color="secondary" mb="16px">
-        {t('Commit CAKE')}
+        {t('Commit RECH')}
       </Heading>
       <Text color="textSubtle" small>
-        {t('When the IFO sales are live, you can “commit” your CAKE to buy the tokens being sold.')} <br />
+        {t('When the IFO sales are live, you can “commit” your RECH to buy the tokens being sold.')} <br />
       </Text>
     </CardBody>
   )
@@ -167,7 +167,7 @@ const IfoSteps: React.FC<TypeProps> = () => {
             </Heading>
             <Text color="textSubtle" small>
               {t(
-                'After the IFO sales finish, you can claim any IFO tokens that you bought, and any unspent CAKE tokens will be returned to your wallet.',
+                'After the IFO sales finish, you can claim any IFO tokens that you bought, and any unspent RECH tokens will be returned to your wallet.',
               )}
             </Text>
           </CardBody>

@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import {
   getNftsMarketData,
   getMetadataWithFallback,
-  getPancakeunniesAttributesField,
+  getPancakeBunniesAttributesField,
   combineApiAndSgResponseToNftToken,
 } from 'state/nftMarket/helpers'
 import { FAST_INTERVAL } from 'config/constants'
@@ -30,7 +30,7 @@ const fetchCheapestBunny = async (
     .filter((marketData) => marketData.tokenId === lowestPriceUpdatedBunny?.tokenId)
     .map((marketData) => {
       const apiMetadata = getMetadataWithFallback(nftMetadata.data, marketData.otherId)
-      const attributes = getPancakeunniesAttributesField(marketData.otherId)
+      const attributes = getPancakeBunniesAttributesField(marketData.otherId)
       const bunnyToken = combineApiAndSgResponseToNftToken(apiMetadata, marketData, attributes)
       const updatedPrice = formatBigNumber(lowestPriceUpdatedBunny.currentAskPrice)
       return {
@@ -41,7 +41,7 @@ const fetchCheapestBunny = async (
   return cheapestBunnyOfAccount.length > 0 ? cheapestBunnyOfAccount[0] : null
 }
 
-export const usePancakeunnyCheapestNft = (bunnyId: string, nftMetadata: ApiResponseCollectionTokens) => {
+export const usePancakeBunnyCheapestNft = (bunnyId: string, nftMetadata: ApiResponseCollectionTokens) => {
   const { account } = useWeb3React()
   const { data, status, mutate } = useSWR(
     nftMetadata && bunnyId ? ['cheapestBunny', bunnyId, account] : null,

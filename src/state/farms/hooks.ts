@@ -49,7 +49,7 @@ export const usePollFarmsWithUserData = () => {
 
 /**
  * Fetches the "core" farm data used globally
- * 2 = CAKE-ECH LP
+ * 2 = RECH-ECH LP
  * 3 = BUSD-ECH LP
  */
 const coreFarmPIDs = CHAIN_ID === String(ChainId.MAINNET) ? [2, 3] : [1, 2]

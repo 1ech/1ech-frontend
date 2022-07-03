@@ -4,7 +4,7 @@ import { useWeb3React } from '@web3-react/core'
 import { getFarmApr } from 'utils/apr'
 import { RowType } from '@pancakeswap/uikit'
 import { ChainId } from '@1ech/sdk'
-import { useFarms, rechPriceBusd, usePollFarmsWithUserData } from 'state/farms/hooks'
+import { useFarms, usePriceRechBusd, usePollFarmsWithUserData } from 'state/farms/hooks'
 import { useFarmsV1 } from 'state/farmsV1/hooks'
 import { DeserializedFarm } from 'state/types'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -18,7 +18,7 @@ const OldFarmStep1: React.FC = () => {
   const { account } = useWeb3React()
   const { data: farmsLP, userDataLoaded, regularCakePerBlock } = useFarms()
   const { data: farmsV1LP } = useFarmsV1()
-  const cakePrice = rechPriceBusd()
+  const rechPrice = usePriceRechBusd()
 
   usePollFarmsWithUserData()
 
@@ -52,7 +52,7 @@ const OldFarmStep1: React.FC = () => {
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceBusd)
         const { cakeRewardsApr, lpRewardsApr } = getFarmApr(
           new BigNumber(farm.poolWeight),
-          cakePrice,
+          rechPrice,
           totalLiquidity,
           farm.lpAddresses[ChainId.MAINNET],
           regularCakePerBlock,
@@ -62,7 +62,7 @@ const OldFarmStep1: React.FC = () => {
 
       return farmsToDisplayWithAPR
     },
-    [cakePrice, regularCakePerBlock],
+    [rechPrice, regularCakePerBlock],
   )
 
   const chosenFarmsMemoized = useMemo(() => {
@@ -84,7 +84,7 @@ const OldFarmStep1: React.FC = () => {
         lpSymbol: farm.lpSymbol,
         tokenAddress,
         quoteTokenAddress,
-        cakePrice,
+        rechPrice,
         originalValue: farm.apr,
       },
       farm: {

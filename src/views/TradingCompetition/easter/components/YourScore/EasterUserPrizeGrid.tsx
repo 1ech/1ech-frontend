@@ -28,7 +28,7 @@ const EasterUserPrizeGrid: React.FC<{ userTradingInformation? }> = ({ userTradin
     <StyledPrizeTable>
       <StyledThead>
         <tr>
-          <th>{t('CAKE Prizes')}</th>
+          <th>{t('RECH Prizes')}</th>
           <th>{t('Achievements')}</th>
           <th>{t('NFT')}</th>
         </tr>

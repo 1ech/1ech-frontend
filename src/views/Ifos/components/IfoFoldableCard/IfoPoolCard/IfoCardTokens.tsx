@@ -17,7 +17,7 @@ import { useWeb3React } from '@web3-react/core'
 import { Token } from '@1ech/sdk'
 import { Ifo, PoolIds } from 'config/constants/types'
 import tokens from 'config/constants/tokens'
-import { cakeEchLpToken } from 'config/constants/ifo'
+import { rechEchLpToken } from 'config/constants/ifo'
 import { PublicIfoData, WalletIfoData } from 'views/Ifos/types'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -65,7 +65,7 @@ const TokenSection: React.FC<TokenSectionProps> = ({ primaryToken, secondaryToke
 }
 
 const CommitTokenSection: React.FC<TokenSectionProps & { commitToken: Token }> = ({ commitToken, ...props }) => {
-  if (commitToken.equals(cakeEchLpToken)) {
+  if (commitToken.equals(rechEchLpToken)) {
     return <TokenSection primaryToken={tokens.rech} secondaryToken={tokens.wech} {...props} />
   }
   return <TokenSection primaryToken={commitToken} {...props} />
@@ -119,7 +119,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
   const { t } = useTranslation()
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     t(
-      'Sorry, you didn’t contribute enough CAKE to meet the minimum threshold. You didn’t buy anything in this sale, but you can still reclaim your CAKE.',
+      'Sorry, you didn’t contribute enough RECH to meet the minimum threshold. You didn’t buy anything in this sale, but you can still reclaim your RECH.',
     ),
     { placement: 'bottom' },
   )
@@ -190,7 +190,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
         <Message my="24px" p="8px" variant="danger">
           <Box>
             <MessageText display="inline">
-              {t('You don’t have any average CAKE balance available to commit in the IFO CAKE pool.')}
+              {t('You don’t have any average RECH balance available to commit in the IFO RECH pool.')}
             </MessageText>{' '}
             <MessageTextLink display="inline" fontWeight={700} href="/ifo#ifo-how-to" color="failure">
               {t('How does it work?')} »
@@ -263,7 +263,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
           {ifov31Msg || (
             <>
               <Text textAlign="center" fontSize="14px">
-                {t('To participate in the next IFO, stake some CAKE in the IFO CAKE pool!')}
+                {t('To participate in the next IFO, stake some RECH in the IFO RECH pool!')}
               </Text>
               <MessageTextLink href="/ifo#ifo-how-to" textAlign="center">
                 {t('How does it work?')} »

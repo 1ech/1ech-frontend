@@ -87,7 +87,6 @@ export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE)
 // ECH
 export const DEFAULT_INPUT_CURRENCY = 'ECH'
 
-/** dust:  replace CAKE with RECH */
 // RECH
 export const DEFAULT_OUTPUT_CURRENCY = '0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964'
 

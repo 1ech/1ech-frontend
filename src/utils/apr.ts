@@ -32,7 +32,7 @@ export const getPoolApr = (
  */
 export const getFarmApr = (
   poolWeight: BigNumber,
-  cakePriceUsd: BigNumber,
+  rechPriceUsd: BigNumber,
   poolLiquidityUsd: BigNumber,
   farmAddress: string,
   regularRechPerBlock: number,
@@ -40,7 +40,7 @@ export const getFarmApr = (
   const yearlyRechRewardAllocation = poolWeight
     ? poolWeight.times(BLOCKS_PER_YEAR * regularRechPerBlock)
     : new BigNumber(NaN)
-  const cakeRewardsApr = yearlyRechRewardAllocation.times(cakePriceUsd).div(poolLiquidityUsd).times(100)
+  const cakeRewardsApr = yearlyRechRewardAllocation.times(rechPriceUsd).div(poolLiquidityUsd).times(100)
   let cakeRewardsAprAsNumber = null
   if (!cakeRewardsApr.isNaN() && cakeRewardsApr.isFinite()) {
     cakeRewardsAprAsNumber = cakeRewardsApr.toNumber()

@@ -15,7 +15,7 @@ export const DURATION_FACTOR = BigNumber.from('31536000')
 
 export const vaultPoolConfig = {
   [VaultKey.RechVaultV1]: {
-    name: <Trans>Auto CAKE</Trans>,
+    name: <Trans>Auto RECH</Trans>,
     description: <Trans>Automatic restaking</Trans>,
     autoCompoundFrequency: 5000,
     gasLimit: 380000,
@@ -25,7 +25,7 @@ export const vaultPoolConfig = {
     },
   },
   [VaultKey.RechVault]: {
-    name: <Trans>Stake CAKE</Trans>,
+    name: <Trans>Stake RECH</Trans>,
     description: <Trans>Stake, Earn – And more!</Trans>,
     autoCompoundFrequency: 5000,
     gasLimit: 500000,
@@ -35,8 +35,8 @@ export const vaultPoolConfig = {
     },
   },
   [VaultKey.IfoPool]: {
-    name: 'IFO CAKE',
-    description: <Trans>Stake CAKE to participate in IFOs</Trans>,
+    name: 'IFO RECH',
+    description: <Trans>Stake RECH to participate in IFOs</Trans>,
     autoCompoundFrequency: 1,
     gasLimit: 500000,
     tokenImage: {

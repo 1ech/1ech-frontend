@@ -64,7 +64,7 @@ const ClaimModal: React.FC<CompetitionProps> = ({ onDismiss, onClaimSuccess, use
         </Flex>
         {/* tokens */}
         <Heading mt="16px" scale="md" mb={canClaimNFT ? '16px' : '0px'}>
-          {cakeReward.toFixed(4)} CAKE
+          {cakeReward.toFixed(4)} RECH
         </Heading>
         <Heading mt="16px" scale="md" mb={canClaimNFT ? '16px' : '0px'}>
           {darReward.toFixed(4)} DAR

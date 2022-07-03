@@ -35,7 +35,7 @@ import FlexRow from '../FlexRow'
 
 const LOGOS = {
   ECH: BinanceIcon,
-  CAKE: LogoIcon,
+  RECH: LogoIcon,
 }
 
 interface SetPositionCardProps {

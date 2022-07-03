@@ -18,7 +18,7 @@ interface RoundDataAndUserTickets {
 
 const lotteryAddress = getLotteryV2Address()
 
-const fetchCakeRewardsForTickets = async (
+const fetchRechRewardsForTickets = async (
   winningTickets: LotteryTicket[],
 ): Promise<{ ticketsWithUnclaimedRewards: LotteryTicket[]; cakeTotal: BigNumber }> => {
   const calls = winningTickets.map((winningTicket) => {
@@ -93,7 +93,7 @@ export const getWinningTickets = async (
   })
 
   if (unclaimedWinningTickets.length > 0) {
-    const { ticketsWithUnclaimedRewards, cakeTotal } = await fetchCakeRewardsForTickets(unclaimedWinningTickets)
+    const { ticketsWithUnclaimedRewards, cakeTotal } = await fetchRechRewardsForTickets(unclaimedWinningTickets)
     return { ticketsWithUnclaimedRewards, allWinningTickets, cakeTotal, roundId }
   }
 

@@ -2208,11 +2208,11 @@ exports[`renders correctly 1`] = `
                   <a
                     class="c60 c61"
                     color="#F4EEFF"
-                    href="https://docs.1ech.com/tokenomics/cake"
+                    href="https://docs.1ech.com/tokenomics/rech"
                     rel="noreferrer noopener"
                     target="_blank"
                   >
-                    CAKE
+                    RECH
                   </a>
                 </li>
                 <li
@@ -3056,7 +3056,7 @@ exports[`renders correctly 1`] = `
                   scale="sm"
                   target="_blank"
                 >
-                  Buy CAKE
+                  Buy RECH
                   <svg
                     class="c93"
                     color="#FFFFFF"

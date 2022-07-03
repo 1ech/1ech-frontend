@@ -19,8 +19,8 @@ export const footerLinks: FooterLinkType[] = [
         href: "https://docs.1ech.com/contact-us/telegram",
       },
       {
-        label: "CAKE",
-        href: "https://docs.1ech.com/tokenomics/cake",
+        label: "RECH",
+        href: "https://docs.1ech.com/tokenomics/rech",
       },
       {
         label: "—",

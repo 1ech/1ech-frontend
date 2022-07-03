@@ -8,7 +8,7 @@ import {
 } from 'state/types'
 import { deserializeToken } from 'state/user/hooks/helpers'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { convertSharesToCake } from 'views/Pools/helpers'
+import { convertSharesToRech } from 'views/Pools/helpers'
 
 type UserData =
   | DeserializedPool['userData']
@@ -101,7 +101,7 @@ export const transformLockedVault = (vault: SerializedRechVault): DeserializedRe
 
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100
 
-  const balance = convertSharesToCake(
+  const balance = convertSharesToRech(
     userShares,
     pricePerFullShare,
     undefined,

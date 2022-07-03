@@ -25,7 +25,7 @@ const LockedStakeModal: React.FC<GenericModalProps> = ({
 
   return (
     <RoiCalculatorModalProvider lockedAmount={lockedAmount}>
-      <Modal title={t('Lock CAKE')} onDismiss={onDismiss} headerBackground={theme.colors.gradients.cardHeader}>
+      <Modal title={t('Lock RECH')} onDismiss={onDismiss} headerBackground={theme.colors.gradients.cardHeader}>
         <Box mb="16px">
           <BalanceField
             stakingAddress={stakingToken.address}

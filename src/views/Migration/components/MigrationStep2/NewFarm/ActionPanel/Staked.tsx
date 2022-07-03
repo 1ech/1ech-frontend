@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { Heading, Text } from '@pancakeswap/uikit'
 import Balance from 'components/Balance'
 import { ActionContainer, ActionContent, ActionTitles } from 'views/Pools/components/PoolsTable/ActionPanel/styles'
-import { rechPriceBusd } from 'state/farms/hooks'
+import { usePriceRechBusd } from 'state/farms/hooks'
 import { EarnedProps } from 'views/Migration/components/MigrationStep1/OldFarm/Cells/Earned'
 import { FarmProps } from 'views/Migration/components/MigrationStep1/OldFarm/Cells/Farm'
 import StakeButton from '../StakeButton'
@@ -24,13 +24,13 @@ const Staked: React.FC<StakedProps> = ({ earned, farm }) => {
   const { t } = useTranslation()
   const { earnings } = earned
   const earningsBigNumber = new BigNumber(earnings)
-  const cakePrice = rechPriceBusd()
+  const rechPrice = usePriceRechBusd()
   let earningsBusd = 0
   let displayBalance = earnings.toLocaleString()
 
   // If user didn't connect wallet default balance will be 0
   if (!earningsBigNumber.isZero()) {
-    earningsBusd = earningsBigNumber.multipliedBy(cakePrice).toNumber()
+    earningsBusd = earningsBigNumber.multipliedBy(rechPrice).toNumber()
     displayBalance = earningsBigNumber.toFixed(3, BigNumber.ROUND_DOWN)
   }
 
@@ -38,7 +38,7 @@ const Staked: React.FC<StakedProps> = ({ earned, farm }) => {
     <Container>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-          {`CAKE ${t('Earned')}`}
+          {`RECH ${t('Earned')}`}
         </Text>
       </ActionTitles>
       <ActionContent>

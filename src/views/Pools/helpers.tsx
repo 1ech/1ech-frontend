@@ -6,7 +6,7 @@ import { getApy } from 'utils/compoundApyHelpers'
 import { getBalanceNumber, getFullDisplayBalance, getDecimalAmount } from 'utils/formatBalance'
 import memoize from 'lodash/memoize'
 
-export const convertSharesToCake = (
+export const convertSharesToRech = (
   shares: BigNumber,
   cakePerFullShare: BigNumber,
   decimals = 18,
@@ -62,7 +62,7 @@ export const getRechVaultEarnings = (
 ) => {
   const hasAutoEarnings =
     account && rechAtLastUserAction && rechAtLastUserAction.gt(0) && userShares && userShares.gt(0)
-  const { rechAsBigNumber } = convertSharesToCake(userShares, pricePerFullShare)
+  const { rechAsBigNumber } = convertSharesToRech(userShares, pricePerFullShare)
   const autoCakeProfit = rechAsBigNumber.minus(fee || BIG_ZERO).minus(rechAtLastUserAction)
   const autoCakeToDisplay = autoCakeProfit.gte(0) ? getBalanceNumber(autoCakeProfit, 18) : 0
 

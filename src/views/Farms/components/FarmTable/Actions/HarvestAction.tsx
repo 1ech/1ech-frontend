@@ -24,7 +24,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const earningsBigNumber = new BigNumber(userData.earnings)
-  const cakePrice = usePriceRechBusd()
+  const rechPrice = usePriceRechBusd()
   let earnings = BIG_ZERO
   let earningsBusd = 0
   let displayBalance = userDataReady ? earnings.toLocaleString() : <Skeleton width={60} />
@@ -32,7 +32,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
   // If user didn't connect wallet default balance will be 0
   if (!earningsBigNumber.isZero()) {
     earnings = getBalanceAmount(earningsBigNumber)
-    earningsBusd = earnings.multipliedBy(cakePrice).toNumber()
+    earningsBusd = earnings.multipliedBy(rechPrice).toNumber()
     displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
   }
 
@@ -45,7 +45,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
     <ActionContainer>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-          CAKE
+          RECH
         </Text>
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           {t('Earned')}
@@ -68,7 +68,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
               toastSuccess(
                 `${t('Harvested')}!`,
                 <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-                  {t('Your %symbol% earnings have been sent to your wallet!', { symbol: 'CAKE' })}
+                  {t('Your %symbol% earnings have been sent to your wallet!', { symbol: 'RECH' })}
                 </ToastDescriptionWithTx>,
               )
               dispatch(fetchFarmUserDataAsync({ account, pids: [pid] }))

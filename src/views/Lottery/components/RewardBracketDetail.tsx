@@ -49,7 +49,7 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
         {isLoading || rechAmount.isNaN() ? (
           <Skeleton my="4px" mr="10px" height={20} width={110} />
         ) : (
-          <Balance fontSize="20px" bold unit=" CAKE" value={getBalanceNumber(rechAmount)} decimals={0} />
+          <Balance fontSize="20px" bold unit=" RECH" value={getBalanceNumber(rechAmount)} decimals={0} />
         )}
         {isLoading || rechAmount.isNaN() ? (
           <>
@@ -68,7 +68,7 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
           <>
             {numberWinners !== '0' && (
               <Text fontSize="12px" color="textSubtle">
-                {getFullDisplayBalance(rechAmount.div(parseInt(numberWinners, 10)), 18, 2)} CAKE {t('each')}
+                {getFullDisplayBalance(rechAmount.div(parseInt(numberWinners, 10)), 18, 2)} RECH {t('each')}
               </Text>
             )}
             <Text fontSize="12px" color="textSubtle">

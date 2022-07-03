@@ -50,7 +50,7 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
   return { handleApprove, pendingTx }
 }
 
-// Approve CAKE auto pool
+// Approve RECH auto pool
 export const useVaultApprove = (setLastUpdated: () => void) => {
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
@@ -67,7 +67,7 @@ export const useVaultApprove = (setLastUpdated: () => void) => {
       toastSuccess(
         t('Contract Enabled'),
         <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-          {t('You can now stake in the %symbol% vault!', { symbol: 'CAKE' })}
+          {t('You can now stake in the %symbol% vault!', { symbol: 'RECH' })}
         </ToastDescriptionWithTx>,
       )
       setLastUpdated()

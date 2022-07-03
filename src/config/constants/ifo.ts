@@ -4,8 +4,8 @@ import farms from './farms'
 import { Ifo } from './types'
 
 /** dust llc: temporarily change rech */
-// export const rechEchLpToken = new Token(ChainId.MAINNET, farms[1].lpAddresses[ChainId.MAINNET], 18, farms[1].lpSymbol)
-export const rechEchLpToken = '0x0000000000000000000000000000000000001234'
+export const rechEchLpToken = new Token(ChainId.MAINNET, farms[1].lpAddresses[ChainId.MAINNET], 18, farms[1].lpSymbol)
+// export const rechEchLpToken = '0x0000000000000000000000000000000000001234'
 
 const ifos: Ifo[] = [
   {

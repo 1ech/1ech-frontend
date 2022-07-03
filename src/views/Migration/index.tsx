@@ -26,12 +26,12 @@ const MigrationPage: React.FC = () => {
     {
       stepId: ProgressStepsType.STEP1,
       canHover: true,
-      text: t('Unstake LP tokens and CAKE from the old MasterChef contract.'),
+      text: t('Unstake LP tokens and RECH from the old MasterChef contract.'),
     },
     {
       stepId: ProgressStepsType.STEP2,
       canHover: true,
-      text: t('Stake LP tokens and CAKE to the new MasterChef v2 contract.'),
+      text: t('Stake LP tokens and RECH to the new MasterChef v2 contract.'),
     },
   ]
 

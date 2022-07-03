@@ -36,7 +36,7 @@ export interface Message {
   sig: string
 }
 
-const STRATEGIES = [{ name: 'rech', params: { symbol: 'CAKE', address: tokens.rech.address, decimals: 18, max: 300 } }]
+const STRATEGIES = [{ name: 'rech', params: { symbol: 'RECH', address: tokens.rech.address, decimals: 18, max: 300 } }]
 const NETWORK = '56'
 
 /**

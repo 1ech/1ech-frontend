@@ -7,7 +7,7 @@ import { Colors } from "../../theme";
 
 export interface Props {
   color?: keyof Colors;
-  cakePriceUsd?: number;
+  rechPriceUsd?: number;
   showSkeleton?: boolean;
 }
 
@@ -24,14 +24,11 @@ const PriceLink = styled.a`
   }
 `;
 
-const CakePrice: React.FC<Props> = ({ cakePriceUsd, color = "textSubtle", showSkeleton = true }) => {
-  return cakePriceUsd ? (
-    <PriceLink
-      href="https://1ech.com/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
-      target="_blank"
-    >
+const CakePrice: React.FC<Props> = ({ rechPriceUsd, color = "textSubtle", showSkeleton = true }) => {
+  return rechPriceUsd ? (
+    <PriceLink href="https://1ech.com/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82" target="_blank">
       <LogoRound width="24px" mr="8px" />
-      <Text color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+      <Text color={color} bold>{`$${rechPriceUsd.toFixed(3)}`}</Text>
     </PriceLink>
   ) : showSkeleton ? (
     <Skeleton width={80} height={24} />

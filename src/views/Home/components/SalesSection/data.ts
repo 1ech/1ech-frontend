@@ -20,7 +20,7 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
     attributes: [
       { src: 'ECH', alt: t('ECH token') },
       { src: 'BTC', alt: t('BTC token') },
-      { src: 'CAKE', alt: t('CAKE token') },
+      { src: 'RECH', alt: t('RECH token') },
     ],
   },
 })
@@ -57,7 +57,7 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
   reverse: false,
   primaryButton: {
     to: '/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
-    text: t('Buy CAKE'),
+    text: t('Buy RECH'),
     external: false,
   },
   secondaryButton: {
@@ -71,7 +71,7 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
     attributes: [
       { src: 'bottom-right', alt: t('Small 3d pancake') },
       { src: 'top-right', alt: t('Small 3d pancake') },
-      { src: 'coin', alt: t('CAKE token') },
+      { src: 'coin', alt: t('RECH token') },
       { src: 'top-left', alt: t('Small 3d pancake') },
     ],
   },

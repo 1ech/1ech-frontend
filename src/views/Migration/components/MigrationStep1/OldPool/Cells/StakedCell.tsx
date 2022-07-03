@@ -7,7 +7,7 @@ import { DeserializedPool } from 'state/types'
 import styled from 'styled-components'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { convertSharesToCake } from 'views/Pools/helpers'
+import { convertSharesToRech } from 'views/Pools/helpers'
 import BaseCell, { CellContent } from 'views/Pools/components/PoolsTable/Cells/BaseCell'
 import { useVaultPoolByKeyV1 } from 'views/Migration/hook/V1/Pool/useFetchIfoPool'
 
@@ -45,7 +45,7 @@ const StakedCell: React.FC<StakedCellProps> = ({ pool }) => {
 
   let rechAsNumberBalance = 0
   if (pricePerFullShare) {
-    const { rechAsNumberBalance: rechBalance } = convertSharesToCake(userShares, pricePerFullShare)
+    const { rechAsNumberBalance: rechBalance } = convertSharesToRech(userShares, pricePerFullShare)
     rechAsNumberBalance = rechBalance
   }
 

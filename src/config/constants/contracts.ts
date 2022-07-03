@@ -1,7 +1,7 @@
 export default {
   masterChef: {
     97: '',
-    3000: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+    3000: '0x6647c617a210e1d789F4b8C48B7E1770F46235e0',
   },
   masterChefV1: {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
@@ -64,7 +64,7 @@ export default {
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
   rechVault: {
-    3000: '0x45c54210128a065de780C4B0Df3d16664f7f859e',
+    3000: '0x1C3EfED4dcCCe9E5F4AeBe61bb2E3952e1F6B373',
     97: '',
   },
   predictions: {

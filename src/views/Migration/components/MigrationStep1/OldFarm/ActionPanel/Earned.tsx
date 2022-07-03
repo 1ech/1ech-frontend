@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { Flex, Heading, Text, useMatchBreakpointsContext } from '@pancakeswap/uikit'
 import Balance from 'components/Balance'
 import { ActionContainer, ActionContent, ActionTitles } from 'views/Pools/components/PoolsTable/ActionPanel/styles'
-import { rechPriceBusd } from 'state/farmsV1/hooks'
+import { usePriceRechBusd } from 'state/farmsV1/hooks'
 import { EarnedProps } from '../Cells/Earned'
 
 const Container = styled(ActionContainer)`
@@ -18,20 +18,20 @@ const Earned: React.FC<EarnedProps> = ({ earnings }) => {
   const { isMobile } = useMatchBreakpointsContext()
 
   const earningsBigNumber = new BigNumber(earnings)
-  const cakePrice = rechPriceBusd()
+  const rechPrice = usePriceRechBusd()
   let earningsBusd = 0
   let displayBalance = earnings.toLocaleString()
 
   // If user didn't connect wallet default balance will be 0
   if (!earningsBigNumber.isZero()) {
-    earningsBusd = earningsBigNumber.multipliedBy(cakePrice).toNumber()
+    earningsBusd = earningsBigNumber.multipliedBy(rechPrice).toNumber()
     displayBalance = earningsBigNumber.toFixed(3, BigNumber.ROUND_DOWN)
   }
 
   if (isMobile) {
     return (
       <Flex justifyContent="space-between">
-        <Text>{`CAKE ${t('Earned')}`}</Text>
+        <Text>{`RECH ${t('Earned')}`}</Text>
         <Flex height="20px" alignItems="center">
           {Number(displayBalance) ? (
             <Balance fontSize="16px" value={Number(displayBalance)} />
@@ -47,7 +47,7 @@ const Earned: React.FC<EarnedProps> = ({ earnings }) => {
     <Container>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-          {`CAKE ${t('Earned')}`}
+          {`RECH ${t('Earned')}`}
         </Text>
       </ActionTitles>
       <ActionContent>

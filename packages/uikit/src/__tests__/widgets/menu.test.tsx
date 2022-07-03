@@ -38,13 +38,13 @@ it("renders correctly", () => {
         langs={langs}
         setLang={noop}
         currentLang="en-US"
-        cakePriceUsd={0.23158668932877668}
+        rechPriceUsd={0.23158668932877668}
         links={menuConfig}
         subLinks={menuConfig[0].items as SubMenuItemsType[]}
         footerLinks={footerLinks}
         activeItem="Trade"
         activeSubItem="Exchange"
-        buyCakeLabel="Buy CAKE"
+        buyCakeLabel="Buy RECH"
       >
         body
       </Menu>

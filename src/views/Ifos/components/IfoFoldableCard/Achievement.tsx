@@ -116,7 +116,7 @@ const IfoAchievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
             <Text color="textSubtle" fontSize="12px">
               {t('Commit ~%amount% %symbol% in total to earn!', {
                 amount: minLpForAchievement,
-                symbol: ifo.currency === tokens.rech ? 'CAKE' : 'LP',
+                symbol: ifo.currency === tokens.rech ? 'RECH' : 'LP',
               })}
             </Text>
           ) : (

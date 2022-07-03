@@ -9,7 +9,7 @@ import Balance from 'components/Balance'
 import { useVaultPoolByKeyV1 } from 'views/Migration/hook/V1/Pool/useFetchIfoPool'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { convertSharesToCake } from 'views/Pools/helpers'
+import { convertSharesToRech } from 'views/Pools/helpers'
 import UnstakeButton from '../UnstakeButton'
 
 const Container = styled(ActionContainer)`
@@ -39,7 +39,7 @@ const Staked: React.FC<StackedActionProps> = ({ pool }) => {
   let rechAsBigNumber = new BigNumber(0)
   let rechAsNumberBalance = 0
   if (pricePerFullShare) {
-    const { rechAsBigNumber: rechBigBumber, rechAsNumberBalance: rechBalance } = convertSharesToCake(
+    const { rechAsBigNumber: rechBigBumber, rechAsNumberBalance: rechBalance } = convertSharesToRech(
       userShares,
       pricePerFullShare,
     )
