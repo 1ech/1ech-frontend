@@ -21,7 +21,7 @@ body:
       options:
         - Trade
         - Farms
-        - Syrup Pools
+        - Tech Pools
         - Lottery
         - Prediction
         - IFO

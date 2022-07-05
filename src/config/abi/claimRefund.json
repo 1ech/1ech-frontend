@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "_cakeToken",
         "type": "address"
       },
@@ -49,7 +49,7 @@
     "name": "cakeToken",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "",
         "type": "address"
       }

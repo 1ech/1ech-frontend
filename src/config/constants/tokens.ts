@@ -44,11 +44,19 @@ export const mainnetTokens = defineTokens({
     'Lite Governance Token',
     'https://litescan.org',
   ),
+  xmn: new Token(
+    MAINNET,
+    '0xCf153fC756D062bc6c8F0712c4E8c348ca9Be214',
+    18,
+    'XMN',
+    'Metronotes',
+    'https://app.metroswap.org',
+  ),
   // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
   ech: new Token(MAINNET, '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343', 18, 'ECH', 'ECH', 'https://ech.network/'),
   // ech here points to the wech contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
-  rech: new Token(MAINNET, '0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
+  rech: new Token(MAINNET, '0x858B2EF4c383C3979E88F46124431f792FBAE591', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
   beta: new Token(
@@ -230,14 +238,7 @@ export const mainnetTokens = defineTokens({
     'Blink Token',
     'https://blink.wink.org',
   ),
-  syrup: new Token(
-    MAINNET,
-    '0x009cF7bC57584b7998236eff51b98A168DceA9B0',
-    18,
-    'SYRUP',
-    'SyrupBar Token',
-    'https://1ech.com/',
-  ),
+  tech: new Token(MAINNET, '0xd5f1e06e03aFe2acf367789C13f12Bc769Ef86A9', 18, 'TECH', 'Tech Token', 'https://1ech.com/'),
   pha: new Token(
     MAINNET,
     '0x0112e557d400474717056C4e6D40eDD846F38351',
@@ -2151,14 +2152,7 @@ export const testnetTokens = defineTokens({
     'Binance USD',
     'https://www.paxos.com/busd/',
   ),
-  syrup: new Token(
-    TESTNET,
-    '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
-    18,
-    'SYRUP',
-    'SyrupBar Token',
-    'https://1ech.com/',
-  ),
+  tech: new Token(TESTNET, '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9', 18, 'TECH', 'Tech Token', 'https://1ech.com/'),
   bake: new Token(
     TESTNET,
     '0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5',

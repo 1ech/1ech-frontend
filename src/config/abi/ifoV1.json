@@ -1,8 +1,8 @@
 [
   {
     "inputs": [
-      { "internalType": "contract IBEP20", "name": "_lpToken", "type": "address" },
-      { "internalType": "contract IBEP20", "name": "_offeringToken", "type": "address" },
+      { "internalType": "contract IERC20", "name": "_lpToken", "type": "address" },
+      { "internalType": "contract IERC20", "name": "_offeringToken", "type": "address" },
       { "internalType": "uint256", "name": "_startBlock", "type": "uint256" },
       { "internalType": "uint256", "name": "_endBlock", "type": "uint256" },
       { "internalType": "uint256", "name": "_offeringAmount", "type": "uint256" },
@@ -101,7 +101,7 @@
   {
     "inputs": [],
     "name": "lpToken",
-    "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -115,7 +115,7 @@
   {
     "inputs": [],
     "name": "offeringToken",
-    "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },

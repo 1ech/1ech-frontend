@@ -2,7 +2,7 @@
   {
     "inputs": [
       { "internalType": "contract IERC20", "name": "_token", "type": "address" },
-      { "internalType": "contract IMasterChefV2", "name": "_masterchefV2", "type": "address" },
+      { "internalType": "contract IMasterChiefV2", "name": "_masterchiefV2", "type": "address" },
       { "internalType": "address", "name": "_admin", "type": "address" },
       { "internalType": "address", "name": "_treasury", "type": "address" },
       { "internalType": "address", "name": "_operator", "type": "address" },
@@ -313,8 +313,8 @@
   },
   {
     "inputs": [],
-    "name": "masterchefV2",
-    "outputs": [{ "internalType": "contract IMasterChefV2", "name": "", "type": "address" }],
+    "name": "masterchiefV2",
+    "outputs": [{ "internalType": "contract IMasterChiefV2", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },

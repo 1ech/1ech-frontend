@@ -88,7 +88,7 @@ export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE)
 export const DEFAULT_INPUT_CURRENCY = 'ECH'
 
 // RECH
-export const DEFAULT_OUTPUT_CURRENCY = '0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964'
+export const DEFAULT_OUTPUT_CURRENCY = '0x858B2EF4c383C3979E88F46124431f792FBAE591'
 
 // Handler string is passed to Gelato to use PCS router
 export const GELATO_HANDLER = 'pancakeswap'

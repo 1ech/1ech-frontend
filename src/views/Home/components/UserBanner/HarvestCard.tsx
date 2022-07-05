@@ -6,7 +6,7 @@ import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { usePriceRechBusd } from 'state/farms/hooks'
 import useToast from 'hooks/useToast'
-import { useMasterchef } from 'hooks/useContract'
+import { useMasterchief } from 'hooks/useContract'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { harvestFarm } from 'utils/calls'
 import Balance from 'components/Balance'
@@ -25,7 +25,7 @@ const HarvestCard = () => {
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const { farmsWithStakedBalance, earningsSum: farmEarningsSum } = useFarmsWithBalance()
 
-  const masterChefContract = useMasterchef()
+  const masterChiefContract = useMasterchief()
   const rechPriceBusd = usePriceRechBusd()
   const earningsBusd = new BigNumber(farmEarningsSum).multipliedBy(rechPriceBusd)
   const numTotalToCollect = farmsWithStakedBalance.length
@@ -40,7 +40,7 @@ const HarvestCard = () => {
       const farmWithBalance = farmsWithStakedBalance[i]
       // eslint-disable-next-line no-await-in-loop
       const receipt = await fetchWithCatchTxError(() => {
-        return harvestFarm(masterChefContract, farmWithBalance.pid)
+        return harvestFarm(masterChiefContract, farmWithBalance.pid)
       })
       if (receipt?.status) {
         toastSuccess(
@@ -51,7 +51,7 @@ const HarvestCard = () => {
         )
       }
     }
-  }, [farmsWithStakedBalance, masterChefContract, toastSuccess, t, fetchWithCatchTxError])
+  }, [farmsWithStakedBalance, masterChiefContract, toastSuccess, t, fetchWithCatchTxError])
 
   return (
     <StyledCard>

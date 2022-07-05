@@ -14,18 +14,18 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'RECH',
     lpAddresses: {
       97: '',
-      3000: '0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964',
+      3000: '0x858B2EF4c383C3979E88F46124431f792FBAE591',
     },
-    token: serializedTokens.syrup,
+    token: serializedTokens.tech,
     quoteToken: serializedTokens.wech,
   },
   {
-    pid: 1,
+    pid: 2,
     v1pid: 251,
     lpSymbol: 'RECH-ECH LP',
     lpAddresses: {
       97: '',
-      3000: '0x39A44f56aE8D9A271f57c356A86C12DC4733354D',
+      3000: '0xFD4a23878d482E407e1606025219BE5B6e8D59f8',
     },
     token: serializedTokens.rech,
     quoteToken: serializedTokens.wech,

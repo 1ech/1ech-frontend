@@ -37,7 +37,7 @@ describe('Config pools', () => {
         stakingTokenAddress = await contract.stakedToken()
       } catch (error) {
         const contract = getSouschefContract(pool.sousId)
-        stakingTokenAddress = await contract.syrup()
+        stakingTokenAddress = await contract.tech()
       }
 
       expect(stakingTokenAddress.toLowerCase()).toBe(pool.stakingToken.address.toLowerCase())

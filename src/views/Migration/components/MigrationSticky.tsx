@@ -80,7 +80,7 @@ const MigrationSticky: React.FC<MigrationStickyProps> = ({ step, handleClick }) 
     return (
       <Container>
         <TextGroup>
-          <TextTitle bold>{t('MasterChef v2 Migration')}</TextTitle>
+          <TextTitle bold>{t('MasterChief v2 Migration')}</TextTitle>
           <TextSubTitle>{t('Please connect wallet to check your pools & farms status.')}</TextSubTitle>
         </TextGroup>
         <ConnectWalletButton width={isMobile ? '131px' : '178px'} />

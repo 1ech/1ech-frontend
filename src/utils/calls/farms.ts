@@ -6,22 +6,22 @@ const options = {
   gasLimit: DEFAULT_GAS_LIMIT,
 }
 
-export const stakeFarm = async (masterChefContract, pid, amount) => {
+export const stakeFarm = async (masterChiefContract, pid, amount) => {
   const gasPrice = getGasPrice()
   const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
 
-  return masterChefContract.deposit(pid, value, { ...options, gasPrice })
+  return masterChiefContract.deposit(pid, value, { ...options, gasPrice })
 }
 
-export const unstakeFarm = async (masterChefContract, pid, amount) => {
+export const unstakeFarm = async (masterChiefContract, pid, amount) => {
   const gasPrice = getGasPrice()
   const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
 
-  return masterChefContract.withdraw(pid, value, { ...options, gasPrice })
+  return masterChiefContract.withdraw(pid, value, { ...options, gasPrice })
 }
 
-export const harvestFarm = async (masterChefContract, pid) => {
+export const harvestFarm = async (masterChiefContract, pid) => {
   const gasPrice = getGasPrice()
 
-  return masterChefContract.deposit(pid, '0', { ...options, gasPrice })
+  return masterChiefContract.deposit(pid, '0', { ...options, gasPrice })
 }

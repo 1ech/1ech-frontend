@@ -26,12 +26,12 @@ const MigrationPage: React.FC = () => {
     {
       stepId: ProgressStepsType.STEP1,
       canHover: true,
-      text: t('Unstake LP tokens and RECH from the old MasterChef contract.'),
+      text: t('Unstake LP tokens and RECH from the old MasterChief contract.'),
     },
     {
       stepId: ProgressStepsType.STEP2,
       canHover: true,
-      text: t('Stake LP tokens and RECH to the new MasterChef v2 contract.'),
+      text: t('Stake LP tokens and RECH to the new MasterChief v2 contract.'),
     },
   ]
 
@@ -72,7 +72,7 @@ const MigrationPage: React.FC = () => {
           {t('Migration')}
         </Heading>
         <Heading scale="lg" color="text">
-          {t('Migrate your stakings to the new MasterChef contract.')}
+          {t('Migrate your stakings to the new MasterChief contract.')}
         </Heading>
         <Link href="https://docs.1ech.com/code/migration/migrate-your-stakings" external>
           <Button p="0" variant="text">

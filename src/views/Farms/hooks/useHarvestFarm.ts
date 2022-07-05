@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
 import { harvestFarm } from 'utils/calls'
-import { useMasterchef } from 'hooks/useContract'
+import { useMasterchief } from 'hooks/useContract'
 
 const useHarvestFarm = (farmPid: number) => {
-  const masterChefContract = useMasterchef()
+  const masterChiefContract = useMasterchief()
 
   const handleHarvest = useCallback(async () => {
-    return harvestFarm(masterChefContract, farmPid)
-  }, [farmPid, masterChefContract])
+    return harvestFarm(masterChiefContract, farmPid)
+  }, [farmPid, masterChiefContract])
 
   return { onReward: handleHarvest }
 }

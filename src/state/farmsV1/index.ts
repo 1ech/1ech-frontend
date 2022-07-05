@@ -18,7 +18,7 @@ import {
   fetchFarmUserStakedBalances,
 } from './fetchFarmUser'
 import { SerializedFarmsState, SerializedFarm } from '../types'
-import { fetchMasterChefFarmPoolLength } from './fetchMasterChefData'
+import { fetchMasterChiefFarmPoolLength } from './fetchMasterChiefData'
 
 const noAccountFarmConfig = farmsConfig.map((farm) => ({
   ...farm,
@@ -47,7 +47,7 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 >(
   'farmsV1/fetchFarmsPublicDataAsync',
   async (pids) => {
-    const poolLength = await fetchMasterChefFarmPoolLength()
+    const poolLength = await fetchMasterChiefFarmPoolLength()
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
 
@@ -93,7 +93,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<
 >(
   'farmsV1/fetchFarmUserDataAsync',
   async ({ account, pids }) => {
-    const poolLength = await fetchMasterChefFarmPoolLength()
+    const poolLength = await fetchMasterChiefFarmPoolLength()
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.v1pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.v1pid))
     const userFarmAllowances = await fetchFarmUserAllowances(account, farmsCanFetch)

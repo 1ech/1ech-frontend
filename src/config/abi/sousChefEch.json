@@ -1,8 +1,8 @@
 [
   {
     "inputs": [
-      { "internalType": "contract IBEP20", "name": "_lp", "type": "address" },
-      { "internalType": "contract IBEP20", "name": "_rewardToken", "type": "address" },
+      { "internalType": "contract IERC20", "name": "_lp", "type": "address" },
+      { "internalType": "contract IERC20", "name": "_rewardToken", "type": "address" },
       { "internalType": "uint256", "name": "_rewardPerBlock", "type": "uint256" },
       { "internalType": "uint256", "name": "_startBlock", "type": "uint256" },
       { "internalType": "uint256", "name": "_bonusEndBlock", "type": "uint256" },
@@ -114,7 +114,7 @@
     "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "poolInfo",
     "outputs": [
-      { "internalType": "contract IBEP20", "name": "lpToken", "type": "address" },
+      { "internalType": "contract IERC20", "name": "lpToken", "type": "address" },
       { "internalType": "uint256", "name": "allocPoint", "type": "uint256" },
       { "internalType": "uint256", "name": "lastRewardBlock", "type": "uint256" },
       { "internalType": "uint256", "name": "accCakePerShare", "type": "uint256" }
@@ -140,7 +140,7 @@
   {
     "inputs": [],
     "name": "rewardToken",
-    "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },

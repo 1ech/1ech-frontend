@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js'
 import { useCallback } from 'react'
 import { DEFAULT_GAS_LIMIT, DEFAULT_TOKEN_DECIMAL } from 'config'
 import { parseUnits } from '@ethersproject/units'
-import { useMasterchefV1, useSousChef } from 'hooks/useContract'
+import { useMasterchiefV1, useSousChef } from 'hooks/useContract'
 import getGasPrice from 'utils/getGasPrice'
 
 const sousUnstake = (sousChefContract: any, amount: string, decimals: number) => {
@@ -20,7 +20,7 @@ const sousEmergencyUnstake = (sousChefContract: any) => {
 }
 
 const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
-  const masterChefV1Contract = useMasterchefV1()
+  const masterChiefV1Contract = useMasterchiefV1()
   const sousChefContract = useSousChef(sousId)
 
   const handleUnstake = useCallback(
@@ -28,7 +28,7 @@ const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
       if (sousId === 0) {
         const gasPrice = getGasPrice()
         const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
-        return masterChefV1Contract.leaveStaking(value, { gasLimit: DEFAULT_GAS_LIMIT, gasPrice })
+        return masterChiefV1Contract.leaveStaking(value, { gasLimit: DEFAULT_GAS_LIMIT, gasPrice })
       }
 
       if (enableEmergencyWithdraw) {
@@ -37,7 +37,7 @@ const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
 
       return sousUnstake(sousChefContract, amount, decimals)
     },
-    [enableEmergencyWithdraw, masterChefV1Contract, sousChefContract, sousId],
+    [enableEmergencyWithdraw, masterChiefV1Contract, sousChefContract, sousId],
   )
 
   return { onUnstake: handleUnstake }

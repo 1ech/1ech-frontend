@@ -66,7 +66,7 @@ const emissionsPerBlock = 14.25
 
 /**
  * User (Planet Finance) built a contract on top of our original manual RECH pool,
- * but the contract was written in such a way that when we performed the migration from Masterchef v1 to v2, the tokens were stuck.
+ * but the contract was written in such a way that when we performed the migration from Masterchief v1 to v2, the tokens were stuck.
  * These stuck tokens are forever gone (see their medium post) and can be considered out of circulation."
  * https://planetfinanceio.medium.com/pancakeswap-works-with-planet-to-help-cake-holders-f0d253b435af
  * https://twitter.com/PancakeSwap/status/1523913527626702849

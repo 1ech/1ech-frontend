@@ -101,7 +101,7 @@
   {
     "inputs": [],
     "name": "cakeToken",
-    "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -175,14 +175,14 @@
   {
     "inputs": [],
     "name": "moboxMisteryBoxToken",
-    "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "moboxToken",
-    "outputs": [{ "internalType": "contract IBEP20", "name": "", "type": "address" }],
+    "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },

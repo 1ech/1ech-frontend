@@ -12,8 +12,8 @@
         "type": "address"
       },
       {
-        "internalType": "contract IMasterChef",
-        "name": "_masterchef",
+        "internalType": "contract IMasterChief",
+        "name": "_masterchief",
         "type": "address"
       },
       {
@@ -447,10 +447,10 @@
   },
   {
     "inputs": [],
-    "name": "masterchef",
+    "name": "masterchief",
     "outputs": [
       {
-        "internalType": "contract IMasterChef",
+        "internalType": "contract IMasterChief",
         "name": "",
         "type": "address"
       }

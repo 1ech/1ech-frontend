@@ -120,7 +120,7 @@ const config = {
         permanent: true,
       },
       {
-        source: '/syrup',
+        source: '/tech',
         destination: '/pools',
         permanent: true,
       },

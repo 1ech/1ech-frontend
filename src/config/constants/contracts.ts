@@ -1,15 +1,15 @@
 export default {
-  masterChef: {
+  masterChief: {
     97: '',
-    3000: '0x6647c617a210e1d789F4b8C48B7E1770F46235e0',
+    3000: '0x2aC71ed8aC2E6c6029F05751868431600EEA5B8a',
   },
-  masterChefV1: {
+  masterChiefV1: {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
-    3000: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+    3000: '0x2aC71ed8aC2E6c6029F05751868431600EEA5B8a',
   },
   sousChef: {
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-    3000: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
+    3000: '0x2e211ea69356c077d110b043eca46b41cf3b1fa2',
   },
   lotteryV2: {
     97: '0x5790c3534F30437641541a0FA04C992799602998',

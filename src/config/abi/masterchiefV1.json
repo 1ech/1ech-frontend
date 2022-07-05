@@ -7,8 +7,8 @@
         "type": "address"
       },
       {
-        "internalType": "contract SyrupBar",
-        "name": "_syrup",
+        "internalType": "contract TechToken",
+        "name": "_tech",
         "type": "address"
       },
       {
@@ -145,7 +145,7 @@
         "type": "uint256"
       },
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "_lpToken",
         "type": "address"
       },
@@ -374,7 +374,7 @@
     "name": "poolInfo",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "lpToken",
         "type": "address"
       },
@@ -468,10 +468,10 @@
   },
   {
     "inputs": [],
-    "name": "syrup",
+    "name": "tech",
     "outputs": [
       {
-        "internalType": "contract SyrupBar",
+        "internalType": "contract TechToken",
         "name": "",
         "type": "address"
       }

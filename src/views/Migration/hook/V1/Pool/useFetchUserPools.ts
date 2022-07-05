@@ -24,7 +24,7 @@ const initialData = {
     earningToken: serializedTokens.rech,
     contractAddress: {
       97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
-      3000: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+      3000: '0x2aC71ed8aC2E6c6029F05751868431600EEA5B8a',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,

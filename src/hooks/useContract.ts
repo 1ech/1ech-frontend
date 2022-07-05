@@ -9,8 +9,8 @@ import {
   getProfileContract,
   getIfoV1Contract,
   getIfoV2Contract,
-  getMasterchefContract,
-  getMasterchefV1Contract,
+  getMasterchiefContract,
+  getMasterchiefV1Contract,
   getPointCenterIfoContract,
   getSouschefContract,
   getClaimRefundContract,
@@ -121,18 +121,18 @@ export const useLotteryV2Contract = () => {
   return useMemo(() => getLotteryV2Contract(library.getSigner()), [library])
 }
 
-export const useMasterchef = (withSignerIfPossible = true) => {
+export const useMasterchief = (withSignerIfPossible = true) => {
   const { library, account } = useActiveWeb3React()
   const signer = useMemo(
     () => (withSignerIfPossible ? getProviderOrSigner(library, account) : null),
     [withSignerIfPossible, library, account],
   )
-  return useMemo(() => getMasterchefContract(signer), [signer])
+  return useMemo(() => getMasterchiefContract(signer), [signer])
 }
 
-export const useMasterchefV1 = () => {
+export const useMasterchiefV1 = () => {
   const { library } = useActiveWeb3React()
-  return useMemo(() => getMasterchefV1Contract(library.getSigner()), [library])
+  return useMemo(() => getMasterchiefV1Contract(library.getSigner()), [library])
 }
 
 export const useSousChef = (id) => {

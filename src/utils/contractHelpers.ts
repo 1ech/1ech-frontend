@@ -14,8 +14,8 @@ import {
   getBunnyFactoryAddress,
   getBunnySpecialAddress,
   getLotteryV2Address,
-  getMasterChefAddress,
-  getMasterChefV1Address,
+  getMasterChiefAddress,
+  getMasterChiefV1Address,
   getPointCenterIfoAddress,
   getClaimRefundAddress,
   getTradingCompetitionAddressEaster,
@@ -50,8 +50,8 @@ import ifoV1Abi from 'config/abi/ifoV1.json'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import pointCenterIfo from 'config/abi/pointCenterIfo.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
-import masterChef from 'config/abi/masterchef.json'
-import masterChefV1 from 'config/abi/masterchefV1.json'
+import masterChief from 'config/abi/masterchief.json'
+import masterChiefV1 from 'config/abi/masterchiefV1.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefV2 from 'config/abi/sousChefV2.json'
 import sousChefEch from 'config/abi/sousChefEch.json'
@@ -92,8 +92,8 @@ import type {
   PancakeBunnies,
   PancakeProfile,
   LotteryV2,
-  Masterchef,
-  MasterchefV1,
+  Masterchief,
+  MasterchiefV1,
   SousChef,
   SousChefV2,
   BunnySpecial,
@@ -168,11 +168,11 @@ export const getBunnySpecialContract = (signer?: Signer | Provider) => {
 export const getLotteryV2Contract = (signer?: Signer | Provider) => {
   return getContract(lotteryV2Abi, getLotteryV2Address(), signer) as LotteryV2
 }
-export const getMasterchefContract = (signer?: Signer | Provider) => {
-  return getContract(masterChef, getMasterChefAddress(), signer) as Masterchef
+export const getMasterchiefContract = (signer?: Signer | Provider) => {
+  return getContract(masterChief, getMasterChiefAddress(), signer) as Masterchief
 }
-export const getMasterchefV1Contract = (signer?: Signer | Provider) => {
-  return getContract(masterChefV1, getMasterChefV1Address(), signer) as MasterchefV1
+export const getMasterchiefV1Contract = (signer?: Signer | Provider) => {
+  return getContract(masterChiefV1, getMasterChiefV1Address(), signer) as MasterchiefV1
 }
 export const getClaimRefundContract = (signer?: Signer | Provider) => {
   return getContract(claimRefundAbi, getClaimRefundAddress(), signer) as ClaimRefund

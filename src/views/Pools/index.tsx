@@ -259,7 +259,7 @@ const Pools: React.FC = () => {
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
+              {t('Tech Pools')}
             </Heading>
             <Heading scale="md" color="text">
               {t('Just stake some tokens to earn.')}
@@ -323,7 +323,7 @@ const Pools: React.FC = () => {
         {showFinishedPools && (
           <FinishedTextContainer>
             <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
-              {t('Looking for v1 RECH syrup pools?')}
+              {t('Looking for v1 RECH tech pools?')}
             </Text>
             <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
               {t('Go to migration page')}.
@@ -340,7 +340,7 @@ const Pools: React.FC = () => {
         <Image
           mx="auto"
           mt="12px"
-          src="/images/decorations/3d-syrup-bunnies.png"
+          src="/images/decorations/3d-tech-bunnies.png"
           alt="Pancake illustration"
           width={192}
           height={184.5}

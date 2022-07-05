@@ -18,6 +18,14 @@
       "logoURI": "https://assets.coingecko.com/coins/images/25498/large/SpO_F8a0_400x400.jpg?1652077746"
     },
     {
+      "name": "Wrapped Echelon",
+      "symbol": "WECH",
+      "address": "0xadEE5159f4f82a35B9068A6c810bdc6c599Ba6a8",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/25498/large/SpO_F8a0_400x400.jpg?1652077746"
+    },
+    {
       "name": "Metronotes",
       "symbol": "XMN",
       "address": "0xCf153fC756D062bc6c8F0712c4E8c348ca9Be214",
@@ -28,7 +36,15 @@
     {
       "name": "Rech Token",
       "symbol": "RECH",
-      "address": "0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964",
+      "address": "0x858B2EF4c383C3979E88F46124431f792FBAE591",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://1ech.com/1ech.png"
+    },
+    {
+      "name": "Tech Token",
+      "symbol": "TECH",
+      "address": "0xd5f1e06e03aFe2acf367789C13f12Bc769Ef86A9",
       "chainId": 3000,
       "decimals": 18,
       "logoURI": "https://1ech.com/1ech.png"
@@ -56,6 +72,46 @@
       "chainId": 3000,
       "decimals": 18,
       "logoURI": "https://coin.top/production/upload/logo/TEkxiTehnzSmSe2XqrBj4w32RUN966rdz81.png"
+    },
+    {
+      "chainId": 3000,
+      "address": "0xB1103e931D6c0057BE3EC8514b99320090e2d6A7",
+      "name": "Metro Wrapped DAI",
+      "symbol": "MDAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/9956/large/4943.png?1636636734"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x10D9Ba55fc00eCb25A518D3C0268228cbD0cf1c9",
+      "name": "Metro Wrapped USDC",
+      "symbol": "MUSDC",
+      "decimals": 6,
+      "logoURI": "https://coin.top/production/upload/logo/TEkxiTehnzSmSe2XqrBj4w32RUN966rdz81.png"
+    },
+    {
+      "chainId": 3000,
+      "address": "0xB4fE73DD7a979368f8A8d49C7b896C01fC00A89B",
+      "name": "Metro Wrapped USDT",
+      "symbol": "MUSDT",
+      "decimals": 6,
+      "logoURI": "https://coin.top/production/logo/usdtlogo.png"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x7c75445c5123c78ea276723dd3632570417729fc",
+      "name": "Metro Wrapped Ether",
+      "symbol": "METH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x5bdc498967667C4298329d2c392cc88aD237AcfE",
+      "name": "Metro Wrapped Bitcoin",
+      "symbol": "MBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
     }
   ]
 }

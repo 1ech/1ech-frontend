@@ -5,7 +5,7 @@ const teams: Team[] = [
   {
     id: 1,
     name: 'Syrup Storm',
-    description: "The storm's a-comin! Watch out! These bulls are stampeding in a syrupy surge!",
+    description: "The storm's a-comin! Watch out! These bulls are stampeding in techy surge!",
     images: {
       lg: 'syrup-storm-lg.png',
       md: 'syrup-storm-md.png',

@@ -5,7 +5,7 @@ const tokens = {
   rech: {
     symbol: "RECH",
     address: {
-      3000: "0x8450fa02b5a5F70d3d1F0EF3DaDB2A8929daE964",
+      3000: "0x858B2EF4c383C3979E88F46124431f792FBAE591",
       97: "0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe",
     },
     decimals: 18,
@@ -578,10 +578,10 @@ const tokens = {
     decimals: 18,
     projectLink: "https://compound.finance/",
   },
-  syrup: {
-    symbol: "SYRUP",
+  tech: {
+    symbol: "TECH",
     address: {
-      3000: "0x009cF7bC57584b7998236eff51b98A168DceA9B0",
+      3000: "0xd5f1e06e03aFe2acf367789C13f12Bc769Ef86A9",
       97: "0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9",
     },
     decimals: 18,

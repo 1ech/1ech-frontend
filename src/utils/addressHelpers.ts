@@ -8,11 +8,11 @@ export const getAddress = (address: Address): string => {
   return address[chainId] ? address[chainId] : address[ChainId.MAINNET]
 }
 
-export const getMasterChefAddress = () => {
-  return getAddress(addresses.masterChef)
+export const getMasterChiefAddress = () => {
+  return getAddress(addresses.masterChief)
 }
-export const getMasterChefV1Address = () => {
-  return getAddress(addresses.masterChefV1)
+export const getMasterChiefV1Address = () => {
+  return getAddress(addresses.masterChiefV1)
 }
 export const getMulticallAddress = () => {
   return getAddress(addresses.multiCall)

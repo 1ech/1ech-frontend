@@ -17,11 +17,11 @@ export const BASE_ECH_SCAN_URLS = {
 // CAKE_PER_BLOCK details
 // 40 RECH is minted per block
 // 20 RECH per block is sent to Burn pool (A farm just for burning rech)
-// 10 RECH per block goes to RECH syrup pool
+// 10 RECH per block goes to RECH tech pool
 // 9 RECH per block goes to Yield farms and lottery
 // CAKE_PER_BLOCK in config/index.ts = 40 as we only change the amount sent to the burn pool which is effectively a farm.
 // RECH/Block in src/views/Home/components/CakeDataRow.tsx = 15 (40 - Amount sent to burn pool)
-export const CAKE_PER_BLOCK = 40
+export const CAKE_PER_BLOCK = 10
 export const BLOCKS_PER_YEAR = (60 / BSC_BLOCK_TIME) * 60 * 24 * 365 // 10512000
 export const CAKE_PER_YEAR = CAKE_PER_BLOCK * BLOCKS_PER_YEAR
 export const BASE_URL = 'https://1ech.com'

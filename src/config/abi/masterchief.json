@@ -2,12 +2,12 @@
   {
     "inputs": [
       {
-        "internalType": "contract IMasterChef",
+        "internalType": "contract IMasterChief",
         "name": "_MASTER_CHEF",
         "type": "address"
       },
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "_rech",
         "type": "address"
       },
@@ -42,7 +42,7 @@
       },
       {
         "indexed": true,
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "lpToken",
         "type": "address"
       },
@@ -318,7 +318,7 @@
     "name": "RECH",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "",
         "type": "address"
       }
@@ -331,7 +331,7 @@
     "name": "MASTER_CHEF",
     "outputs": [
       {
-        "internalType": "contract IMasterChef",
+        "internalType": "contract IMasterChief",
         "name": "",
         "type": "address"
       }
@@ -360,7 +360,7 @@
         "type": "uint256"
       },
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "_lpToken",
         "type": "address"
       },
@@ -541,7 +541,7 @@
   },
   {
     "inputs": [],
-    "name": "harvestFromMasterChef",
+    "name": "harvestFromMasterChief",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -549,7 +549,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "dummyToken",
         "type": "address"
       }
@@ -583,7 +583,7 @@
     "name": "lpToken",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "",
         "type": "address"
       }
@@ -861,7 +861,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct MasterChefV2.PoolInfo",
+        "internalType": "struct MasterChiefV2.PoolInfo",
         "name": "pool",
         "type": "tuple"
       }

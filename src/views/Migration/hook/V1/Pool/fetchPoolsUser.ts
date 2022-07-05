@@ -1,14 +1,14 @@
 import BigNumber from 'bignumber.js'
-import { getMasterchefV1Contract } from 'utils/contractHelpers'
+import { getMasterchiefV1Contract } from 'utils/contractHelpers'
 
 export const fetchUserStakeBalances = async (account) => {
   // Rech / Rech pool
-  const { amount: masterPoolAmount } = await getMasterchefV1Contract().userInfo('0', account)
+  const { amount: masterPoolAmount } = await getMasterchiefV1Contract().userInfo('0', account)
   return new BigNumber(masterPoolAmount.toString()).toJSON()
 }
 
 export const fetchUserPendingRewards = async (account) => {
   // Rech / Rech pool
-  const pendingReward = await getMasterchefV1Contract().pendingRech('0', account)
+  const pendingReward = await getMasterchiefV1Contract().pendingRech('0', account)
   return new BigNumber(pendingReward.toString()).toJSON()
 }
