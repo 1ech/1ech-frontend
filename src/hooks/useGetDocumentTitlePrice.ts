@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
-import { useRechBusdPrice } from 'hooks/useBUSDPrice'
+import { useRechUsdsPrice } from 'hooks/useUSDSPrice'
 
 const useGetDocumentTitlePrice = () => {
-  const rechPriceBusd = useRechBusdPrice()
+  const rechPriceUsds = useRechUsdsPrice()
   useEffect(() => {
-    const rechPriceBusdString = rechPriceBusd ? rechPriceBusd.toFixed(2) : ''
-    document.title = `1ECH - ${rechPriceBusdString}`
-  }, [rechPriceBusd])
+    const rechPriceUsdsString = rechPriceUsds ? rechPriceUsds.toFixed(2) : ''
+    document.title = `1ECH - ${rechPriceUsdsString}`
+  }, [rechPriceUsds])
 }
 export default useGetDocumentTitlePrice

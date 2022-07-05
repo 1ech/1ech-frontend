@@ -14,7 +14,7 @@ import {
   farmSelector,
   farmFromLpSymbolSelector,
   priceRechFromPidSelector,
-  makeBusdPriceFromPidSelector,
+  makeUsdsPriceFromPidSelector,
   makeUserFarmFromPidSelector,
   makeLpTokenPriceFromLpSymbolSelector,
   makeFarmFromPidSelector,
@@ -50,7 +50,7 @@ export const usePollFarmsWithUserData = () => {
 /**
  * Fetches the "core" farm data used globally
  * 2 = RECH-ECH LP
- * 3 = BUSD-ECH LP
+ * 3 = USDS-ECH LP
  */
 const coreFarmPIDs = CHAIN_ID === String(ChainId.MAINNET) ? [2, 3] : [1, 2]
 export const usePollCoreFarmData = () => {
@@ -85,9 +85,9 @@ export const useFarmUser = (pid): DeserializedFarmUserData => {
 }
 
 // Return the base token price for a farm, from a given pid
-export const useBusdPriceFromPid = (pid: number): BigNumber => {
-  const busdPriceFromPid = useMemo(() => makeBusdPriceFromPidSelector(pid), [pid])
-  return useSelector(busdPriceFromPid)
+export const useUsdsPriceFromPid = (pid: number): BigNumber => {
+  const usdsPriceFromPid = useMemo(() => makeUsdsPriceFromPidSelector(pid), [pid])
+  return useSelector(usdsPriceFromPid)
 }
 
 export const useLpTokenPrice = (symbol: string) => {
@@ -96,8 +96,8 @@ export const useLpTokenPrice = (symbol: string) => {
 }
 
 /**
- * @@deprecated use the BUSD hook in /hooks
+ * @@deprecated use the USDS hook in /hooks
  */
-export const usePriceRechBusd = (): BigNumber => {
+export const usePriceRechUsds = (): BigNumber => {
   return useSelector(priceRechFromPidSelector)
 }

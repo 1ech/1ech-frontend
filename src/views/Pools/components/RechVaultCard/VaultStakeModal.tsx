@@ -18,7 +18,7 @@ import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { useVaultApy } from 'hooks/useVaultApy'
 
@@ -94,9 +94,9 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
   const [percent, setPercent] = useState(0)
   const [showRoiCalculator, setShowRoiCalculator] = useState(false)
   const { hasUnstakingFee } = useWithdrawalFeeTimer(parseInt(lastDepositedTime, 10), userShares)
-  const rechPriceBusd = usePriceRechBusd()
-  const usdValueStaked = new BigNumber(stakeAmount).times(rechPriceBusd)
-  const formattedUsdValueStaked = rechPriceBusd.gt(0) && stakeAmount ? formatNumber(usdValueStaked.toNumber()) : ''
+  const rechPriceUsds = usePriceRechUsds()
+  const usdValueStaked = new BigNumber(stakeAmount).times(rechPriceUsds)
+  const formattedUsdValueStaked = rechPriceUsds.gt(0) && stakeAmount ? formatNumber(usdValueStaked.toNumber()) : ''
 
   const { flexibleApy } = useVaultApy()
 
@@ -226,7 +226,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
       <BalanceInput
         value={stakeAmount}
         onUserInput={handleStakeInputChange}
-        currencyValue={rechPriceBusd.gt(0) && `~${formattedUsdValueStaked || 0} USD`}
+        currencyValue={rechPriceUsds.gt(0) && `~${formattedUsdValueStaked || 0} USD`}
         decimals={stakingToken.decimals}
       />
       <Text mt="8px" ml="auto" color="textSubtle" fontSize="12px" mb="8px">

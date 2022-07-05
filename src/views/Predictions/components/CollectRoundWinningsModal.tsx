@@ -24,7 +24,7 @@ import { REWARD_RATE } from 'state/predictions/config'
 import { fetchNodeHistory, markAsCollected } from 'state/predictions'
 import { Bet } from 'state/types'
 import { useTranslation } from 'contexts/Localization'
-import useBUSDPrice from 'hooks/useBUSDPrice'
+import useUSDSPrice from 'hooks/useUSDSPrice'
 import useToast from 'hooks/useToast'
 import { usePredictionsContract } from 'hooks/useContract'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
@@ -97,10 +97,10 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
   const { fetchWithCatchTxError, loading: isPendingTx } = useCatchTxError()
   const { callWithGasPrice } = useCallWithGasPrice()
   const predictionsContract = usePredictionsContract(predictionsAddress)
-  const echBusdPrice = useBUSDPrice(token)
+  const echUsdsPrice = useUSDSPrice(token)
 
   const { epochs, total } = calculateClaimableRounds(history)
-  const totalEch = multiplyPriceByAmount(echBusdPrice, total)
+  const totalEch = multiplyPriceByAmount(echUsdsPrice, total)
 
   useEffect(() => {
     // Fetch history if they have not opened the history pane yet

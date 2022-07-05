@@ -13,13 +13,13 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
     mainnetTokens.wech,
     mainnetTokens.rech,
-    mainnetTokens.busd,
+    mainnetTokens.usds,
     mainnetTokens.usdt,
     mainnetTokens.btcb,
     mainnetTokens.eth,
     mainnetTokens.usdc,
   ],
-  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.busd],
+  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.usds],
 }
 
 /**
@@ -41,20 +41,20 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.busd, mainnetTokens.rech, mainnetTokens.btcb],
-  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.usds, mainnetTokens.rech, mainnetTokens.btcb],
+  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.usds],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.wech, mainnetTokens.dai, mainnetTokens.busd, mainnetTokens.usdt],
-  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.wech, mainnetTokens.dai, mainnetTokens.usds, mainnetTokens.usdt],
+  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.usds],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [mainnetTokens.rech, mainnetTokens.wech],
-    [mainnetTokens.busd, mainnetTokens.usdt],
+    [mainnetTokens.usds, mainnetTokens.usdt],
     [mainnetTokens.dai, mainnetTokens.usdt],
   ],
 }
@@ -88,7 +88,7 @@ export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE)
 export const DEFAULT_INPUT_CURRENCY = 'ECH'
 
 // RECH
-export const DEFAULT_OUTPUT_CURRENCY = '0x858B2EF4c383C3979E88F46124431f792FBAE591'
+export const DEFAULT_OUTPUT_CURRENCY = '0x363a6FD45e39cCD1be3220dc9550975C247BBC5F'
 
 // Handler string is passed to Gelato to use PCS router
 export const GELATO_HANDLER = 'pancakeswap'

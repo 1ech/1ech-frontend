@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import { Flex, Skeleton, Heading, Box, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { LotteryRound, LotteryRoundGraphEntity } from 'state/types'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { useGetLotteryGraphDataById } from 'state/lottery/hooks'
 import { getGraphLotteries } from 'state/lottery/getLotteriesData'
 import { formatNumber, getBalanceNumber } from 'utils/formatBalance'
@@ -28,7 +28,7 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
   const { t } = useTranslation()
   const [fetchedLotteryGraphData, setFetchedLotteryGraphData] = useState<LotteryRoundGraphEntity>()
   const lotteryGraphDataFromState = useGetLotteryGraphDataById(lotteryId)
-  const rechPriceBusd = usePriceRechBusd()
+  const rechPriceUsds = usePriceRechUsds()
 
   useEffect(() => {
     const getGraphData = async () => {
@@ -40,10 +40,10 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
     }
   }, [lotteryGraphDataFromState, lotteryId])
 
-  let prizeInBusd = new BigNumber(NaN)
+  let prizeInUsds = new BigNumber(NaN)
   if (lotteryNodeData) {
     const { amountCollectedInCake } = lotteryNodeData
-    prizeInBusd = amountCollectedInCake.times(rechPriceBusd)
+    prizeInUsds = amountCollectedInCake.times(rechPriceUsds)
   }
 
   const getTotalUsers = (): string => {
@@ -61,14 +61,14 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
   const getPrizeBalances = () => {
     return (
       <>
-        {prizeInBusd.isNaN() ? (
+        {prizeInUsds.isNaN() ? (
           <Skeleton my="7px" height={40} width={200} />
         ) : (
           <Heading scale="xl" lineHeight="1" color="secondary">
-            ~${formatNumber(getBalanceNumber(prizeInBusd), 0, 0)}
+            ~${formatNumber(getBalanceNumber(prizeInUsds), 0, 0)}
           </Heading>
         )}
-        {prizeInBusd.isNaN() ? (
+        {prizeInUsds.isNaN() ? (
           <Skeleton my="2px" height={14} width={90} />
         ) : (
           <Balance

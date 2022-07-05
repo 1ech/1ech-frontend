@@ -3,7 +3,7 @@ import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 import _noop from 'lodash/noop'
-import { useBUSDCakeAmount } from 'hooks/useBUSDPrice'
+import { useUSDSCakeAmount } from 'hooks/useUSDSPrice'
 import { useVaultPoolContract } from 'hooks/useContract'
 import BigNumber from 'bignumber.js'
 import { getDecimalAmount } from 'utils/formatBalance'
@@ -46,7 +46,7 @@ export default function useLockedPool(hookArgs: HookArgs): HookReturn {
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
   const [duration, setDuration] = useState(ONE_WEEK_DEFAULT)
-  const usdValueStaked = useBUSDCakeAmount(lockedAmount.toNumber())
+  const usdValueStaked = useUSDSCakeAmount(lockedAmount.toNumber())
 
   const handleDeposit = useCallback(
     async (convertedStakeAmount: BigNumber, lockDuration: number) => {

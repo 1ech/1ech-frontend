@@ -11,7 +11,7 @@ import useToast from 'hooks/useToast'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { getAddress } from 'utils/addressHelpers'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { useFarmUser, useLpTokenPrice, usePriceRechBusd } from 'state/farms/hooks'
+import { useFarmUser, useLpTokenPrice, usePriceRechUsds } from 'state/farms/hooks'
 import useApproveFarm from 'views/Farms/hooks/useApproveFarm'
 import useStakeFarms from 'views/Farms/hooks/useStakeFarms'
 import useUnstakeFarms from 'views/Farms/hooks/useUnstakeFarms'
@@ -49,7 +49,7 @@ const StakeButton: React.FC<StackedActionProps> = ({
   const { onStake } = useStakeFarms(pid)
   const { onUnstake } = useUnstakeFarms(pid)
   const lpPrice = useLpTokenPrice(lpSymbol)
-  const rechPrice = usePriceRechBusd()
+  const rechPrice = usePriceRechUsds()
 
   const isApproved = account && allowance && allowance.isGreaterThan(0)
 

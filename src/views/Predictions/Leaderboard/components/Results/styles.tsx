@@ -1,7 +1,7 @@
 import { Token } from '@1ech/sdk'
 import { Flex, FlexProps, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import useBUSDPrice from 'hooks/useBUSDPrice'
+import useUSDSPrice from 'hooks/useUSDSPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
 
@@ -31,8 +31,8 @@ export const NetWinningsView: React.FC<NetWinningsProps & { token: Token }> = ({
   textColor = 'text',
   ...props
 }) => {
-  const echBusdPrice = useBUSDPrice(token)
-  const value = multiplyPriceByAmount(echBusdPrice, Math.abs(amount))
+  const echUsdsPrice = useUSDSPrice(token)
+  const value = multiplyPriceByAmount(echUsdsPrice, Math.abs(amount))
 
   if (!amount) {
     return null

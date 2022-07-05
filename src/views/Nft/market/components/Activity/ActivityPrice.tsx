@@ -1,8 +1,8 @@
 import { Flex, BinanceIcon, Text, Skeleton } from '@pancakeswap/uikit'
 import { multiplyPriceByAmount } from 'utils/prices'
 
-const ActivityPrice = ({ echBusdPrice, price }) => {
-  const priceInUsd = multiplyPriceByAmount(echBusdPrice, price)
+const ActivityPrice = ({ echUsdsPrice, price }) => {
+  const priceInUsd = multiplyPriceByAmount(echUsdsPrice, price)
 
   return (
     <Flex flexDirection="column" alignItems="flex-end">

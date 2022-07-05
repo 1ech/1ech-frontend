@@ -21,7 +21,7 @@ const deserializeFarmUserData = (farm: SerializedFarm): DeserializedFarmUserData
 }
 
 const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
-  const { lpAddresses, lpSymbol, v1pid, dual, multiplier, isCommunity, quoteTokenPriceBusd, tokenPriceBusd } = farm
+  const { lpAddresses, lpSymbol, v1pid, dual, multiplier, isCommunity, quoteTokenPriceUsds, tokenPriceUsds } = farm
 
   return {
     lpAddresses,
@@ -30,8 +30,8 @@ const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
     dual,
     multiplier,
     isCommunity,
-    quoteTokenPriceBusd,
-    tokenPriceBusd,
+    quoteTokenPriceUsds,
+    tokenPriceUsds,
     token: deserializeToken(farm.token),
     quoteToken: deserializeToken(farm.quoteToken),
     userData: deserializeFarmUserData(farm),
@@ -61,7 +61,7 @@ export const usePollFarmsV1WithUserData = () => {
 /**
  * Fetches the "core" farm data used globally
  * 251 = RECH-ECH LP
- * 252 = BUSD-ECH LP
+ * 252 = USDS-ECH LP
  */
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
@@ -109,14 +109,14 @@ export const useFarmUser = (pid): DeserializedFarmUserData => {
 }
 
 // Return the base token price for a farm, from a given pid
-export const useBusdPriceFromPid = (pid: number): BigNumber => {
+export const useUsdsPriceFromPid = (pid: number): BigNumber => {
   const farm = useFarmFromPid(pid)
-  return farm && new BigNumber(farm.tokenPriceBusd)
+  return farm && new BigNumber(farm.tokenPriceUsds)
 }
 
 export const useLpTokenPrice = (symbol: string) => {
   const farm = useFarmFromLpSymbol(symbol)
-  const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid)
+  const farmTokenPriceInUsd = useUsdsPriceFromPid(farm.pid)
   let lpTokenPrice = BIG_ZERO
 
   if (farm.lpTotalSupply.gt(0) && farm.lpTotalInQuoteToken.gt(0)) {
@@ -133,16 +133,16 @@ export const useLpTokenPrice = (symbol: string) => {
 }
 
 /**
- * @@deprecated use the BUSD hook in /hooks
+ * @@deprecated use the USDS hook in /hooks
  */
-export const usePriceRechBusd = (): BigNumber => {
+export const usePriceRechUsds = (): BigNumber => {
   const rechEchFarm = useFarmFromPid(251)
 
-  const rechPriceBusdAsString = rechEchFarm.tokenPriceBusd
+  const rechPriceUsdsAsString = rechEchFarm.tokenPriceUsds
 
-  const rechPriceBusd = useMemo(() => {
-    return new BigNumber(rechPriceBusdAsString)
-  }, [rechPriceBusdAsString])
+  const rechPriceUsds = useMemo(() => {
+    return new BigNumber(rechPriceUsdsAsString)
+  }, [rechPriceUsdsAsString])
 
-  return rechPriceBusd
+  return rechPriceUsds
 }

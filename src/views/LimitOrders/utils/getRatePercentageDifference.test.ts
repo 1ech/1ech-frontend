@@ -2,7 +2,7 @@ import { JSBI, Price, Token, Percent } from '@1ech/sdk'
 import getRatePercentageDifference from './getRatePercentageDifference'
 
 const RECH = new Token(56, '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82', 18, 'RECH', 'PancakeSwap Token')
-const BUSD = new Token(56, '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18, 'BUSD', 'Binance USD')
+const USDS = new Token(56, '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18, 'USDS', 'Binance USD')
 const DOGE = new Token(56, '0xbA2aE424d960c26247Dd6c32edC70B295c744C43', 8, 'DOGE', 'Binance-Peg Dogecoin')
 
 const EIGHTEEN_DECIMALS = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(18))
@@ -12,42 +12,42 @@ const FIFTEEN = JSBI.multiply(JSBI.BigInt(15), EIGHTEEN_DECIMALS)
 
 describe('limitOrders/utils/getRatePercentageDifference', () => {
   describe('18 decimal tokens', () => {
-    const marketPrice = new Price(RECH, BUSD, EIGHTEEN_DECIMALS, TEN) // 10 BUSD per 1 RECH
+    const marketPrice = new Price(RECH, USDS, EIGHTEEN_DECIMALS, TEN) // 10 USDS per 1 RECH
     it('returns correct positive percentage', () => {
-      const price = new Price(RECH, BUSD, EIGHTEEN_DECIMALS, FIFTEEN) // 15 BUSD per 1 RECH
+      const price = new Price(RECH, USDS, EIGHTEEN_DECIMALS, FIFTEEN) // 15 USDS per 1 RECH
       const rate = getRatePercentageDifference(marketPrice, price)
       const expectedRate = new Percent(50, 100)
       expect(expectedRate.equalTo(rate)).toBe(true)
     })
     it('returns correct negative percentage', () => {
-      const price = new Price(RECH, BUSD, EIGHTEEN_DECIMALS, FIVE) // 5 BUSD per 1 RECH
+      const price = new Price(RECH, USDS, EIGHTEEN_DECIMALS, FIVE) // 5 USDS per 1 RECH
       const rate = getRatePercentageDifference(marketPrice, price)
       const expectedRate = new Percent(-50, 100)
       expect(expectedRate.equalTo(rate)).toBe(true)
     })
     it('returns correct equal percentage', () => {
-      const price = new Price(RECH, BUSD, EIGHTEEN_DECIMALS, TEN) // 50 BUSD per 1 RECH
+      const price = new Price(RECH, USDS, EIGHTEEN_DECIMALS, TEN) // 50 USDS per 1 RECH
       const rate = getRatePercentageDifference(marketPrice, price)
       const expectedRate = new Percent(0, 100)
       expect(expectedRate.equalTo(rate)).toBe(true)
     })
   })
   describe('18 decimal token and 8 decimal token', () => {
-    const marketPrice = new Price(DOGE, BUSD, EIGHTEEN_DECIMALS, TEN) // 10 BUSD per 1 DOGE
+    const marketPrice = new Price(DOGE, USDS, EIGHTEEN_DECIMALS, TEN) // 10 USDS per 1 DOGE
     it('returns correct positive percentage', () => {
-      const price = new Price(DOGE, BUSD, EIGHTEEN_DECIMALS, FIFTEEN) // 15 BUSD per 1 DOGE
+      const price = new Price(DOGE, USDS, EIGHTEEN_DECIMALS, FIFTEEN) // 15 USDS per 1 DOGE
       const rate = getRatePercentageDifference(marketPrice, price)
       const expectedRate = new Percent(50, 100)
       expect(expectedRate.equalTo(rate)).toBe(true)
     })
     it('returns correct negative percentage', () => {
-      const price = new Price(DOGE, BUSD, EIGHTEEN_DECIMALS, FIVE) // 5 BUSD per 1 DOGE
+      const price = new Price(DOGE, USDS, EIGHTEEN_DECIMALS, FIVE) // 5 USDS per 1 DOGE
       const rate = getRatePercentageDifference(marketPrice, price)
       const expectedRate = new Percent(-50, 100)
       expect(expectedRate.equalTo(rate)).toBe(true)
     })
     it('returns correct equal percentage', () => {
-      const price = new Price(DOGE, BUSD, EIGHTEEN_DECIMALS, TEN) // 50 BUSD per 1 DOGE
+      const price = new Price(DOGE, USDS, EIGHTEEN_DECIMALS, TEN) // 50 USDS per 1 DOGE
       const rate = getRatePercentageDifference(marketPrice, price)
       const expectedRate = new Percent(0, 100)
       expect(expectedRate.equalTo(rate)).toBe(true)
@@ -55,12 +55,12 @@ describe('limitOrders/utils/getRatePercentageDifference', () => {
   })
   describe('gracefully handles undefined arguments', () => {
     it('with undefined market price', () => {
-      const price = new Price(DOGE, BUSD, EIGHTEEN_DECIMALS, FIFTEEN) // 15 BUSD per 1 DOGE
+      const price = new Price(DOGE, USDS, EIGHTEEN_DECIMALS, FIFTEEN) // 15 USDS per 1 DOGE
       const rate = getRatePercentageDifference(undefined, price)
       expect(rate).toBeUndefined()
     })
     it('with undefined price', () => {
-      const marketPrice = new Price(DOGE, BUSD, EIGHTEEN_DECIMALS, TEN) // 10 BUSD per 1 DOGE
+      const marketPrice = new Price(DOGE, USDS, EIGHTEEN_DECIMALS, TEN) // 10 USDS per 1 DOGE
       const rate = getRatePercentageDifference(marketPrice, undefined)
       expect(rate).toBeUndefined()
     })

@@ -36,7 +36,7 @@ const initializeTradingView = (TradingViewObj: any, theme: DefaultTheme, localeC
     id: opts.container_id,
     autosize: true,
     height: '100%',
-    symbol: 'BINANCE:ECHBUSD',
+    symbol: 'BINANCE:ECHUSDS',
     interval: '5',
     timezone,
     theme: theme.isDark ? 'dark' : 'light',

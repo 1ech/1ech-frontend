@@ -26,8 +26,8 @@ const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
     multiplier,
     isCommunity,
     auctionHostingStartSeconds,
-    quoteTokenPriceBusd,
-    tokenPriceBusd,
+    quoteTokenPriceUsds,
+    tokenPriceUsds,
   } = farm
 
   const auctionHostingStartDate = !isUndefinedOrNull(auctionHostingStartSeconds)
@@ -54,8 +54,8 @@ const deserializeFarm = (farm: SerializedFarm): DeserializedFarm => {
     multiplier,
     isCommunity: isFarmCommunity,
     auctionHostingEndDate: auctionHostingEndDate?.toJSON(),
-    quoteTokenPriceBusd,
-    tokenPriceBusd,
+    quoteTokenPriceUsds,
+    tokenPriceUsds,
     token: deserializeToken(farm.token),
     quoteToken: deserializeToken(farm.quoteToken),
     userData: deserializeFarmUserData(farm),
@@ -76,9 +76,9 @@ const selectFarmByKey = (key: string, value: string | number) => (state: State) 
 export const makeFarmFromPidSelector = (pid: number) =>
   createSelector([selectFarmByKey('pid', pid)], (farm) => deserializeFarm(farm))
 
-export const makeBusdPriceFromPidSelector = (pid: number) =>
+export const makeUsdsPriceFromPidSelector = (pid: number) =>
   createSelector([selectFarmByKey('pid', pid)], (farm) => {
-    return farm && new BigNumber(farm.tokenPriceBusd)
+    return farm && new BigNumber(farm.tokenPriceUsds)
   })
 
 export const makeUserFarmFromPidSelector = (pid: number) =>
@@ -93,8 +93,8 @@ export const makeUserFarmFromPidSelector = (pid: number) =>
   })
 
 export const priceRechFromPidSelector = createSelector([selectRechFarm], (rechEchFarm) => {
-  const rechPriceBusdAsString = rechEchFarm.tokenPriceBusd
-  return new BigNumber(rechPriceBusdAsString)
+  const rechPriceUsdsAsString = rechEchFarm.tokenPriceUsds
+  return new BigNumber(rechPriceUsdsAsString)
 })
 
 export const farmFromLpSymbolSelector = (lpSymbol: string) =>
@@ -108,7 +108,7 @@ export const makeLpTokenPriceFromLpSymbolSelector = (lpSymbol: string) =>
     const lpTotalSupply = farm.lpTotalSupply ? new BigNumber(farm.lpTotalSupply) : BIG_ZERO
 
     if (lpTotalSupply.gt(0) && lpTotalInQuoteToken.gt(0)) {
-      const farmTokenPriceInUsd = new BigNumber(farm.tokenPriceBusd)
+      const farmTokenPriceInUsd = new BigNumber(farm.tokenPriceUsds)
       const tokenAmountTotal = farm.tokenAmountTotal ? new BigNumber(farm.tokenAmountTotal) : BIG_ZERO
       // Total value of base token in LP
       const valueOfBaseTokenInFarm = farmTokenPriceInUsd.times(tokenAmountTotal)

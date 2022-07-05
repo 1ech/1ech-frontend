@@ -35,7 +35,7 @@ const FAQ = () => {
           <FoldableText title={t('Eligible trading pairs')} mt="24px">
             <Text fontSize="14px" color="textSubtle">
               {t(
-                'Only trades on DAR/ECH, RECH/ECH, and RECH/BUSD pairs will be included in volume calculations. Please note that the volume from limit orders will not be included.',
+                'Only trades on DAR/ECH, RECH/ECH, and RECH/USDS pairs will be included in volume calculations. Please note that the volume from limit orders will not be included.',
               )}
             </Text>
           </FoldableText>
@@ -63,7 +63,7 @@ const FAQ = () => {
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'The price of token prizes ($RECH and $DAR) in USD will be determined as per their BUSD pair price during the tally period.',
+                'The price of token prizes ($RECH and $DAR) in USD will be determined as per their USDS pair price during the tally period.',
               )}
             </Text>
             <Text fontSize="14px" color="textSubtle">

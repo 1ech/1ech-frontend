@@ -41,11 +41,11 @@ export const ECHAmountLabel: React.FC<ECHAmountLabelProps> = ({ amount, ...props
 
 interface CostLabelProps extends FlexProps {
   cost: number
-  echBusdPrice: Price
+  echUsdsPrice: Price
 }
 
-export const CostLabel: React.FC<CostLabelProps> = ({ cost, echBusdPrice, ...props }) => {
-  const priceInUsd = multiplyPriceByAmount(echBusdPrice, cost)
+export const CostLabel: React.FC<CostLabelProps> = ({ cost, echUsdsPrice, ...props }) => {
+  const priceInUsd = multiplyPriceByAmount(echUsdsPrice, cost)
 
   return (
     <Flex alignItems="center" {...props}>
@@ -136,10 +136,10 @@ export const StyledCollectibleCard = styled(Card)`
 interface LowestPriceMetaRowProps {
   lowestPrice: number
   isFetching: boolean
-  echBusdPrice: Price
+  echUsdsPrice: Price
 }
 
-export const LowestPriceMetaRow = ({ lowestPrice, isFetching, echBusdPrice }: LowestPriceMetaRowProps) => {
+export const LowestPriceMetaRow = ({ lowestPrice, isFetching, echUsdsPrice }: LowestPriceMetaRowProps) => {
   const { t } = useTranslation()
 
   if (!isFetching && !lowestPrice) {
@@ -151,7 +151,7 @@ export const LowestPriceMetaRow = ({ lowestPrice, isFetching, echBusdPrice }: Lo
       {isFetching ? (
         <Skeleton height="24px" width="30px" />
       ) : (
-        <CostLabel cost={lowestPrice} echBusdPrice={echBusdPrice} />
+        <CostLabel cost={lowestPrice} echUsdsPrice={echUsdsPrice} />
       )}
     </MetaRow>
   )

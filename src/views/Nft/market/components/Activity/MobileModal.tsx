@@ -14,7 +14,7 @@ import NFTMedia from '../NFTMedia'
 interface MobileModalProps extends InjectedModalProps {
   activity: Activity
   nft: NftToken
-  echBusdPrice: Price
+  echUsdsPrice: Price
   localeTimestamp: string
   isUserActivity?: boolean
 }
@@ -22,7 +22,7 @@ interface MobileModalProps extends InjectedModalProps {
 const MobileModal: React.FC<MobileModalProps> = ({
   nft,
   activity,
-  echBusdPrice,
+  echUsdsPrice,
   localeTimestamp,
   onDismiss,
   isUserActivity = false,
@@ -31,7 +31,7 @@ const MobileModal: React.FC<MobileModalProps> = ({
   const { t } = useTranslation()
   const { theme } = useTheme()
   const priceAsFloat = parseFloat(activity.price)
-  const priceInUsd = multiplyPriceByAmount(echBusdPrice, priceAsFloat)
+  const priceInUsd = multiplyPriceByAmount(echUsdsPrice, priceAsFloat)
 
   return (
     <Modal title={t('Transaction Details')} onDismiss={onDismiss} headerBackground={theme.colors.gradients.cardHeader}>

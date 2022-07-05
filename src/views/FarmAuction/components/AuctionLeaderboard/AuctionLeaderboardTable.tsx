@@ -18,7 +18,7 @@ import {
 import { getBscScanLink } from 'utils'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { Bidder } from 'config/constants/types'
 import WhitelistedBiddersModal from '../WhitelistedBiddersModal'
 
@@ -40,11 +40,11 @@ const GridCell = styled(Flex)<{ isTopPosition: boolean }>`
 
 interface LeaderboardRowProps {
   bidder: Bidder
-  rechPriceBusd: BigNumber
+  rechPriceUsds: BigNumber
   isMobile: boolean
 }
 
-const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, rechPriceBusd, isMobile }) => {
+const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, rechPriceUsds, isMobile }) => {
   const { t } = useTranslation()
   const { isTopPosition, position, samePositionAsAbove, farmName, tokenName, amount, projectSite, lpAddress, account } =
     bidder
@@ -75,9 +75,9 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, rechPriceBusd, 
           <Text bold textTransform="uppercase" width="100%" textAlign="right">
             {getBalanceNumber(amount).toLocaleString()}
           </Text>
-          {rechPriceBusd.gt(0) ? (
+          {rechPriceUsds.gt(0) ? (
             <Text fontSize="12px" color="textSubtle" textAlign="right">
-              ~${getBalanceNumber(amount.times(rechPriceBusd)).toLocaleString('en', { maximumFractionDigits: 0 })}
+              ~${getBalanceNumber(amount.times(rechPriceUsds)).toLocaleString('en', { maximumFractionDigits: 0 })}
             </Text>
           ) : (
             <Flex justifyContent="flex-end">
@@ -111,7 +111,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ bidder, rechPriceBusd, 
 
 const AuctionLeaderboardTable: React.FC<{ bidders: Bidder[]; noBidsText: string }> = ({ bidders, noBidsText }) => {
   const [visibleBidders, setVisibleBidders] = useState(10)
-  const rechPriceBusd = usePriceRechBusd()
+  const rechPriceUsds = usePriceRechUsds()
   const { t } = useTranslation()
 
   const { isMobile } = useMatchBreakpointsContext()
@@ -151,7 +151,7 @@ const AuctionLeaderboardTable: React.FC<{ bidders: Bidder[]; noBidsText: string 
         <Box />
         {/* Rows */}
         {bidders.slice(0, visibleBidders).map((bidder) => (
-          <LeaderboardRow key={bidder.account} bidder={bidder} rechPriceBusd={rechPriceBusd} isMobile={isMobile} />
+          <LeaderboardRow key={bidder.account} bidder={bidder} rechPriceUsds={rechPriceUsds} isMobile={isMobile} />
         ))}
       </LeaderboardContainer>
       <Flex mt="16px" px="24px" flexDirection="column" justifyContent="center" alignItems="center">

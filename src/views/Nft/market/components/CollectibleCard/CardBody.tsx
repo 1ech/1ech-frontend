@@ -1,6 +1,6 @@
 import { Box, CardBody, Flex, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import PreviewImage from './PreviewImage'
 import { CostLabel, LowestPriceMetaRow, MetaRow } from './styles'
 import LocationTag from './LocationTag'
@@ -12,7 +12,7 @@ import NFTMedia from '../NFTMedia'
 const CollectibleCardBody: React.FC<CollectibleCardProps> = ({ nft, nftLocation, currentAskPrice, isUserNft }) => {
   const { t } = useTranslation()
   const { name } = nft
-  const echBusdPrice = useECHBusdPrice()
+  const echUsdsPrice = useECHUsdsPrice()
   const isPancakeunny = nft.collectionAddress?.toLowerCase() === pancakeBunniesAddress.toLowerCase()
   const { isFetching, lowestPrice } = useGetLowestPriceFromNft(nft)
 
@@ -32,11 +32,11 @@ const CollectibleCardBody: React.FC<CollectibleCardProps> = ({ nft, nftLocation,
       </Text>
       <Box borderTop="1px solid" borderTopColor="cardBorder" pt="8px">
         {isPancakeunny && (
-          <LowestPriceMetaRow lowestPrice={lowestPrice} isFetching={isFetching} echBusdPrice={echBusdPrice} />
+          <LowestPriceMetaRow lowestPrice={lowestPrice} isFetching={isFetching} echUsdsPrice={echUsdsPrice} />
         )}
         {currentAskPrice && (
           <MetaRow title={isUserNft ? t('Your price') : t('Asking price')}>
-            <CostLabel cost={currentAskPrice} echBusdPrice={echBusdPrice} />
+            <CostLabel cost={currentAskPrice} echUsdsPrice={echUsdsPrice} />
           </MetaRow>
         )}
       </Box>

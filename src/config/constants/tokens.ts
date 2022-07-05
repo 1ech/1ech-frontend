@@ -20,6 +20,14 @@ export const mainnetTokens = defineTokens({
     'Wrapped ECH',
     'https://ech.network/',
   ),
+  usds: new Token(
+    MAINNET,
+    '0x521D816260D15bc170e1D36CF8EBC1842DEE18a1',
+    18,
+    'USDS',
+    'Simple USD',
+    'https://simpleusd.com',
+  ),
   wbnb: new Token(
     MAINNET,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
@@ -56,7 +64,7 @@ export const mainnetTokens = defineTokens({
   ech: new Token(MAINNET, '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343', 18, 'ECH', 'ECH', 'https://ech.network/'),
   // ech here points to the wech contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
-  rech: new Token(MAINNET, '0x858B2EF4c383C3979E88F46124431f792FBAE591', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
+  rech: new Token(MAINNET, '0x363a6FD45e39cCD1be3220dc9550975C247BBC5F', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
   beta: new Token(
@@ -93,14 +101,6 @@ export const mainnetTokens = defineTokens({
     'BSCDEFI',
     'BSC Defi blue chips token',
     'https://powerpool.finance/',
-  ),
-  busd: new Token(
-    MAINNET,
-    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-    18,
-    'BUSD',
-    'Binance USD',
-    'https://www.paxos.com/busd/',
   ),
   dai: new Token(
     MAINNET,
@@ -238,7 +238,7 @@ export const mainnetTokens = defineTokens({
     'Blink Token',
     'https://blink.wink.org',
   ),
-  tech: new Token(MAINNET, '0xd5f1e06e03aFe2acf367789C13f12Bc769Ef86A9', 18, 'TECH', 'Tech Token', 'https://1ech.com/'),
+  tech: new Token(MAINNET, '0xf77e27D8AB8F16146e084Ff3251364d7C7a3cE59', 18, 'TECH', 'Tech Token', 'https://1ech.com/'),
   pha: new Token(
     MAINNET,
     '0x0112e557d400474717056C4e6D40eDD846F38351',
@@ -2144,13 +2144,13 @@ export const testnetTokens = defineTokens({
     'https://www.binance.com/',
   ),
   rech: new Token(TESTNET, '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
-  busd: new Token(
+  usds: new Token(
     TESTNET,
     '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
     18,
-    'BUSD',
-    'Binance USD',
-    'https://www.paxos.com/busd/',
+    'USDS',
+    'Simple USD',
+    'https://simpleusd.com/',
   ),
   tech: new Token(TESTNET, '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9', 18, 'TECH', 'Tech Token', 'https://1ech.com/'),
   bake: new Token(

@@ -17,57 +17,57 @@ const getFarmFromTokenSymbol = (
 const getFarmBaseTokenPrice = (
   farm: SerializedFarm,
   quoteTokenFarm: SerializedFarm,
-  echPriceBusd: BigNumber,
+  echPriceUsds: BigNumber,
 ): BigNumber => {
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
 
-  if (farm.quoteToken.symbol === tokens.busd.symbol) {
+  if (farm.quoteToken.symbol === tokens.usds.symbol) {
     return hasTokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
   }
 
   if (farm.quoteToken.symbol === tokens.wech.symbol) {
-    return hasTokenPriceVsQuote ? echPriceBusd.times(farm.tokenPriceVsQuote) : BIG_ZERO
+    return hasTokenPriceVsQuote ? echPriceUsds.times(farm.tokenPriceVsQuote) : BIG_ZERO
   }
 
-  // We can only calculate profits without a quoteTokenFarm for BUSD/ECH farms
+  // We can only calculate profits without a quoteTokenFarm for USDS/ECH farms
   if (!quoteTokenFarm) {
     return BIG_ZERO
   }
 
   // Possible alternative farm quoteTokens:
   // UST (i.e. MIR-UST), pBTC (i.e. PNT-pBTC), BTCB (i.e. bBADGER-BTCB), ETH (i.e. SUSHI-ETH)
-  // If the farm's quote token isn't BUSD or WECH, we then use the quote token, of the original farm's quote token
+  // If the farm's quote token isn't USDS or WECH, we then use the quote token, of the original farm's quote token
   // i.e. for farm PNT - pBTC we use the pBTC farm's quote token - ECH, (pBTC - ECH)
-  // from the ECH - pBTC price, we can calculate the PNT - BUSD price
+  // from the ECH - pBTC price, we can calculate the PNT - USDS price
   if (quoteTokenFarm.quoteToken.symbol === tokens.wech.symbol) {
-    const quoteTokenInBusd = echPriceBusd.times(quoteTokenFarm.tokenPriceVsQuote)
-    return hasTokenPriceVsQuote && quoteTokenInBusd
-      ? new BigNumber(farm.tokenPriceVsQuote).times(quoteTokenInBusd)
+    const quoteTokenInUsds = echPriceUsds.times(quoteTokenFarm.tokenPriceVsQuote)
+    return hasTokenPriceVsQuote && quoteTokenInUsds
+      ? new BigNumber(farm.tokenPriceVsQuote).times(quoteTokenInUsds)
       : BIG_ZERO
   }
 
-  if (quoteTokenFarm.quoteToken.symbol === tokens.busd.symbol) {
-    const quoteTokenInBusd = quoteTokenFarm.tokenPriceVsQuote
-    return hasTokenPriceVsQuote && quoteTokenInBusd
-      ? new BigNumber(farm.tokenPriceVsQuote).times(quoteTokenInBusd)
+  if (quoteTokenFarm.quoteToken.symbol === tokens.usds.symbol) {
+    const quoteTokenInUsds = quoteTokenFarm.tokenPriceVsQuote
+    return hasTokenPriceVsQuote && quoteTokenInUsds
+      ? new BigNumber(farm.tokenPriceVsQuote).times(quoteTokenInUsds)
       : BIG_ZERO
   }
 
-  // Catch in case token does not have immediate or once-removed BUSD/WECH quoteToken
+  // Catch in case token does not have immediate or once-removed USDS/WECH quoteToken
   return BIG_ZERO
 }
 
 const getFarmQuoteTokenPrice = (
   farm: SerializedFarm,
   quoteTokenFarm: SerializedFarm,
-  echPriceBusd: BigNumber,
+  echPriceUsds: BigNumber,
 ): BigNumber => {
-  if (farm.quoteToken.symbol === 'BUSD') {
+  if (farm.quoteToken.symbol === 'USDS') {
     return BIG_ONE
   }
 
   if (farm.quoteToken.symbol === 'WECH') {
-    return echPriceBusd
+    return echPriceUsds
   }
 
   if (!quoteTokenFarm) {
@@ -75,10 +75,10 @@ const getFarmQuoteTokenPrice = (
   }
 
   if (quoteTokenFarm.quoteToken.symbol === 'WECH') {
-    return quoteTokenFarm.tokenPriceVsQuote ? echPriceBusd.times(quoteTokenFarm.tokenPriceVsQuote) : BIG_ZERO
+    return quoteTokenFarm.tokenPriceVsQuote ? echPriceUsds.times(quoteTokenFarm.tokenPriceVsQuote) : BIG_ZERO
   }
 
-  if (quoteTokenFarm.quoteToken.symbol === 'BUSD') {
+  if (quoteTokenFarm.quoteToken.symbol === 'USDS') {
     return quoteTokenFarm.tokenPriceVsQuote ? new BigNumber(quoteTokenFarm.tokenPriceVsQuote) : BIG_ZERO
   }
 
@@ -86,17 +86,17 @@ const getFarmQuoteTokenPrice = (
 }
 
 const getFarmsPrices = (farms: SerializedFarm[]) => {
-  const echBusdFarm = farms.find((farm) => farm.token.symbol === 'BUSD' && farm.quoteToken.symbol === 'WECH')
-  const echPriceBusd = echBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(echBusdFarm.tokenPriceVsQuote) : BIG_ZERO
+  const echUsdsFarm = farms.find((farm) => farm.token.symbol === 'USDS' && farm.quoteToken.symbol === 'WECH')
+  const echPriceUsds = echUsdsFarm.tokenPriceVsQuote ? BIG_ONE.div(echUsdsFarm.tokenPriceVsQuote) : BIG_ZERO
   const farmsWithPrices = farms.map((farm) => {
     const quoteTokenFarm = getFarmFromTokenSymbol(farms, farm.quoteToken.symbol)
-    const tokenPriceBusd = getFarmBaseTokenPrice(farm, quoteTokenFarm, echPriceBusd)
-    const quoteTokenPriceBusd = getFarmQuoteTokenPrice(farm, quoteTokenFarm, echPriceBusd)
+    const tokenPriceUsds = getFarmBaseTokenPrice(farm, quoteTokenFarm, echPriceUsds)
+    const quoteTokenPriceUsds = getFarmQuoteTokenPrice(farm, quoteTokenFarm, echPriceUsds)
 
     return {
       ...farm,
-      tokenPriceBusd: tokenPriceBusd.toJSON(),
-      quoteTokenPriceBusd: quoteTokenPriceBusd.toJSON(),
+      tokenPriceUsds: tokenPriceUsds.toJSON(),
+      quoteTokenPriceUsds: quoteTokenPriceUsds.toJSON(),
     }
   })
 

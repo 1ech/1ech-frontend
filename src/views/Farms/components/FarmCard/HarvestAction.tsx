@@ -9,7 +9,7 @@ import useCatchTxError from 'hooks/useCatchTxError'
 
 import { useAppDispatch } from 'state'
 import { fetchFarmUserDataAsync } from 'state/farms'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getBalanceAmount } from 'utils/formatBalance'
 import useHarvestFarm from '../../hooks/useHarvestFarm'
@@ -25,18 +25,18 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const { t } = useTranslation()
   const { onReward } = useHarvestFarm(pid)
-  const rechPrice = usePriceRechBusd()
+  const rechPrice = usePriceRechUsds()
   const dispatch = useAppDispatch()
   const rawEarningsBalance = account ? getBalanceAmount(earnings) : BIG_ZERO
   const displayBalance = rawEarningsBalance.toFixed(3, BigNumber.ROUND_DOWN)
-  const earningsBusd = rawEarningsBalance ? rawEarningsBalance.multipliedBy(rechPrice).toNumber() : 0
+  const earningsUsds = rawEarningsBalance ? rawEarningsBalance.multipliedBy(rechPrice).toNumber() : 0
 
   return (
     <Flex mb="8px" justifyContent="space-between" alignItems="center">
       <Flex flexDirection="column" alignItems="flex-start">
         <Heading color={rawEarningsBalance.eq(0) ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
-        {earningsBusd > 0 && (
-          <Balance fontSize="12px" color="textSubtle" decimals={2} value={earningsBusd} unit=" USD" prefix="~" />
+        {earningsUsds > 0 && (
+          <Balance fontSize="12px" color="textSubtle" decimals={2} value={earningsUsds} unit=" USD" prefix="~" />
         )}
       </Flex>
       <Button

@@ -21,13 +21,13 @@ const priceHelperLps: SerializedFarmConfig[] = [
   },
   {
     pid: null,
-    lpSymbol: 'ANTEX-BUSD LP',
+    lpSymbol: 'ANTEX-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x4DcB7b3b0E8914DC0e6D366521604cD23E7991E1',
     },
     token: tokens.antex,
-    quoteToken: tokens.busd,
+    quoteToken: tokens.usds,
   },
 ]
 

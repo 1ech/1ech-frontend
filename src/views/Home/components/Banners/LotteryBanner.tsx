@@ -5,7 +5,7 @@ import { FetchStatus, LotteryStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 import Image from 'next/image'
 import { memo } from 'react'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { LotteryResponse } from 'state/types'
 import styled from 'styled-components'
 import useSWR from 'swr'
@@ -63,15 +63,15 @@ const isLotteryLive = (status: LotteryStatus) => status === LotteryStatus.OPEN
 
 const LotteryPrice: React.FC = () => {
   const { data } = useSWR<LotteryResponse>(['currentLottery'])
-  const rechPriceBusd = usePriceRechBusd()
-  const prizeInBusd = new BigNumber(data.amountCollectedInCake).times(rechPriceBusd)
-  const prizeTotal = getBalanceNumber(prizeInBusd)
+  const rechPriceUsds = usePriceRechUsds()
+  const prizeInUsds = new BigNumber(data.amountCollectedInCake).times(rechPriceUsds)
+  const prizeTotal = getBalanceNumber(prizeInUsds)
   const { t } = useTranslation()
 
   if (isLotteryLive(data.status)) {
     return (
       <>
-        {prizeInBusd.isNaN() ? (
+        {prizeInUsds.isNaN() ? (
           <Skeleton height={20} width={90} display="inline-block" />
         ) : (
           t('Win $%prize% in Lottery', {

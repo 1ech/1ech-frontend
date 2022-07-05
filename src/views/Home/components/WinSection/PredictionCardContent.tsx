@@ -6,7 +6,7 @@ import { useTranslation } from 'contexts/Localization'
 import { formatLocalisedCompactNumber } from 'utils/formatBalance'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
 import { getTotalWon } from 'state/predictions/helpers'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import useSWR from 'swr'
 import { SLOW_INTERVAL } from 'config/constants'
@@ -16,8 +16,8 @@ const StyledLink = styled(NextLinkFromReactRouter)`
 `
 
 const PredictionCardHeader: React.FC<{ preText: string; echWon: number }> = ({ preText, echWon }) => {
-  const echBusdPrice = useECHBusdPrice()
-  const echWonInUsd = multiplyPriceByAmount(echBusdPrice, echWon)
+  const echUsdsPrice = useECHUsdsPrice()
+  const echWonInUsd = multiplyPriceByAmount(echUsdsPrice, echWon)
 
   const localisedEchUsdString = formatLocalisedCompactNumber(echWonInUsd)
 

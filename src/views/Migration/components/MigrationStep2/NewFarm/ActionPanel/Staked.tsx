@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { Heading, Text } from '@pancakeswap/uikit'
 import Balance from 'components/Balance'
 import { ActionContainer, ActionContent, ActionTitles } from 'views/Pools/components/PoolsTable/ActionPanel/styles'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { EarnedProps } from 'views/Migration/components/MigrationStep1/OldFarm/Cells/Earned'
 import { FarmProps } from 'views/Migration/components/MigrationStep1/OldFarm/Cells/Farm'
 import StakeButton from '../StakeButton'
@@ -24,13 +24,13 @@ const Staked: React.FC<StakedProps> = ({ earned, farm }) => {
   const { t } = useTranslation()
   const { earnings } = earned
   const earningsBigNumber = new BigNumber(earnings)
-  const rechPrice = usePriceRechBusd()
-  let earningsBusd = 0
+  const rechPrice = usePriceRechUsds()
+  let earningsUsds = 0
   let displayBalance = earnings.toLocaleString()
 
   // If user didn't connect wallet default balance will be 0
   if (!earningsBigNumber.isZero()) {
-    earningsBusd = earningsBigNumber.multipliedBy(rechPrice).toNumber()
+    earningsUsds = earningsBigNumber.multipliedBy(rechPrice).toNumber()
     displayBalance = earningsBigNumber.toFixed(3, BigNumber.ROUND_DOWN)
   }
 
@@ -46,9 +46,9 @@ const Staked: React.FC<StakedProps> = ({ earned, farm }) => {
           <Heading color={earningsBigNumber.gt(0) ? 'text' : 'textDisabled'}>{displayBalance}</Heading>
           <Balance
             fontSize="12px"
-            color={earningsBusd > 0 ? 'textSubtle' : 'textDisabled'}
+            color={earningsUsds > 0 ? 'textSubtle' : 'textDisabled'}
             decimals={2}
-            value={earningsBusd}
+            value={earningsUsds}
             unit=" USD"
             prefix="~"
           />

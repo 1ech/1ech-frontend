@@ -1,7 +1,7 @@
 import { Flex, Text } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import { DeserializedPool } from 'state/types'
 import { getRechVaultEarnings } from 'views/Pools/helpers'
@@ -14,13 +14,13 @@ const RecentRechProfitCountdownRow = ({ pool }: { pool: DeserializedPool }) => {
     pricePerFullShare,
     userData: { rechAtLastUserAction, userShares, currentOverdueFee, currentPerformanceFee },
   } = useVaultPoolByKey(pool.vaultKey)
-  const rechPriceBusd = usePriceRechBusd()
+  const rechPriceUsds = usePriceRechUsds()
   const { hasAutoEarnings, autoCakeToDisplay } = getRechVaultEarnings(
     account,
     rechAtLastUserAction,
     userShares,
     pricePerFullShare,
-    rechPriceBusd.toNumber(),
+    rechPriceUsds.toNumber(),
     currentPerformanceFee.plus(currentOverdueFee),
   )
 

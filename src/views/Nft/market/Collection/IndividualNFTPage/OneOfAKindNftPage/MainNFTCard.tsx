@@ -1,6 +1,6 @@
 import { BinanceIcon, Box, Button, Card, CardBody, Flex, Skeleton, Text, useModal } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 
 import { NftToken } from 'state/nftMarket/types'
 import { multiplyPriceByAmount } from 'utils/prices'
@@ -21,10 +21,10 @@ interface MainNFTCardProps {
 
 const MainNFTCard: React.FC<MainNFTCardProps> = ({ nft, isOwnNft, nftIsProfilePic, onSuccess }) => {
   const { t } = useTranslation()
-  const echBusdPrice = useECHBusdPrice()
+  const echUsdsPrice = useECHUsdsPrice()
 
   const currentAskPriceAsNumber = nft?.marketData?.currentAskPrice ? parseFloat(nft.marketData?.currentAskPrice) : 0
-  const priceInUsd = multiplyPriceByAmount(echBusdPrice, currentAskPriceAsNumber)
+  const priceInUsd = multiplyPriceByAmount(echUsdsPrice, currentAskPriceAsNumber)
   const [onPresentBuyModal] = useModal(<BuyModal nftToBuy={nft} />)
   const [onPresentSellModal] = useModal(
     <SellModal variant={nft.marketData?.isTradable ? 'edit' : 'sell'} nftToSell={nft} onSuccessSale={onSuccess} />,
@@ -79,7 +79,7 @@ const MainNFTCard: React.FC<MainNFTCardProps> = ({ nft, isOwnNft, nftIsProfilePi
                   <Text fontSize="24px" bold mr="4px">
                     {formatNumber(currentAskPriceAsNumber, 0, 5)}
                   </Text>
-                  {echBusdPrice ? (
+                  {echUsdsPrice ? (
                     <Text color="textSubtle">{`(~${priceInUsd.toLocaleString(undefined, {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,

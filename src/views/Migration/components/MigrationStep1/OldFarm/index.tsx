@@ -5,7 +5,7 @@ import { getFarmApr } from 'utils/apr'
 import { RowType } from '@pancakeswap/uikit'
 import { ChainId } from '@1ech/sdk'
 import { CAKE_PER_YEAR } from 'config'
-import { useFarmsV1, usePriceRechBusd } from 'state/farmsV1/hooks'
+import { useFarmsV1, usePriceRechUsds } from 'state/farmsV1/hooks'
 import { DeserializedFarm } from 'state/types'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { FarmWithStakedValue } from 'views/Farms/components/types'
@@ -16,7 +16,7 @@ import { DesktopColumnSchema } from '../../types'
 const OldFarmStep1: React.FC = () => {
   const { account } = useWeb3React()
   const { data: farmsLP, userDataLoaded } = useFarmsV1()
-  const rechPrice = usePriceRechBusd()
+  const rechPrice = usePriceRechUsds()
 
   const userDataReady = !account || (!!account && userDataLoaded)
 
@@ -33,10 +33,10 @@ const OldFarmStep1: React.FC = () => {
   const farmsList = useCallback(
     (farmsToDisplay: DeserializedFarm[]): FarmWithStakedValue[] => {
       const farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        if (!farm.lpTotalInQuoteToken || !farm.quoteTokenPriceBusd) {
+        if (!farm.lpTotalInQuoteToken || !farm.quoteTokenPriceUsds) {
           return farm
         }
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceBusd)
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteTokenPriceUsds)
         const { cakeRewardsApr, lpRewardsApr } = getFarmApr(
           new BigNumber(farm.poolWeight),
           rechPrice,

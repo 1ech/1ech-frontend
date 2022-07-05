@@ -25,14 +25,14 @@ import NFTMedia from '../NFTMedia'
 interface ActivityRowProps {
   activity: Activity
   nft: NftToken
-  echBusdPrice: Price
+  echUsdsPrice: Price
   isUserActivity?: boolean
   isNftActivity?: boolean
 }
 
 const ActivityRow: React.FC<ActivityRowProps> = ({
   activity,
-  echBusdPrice,
+  echUsdsPrice,
   nft,
   isUserActivity = false,
   isNftActivity = false,
@@ -53,7 +53,7 @@ const ActivityRow: React.FC<ActivityRowProps> = ({
       nft={nft}
       activity={activity}
       localeTimestamp={localeTimestamp}
-      echBusdPrice={echBusdPrice}
+      echUsdsPrice={echUsdsPrice}
       isUserActivity={isUserActivity}
     />,
   )
@@ -119,12 +119,12 @@ const ActivityRow: React.FC<ActivityRowProps> = ({
         <Flex alignItems="center" justifyContent="flex-end">
           <ActivityEventText marketEvent={activity.marketEvent} />
         </Flex>
-        {isXs || isSm ? <ActivityPrice price={priceAsFloat} echBusdPrice={echBusdPrice} /> : null}
+        {isXs || isSm ? <ActivityPrice price={priceAsFloat} echUsdsPrice={echUsdsPrice} /> : null}
       </Td>
       {isXs || isSm ? null : (
         <>
           <Td>
-            <ActivityPrice price={priceAsFloat} echBusdPrice={echBusdPrice} />
+            <ActivityPrice price={priceAsFloat} echUsdsPrice={echUsdsPrice} />
           </Td>
           {isUserActivity ? (
             <Td>

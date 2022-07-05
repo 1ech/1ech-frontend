@@ -4,15 +4,15 @@ import { mainnetTokens, testnetTokens } from './tokens'
 import { ChainTokenList } from './types'
 
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.wech, mainnetTokens.dai, mainnetTokens.busd, mainnetTokens.usdt],
-  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.wech, mainnetTokens.dai, mainnetTokens.usds, mainnetTokens.usdt],
+  [ChainId.TESTNET]: [testnetTokens.wech, testnetTokens.rech, testnetTokens.usds],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [mainnetTokens.wech, mainnetTokens.usdt],
     [mainnetTokens.rech, mainnetTokens.wech],
-    [mainnetTokens.busd, mainnetTokens.usdt],
+    [mainnetTokens.usds, mainnetTokens.usdt],
     [mainnetTokens.dai, mainnetTokens.usdt],
   ],
 }

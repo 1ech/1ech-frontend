@@ -14,7 +14,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'RECH',
     lpAddresses: {
       97: '',
-      3000: '0x858B2EF4c383C3979E88F46124431f792FBAE591',
+      3000: '0x363a6FD45e39cCD1be3220dc9550975C247BBC5F',
     },
     token: serializedTokens.tech,
     quoteToken: serializedTokens.wech,
@@ -25,7 +25,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'RECH-ECH LP',
     lpAddresses: {
       97: '',
-      3000: '0xFD4a23878d482E407e1606025219BE5B6e8D59f8',
+      3000: '0x4292E6a7dd6Bf4a33b48e0e934E7BA7352e5eD8b',
     },
     token: serializedTokens.rech,
     quoteToken: serializedTokens.wech,
@@ -33,12 +33,12 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 3,
     v1pid: 252,
-    lpSymbol: 'BUSD-ECH LP',
+    lpSymbol: 'USDS-ECH LP',
     lpAddresses: {
       97: '',
       3000: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
     },
-    token: serializedTokens.busd,
+    token: serializedTokens.usds,
     quoteToken: serializedTokens.wech,
   },
   //    * V3 by order of release (some may be out of PID order due to multiplier boost)
@@ -70,26 +70,26 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 94,
     v1pid: 525,
-    lpSymbol: 'WZRD-BUSD LP',
+    lpSymbol: 'WZRD-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xee456d906a38e10680c9d157FFf143390e9681bA',
     },
     token: serializedTokens.wzrd,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
     isCommunity: true,
     auctionHostingStartSeconds: 1654772400,
   },
   {
     pid: 40,
     v1pid: 390,
-    lpSymbol: 'CHR-BUSD LP',
+    lpSymbol: 'CHR-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x6045931e511ef7e53a4a817f971e0ca28c758809',
     },
     token: serializedTokens.chr,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 38,
@@ -104,24 +104,24 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 96,
-    lpSymbol: '8PAY-BUSD LP',
+    lpSymbol: '8PAY-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x92c3E2cddDb0CE886bCA864151BD4d611A86E563',
     },
     token: serializedTokens['8pay'],
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
     isCommunity: true,
   },
   {
     pid: 101,
-    lpSymbol: 'MIX-BUSD LP',
+    lpSymbol: 'MIX-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x7618fdAb208aE23690dadD3aa4a42a442313d24E',
     },
     token: serializedTokens.MIX,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 100,
@@ -156,13 +156,13 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 97,
-    lpSymbol: 'RPG-BUSD LP',
+    lpSymbol: 'RPG-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x55cdb14855220b239Cf857A03849D96736b9103f',
     },
     token: serializedTokens.rpg,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 95,
@@ -276,13 +276,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 83,
     v1pid: 510,
-    lpSymbol: 'BTT-BUSD',
+    lpSymbol: 'BTT-USDS',
     lpAddresses: {
       97: '',
       3000: '0xB7E73DaEe6A6Ca37A21f8E4bfba4DA448DFE4d92',
     },
     token: serializedTokens.btt,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 82,
@@ -298,13 +298,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 81,
     v1pid: 507,
-    lpSymbol: 'RACA-BUSD LP',
+    lpSymbol: 'RACA-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x8e744ec2795c8b836689d1b4ebe1489204357dac',
     },
     token: serializedTokens.raca,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 80,
@@ -342,13 +342,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 77,
     v1pid: 502,
-    lpSymbol: 'APX-BUSD',
+    lpSymbol: 'APX-USDS',
     lpAddresses: {
       97: '',
       3000: '0xa0ee789a8f581cb92dd9742ed0b5d54a0916976c',
     },
     token: serializedTokens.apx,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 76,
@@ -364,13 +364,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 75,
     v1pid: 497,
-    lpSymbol: 'AOG-BUSD LP',
+    lpSymbol: 'AOG-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x88c9bf5E334e2591C6A866D5E20683E31226Be3d',
     },
     token: serializedTokens.aog,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 74,
@@ -386,13 +386,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 73,
     v1pid: 491,
-    lpSymbol: 'HIGH-BUSD LP',
+    lpSymbol: 'HIGH-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xe98ac95A1dB2fCaaa9c7D4ba7ecfCE4877ca2bEa',
     },
     token: serializedTokens.high,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 72,
@@ -419,13 +419,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 70,
     v1pid: 484,
-    lpSymbol: 'IDIA-BUSD LP',
+    lpSymbol: 'IDIA-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x71E6de81381eFE0Aa98f56b3B43eB3727D640715',
     },
     token: serializedTokens.idia,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 69,
@@ -485,13 +485,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 64,
     v1pid: 470,
-    lpSymbol: 'FINA-BUSD LP',
+    lpSymbol: 'FINA-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x6dB23b5360c9D2859fDcbf41c56494e7b8573649',
     },
     token: serializedTokens.fina,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 63,
@@ -562,35 +562,35 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 57,
     v1pid: 448,
-    lpSymbol: 'RUSD-BUSD LP',
+    lpSymbol: 'RUSD-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x59FaC9e98479fc9979aE2a0C7422Af50bCBB9B26',
     },
     token: serializedTokens.rusd,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 56,
     v1pid: 442,
-    lpSymbol: 'TRX-BUSD LP',
+    lpSymbol: 'TRX-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xb5d108578be3750209d1b3a8f45ffee8c5a75146',
     },
     token: serializedTokens.trx,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 55,
     v1pid: 441,
-    lpSymbol: 'WIN-BUSD LP',
+    lpSymbol: 'WIN-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x6a445ceb72c8b1751755386c3990055ff92e14a0',
     },
     token: serializedTokens.win,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 54,
@@ -738,24 +738,24 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 41,
     v1pid: 397,
-    lpSymbol: 'TUSD-BUSD LP',
+    lpSymbol: 'TUSD-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x2e28b9b74d6d99d4697e913b82b41ef1cac51c6c',
     },
     token: serializedTokens.tusd,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 39,
     v1pid: 389,
-    lpSymbol: 'RECH-BUSD LP',
+    lpSymbol: 'RECH-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x804678fa97d91B974ec2af3c843270886528a9E6',
     },
     token: serializedTokens.rech,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 37,
@@ -771,24 +771,24 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 36,
     v1pid: 365,
-    lpSymbol: 'BTCB-BUSD LP',
+    lpSymbol: 'BTCB-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xf45cd219aef8618a92baa7ad848364a158a24f33',
     },
     token: serializedTokens.btcb,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 35,
     v1pid: 362,
-    lpSymbol: 'ALPACA-BUSD LP',
+    lpSymbol: 'ALPACA-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x7752e1fa9f3a2e860856458517008558deb989e3',
     },
     token: serializedTokens.alpaca,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 34,
@@ -859,24 +859,24 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 28,
     v1pid: 317,
-    lpSymbol: 'RAMP-BUSD LP',
+    lpSymbol: 'RAMP-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xE834bf723f5bDff34a5D1129F3c31Ea4787Bc76a',
     },
     token: serializedTokens.ramp,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 27,
     v1pid: 309,
-    lpSymbol: 'IOTX-BUSD LP',
+    lpSymbol: 'IOTX-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xc13aA76AAc067c86aE38028019F414D731b3D86A',
     },
     token: serializedTokens.iotx,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 26,
@@ -903,24 +903,24 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 24,
     v1pid: 298,
-    lpSymbol: 'LINA-BUSD LP',
+    lpSymbol: 'LINA-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0xC5768c5371568Cf1114cddD52CAeD163A42626Ed',
     },
     token: serializedTokens.lina,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 23,
     v1pid: 293,
-    lpSymbol: 'UST-BUSD LP',
+    lpSymbol: 'UST-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x05faf555522Fa3F93959F86B41A3808666093210',
     },
     token: serializedTokens.ust,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 22,
@@ -947,35 +947,35 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 20,
     v1pid: 283,
-    lpSymbol: 'USDC-BUSD LP',
+    lpSymbol: 'USDC-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x2354ef4DF11afacb85a5C7f98B624072ECcddbB1',
     },
     token: serializedTokens.usdc,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 19,
     v1pid: 282,
-    lpSymbol: 'DAI-BUSD LP',
+    lpSymbol: 'DAI-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x66FDB2eCCfB58cF098eaa419e5EfDe841368e489',
     },
     token: serializedTokens.dai,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 18,
     v1pid: 276,
-    lpSymbol: 'VAI-BUSD LP',
+    lpSymbol: 'VAI-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x133ee93FE93320e1182923E1a640912eDE17C90C',
     },
     token: serializedTokens.vai,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 17,
@@ -1090,13 +1090,13 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 7,
     v1pid: 258,
-    lpSymbol: 'USDT-BUSD LP',
+    lpSymbol: 'USDT-USDS LP',
     lpAddresses: {
       97: '',
       3000: '0x7EFaEf62fDdCCa950418312c6C91Aef321375A00',
     },
     token: serializedTokens.usdt,
-    quoteToken: serializedTokens.busd,
+    quoteToken: serializedTokens.usds,
   },
   {
     pid: 6,

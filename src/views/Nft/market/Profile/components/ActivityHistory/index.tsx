@@ -16,7 +16,7 @@ import {
 import { Activity, NftToken } from 'state/nftMarket/types'
 import { useTranslation } from 'contexts/Localization'
 import TableLoader from 'components/TableLoader'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import useTheme from 'hooks/useTheme'
 import { useRouter } from 'next/router'
 import { sortUserActivity } from '../../utils/sortUserActivity'
@@ -39,7 +39,7 @@ const ActivityHistory = () => {
   const [nftMetadata, setNftMetadata] = useState<NftToken[]>([])
   const [sortedUserActivities, setSortedUserActivities] = useState<Activity[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const echBusdPrice = useECHBusdPrice()
+  const echUsdsPrice = useECHUsdsPrice()
   const { isXs, isSm } = useMatchBreakpointsContext()
 
   useEffect(() => {
@@ -134,7 +134,7 @@ const ActivityHistory = () => {
                       key={`${activity.nft.tokenId}${activity.timestamp}`}
                       activity={activity}
                       nft={nftMeta}
-                      echBusdPrice={echBusdPrice}
+                      echUsdsPrice={echUsdsPrice}
                       isUserActivity
                     />
                   )

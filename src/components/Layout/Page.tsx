@@ -3,7 +3,7 @@ import { useTranslation } from 'contexts/Localization'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { DEFAULT_META, getCustomMeta } from 'config/constants/meta'
-import { useRechBusdPrice } from 'hooks/useBUSDPrice'
+import { useRechUsdsPrice } from 'hooks/useUSDSPrice'
 import Container from './Container'
 
 const StyledPage = styled(Container)`
@@ -28,7 +28,7 @@ export const PageMeta: React.FC<{ symbol?: string }> = ({ symbol }) => {
     currentLanguage: { locale },
   } = useTranslation()
   const { pathname } = useRouter()
-  const rechPriceUsd = useRechBusdPrice()
+  const rechPriceUsd = useRechUsdsPrice()
   const rechPriceUsdDisplay = rechPriceUsd ? `$${rechPriceUsd.toFixed(3)}` : '...'
 
   const pageMeta = getCustomMeta(pathname, t, locale) || {}

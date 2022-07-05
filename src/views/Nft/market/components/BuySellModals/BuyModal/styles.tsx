@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Modal, Grid, Flex, Text, BinanceIcon, Skeleton } from '@pancakeswap/uikit'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { BuyingStage } from './types'
 
@@ -39,7 +39,7 @@ interface EchAmountCellProps {
 }
 
 export const EchAmountCell: React.FC<EchAmountCellProps> = ({ echAmount, isLoading, isInsufficient }) => {
-  const echBusdPrice = useECHBusdPrice()
+  const echUsdsPrice = useECHUsdsPrice()
   if (isLoading) {
     return (
       <Flex flexDirection="column" justifySelf="flex-end">
@@ -48,7 +48,7 @@ export const EchAmountCell: React.FC<EchAmountCellProps> = ({ echAmount, isLoadi
       </Flex>
     )
   }
-  const usdAmount = multiplyPriceByAmount(echBusdPrice, echAmount)
+  const usdAmount = multiplyPriceByAmount(echUsdsPrice, echAmount)
   return (
     <Flex justifySelf="flex-end" flexDirection="column">
       <Flex justifyContent="flex-end">

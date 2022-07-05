@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Modal, Box, Flex, Text, BinanceIcon, Input } from '@pancakeswap/uikit'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { SellingStage } from './types'
 
@@ -42,7 +42,7 @@ interface EchAmountCellProps {
 }
 
 export const EchAmountCell: React.FC<EchAmountCellProps> = ({ echAmount }) => {
-  const echBusdPrice = useECHBusdPrice()
+  const echUsdsPrice = useECHUsdsPrice()
   if (!echAmount || echAmount === 0) {
     return (
       <Flex alignItems="center" justifyContent="flex-end">
@@ -53,7 +53,7 @@ export const EchAmountCell: React.FC<EchAmountCellProps> = ({ echAmount }) => {
       </Flex>
     )
   }
-  const usdAmount = multiplyPriceByAmount(echBusdPrice, echAmount)
+  const usdAmount = multiplyPriceByAmount(echUsdsPrice, echAmount)
   return (
     <Flex alignItems="center" justifyContent="flex-end">
       <BinanceIcon width={16} height={16} mr="4px" />

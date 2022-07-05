@@ -5,11 +5,29 @@ const tokens = {
   rech: {
     symbol: "RECH",
     address: {
-      3000: "0x858B2EF4c383C3979E88F46124431f792FBAE591",
+      3000: "0x363a6FD45e39cCD1be3220dc9550975C247BBC5F",
       97: "0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe",
     },
     decimals: 18,
     projectLink: "https://1ech.com/",
+  },
+  tech: {
+    symbol: "TECH",
+    address: {
+      3000: "0xf77e27D8AB8F16146e084Ff3251364d7C7a3cE59",
+      97: "0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9",
+    },
+    decimals: 18,
+    projectLink: "https://1ech.com/",
+  },
+  usds: {
+    symbol: "USDS",
+    address: {
+      3000: "0x521D816260D15bc170e1D36CF8EBC1842DEE18a1",
+      97: "",
+    },
+    decimals: 18,
+    projectLink: "https://simpleusd.com/",
   },
   txl: {
     symbol: "TXL",
@@ -578,15 +596,6 @@ const tokens = {
     decimals: 18,
     projectLink: "https://compound.finance/",
   },
-  tech: {
-    symbol: "TECH",
-    address: {
-      3000: "0xd5f1e06e03aFe2acf367789C13f12Bc769Ef86A9",
-      97: "0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9",
-    },
-    decimals: 18,
-    projectLink: "https://1ech.com/",
-  },
   bifi: {
     symbol: "BIFI",
     address: {
@@ -604,15 +613,6 @@ const tokens = {
     },
     decimals: 18,
     projectLink: "https://dusk.network/",
-  },
-  busd: {
-    symbol: "BUSD",
-    address: {
-      3000: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      97: "",
-    },
-    decimals: 18,
-    projectLink: "https://www.paxos.com/busd/",
   },
   eth: {
     symbol: "ETH",

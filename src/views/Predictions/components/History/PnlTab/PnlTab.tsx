@@ -6,7 +6,7 @@ import { getRoundResult, Result } from 'state/predictions/helpers'
 import { REWARD_RATE } from 'state/predictions/config'
 import { getBscScanLink } from 'utils'
 import { multiplyPriceByAmount } from 'utils/prices'
-import useBUSDPrice from 'hooks/useBUSDPrice'
+import useUSDSPrice from 'hooks/useUSDSPrice'
 import { useGetCurrentEpoch } from 'state/predictions/hooks'
 import { Bet, BetPosition } from 'state/types'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
@@ -107,7 +107,7 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
   const { account } = useWeb3React()
   const currentEpoch = useGetCurrentEpoch()
   const { token } = useConfig()
-  const echBusdPrice = useBUSDPrice(token)
+  const echUsdsPrice = useUSDSPrice(token)
 
   const summary = getPnlSummary(bets, currentEpoch)
 
@@ -120,11 +120,11 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
   // Guard in case user has only lost rounds
   const hasBestRound = summary.won.bestRound.payout !== 0
 
-  const netResultInUsd = multiplyPriceByAmount(echBusdPrice, netResultAmount)
-  const avgEchWonInUsd = multiplyPriceByAmount(echBusdPrice, avgEchWonPerRound)
+  const netResultInUsd = multiplyPriceByAmount(echUsdsPrice, netResultAmount)
+  const avgEchWonInUsd = multiplyPriceByAmount(echUsdsPrice, avgEchWonPerRound)
   const avgEchWonInUsdDisplay = !Number.isNaN(avgEchWonInUsd) ? `~${avgEchWonInUsd.toFixed(2)}` : '~$0.00'
-  const betRoundInUsd = multiplyPriceByAmount(echBusdPrice, summary.won.bestRound.payout)
-  const avgPositionEnteredInUsd = multiplyPriceByAmount(echBusdPrice, avgPositionEntered)
+  const betRoundInUsd = multiplyPriceByAmount(echUsdsPrice, summary.won.bestRound.payout)
+  const avgPositionEnteredInUsd = multiplyPriceByAmount(echUsdsPrice, avgPositionEntered)
   const avgPositionEnteredInUsdDisplay = !Number.isNaN(avgPositionEnteredInUsd)
     ? `~${avgPositionEnteredInUsd.toFixed(2)}`
     : '~$0.00'
@@ -186,9 +186,9 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
 
         <Divider />
 
-        <SummaryRow type="won" summary={summary} echBusdPrice={echBusdPrice} />
-        <SummaryRow type="lost" summary={summary} echBusdPrice={echBusdPrice} />
-        <SummaryRow type="entered" summary={summary} echBusdPrice={echBusdPrice} />
+        <SummaryRow type="won" summary={summary} echUsdsPrice={echUsdsPrice} />
+        <SummaryRow type="lost" summary={summary} echUsdsPrice={echUsdsPrice} />
+        <SummaryRow type="entered" summary={summary} echUsdsPrice={echUsdsPrice} />
 
         <Flex justifyContent="center" mt="24px">
           <Link href={`${getBscScanLink(account, 'address')}#internaltx`} mb="16px" external>

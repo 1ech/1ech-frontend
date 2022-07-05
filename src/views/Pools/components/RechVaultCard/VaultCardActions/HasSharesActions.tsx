@@ -2,7 +2,7 @@ import { Flex, Text, IconButton, AddIcon, MinusIcon, useModal, Skeleton, Box } f
 import BigNumber from 'bignumber.js'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { DeserializedPool } from 'state/types'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import { useVaultPoolByKey } from 'state/pools/hooks'
 import Balance from 'components/Balance'
 import NotEnoughTokensModal from '../../PoolCard/Modals/NotEnoughTokensModal'
@@ -24,9 +24,9 @@ const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBal
 
   const { stakingToken } = pool
 
-  const rechPriceBusd = usePriceRechBusd()
-  const stakedDollarValue = rechPriceBusd.gt(0)
-    ? getBalanceNumber(rechAsBigNumber.multipliedBy(rechPriceBusd), stakingToken.decimals)
+  const rechPriceUsds = usePriceRechUsds()
+  const stakedDollarValue = rechPriceUsds.gt(0)
+    ? getBalanceNumber(rechAsBigNumber.multipliedBy(rechPriceUsds), stakingToken.decimals)
     : 0
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)
@@ -46,7 +46,7 @@ const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBal
         <Flex flexDirection="column">
           <Balance fontSize="20px" bold value={rechAsNumberBalance} decimals={5} />
           <Text as={Flex} fontSize="12px" color="textSubtle" flexWrap="wrap">
-            {rechPriceBusd.gt(0) ? (
+            {rechPriceUsds.gt(0) ? (
               <Balance
                 value={stakedDollarValue}
                 fontSize="12px"

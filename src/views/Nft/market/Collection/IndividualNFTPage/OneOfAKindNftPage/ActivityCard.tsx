@@ -12,7 +12,7 @@ import {
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import { Activity, NftToken } from 'state/nftMarket/types'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import { useAppDispatch } from '../../../../../../state'
 import NoNftsImage from '../../../components/Activity/NoNftsImage'
 import TableLoader from '../../../../../../components/TableLoader'
@@ -36,7 +36,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ nft }) => {
   const [activitiesSlice, setActivitiesSlice] = useState<Activity[]>([])
   const [sortedTokenActivities, setSortedTokenActivities] = useState<Activity[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const echBusdPrice = useECHBusdPrice()
+  const echUsdsPrice = useECHUsdsPrice()
   const { isXs, isSm } = useMatchBreakpointsContext()
 
   useEffect(() => {
@@ -117,7 +117,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ nft }) => {
                       key={`${activity.nft.tokenId}${activity.timestamp}`}
                       activity={activity}
                       nft={nft}
-                      echBusdPrice={echBusdPrice}
+                      echUsdsPrice={echUsdsPrice}
                       isNftActivity
                     />
                   )

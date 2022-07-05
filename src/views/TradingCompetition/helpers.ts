@@ -2,7 +2,7 @@ import { ReactText } from 'react'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { easterPrizes, PrizesConfig } from 'config/constants/trading-competition/prizes'
 import BigNumber from 'bignumber.js'
-import useBUSDPrice, { useRechBusdPrice } from 'hooks/useBUSDPrice'
+import useUSDSPrice, { useRechUsdsPrice } from 'hooks/useUSDSPrice'
 import tokens from 'config/constants/tokens'
 import { multiplyPriceByAmount } from 'utils/prices'
 
@@ -13,10 +13,10 @@ export const localiseTradingVolume = (value: number, decimals = 0) => {
 export const useCompetitionCakeRewards = (userCakeReward: ReactText) => {
   const rechAsBigNumber = new BigNumber(userCakeReward as string)
   const rechAalance = getBalanceNumber(rechAsBigNumber)
-  const rechPriceBusd = useRechBusdPrice()
+  const rechPriceUsds = useRechUsdsPrice()
   return {
     cakeReward: rechAalance,
-    dollarValueOfCakeReward: multiplyPriceByAmount(rechPriceBusd, rechAalance),
+    dollarValueOfCakeReward: multiplyPriceByAmount(rechPriceUsds, rechAalance),
   }
 }
 
@@ -31,9 +31,9 @@ export const useFanTokenCompetitionRewards = ({
   userPortoRewards: ReactText
   userSantosRewards: ReactText
 }) => {
-  const lazioPriceBUSD = useBUSDPrice(tokens.lazio)
-  const portoPriceBUSD = useBUSDPrice(tokens.porto)
-  const santosPriceBUSD = useBUSDPrice(tokens.santos)
+  const lazioPriceUSDS = useUSDSPrice(tokens.lazio)
+  const portoPriceUSDS = useUSDSPrice(tokens.porto)
+  const santosPriceUSDS = useUSDSPrice(tokens.santos)
   const rechAsBigNumber = new BigNumber(userCakeRewards as string)
   const lazioAsBigNumber = new BigNumber(userLazioRewards as string)
   const portoAsBigNumber = new BigNumber(userPortoRewards as string)
@@ -42,14 +42,14 @@ export const useFanTokenCompetitionRewards = ({
   const lazioBalance = getBalanceNumber(lazioAsBigNumber, 8)
   const portoBalance = getBalanceNumber(portoAsBigNumber, 8)
   const santosBalance = getBalanceNumber(santosAsBigNumber, 8)
-  const rechPriceBusd = useRechBusdPrice()
+  const rechPriceUsds = useRechUsdsPrice()
 
   const dollarValueOfTokensReward =
-    rechPriceBusd && lazioPriceBUSD && portoPriceBUSD && santosPriceBUSD
-      ? multiplyPriceByAmount(rechPriceBusd, rechAalance) +
-        multiplyPriceByAmount(lazioPriceBUSD, lazioBalance, 8) +
-        multiplyPriceByAmount(portoPriceBUSD, portoBalance, 8) +
-        multiplyPriceByAmount(santosPriceBUSD, santosBalance, 8)
+    rechPriceUsds && lazioPriceUSDS && portoPriceUSDS && santosPriceUSDS
+      ? multiplyPriceByAmount(rechPriceUsds, rechAalance) +
+        multiplyPriceByAmount(lazioPriceUSDS, lazioBalance, 8) +
+        multiplyPriceByAmount(portoPriceUSDS, portoBalance, 8) +
+        multiplyPriceByAmount(santosPriceUSDS, santosBalance, 8)
       : null
 
   return {
@@ -68,16 +68,16 @@ export const useMoboxCompetitionRewards = ({
   userCakeRewards: ReactText
   userMoboxRewards: ReactText
 }) => {
-  const moboxPriceBUSD = useBUSDPrice(tokens.mbox)
+  const moboxPriceUSDS = useUSDSPrice(tokens.mbox)
   const rechAsBigNumber = new BigNumber(userCakeRewards as string)
   const moboxAsBigNumber = new BigNumber(userMoboxRewards as string)
   const rechAalance = getBalanceNumber(rechAsBigNumber)
   const moboxBalance = getBalanceNumber(moboxAsBigNumber)
-  const rechPriceBusd = useRechBusdPrice()
+  const rechPriceUsds = useRechUsdsPrice()
 
   const dollarValueOfTokensReward =
-    rechPriceBusd && moboxPriceBUSD
-      ? multiplyPriceByAmount(rechPriceBusd, rechAalance) + multiplyPriceByAmount(moboxPriceBUSD, moboxBalance, 8)
+    rechPriceUsds && moboxPriceUSDS
+      ? multiplyPriceByAmount(rechPriceUsds, rechAalance) + multiplyPriceByAmount(moboxPriceUSDS, moboxBalance, 8)
       : null
 
   return {
@@ -94,17 +94,17 @@ export const useModCompetitionRewards = ({
   userCakeRewards: ReactText
   userDarRewards: ReactText
 }) => {
-  const darPriceBUSD = useBUSDPrice(tokens.dar)
+  const darPriceUSDS = useUSDSPrice(tokens.dar)
   const rechAsBigNumber = new BigNumber(userCakeRewards as string)
   const darAsBigNumber = new BigNumber(userDarRewards as string)
   const rechAalance = getBalanceNumber(rechAsBigNumber)
   const darBalance = getBalanceNumber(darAsBigNumber, tokens.dar.decimals)
-  const rechPriceBusd = useRechBusdPrice()
+  const rechPriceUsds = useRechUsdsPrice()
 
   const dollarValueOfTokensReward =
-    rechPriceBusd && darPriceBUSD
-      ? multiplyPriceByAmount(rechPriceBusd, rechAalance) +
-        multiplyPriceByAmount(darPriceBUSD, darBalance, tokens.dar.decimals)
+    rechPriceUsds && darPriceUSDS
+      ? multiplyPriceByAmount(rechPriceUsds, rechAalance) +
+        multiplyPriceByAmount(darPriceUSDS, darBalance, tokens.dar.decimals)
       : null
 
   return {

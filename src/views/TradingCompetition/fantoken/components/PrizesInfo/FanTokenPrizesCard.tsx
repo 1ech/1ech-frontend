@@ -31,7 +31,7 @@ const FanTokenPrizesCard = () => {
             'Prizes to be distributed in RECH, LAZIO, PORTO and SANTOS in a distribution of 3:1:1:1 and shared by all members of each respective tier.',
           )}{' '}
           {t(
-            'The price of token prizes (RECH, LAZIO, PORTO and SANTOS) in USD will be determined as per their BUSD pair price during the tally period.',
+            'The price of token prizes (RECH, LAZIO, PORTO and SANTOS) in USD will be determined as per their USDS pair price during the tally period.',
           )}
         </Text>
       </Box>

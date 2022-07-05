@@ -5,7 +5,7 @@ import tokens from 'config/constants/tokens'
 import { useTranslation } from 'contexts/Localization'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
 import { useEffect, useState } from 'react'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import styled from 'styled-components'
 import { formatBigNumber, formatLocalisedCompactNumber } from 'utils/formatBalance'
 import { multicallv2 } from 'utils/multicall'
@@ -115,8 +115,8 @@ const RechDataRow = () => {
       refreshInterval: SLOW_INTERVAL,
     },
   )
-  const rechPriceBusd = usePriceRechBusd()
-  const mcap = rechPriceBusd.times(circulatingSupply)
+  const rechPriceUsds = usePriceRechUsds()
+  const mcap = rechPriceUsds.times(circulatingSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
 
   useEffect(() => {

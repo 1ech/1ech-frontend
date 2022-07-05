@@ -17,7 +17,7 @@ import styled from 'styled-components'
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import useTotalSupply from 'hooks/useTotalSupply'
-import useBUSDPrice from 'hooks/useBUSDPrice'
+import useUSDSPrice from 'hooks/useUSDSPrice'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { useWeb3React } from '@web3-react/core'
 import { BIG_INT_ZERO } from 'config/constants/exchange'
@@ -45,8 +45,8 @@ interface PositionCardProps extends CardProps {
 }
 
 const useLPValues = (account, pair, currency0, currency1) => {
-  const token0Price = useBUSDPrice(currency0)
-  const token1Price = useBUSDPrice(currency1)
+  const token0Price = useUSDSPrice(currency0)
+  const token1Price = useUSDSPrice(currency1)
 
   const userPoolBalance = useTokenBalance(account ?? undefined, pair.liquidityToken)
   const totalPoolTokens = useTotalSupply(pair.liquidityToken)

@@ -28,7 +28,7 @@ describe('hooks', () => {
       })
     })
 
-    test('should return ECH BUSD pair by default', () => {
+    test('should return ECH USDS pair by default', () => {
       expect(queryParametersToSwapState(parse(''))).toEqual({
         [Field.OUTPUT]: { currencyId: DEFAULT_OUTPUT_CURRENCY },
         [Field.INPUT]: { currencyId: 'ECH' },

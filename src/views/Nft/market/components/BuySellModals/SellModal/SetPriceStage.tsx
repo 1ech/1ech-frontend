@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Flex, Grid, Box, Text, Button, BinanceIcon, ErrorIcon, useTooltip, Skeleton } from '@pancakeswap/uikit'
 import { multiplyPriceByAmount } from 'utils/prices'
 import { escapeRegExp } from 'utils'
-import { useECHBusdPrice } from 'hooks/useBUSDPrice'
+import { useECHUsdsPrice } from 'hooks/useUSDSPrice'
 import { useTranslation } from 'contexts/Localization'
 import { NftToken } from 'state/nftMarket/types'
 import { useGetCollection } from 'state/nftMarket/hooks'
@@ -43,7 +43,7 @@ const SetPriceStage: React.FC<SetPriceStageProps> = ({
   const { creatorFee = '', tradingFee = '' } = useGetCollection(nftToSell.collectionAddress) || {}
   const creatorFeeAsNumber = parseFloat(creatorFee)
   const tradingFeeAsNumber = parseFloat(tradingFee)
-  const echPrice = useECHBusdPrice()
+  const echPrice = useECHUsdsPrice()
   const priceAsFloat = parseFloat(price)
   const priceInUsd = multiplyPriceByAmount(echPrice, priceAsFloat)
 

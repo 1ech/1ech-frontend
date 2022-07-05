@@ -22,7 +22,7 @@ describe('Remove Liquidity', () => {
   it('loads the two correct tokens', () => {
     cy.visit('/remove/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56')
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'CAKE')
-    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BUSD')
+    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'USDS')
   })
 
   it('does not crash if ECH is duplicated', () => {

@@ -18,11 +18,11 @@ describe('Trade', () => {
         ],
         [
           PairState.INVALID,
-          new Pair(new TokenAmount(mainnetTokens.busd, '1'), new TokenAmount(mainnetTokens.rech, '1')),
+          new Pair(new TokenAmount(mainnetTokens.usds, '1'), new TokenAmount(mainnetTokens.rech, '1')),
         ],
         [
           PairState.LOADING,
-          new Pair(new TokenAmount(mainnetTokens.busd, '1'), new TokenAmount(mainnetTokens.wech, '1')),
+          new Pair(new TokenAmount(mainnetTokens.usds, '1'), new TokenAmount(mainnetTokens.wech, '1')),
         ],
         [PairState.EXISTS, null],
       ])

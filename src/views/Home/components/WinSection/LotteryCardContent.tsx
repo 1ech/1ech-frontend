@@ -3,7 +3,7 @@ import { Flex, Text, Skeleton, Button, ArrowForwardIcon } from '@pancakeswap/uik
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
-import { usePriceRechBusd } from 'state/farms/hooks'
+import { usePriceRechUsds } from 'state/farms/hooks'
 import Balance from 'components/Balance'
 import styled from 'styled-components'
 import { fetchLottery, fetchCurrentLotteryId } from 'state/lottery/helpers'
@@ -25,7 +25,7 @@ const LotteryCardContent = () => {
   const { t } = useTranslation()
   const { observerRef, isIntersecting } = useIntersectionObserver()
   const [loadData, setLoadData] = useState(false)
-  const rechPriceBusd = usePriceRechBusd()
+  const rechPriceUsds = usePriceRechUsds()
   const { data: currentLotteryId } = useSWRImmutable(loadData ? ['currentLotteryId'] : null, fetchCurrentLotteryId, {
     refreshInterval: SLOW_INTERVAL,
   })
@@ -37,10 +37,10 @@ const LotteryCardContent = () => {
     },
   )
 
-  const cakePrizesText = t('%cakePrizeInUsd% in RECH prizes this round', { cakePrizeInUsd: rechPriceBusd.toString() })
-  const [pretext, prizesThisRound] = cakePrizesText.split(rechPriceBusd.toString())
+  const cakePrizesText = t('%cakePrizeInUsd% in RECH prizes this round', { cakePrizeInUsd: rechPriceUsds.toString() })
+  const [pretext, prizesThisRound] = cakePrizesText.split(rechPriceUsds.toString())
   const amountCollectedInCake = currentLottery ? parseFloat(currentLottery.amountCollectedInCake) : null
-  const currentLotteryPrize = amountCollectedInCake ? rechPriceBusd.times(amountCollectedInCake) : null
+  const currentLotteryPrize = amountCollectedInCake ? rechPriceUsds.times(amountCollectedInCake) : null
 
   useEffect(() => {
     if (isIntersecting) {
