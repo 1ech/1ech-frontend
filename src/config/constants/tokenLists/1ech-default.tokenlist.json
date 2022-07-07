@@ -50,6 +50,14 @@
       "logoURI": "https://1ech.com/1ech.png"
     },
     {
+      "name": "Dust Token",
+      "symbol": "DUST",
+      "address": "0x4414c6EB45762bc7AE167eeaba7A89E538d0aD32",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://1ech.com/1ech.png"
+    },
+    {
       "name": "Metro Wrapped MATIC",
       "symbol": "mWMATIC",
       "address": "0x15B39ff9e45Fe67f49D66C7dA629CAbf2041657E",
