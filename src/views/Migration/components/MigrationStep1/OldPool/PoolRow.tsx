@@ -55,7 +55,7 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account }) => {
   const isLargerScreen = isXl || isXxl
   const [expanded, setExpanded] = useState(false)
   const shouldRenderActionPanel = useDelayedUnmount(expanded, 300)
-  const isCakePool = pool.sousId === 0
+  const isCakePool = pool.takedaId === 0
 
   const { vaultPoolData } = useVaultPoolByKeyV1(pool.vaultKey)
   const { totalRechInVault, pricePerFullShare } = vaultPoolData

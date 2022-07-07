@@ -36,8 +36,8 @@ export const useFetchPublicPoolsData = () => {
   )
 }
 
-export const usePool = (sousId: number): { pool: DeserializedPool; userDataLoaded: boolean } => {
-  const poolWithUserDataLoadingSelector = useMemo(() => makePoolWithUserDataLoadingSelector(sousId), [sousId])
+export const usePool = (takedaId: number): { pool: DeserializedPool; userDataLoaded: boolean } => {
+  const poolWithUserDataLoadingSelector = useMemo(() => makePoolWithUserDataLoadingSelector(takedaId), [takedaId])
   return useSelector(poolWithUserDataLoadingSelector)
 }
 

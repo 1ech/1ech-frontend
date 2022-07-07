@@ -60,12 +60,12 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
       },
       {
         address: masterChiefAddress,
-        name: 'cakePerBlock',
+        name: 'rechPerBlock',
         params: [true],
       },
     ]
-    const [[poolLength], [cakePerBlockRaw]] = await multicall(masterchiefABI, calls)
-    const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(cakePerBlockRaw))
+    const [[poolLength], [rechPerBlockRaw]] = await multicall(masterchiefABI, calls)
+    const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(rechPerBlockRaw))
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
 

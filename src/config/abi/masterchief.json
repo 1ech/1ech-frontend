@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "contract IMasterChief",
-        "name": "_MASTER_CHEF",
+        "name": "_MASTER_CHIEF",
         "type": "address"
       },
       {
@@ -328,7 +328,7 @@
   },
   {
     "inputs": [],
-    "name": "MASTER_CHEF",
+    "name": "MASTER_CHIEF",
     "outputs": [
       {
         "internalType": "contract IMasterChief",

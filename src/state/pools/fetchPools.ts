@@ -1,16 +1,16 @@
 import BigNumber from 'bignumber.js'
 import { BigNumber as EthersBigNumber } from '@ethersproject/bignumber'
 import poolsConfig from 'config/constants/pools'
-import sousChefABI from 'config/abi/sousChef.json'
+import genTakedaABI from 'config/abi/genTakeda.json'
 import erc20ABI from 'config/abi/erc20.json'
 import multicall, { multicallv2 } from 'utils/multicall'
 import { getAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 import chunk from 'lodash/chunk'
-import sousChefV2 from '../../config/abi/sousChefV2.json'
-import sousChefV3 from '../../config/abi/sousChefV3.json'
+import genTakedaV2 from '../../config/abi/genTakedaV2.json'
+import genTakedaV3 from '../../config/abi/genTakedaV3.json'
 
-const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
+const poolsWithEnd = poolsConfig.filter((p) => p.takedaId !== 0)
 
 const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
   return [
@@ -26,7 +26,7 @@ const startEndBlockCalls = poolsWithEnd.flatMap((poolConfig) => {
 })
 
 export const fetchPoolsBlockLimits = async () => {
-  const startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+  const startEndBlockRaw = await multicall(genTakedaABI, startEndBlockCalls)
 
   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / 2)
@@ -44,7 +44,7 @@ export const fetchPoolsBlockLimits = async () => {
   return poolsWithEnd.map((cakePoolConfig, index) => {
     const [[startBlock], [endBlock]] = startEndBlockResult[index]
     return {
-      sousId: cakePoolConfig.sousId,
+      takedaId: cakePoolConfig.takedaId,
       startBlock: startBlock.toNumber(),
       endBlock: endBlock.toNumber(),
     }
@@ -63,7 +63,7 @@ export const fetchPoolsTotalStaking = async () => {
   const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
 
   return poolsConfig.map((p, index) => ({
-    sousId: p.sousId,
+    takedaId: p.takedaId,
     totalStaked: new BigNumber(poolsTotalStaked[index]).toJSON(),
   }))
 }
@@ -73,7 +73,7 @@ export const fetchPoolsStakingLimits = async (
 ): Promise<{ [key: string]: { stakingLimit: BigNumber; numberBlocksForUserLimit: number } }> => {
   const validPools = poolsConfig
     .filter((p) => p.stakingToken.symbol !== 'ECH' && !p.isFinished)
-    .filter((p) => !poolsWithStakingLimit.includes(p.sousId))
+    .filter((p) => !poolsWithStakingLimit.includes(p.takedaId))
 
   // Get the staking limit for each valid pool
   const poolStakingCalls = validPools
@@ -86,7 +86,7 @@ export const fetchPoolsStakingLimits = async (
     })
     .flat()
 
-  const poolStakingResultRaw = await multicallv2(sousChefV2, poolStakingCalls, { requireSuccess: false })
+  const poolStakingResultRaw = await multicallv2(genTakedaV2, poolStakingCalls, { requireSuccess: false })
   const chunkSize = poolStakingCalls.length / validPools.length
   const poolStakingChunkedResultRaw = chunk(poolStakingResultRaw.flat(), chunkSize)
   return poolStakingChunkedResultRaw.reduce((accum, stakingLimitRaw, index) => {
@@ -95,7 +95,7 @@ export const fetchPoolsStakingLimits = async (
     const numberBlocksForUserLimit = stakingLimitRaw[2] ? (stakingLimitRaw[2] as EthersBigNumber).toNumber() : 0
     return {
       ...accum,
-      [validPools[index].sousId]: { stakingLimit, numberBlocksForUserLimit },
+      [validPools[index].takedaId]: { stakingLimit, numberBlocksForUserLimit },
     }
   }, {})
 }
@@ -118,7 +118,7 @@ export const fetchPoolsProfileRequirement = async (): Promise<{
     })
     .flat()
 
-  const poolProfileRequireResultRaw = await multicallv2(sousChefV3, poolProfileRequireCalls, { requireSuccess: false })
+  const poolProfileRequireResultRaw = await multicallv2(genTakedaV3, poolProfileRequireCalls, { requireSuccess: false })
   const chunkSize = poolProfileRequireCalls.length / poolsWithV3.length
   const poolStakingChunkedResultRaw = chunk(poolProfileRequireResultRaw.flat(), chunkSize)
   return poolStakingChunkedResultRaw.reduce((accum, poolProfileRequireRaw, index) => {
@@ -128,7 +128,7 @@ export const fetchPoolsProfileRequirement = async (): Promise<{
       : BIG_ZERO
     return {
       ...accum,
-      [poolsWithV3[index].sousId]: {
+      [poolsWithV3[index].takedaId]: {
         required: hasProfileRequired,
         thresholdPoints: profileThresholdPoints.toJSON(),
       },

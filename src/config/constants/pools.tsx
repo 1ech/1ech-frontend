@@ -20,7 +20,7 @@ export const vaultPoolConfig = {
     autoCompoundFrequency: 5000,
     gasLimit: 380000,
     tokenImage: {
-      primarySrc: `/images/tokens/${tokens.rech.address}.svg`,
+      primarySrc: `/images/tokens/${tokens.rech.address}.png`,
       secondarySrc: '/images/tokens/autorenew.svg',
     },
   },
@@ -30,7 +30,7 @@ export const vaultPoolConfig = {
     autoCompoundFrequency: 5000,
     gasLimit: 500000,
     tokenImage: {
-      primarySrc: `/images/tokens/${tokens.rech.address}.svg`,
+      primarySrc: `/images/tokens/${tokens.rech.address}.png`,
       secondarySrc: '/images/tokens/autorenew.svg',
     },
   },
@@ -40,7 +40,7 @@ export const vaultPoolConfig = {
     autoCompoundFrequency: 1,
     gasLimit: 500000,
     tokenImage: {
-      primarySrc: `/images/tokens/${tokens.rech.address}.svg`,
+      primarySrc: `/images/tokens/${tokens.rech.address}.png`,
       secondarySrc: `/images/tokens/ifo-pool-icon.svg`,
     },
   },
@@ -48,12 +48,12 @@ export const vaultPoolConfig = {
 
 const pools: SerializedPoolConfig[] = [
   {
-    sousId: 0,
+    takedaId: 0,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.rech,
     contractAddress: {
       97: '',
-      3000: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+      3000: '0xD700536d41F79a1ec3B24BfCB82355509a56C34d',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -61,7 +61,7 @@ const pools: SerializedPoolConfig[] = [
     isFinished: false,
   },
   {
-    sousId: 284,
+    takedaId: 284,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.antex,
     contractAddress: {
@@ -74,7 +74,7 @@ const pools: SerializedPoolConfig[] = [
     version: 3,
   },
   {
-    sousId: 283,
+    takedaId: 283,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xcn,
     contractAddress: {
@@ -87,7 +87,7 @@ const pools: SerializedPoolConfig[] = [
     version: 3,
   },
   {
-    sousId: 282,
+    takedaId: 282,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.chr,
     contractAddress: {
@@ -100,7 +100,7 @@ const pools: SerializedPoolConfig[] = [
     version: 3,
   },
   {
-    sousId: 281,
+    takedaId: 281,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.MIX,
     contractAddress: {
@@ -113,7 +113,7 @@ const pools: SerializedPoolConfig[] = [
     version: 3,
   },
   {
-    sousId: 279,
+    takedaId: 279,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.gal,
     contractAddress: {
@@ -130,7 +130,7 @@ const pools: SerializedPoolConfig[] = [
 // known finished pools
 const finishedPools = [
   {
-    sousId: 280,
+    takedaId: 280,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.metis,
     contractAddress: {
@@ -143,7 +143,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 278,
+    takedaId: 278,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.rpg,
     contractAddress: {
@@ -156,7 +156,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 277,
+    takedaId: 277,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ankr,
     contractAddress: {
@@ -169,7 +169,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 276,
+    takedaId: 276,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ceek,
     contractAddress: {
@@ -182,7 +182,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 275,
+    takedaId: 275,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tinc,
     contractAddress: {
@@ -195,7 +195,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 274,
+    takedaId: 274,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pex,
     contractAddress: {
@@ -208,7 +208,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 273,
+    takedaId: 273,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.gmi,
     contractAddress: {
@@ -221,7 +221,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 272,
+    takedaId: 272,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.froyo,
     contractAddress: {
@@ -234,7 +234,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 271,
+    takedaId: 271,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bsw,
     contractAddress: {
@@ -247,7 +247,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 270,
+    takedaId: 270,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.duet,
     contractAddress: {
@@ -260,7 +260,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 269,
+    takedaId: 269,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.gmt,
     contractAddress: {
@@ -273,7 +273,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 268,
+    takedaId: 268,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xwg,
     contractAddress: {
@@ -286,7 +286,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 267,
+    takedaId: 267,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.high,
     contractAddress: {
@@ -299,7 +299,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 266,
+    takedaId: 266,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.thg,
     contractAddress: {
@@ -312,7 +312,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 265,
+    takedaId: 265,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.era,
     contractAddress: {
@@ -325,7 +325,7 @@ const finishedPools = [
     version: 3,
   },
   {
-    sousId: 264,
+    takedaId: 264,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.btt,
     contractAddress: {
@@ -337,7 +337,7 @@ const finishedPools = [
     tokenPerBlock: '157829',
   },
   {
-    sousId: 263,
+    takedaId: 263,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ach,
     contractAddress: {
@@ -349,7 +349,7 @@ const finishedPools = [
     tokenPerBlock: '7.502',
   },
   {
-    sousId: 261,
+    takedaId: 261,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.sfund,
     contractAddress: {
@@ -361,7 +361,7 @@ const finishedPools = [
     tokenPerBlock: '0.06481',
   },
   {
-    sousId: 260,
+    takedaId: 260,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.raca,
     contractAddress: {
@@ -373,7 +373,7 @@ const finishedPools = [
     tokenPerBlock: '204.2',
   },
   {
-    sousId: 259,
+    takedaId: 259,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ertha,
     contractAddress: {
@@ -385,7 +385,7 @@ const finishedPools = [
     tokenPerBlock: '1.585',
   },
   {
-    sousId: 258,
+    takedaId: 258,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.fuse,
     contractAddress: {
@@ -397,7 +397,7 @@ const finishedPools = [
     tokenPerBlock: '0.19',
   },
   {
-    sousId: 257,
+    takedaId: 257,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.froyo,
     contractAddress: {
@@ -409,7 +409,7 @@ const finishedPools = [
     tokenPerBlock: '2.893',
   },
   {
-    sousId: 256,
+    takedaId: 256,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.aog,
     contractAddress: {
@@ -421,7 +421,7 @@ const finishedPools = [
     tokenPerBlock: '0.6435',
   },
   {
-    sousId: 255,
+    takedaId: 255,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.apx,
     contractAddress: {
@@ -433,7 +433,7 @@ const finishedPools = [
     tokenPerBlock: '3.035',
   },
   {
-    sousId: 254,
+    takedaId: 254,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bcoin,
     contractAddress: {
@@ -445,7 +445,7 @@ const finishedPools = [
     tokenPerBlock: '0.1493',
   },
   {
-    sousId: 253,
+    takedaId: 253,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bcoin,
     contractAddress: {
@@ -457,7 +457,7 @@ const finishedPools = [
     tokenPerBlock: '0.1493',
   },
   {
-    sousId: 252,
+    takedaId: 252,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.insur,
     contractAddress: {
@@ -469,7 +469,7 @@ const finishedPools = [
     tokenPerBlock: '0.3281',
   },
   {
-    sousId: 251,
+    takedaId: 251,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.gm,
     contractAddress: {
@@ -481,7 +481,7 @@ const finishedPools = [
     tokenPerBlock: '7893',
   },
   {
-    sousId: 250,
+    takedaId: 250,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.woop,
     contractAddress: {
@@ -493,7 +493,7 @@ const finishedPools = [
     tokenPerBlock: '1.226',
   },
   {
-    sousId: 249,
+    takedaId: 249,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.high,
     contractAddress: {
@@ -505,7 +505,7 @@ const finishedPools = [
     tokenPerBlock: '0.02679',
   },
   {
-    sousId: 247,
+    takedaId: 247,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dpt,
     contractAddress: {
@@ -517,7 +517,7 @@ const finishedPools = [
     tokenPerBlock: '4.62962963',
   },
   {
-    sousId: 246,
+    takedaId: 246,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.thg,
     contractAddress: {
@@ -529,7 +529,7 @@ const finishedPools = [
     tokenPerBlock: '0.03761',
   },
   {
-    sousId: 245,
+    takedaId: 245,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.idia,
     contractAddress: {
@@ -541,7 +541,7 @@ const finishedPools = [
     tokenPerBlock: '0.1262',
   },
   {
-    sousId: 244,
+    takedaId: 244,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xcv,
     contractAddress: {
@@ -553,7 +553,7 @@ const finishedPools = [
     tokenPerBlock: '0.7413',
   },
   {
-    sousId: 243,
+    takedaId: 243,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.nabox,
     contractAddress: {
@@ -565,7 +565,7 @@ const finishedPools = [
     tokenPerBlock: '1271',
   },
   {
-    sousId: 242,
+    takedaId: 242,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.santos,
     contractAddress: {
@@ -577,7 +577,7 @@ const finishedPools = [
     tokenPerBlock: '0.0578',
   },
   {
-    sousId: 241,
+    takedaId: 241,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.quidd,
     contractAddress: {
@@ -589,7 +589,7 @@ const finishedPools = [
     tokenPerBlock: '0.07471',
   },
   {
-    sousId: 240,
+    takedaId: 240,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.zoo,
     contractAddress: {
@@ -601,7 +601,7 @@ const finishedPools = [
     tokenPerBlock: '0.4516',
   },
   {
-    sousId: 239,
+    takedaId: 239,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.sfund,
     contractAddress: {
@@ -613,7 +613,7 @@ const finishedPools = [
     tokenPerBlock: '0.0311',
   },
   {
-    sousId: 238,
+    takedaId: 238,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.qi,
     contractAddress: {
@@ -625,7 +625,7 @@ const finishedPools = [
     tokenPerBlock: '1.736',
   },
   {
-    sousId: 237,
+    takedaId: 237,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.kart,
     contractAddress: {
@@ -637,7 +637,7 @@ const finishedPools = [
     tokenPerBlock: '0.1897',
   },
   {
-    sousId: 236,
+    takedaId: 236,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.porto,
     contractAddress: {
@@ -649,7 +649,7 @@ const finishedPools = [
     tokenPerBlock: '0.0578',
   },
   {
-    sousId: 235,
+    takedaId: 235,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dvi,
     contractAddress: {
@@ -661,7 +661,7 @@ const finishedPools = [
     tokenPerBlock: '0.2516',
   },
   {
-    sousId: 234,
+    takedaId: 234,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.jgn,
     contractAddress: {
@@ -673,7 +673,7 @@ const finishedPools = [
     tokenPerBlock: '0.5233',
   },
   {
-    sousId: 232,
+    takedaId: 232,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xwg,
     contractAddress: {
@@ -685,7 +685,7 @@ const finishedPools = [
     tokenPerBlock: '2.3379',
   },
   {
-    sousId: 231,
+    takedaId: 231,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dar,
     contractAddress: {
@@ -697,7 +697,7 @@ const finishedPools = [
     tokenPerBlock: '2.3148',
   },
   {
-    sousId: 230,
+    takedaId: 230,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.fina,
     contractAddress: {
@@ -709,7 +709,7 @@ const finishedPools = [
     tokenPerBlock: '0.06944',
   },
   {
-    sousId: 229,
+    takedaId: 229,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bmon,
     contractAddress: {
@@ -721,7 +721,7 @@ const finishedPools = [
     tokenPerBlock: '2.0254',
   },
   {
-    sousId: 228,
+    takedaId: 228,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dkt,
     contractAddress: {
@@ -733,7 +733,7 @@ const finishedPools = [
     tokenPerBlock: '0.09838',
   },
   {
-    sousId: 227,
+    takedaId: 227,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ramp,
     contractAddress: {
@@ -745,7 +745,7 @@ const finishedPools = [
     tokenPerBlock: '1.2152',
   },
   {
-    sousId: 226,
+    takedaId: 226,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lazio,
     contractAddress: {
@@ -757,7 +757,7 @@ const finishedPools = [
     tokenPerBlock: '0.0694',
   },
   {
-    sousId: 225,
+    takedaId: 225,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.sps,
     contractAddress: {
@@ -769,7 +769,7 @@ const finishedPools = [
     tokenPerBlock: '0.40046',
   },
   {
-    sousId: 224,
+    takedaId: 224,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mcb,
     contractAddress: {
@@ -781,7 +781,7 @@ const finishedPools = [
     tokenPerBlock: '0.00706',
   },
   {
-    sousId: 223,
+    takedaId: 223,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.rpg,
     contractAddress: {
@@ -793,7 +793,7 @@ const finishedPools = [
     tokenPerBlock: '0.01863',
   },
   {
-    sousId: 222,
+    takedaId: 222,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.beta,
     contractAddress: {
@@ -805,7 +805,7 @@ const finishedPools = [
     tokenPerBlock: '1.7361',
   },
   {
-    sousId: 233,
+    takedaId: 233,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.eternal,
     contractAddress: {
@@ -817,7 +817,7 @@ const finishedPools = [
     tokenPerBlock: '0.002893',
   },
   {
-    sousId: 221,
+    takedaId: 221,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.nft,
     contractAddress: {
@@ -829,7 +829,7 @@ const finishedPools = [
     tokenPerBlock: '173727',
   },
   {
-    sousId: 220,
+    takedaId: 220,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.chess,
     contractAddress: {
@@ -841,7 +841,7 @@ const finishedPools = [
     tokenPerBlock: '0.0861',
   },
   {
-    sousId: 219,
+    takedaId: 219,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tlos,
     contractAddress: {
@@ -853,7 +853,7 @@ const finishedPools = [
     tokenPerBlock: '0.3616',
   },
   {
-    sousId: 218,
+    takedaId: 218,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.stephero,
     contractAddress: {
@@ -865,7 +865,7 @@ const finishedPools = [
     tokenPerBlock: '0.1851',
   },
   {
-    sousId: 217,
+    takedaId: 217,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bp,
     contractAddress: {
@@ -877,7 +877,7 @@ const finishedPools = [
     tokenPerBlock: '0.217',
   },
   {
-    sousId: 216,
+    takedaId: 216,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.cvp,
     contractAddress: {
@@ -889,7 +889,7 @@ const finishedPools = [
     tokenPerBlock: '0.14',
   },
   {
-    sousId: 215,
+    takedaId: 215,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.qbt,
     contractAddress: {
@@ -901,7 +901,7 @@ const finishedPools = [
     tokenPerBlock: '1.412',
   },
   {
-    sousId: 214,
+    takedaId: 214,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.naos,
     contractAddress: {
@@ -913,7 +913,7 @@ const finishedPools = [
     tokenPerBlock: '0.1736',
   },
   {
-    sousId: 213,
+    takedaId: 213,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pha,
     contractAddress: {
@@ -925,7 +925,7 @@ const finishedPools = [
     tokenPerBlock: '0.28',
   },
   {
-    sousId: 212,
+    takedaId: 212,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bel,
     contractAddress: {
@@ -937,7 +937,7 @@ const finishedPools = [
     tokenPerBlock: '0.101',
   },
   {
-    sousId: 211,
+    takedaId: 211,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ramp,
     contractAddress: {
@@ -949,7 +949,7 @@ const finishedPools = [
     tokenPerBlock: '0.9837',
   },
   {
-    sousId: 210,
+    takedaId: 210,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pots,
     contractAddress: {
@@ -961,7 +961,7 @@ const finishedPools = [
     tokenPerBlock: '0.0868',
   },
   {
-    sousId: 209,
+    takedaId: 209,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tusd,
     contractAddress: {
@@ -973,7 +973,7 @@ const finishedPools = [
     tokenPerBlock: '0.5787',
   },
   {
-    sousId: 208,
+    takedaId: 208,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.revv,
     contractAddress: {
@@ -985,7 +985,7 @@ const finishedPools = [
     tokenPerBlock: '1.331',
   },
   {
-    sousId: 207,
+    takedaId: 207,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bttold,
     contractAddress: {
@@ -997,7 +997,7 @@ const finishedPools = [
     tokenPerBlock: '263',
   },
   {
-    sousId: 206,
+    takedaId: 206,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.skill,
     contractAddress: {
@@ -1009,7 +1009,7 @@ const finishedPools = [
     tokenPerBlock: '0.00289',
   },
   {
-    sousId: 205,
+    takedaId: 205,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.win,
     contractAddress: {
@@ -1021,7 +1021,7 @@ const finishedPools = [
     tokenPerBlock: '1815.39',
   },
   {
-    sousId: 204,
+    takedaId: 204,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.if,
     contractAddress: {
@@ -1033,7 +1033,7 @@ const finishedPools = [
     tokenPerBlock: '0.02835',
   },
   {
-    sousId: 203,
+    takedaId: 203,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.sps,
     contractAddress: {
@@ -1045,7 +1045,7 @@ const finishedPools = [
     tokenPerBlock: '12.86',
   },
   {
-    sousId: 202,
+    takedaId: 202,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.c98,
     contractAddress: {
@@ -1057,7 +1057,7 @@ const finishedPools = [
     tokenPerBlock: '1.7361',
   },
   {
-    sousId: 201,
+    takedaId: 201,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.axs,
     contractAddress: {
@@ -1069,7 +1069,7 @@ const finishedPools = [
     tokenPerBlock: '0.00744',
   },
   {
-    sousId: 200,
+    takedaId: 200,
     stakingToken: serializedTokens.axs,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -1081,7 +1081,7 @@ const finishedPools = [
     tokenPerBlock: '0.00992',
   },
   {
-    sousId: 199,
+    takedaId: 199,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pmon,
     contractAddress: {
@@ -1093,7 +1093,7 @@ const finishedPools = [
     tokenPerBlock: '0.02696',
   },
   {
-    sousId: 198,
+    takedaId: 198,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.trx,
     contractAddress: {
@@ -1105,7 +1105,7 @@ const finishedPools = [
     tokenPerBlock: '9.6643',
   },
   {
-    sousId: 197,
+    takedaId: 197,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.chess,
     contractAddress: {
@@ -1117,7 +1117,7 @@ const finishedPools = [
     tokenPerBlock: '0.4286',
   },
   {
-    sousId: 196,
+    takedaId: 196,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.titan,
     contractAddress: {
@@ -1129,7 +1129,7 @@ const finishedPools = [
     tokenPerBlock: '0.08912',
   },
   {
-    sousId: 195,
+    takedaId: 195,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.harmony,
     contractAddress: {
@@ -1141,7 +1141,7 @@ const finishedPools = [
     tokenPerBlock: '3.0092',
   },
   {
-    sousId: 194,
+    takedaId: 194,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mask,
     contractAddress: {
@@ -1153,7 +1153,7 @@ const finishedPools = [
     tokenPerBlock: '0.06423',
   },
   {
-    sousId: 193,
+    takedaId: 193,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dvi,
     contractAddress: {
@@ -1165,7 +1165,7 @@ const finishedPools = [
     tokenPerBlock: '0.7233',
   },
   {
-    sousId: 192,
+    takedaId: 192,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.gum,
     contractAddress: {
@@ -1177,7 +1177,7 @@ const finishedPools = [
     tokenPerBlock: '0.67129',
   },
   {
-    sousId: 191,
+    takedaId: 191,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.adx,
     contractAddress: {
@@ -1189,7 +1189,7 @@ const finishedPools = [
     tokenPerBlock: '0.7523',
   },
   {
-    sousId: 190,
+    takedaId: 190,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.suter,
     contractAddress: {
@@ -1201,7 +1201,7 @@ const finishedPools = [
     tokenPerBlock: '69.9074',
   },
   {
-    sousId: 189,
+    takedaId: 189,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bscpad,
     contractAddress: {
@@ -1213,7 +1213,7 @@ const finishedPools = [
     tokenPerBlock: '0.3877',
   },
   {
-    sousId: 188,
+    takedaId: 188,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.rabbit,
     contractAddress: {
@@ -1225,7 +1225,7 @@ const finishedPools = [
     tokenPerBlock: '3.993',
   },
   {
-    sousId: 187,
+    takedaId: 187,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.waultx,
     contractAddress: {
@@ -1237,7 +1237,7 @@ const finishedPools = [
     tokenPerBlock: '7.9108',
   },
   {
-    sousId: 186,
+    takedaId: 186,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.wex,
     contractAddress: {
@@ -1249,7 +1249,7 @@ const finishedPools = [
     tokenPerBlock: '11.574',
   },
   {
-    sousId: 185,
+    takedaId: 185,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.form,
     contractAddress: {
@@ -1261,7 +1261,7 @@ const finishedPools = [
     tokenPerBlock: '1.4467',
   },
   {
-    sousId: 184,
+    takedaId: 184,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.orbs,
     contractAddress: {
@@ -1273,7 +1273,7 @@ const finishedPools = [
     tokenPerBlock: '3.8946',
   },
   {
-    sousId: 183,
+    takedaId: 183,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.$dg,
     contractAddress: {
@@ -1285,7 +1285,7 @@ const finishedPools = [
     tokenPerBlock: '0.00135',
   },
   {
-    sousId: 182,
+    takedaId: 182,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.woo,
     contractAddress: {
@@ -1297,7 +1297,7 @@ const finishedPools = [
     tokenPerBlock: '0.3854',
   },
   {
-    sousId: 181,
+    takedaId: 181,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.woo,
     contractAddress: {
@@ -1309,7 +1309,7 @@ const finishedPools = [
     tokenPerBlock: '0.0003854',
   },
   {
-    sousId: 180,
+    takedaId: 180,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.htb,
     contractAddress: {
@@ -1321,7 +1321,7 @@ const finishedPools = [
     tokenPerBlock: '5.2083',
   },
   {
-    sousId: 179,
+    takedaId: 179,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.jgn,
     contractAddress: {
@@ -1333,7 +1333,7 @@ const finishedPools = [
     tokenPerBlock: '0.1001',
   },
   {
-    sousId: 178,
+    takedaId: 178,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dft,
     contractAddress: {
@@ -1345,7 +1345,7 @@ const finishedPools = [
     tokenPerBlock: '1.7361',
   },
   {
-    sousId: 177,
+    takedaId: 177,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hai,
     contractAddress: {
@@ -1357,7 +1357,7 @@ const finishedPools = [
     tokenPerBlock: '1.3078',
   },
   {
-    sousId: 176,
+    takedaId: 176,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.o3,
     contractAddress: {
@@ -1369,7 +1369,7 @@ const finishedPools = [
     tokenPerBlock: '0.107638',
   },
   {
-    sousId: 175,
+    takedaId: 175,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ampl,
     contractAddress: {
@@ -1381,7 +1381,7 @@ const finishedPools = [
     tokenPerBlock: '0.398',
   },
   {
-    sousId: 174,
+    takedaId: 174,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.oddz,
     contractAddress: {
@@ -1393,7 +1393,7 @@ const finishedPools = [
     tokenPerBlock: '0.4843',
   },
   {
-    sousId: 173,
+    takedaId: 173,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bondly,
     contractAddress: {
@@ -1405,7 +1405,7 @@ const finishedPools = [
     tokenPerBlock: '0.6741',
   },
   {
-    sousId: 172,
+    takedaId: 172,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.marsh,
     contractAddress: {
@@ -1417,7 +1417,7 @@ const finishedPools = [
     tokenPerBlock: '0.1108',
   },
   {
-    sousId: 171,
+    takedaId: 171,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mbox,
     contractAddress: {
@@ -1429,7 +1429,7 @@ const finishedPools = [
     tokenPerBlock: '0.4803',
   },
   {
-    sousId: 170,
+    takedaId: 170,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ata,
     contractAddress: {
@@ -1441,7 +1441,7 @@ const finishedPools = [
     tokenPerBlock: '1.7361',
   },
   {
-    sousId: 169,
+    takedaId: 169,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mx,
     contractAddress: {
@@ -1453,7 +1453,7 @@ const finishedPools = [
     tokenPerBlock: '0.27777',
   },
   {
-    sousId: 168,
+    takedaId: 168,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bcfx,
     contractAddress: {
@@ -1465,7 +1465,7 @@ const finishedPools = [
     tokenPerBlock: '0.6944',
   },
   {
-    sousId: 167,
+    takedaId: 167,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.qkc,
     contractAddress: {
@@ -1477,7 +1477,7 @@ const finishedPools = [
     tokenPerBlock: '15.9143',
   },
   {
-    sousId: 166,
+    takedaId: 166,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ktn,
     contractAddress: {
@@ -1489,7 +1489,7 @@ const finishedPools = [
     tokenPerBlock: '0.01215',
   },
   {
-    sousId: 165,
+    takedaId: 165,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mtrg,
     contractAddress: {
@@ -1501,7 +1501,7 @@ const finishedPools = [
     tokenPerBlock: '0.05613',
   },
   {
-    sousId: 164,
+    takedaId: 164,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tusd,
     contractAddress: {
@@ -1513,7 +1513,7 @@ const finishedPools = [
     tokenPerBlock: '0.5787',
   },
   {
-    sousId: 163,
+    takedaId: 163,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.vrt,
     contractAddress: {
@@ -1525,7 +1525,7 @@ const finishedPools = [
     tokenPerBlock: '40.5092',
   },
   {
-    sousId: 162,
+    takedaId: 162,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.kalm,
     contractAddress: {
@@ -1537,7 +1537,7 @@ const finishedPools = [
     tokenPerBlock: '0.0868',
   },
   {
-    sousId: 161,
+    takedaId: 161,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ez,
     contractAddress: {
@@ -1549,7 +1549,7 @@ const finishedPools = [
     tokenPerBlock: '0.01736',
   },
   {
-    sousId: 160,
+    takedaId: 160,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.kalm,
     contractAddress: {
@@ -1561,7 +1561,7 @@ const finishedPools = [
     tokenPerBlock: '0.00868',
   },
   {
-    sousId: 159,
+    takedaId: 159,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.popen,
     contractAddress: {
@@ -1573,7 +1573,7 @@ const finishedPools = [
     tokenPerBlock: '0.19097',
   },
   {
-    sousId: 158,
+    takedaId: 158,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lien,
     contractAddress: {
@@ -1585,7 +1585,7 @@ const finishedPools = [
     tokenPerBlock: '0.023148',
   },
   {
-    sousId: 157,
+    takedaId: 157,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.well,
     contractAddress: {
@@ -1597,7 +1597,7 @@ const finishedPools = [
     tokenPerBlock: '0.2025',
   },
   {
-    sousId: 156,
+    takedaId: 156,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.deri,
     contractAddress: {
@@ -1609,7 +1609,7 @@ const finishedPools = [
     tokenPerBlock: '1.6087',
   },
   {
-    sousId: 155,
+    takedaId: 155,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.chr,
     contractAddress: {
@@ -1621,7 +1621,7 @@ const finishedPools = [
     tokenPerBlock: '1.655',
   },
   {
-    sousId: 154,
+    takedaId: 154,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.cyc,
     contractAddress: {
@@ -1633,7 +1633,7 @@ const finishedPools = [
     tokenPerBlock: '0.00015914',
   },
   {
-    sousId: 153,
+    takedaId: 153,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xend,
     contractAddress: {
@@ -1646,7 +1646,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 152,
+    takedaId: 152,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hget,
     contractAddress: {
@@ -1659,7 +1659,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 151,
+    takedaId: 151,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hotcross,
     contractAddress: {
@@ -1672,7 +1672,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 150,
+    takedaId: 150,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.rfox,
     contractAddress: {
@@ -1685,7 +1685,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 149,
+    takedaId: 149,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.wmass,
     contractAddress: {
@@ -1698,7 +1698,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 148,
+    takedaId: 148,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ubxt,
     contractAddress: {
@@ -1711,7 +1711,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 147,
+    takedaId: 147,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.btr,
     contractAddress: {
@@ -1724,7 +1724,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 146,
+    takedaId: 146,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.τdoge,
     contractAddress: {
@@ -1737,7 +1737,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 145,
+    takedaId: 145,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pmon,
     contractAddress: {
@@ -1750,7 +1750,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 144,
+    takedaId: 144,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.one,
     contractAddress: {
@@ -1763,7 +1763,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 143,
+    takedaId: 143,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.fine,
     contractAddress: {
@@ -1776,7 +1776,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 142,
+    takedaId: 142,
     stakingToken: serializedTokens.doge,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -1789,7 +1789,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 141,
+    takedaId: 141,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bmxx,
     contractAddress: {
@@ -1802,7 +1802,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 140,
+    takedaId: 140,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.oin,
     contractAddress: {
@@ -1815,7 +1815,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 139,
+    takedaId: 139,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hyfi,
     contractAddress: {
@@ -1828,7 +1828,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 138,
+    takedaId: 138,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.kun,
     contractAddress: {
@@ -1841,7 +1841,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 137,
+    takedaId: 137,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.math,
     contractAddress: {
@@ -1854,7 +1854,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 136,
+    takedaId: 136,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ust,
     contractAddress: {
@@ -1867,7 +1867,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 135,
+    takedaId: 135,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.win,
     contractAddress: {
@@ -1880,7 +1880,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 134,
+    takedaId: 134,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.trx,
     contractAddress: {
@@ -1893,7 +1893,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 133,
+    takedaId: 133,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bttold,
     contractAddress: {
@@ -1906,7 +1906,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 132,
+    takedaId: 132,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lmt,
     contractAddress: {
@@ -1919,7 +1919,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 131,
+    takedaId: 131,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pnt,
     contractAddress: {
@@ -1932,7 +1932,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 130,
+    takedaId: 130,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xmark,
     contractAddress: {
@@ -1945,7 +1945,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 129,
+    takedaId: 129,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ramp,
     contractAddress: {
@@ -1958,7 +1958,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 128,
+    takedaId: 128,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hakka,
     contractAddress: {
@@ -1971,7 +1971,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 127,
+    takedaId: 127,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pbtc,
     contractAddress: {
@@ -1984,7 +1984,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 126,
+    takedaId: 126,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lien,
     contractAddress: {
@@ -1997,7 +1997,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 125,
+    takedaId: 125,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bbadger,
     contractAddress: {
@@ -2010,7 +2010,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 124,
+    takedaId: 124,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bdigg,
     contractAddress: {
@@ -2023,7 +2023,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 123,
+    takedaId: 123,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bondly,
     contractAddress: {
@@ -2036,7 +2036,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 122,
+    takedaId: 122,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xed,
     contractAddress: {
@@ -2049,7 +2049,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 121,
+    takedaId: 121,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.cgg,
     contractAddress: {
@@ -2062,7 +2062,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 120,
+    takedaId: 120,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.perl,
     contractAddress: {
@@ -2075,7 +2075,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 119,
+    takedaId: 119,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.arpa,
     contractAddress: {
@@ -2088,7 +2088,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 118,
+    takedaId: 118,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.oddz,
     contractAddress: {
@@ -2101,7 +2101,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 117,
+    takedaId: 117,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dexe,
     contractAddress: {
@@ -2114,7 +2114,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 116,
+    takedaId: 116,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dfd,
     contractAddress: {
@@ -2127,7 +2127,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 115,
+    takedaId: 115,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.alpaca,
     contractAddress: {
@@ -2140,7 +2140,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 114,
+    takedaId: 114,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.τbtc,
     contractAddress: {
@@ -2153,7 +2153,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 113,
+    takedaId: 113,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.τbtc,
     contractAddress: {
@@ -2166,7 +2166,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 112,
+    takedaId: 112,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.swingby,
     contractAddress: {
@@ -2178,7 +2178,7 @@ const finishedPools = [
     tokenPerBlock: '0.21527',
   },
   {
-    sousId: 111,
+    takedaId: 111,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xed,
     contractAddress: {
@@ -2192,7 +2192,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 110,
+    takedaId: 110,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hakka,
     contractAddress: {
@@ -2206,7 +2206,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 109,
+    takedaId: 109,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.cgg,
     contractAddress: {
@@ -2220,7 +2220,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 108,
+    takedaId: 108,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mix,
     contractAddress: {
@@ -2232,7 +2232,7 @@ const finishedPools = [
     tokenPerBlock: '0.3721',
   },
   {
-    sousId: 107,
+    takedaId: 107,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.suter,
     contractAddress: {
@@ -2244,7 +2244,7 @@ const finishedPools = [
     tokenPerBlock: '15.3356',
   },
   {
-    sousId: 106,
+    takedaId: 106,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.broobee,
     contractAddress: {
@@ -2256,7 +2256,7 @@ const finishedPools = [
     tokenPerBlock: '14.4675',
   },
   {
-    sousId: 105,
+    takedaId: 105,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hzn,
     contractAddress: {
@@ -2268,7 +2268,7 @@ const finishedPools = [
     tokenPerBlock: '0.6944',
   },
   {
-    sousId: 104,
+    takedaId: 104,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.alpa,
     contractAddress: {
@@ -2280,7 +2280,7 @@ const finishedPools = [
     tokenPerBlock: '0.23495',
   },
   {
-    sousId: 103,
+    takedaId: 103,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.perl,
     contractAddress: {
@@ -2294,7 +2294,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 102,
+    takedaId: 102,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tlm,
     contractAddress: {
@@ -2306,7 +2306,7 @@ const finishedPools = [
     tokenPerBlock: '17.361',
   },
   {
-    sousId: 101,
+    takedaId: 101,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.jgn,
     contractAddress: {
@@ -2318,7 +2318,7 @@ const finishedPools = [
     tokenPerBlock: '0.08796',
   },
   {
-    sousId: 100,
+    takedaId: 100,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.eps,
     contractAddress: {
@@ -2330,7 +2330,7 @@ const finishedPools = [
     tokenPerBlock: '0.07716',
   },
   {
-    sousId: 99,
+    takedaId: 99,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.arpa,
     contractAddress: {
@@ -2344,7 +2344,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 98,
+    takedaId: 98,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.itam,
     contractAddress: {
@@ -2356,7 +2356,7 @@ const finishedPools = [
     tokenPerBlock: '3.096',
   },
   {
-    sousId: 97,
+    takedaId: 97,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bondly,
     contractAddress: {
@@ -2370,7 +2370,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 96,
+    takedaId: 96,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tko,
     contractAddress: {
@@ -2382,7 +2382,7 @@ const finishedPools = [
     tokenPerBlock: '1.1574',
   },
   {
-    sousId: 95,
+    takedaId: 95,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.apys,
     contractAddress: {
@@ -2394,7 +2394,7 @@ const finishedPools = [
     tokenPerBlock: '0.09953',
   },
   {
-    sousId: 94,
+    takedaId: 94,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hoo,
     contractAddress: {
@@ -2406,7 +2406,7 @@ const finishedPools = [
     tokenPerBlock: '0.489',
   },
   {
-    sousId: 93,
+    takedaId: 93,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.oddz,
     contractAddress: {
@@ -2420,7 +2420,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 92,
+    takedaId: 92,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.easy,
     contractAddress: {
@@ -2432,7 +2432,7 @@ const finishedPools = [
     tokenPerBlock: '0.0072338',
   },
   {
-    sousId: 91,
+    takedaId: 91,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.nrv,
     contractAddress: {
@@ -2444,7 +2444,7 @@ const finishedPools = [
     tokenPerBlock: '0.15046',
   },
   {
-    sousId: 90,
+    takedaId: 90,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dego,
     contractAddress: {
@@ -2456,7 +2456,7 @@ const finishedPools = [
     tokenPerBlock: '0.00405',
   },
   {
-    sousId: 89,
+    takedaId: 89,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.gum,
     contractAddress: {
@@ -2468,7 +2468,7 @@ const finishedPools = [
     tokenPerBlock: '0.08912',
   },
   {
-    sousId: 88,
+    takedaId: 88,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pbtc,
     contractAddress: {
@@ -2482,7 +2482,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 87,
+    takedaId: 87,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dft,
     contractAddress: {
@@ -2494,7 +2494,7 @@ const finishedPools = [
     tokenPerBlock: '0.6811',
   },
   {
-    sousId: 86,
+    takedaId: 86,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.swth,
     contractAddress: {
@@ -2506,7 +2506,7 @@ const finishedPools = [
     tokenPerBlock: '2.3148',
   },
   {
-    sousId: 85,
+    takedaId: 85,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lien,
     contractAddress: {
@@ -2520,7 +2520,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 84,
+    takedaId: 84,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.zil,
     contractAddress: {
@@ -2532,7 +2532,7 @@ const finishedPools = [
     tokenPerBlock: '1.0995',
   },
   {
-    sousId: 83,
+    takedaId: 83,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.pcws,
     contractAddress: {
@@ -2544,7 +2544,7 @@ const finishedPools = [
     tokenPerBlock: '0.00434',
   },
   {
-    sousId: 82,
+    takedaId: 82,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bbadger,
     contractAddress: {
@@ -2558,7 +2558,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 81,
+    takedaId: 81,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bdigg,
     contractAddress: {
@@ -2572,7 +2572,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 80,
+    takedaId: 80,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lto,
     contractAddress: {
@@ -2584,7 +2584,7 @@ const finishedPools = [
     tokenPerBlock: '0.2893',
   },
   {
-    sousId: 79,
+    takedaId: 79,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mir,
     contractAddress: {
@@ -2597,7 +2597,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 78,
+    takedaId: 78,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.mir,
     contractAddress: {
@@ -2611,7 +2611,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 77,
+    takedaId: 77,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.trade,
     contractAddress: {
@@ -2624,7 +2624,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 76,
+    takedaId: 76,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dusk,
     contractAddress: {
@@ -2637,7 +2637,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 75,
+    takedaId: 75,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bifi,
     contractAddress: {
@@ -2650,7 +2650,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 74,
+    takedaId: 74,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.txl,
     contractAddress: {
@@ -2663,7 +2663,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 73,
+    takedaId: 73,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.cos,
     contractAddress: {
@@ -2676,7 +2676,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 72,
+    takedaId: 72,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bunny,
     contractAddress: {
@@ -2689,7 +2689,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 71,
+    takedaId: 71,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.alice,
     contractAddress: {
@@ -2702,7 +2702,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 70,
+    takedaId: 70,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.for,
     contractAddress: {
@@ -2715,7 +2715,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 69,
+    takedaId: 69,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bux,
     contractAddress: {
@@ -2728,7 +2728,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 68,
+    takedaId: 68,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.nuls,
     contractAddress: {
@@ -2741,7 +2741,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 67,
+    takedaId: 67,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.belt,
     contractAddress: {
@@ -2754,7 +2754,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 66,
+    takedaId: 66,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ramp,
     contractAddress: {
@@ -2768,7 +2768,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 65,
+    takedaId: 65,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bfi,
     contractAddress: {
@@ -2781,7 +2781,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 64,
+    takedaId: 64,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dexe,
     contractAddress: {
@@ -2795,7 +2795,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 63,
+    takedaId: 63,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bel,
     contractAddress: {
@@ -2808,7 +2808,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 62,
+    takedaId: 62,
     stakingToken: serializedTokens.tpt,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -2821,7 +2821,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 61,
+    takedaId: 61,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.tpt,
     contractAddress: {
@@ -2834,7 +2834,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 60,
+    takedaId: 60,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.watch,
     contractAddress: {
@@ -2847,7 +2847,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 59,
+    takedaId: 59,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.xmark,
     contractAddress: {
@@ -2860,7 +2860,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 58,
+    takedaId: 58,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bmxx,
     contractAddress: {
@@ -2873,7 +2873,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 57,
+    takedaId: 57,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.iotx,
     contractAddress: {
@@ -2886,7 +2886,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 56,
+    takedaId: 56,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bor,
     contractAddress: {
@@ -2899,7 +2899,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 55,
+    takedaId: 55,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bopen,
     contractAddress: {
@@ -2912,7 +2912,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 54,
+    takedaId: 54,
     stakingToken: serializedTokens.sushi,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -2925,7 +2925,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 53,
+    takedaId: 53,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.dodo,
     contractAddress: {
@@ -2938,7 +2938,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 52,
+    takedaId: 52,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.swingby,
     contractAddress: {
@@ -2951,7 +2951,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 51,
+    takedaId: 51,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bry,
     contractAddress: {
@@ -2964,7 +2964,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 50,
+    takedaId: 50,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.zee,
     contractAddress: {
@@ -2977,7 +2977,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 49,
+    takedaId: 49,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.swgb,
     contractAddress: {
@@ -2990,7 +2990,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 48,
+    takedaId: 48,
     stakingToken: serializedTokens.comp,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -3003,7 +3003,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 47,
+    takedaId: 47,
     stakingToken: serializedTokens.comp,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -3016,7 +3016,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 46,
+    takedaId: 46,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.sfp,
     contractAddress: {
@@ -3029,7 +3029,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 45,
+    takedaId: 45,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lina,
     contractAddress: {
@@ -3042,7 +3042,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 44,
+    takedaId: 44,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lina,
     contractAddress: {
@@ -3055,7 +3055,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 43,
+    takedaId: 43,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.lit,
     contractAddress: {
@@ -3068,7 +3068,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 42,
+    takedaId: 42,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hget,
     contractAddress: {
@@ -3081,7 +3081,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 41,
+    takedaId: 41,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bdo,
     contractAddress: {
@@ -3094,7 +3094,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 40,
+    takedaId: 40,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.egld,
     contractAddress: {
@@ -3107,7 +3107,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 39,
+    takedaId: 39,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ust,
     contractAddress: {
@@ -3120,7 +3120,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 38,
+    takedaId: 38,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.wsote,
     contractAddress: {
@@ -3133,7 +3133,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 37,
+    takedaId: 37,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.front,
     contractAddress: {
@@ -3146,7 +3146,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 36,
+    takedaId: 36,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.helmet,
     contractAddress: {
@@ -3159,7 +3159,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 35,
+    takedaId: 35,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.btcst,
     contractAddress: {
@@ -3172,7 +3172,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 34,
+    takedaId: 34,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.bscx,
     contractAddress: {
@@ -3185,7 +3185,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 33,
+    takedaId: 33,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ten,
     contractAddress: {
@@ -3198,7 +3198,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 32,
+    takedaId: 32,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.balbt,
     contractAddress: {
@@ -3211,7 +3211,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 31,
+    takedaId: 31,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.asr,
     contractAddress: {
@@ -3224,7 +3224,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 30,
+    takedaId: 30,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.atm,
     contractAddress: {
@@ -3237,7 +3237,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 29,
+    takedaId: 29,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.og,
     contractAddress: {
@@ -3250,7 +3250,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 28,
+    takedaId: 28,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.reef,
     contractAddress: {
@@ -3263,7 +3263,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 27,
+    takedaId: 27,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ditto,
     contractAddress: {
@@ -3276,7 +3276,7 @@ const finishedPools = [
     isFinished: false,
   },
   {
-    sousId: 26,
+    takedaId: 26,
     stakingToken: serializedTokens.twt,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -3289,7 +3289,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 24,
+    takedaId: 24,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.juv,
     contractAddress: {
@@ -3302,7 +3302,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 25,
+    takedaId: 25,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.psg,
     contractAddress: {
@@ -3315,7 +3315,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 21,
+    takedaId: 21,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.vai,
     contractAddress: {
@@ -3328,7 +3328,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 20,
+    takedaId: 20,
     stakingToken: serializedTokens.ech,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -3341,7 +3341,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 19,
+    takedaId: 19,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ech,
     contractAddress: {
@@ -3354,7 +3354,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 18,
+    takedaId: 18,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.blink,
     contractAddress: {
@@ -3367,7 +3367,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 17,
+    takedaId: 17,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.blink,
     contractAddress: {
@@ -3381,7 +3381,7 @@ const finishedPools = [
     enableEmergencyWithdraw: true,
   },
   {
-    sousId: 16,
+    takedaId: 16,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.unfi,
     contractAddress: {
@@ -3394,7 +3394,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 15,
+    takedaId: 15,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.twt,
     contractAddress: {
@@ -3407,7 +3407,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 14,
+    takedaId: 14,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.hard,
     contractAddress: {
@@ -3420,7 +3420,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 13,
+    takedaId: 13,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.broobee,
     contractAddress: {
@@ -3433,7 +3433,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 12,
+    takedaId: 12,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.stax,
     contractAddress: {
@@ -3446,7 +3446,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 11,
+    takedaId: 11,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.nar,
     contractAddress: {
@@ -3459,7 +3459,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 10,
+    takedaId: 10,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.nya,
     contractAddress: {
@@ -3472,7 +3472,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 9,
+    takedaId: 9,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ctk,
     contractAddress: {
@@ -3485,7 +3485,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 8,
+    takedaId: 8,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.twt,
     contractAddress: {
@@ -3498,7 +3498,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 7,
+    takedaId: 7,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.inj,
     contractAddress: {
@@ -3511,7 +3511,7 @@ const finishedPools = [
     isFinished: true,
   },
   {
-    sousId: 248,
+    takedaId: 248,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ccar,
     contractAddress: {
@@ -3523,7 +3523,7 @@ const finishedPools = [
     tokenPerBlock: '0.6093',
   },
   {
-    sousId: 262,
+    takedaId: 262,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.ach,
     contractAddress: {

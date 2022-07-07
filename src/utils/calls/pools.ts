@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import BigNumber from 'bignumber.js'
 import poolsConfig from 'config/constants/pools'
-import sousChefV2 from 'config/abi/sousChefV2.json'
+import genTakedaV2 from 'config/abi/genTakedaV2.json'
 import multicall from '../multicall'
 import { simpleRpcProvider } from '../providers'
 import { getAddress } from '../addressHelpers'
@@ -11,7 +11,7 @@ import { getAddress } from '../addressHelpers'
  */
 export const getActivePools = async (block?: number) => {
   const eligiblePools = poolsConfig
-    .filter((pool) => pool.sousId !== 0)
+    .filter((pool) => pool.takedaId !== 0)
     .filter((pool) => pool.isFinished === false || pool.isFinished === undefined)
   const blockNumber = block || (await simpleRpcProvider.getBlockNumber())
   const startBlockCalls = eligiblePools.map(({ contractAddress }) => ({
@@ -23,8 +23,8 @@ export const getActivePools = async (block?: number) => {
     name: 'bonusEndBlock',
   }))
   const [startBlocks, endBlocks] = await Promise.all([
-    multicall(sousChefV2, startBlockCalls),
-    multicall(sousChefV2, endBlockCalls),
+    multicall(genTakedaV2, startBlockCalls),
+    multicall(genTakedaV2, endBlockCalls),
   ])
 
   return eligiblePools.reduce((accum, poolCheck, index) => {

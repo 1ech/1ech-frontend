@@ -76,7 +76,7 @@ export const fetchRechPoolPublicDataAsync = () => async (dispatch, getState) => 
   const farmsData = getState().farms.data
   const prices = getTokenPricesFromFarm(farmsData)
 
-  const rechPool = poolsConfig.filter((p) => p.sousId === 0)[0]
+  const rechPool = poolsConfig.filter((p) => p.takedaId === 0)[0]
 
   const stakingTokenAddress = rechPool.stakingToken.address ? rechPool.stakingToken.address.toLowerCase() : null
   const stakingTokenPrice = stakingTokenAddress ? prices[stakingTokenAddress] : 0
@@ -86,7 +86,7 @@ export const fetchRechPoolPublicDataAsync = () => async (dispatch, getState) => 
 
   dispatch(
     setPoolPublicData({
-      sousId: 0,
+      takedaId: 0,
       data: {
         stakingTokenPrice,
         earningTokenPrice,
@@ -111,7 +111,7 @@ export const fetchRechPoolUserDataAsync = (account: string) => async (dispatch) 
 
   dispatch(
     setPoolUserData({
-      sousId: 0,
+      takedaId: 0,
       data: {
         allowance: new BigNumber(allowance.toString()).toJSON(),
         stakingTokenBalance: new BigNumber(stakingTokenBalance.toString()).toJSON(),
@@ -134,7 +134,7 @@ export const fetchPoolsPublicDataAsync = (currentBlockNumber: number) => async (
         poolsConfig
           .filter((pool) => pool.earningToken.address.toLowerCase() === priceHelperLpConfig.token.address.toLowerCase())
           .filter((pool) => {
-            const poolBlockLimit = blockLimits.find((blockLimit) => blockLimit.sousId === pool.sousId)
+            const poolBlockLimit = blockLimits.find((blockLimit) => blockLimit.takedaId === pool.takedaId)
             if (poolBlockLimit) {
               return poolBlockLimit.endBlock > currentBlock
             }
@@ -156,8 +156,8 @@ export const fetchPoolsPublicDataAsync = (currentBlockNumber: number) => async (
     const prices = getTokenPricesFromFarm([...farmsData, ...farmsWithPricesOfDifferentTokenPools])
 
     const liveData = poolsConfig.map((pool) => {
-      const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId)
-      const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId)
+      const blockLimit = blockLimits.find((entry) => entry.takedaId === pool.takedaId)
+      const totalStaking = totalStakings.find((entry) => entry.takedaId === pool.takedaId)
       const isPoolEndBlockExceeded = currentBlock > 0 && blockLimit ? currentBlock > Number(blockLimit.endBlock) : false
       const isPoolFinished = pool.isFinished || isPoolEndBlockExceeded
 
@@ -175,7 +175,7 @@ export const fetchPoolsPublicDataAsync = (currentBlockNumber: number) => async (
           )
         : 0
 
-      const profileRequirement = profileRequirements[pool.sousId] ? profileRequirements[pool.sousId] : undefined
+      const profileRequirement = profileRequirements[pool.takedaId] ? profileRequirements[pool.takedaId] : undefined
 
       return {
         ...blockLimit,
@@ -197,21 +197,21 @@ export const fetchPoolsPublicDataAsync = (currentBlockNumber: number) => async (
 export const fetchPoolsStakingLimitsAsync = () => async (dispatch, getState) => {
   const poolsWithStakingLimit = getState()
     .pools.data.filter(({ stakingLimit }) => stakingLimit !== null && stakingLimit !== undefined)
-    .map((pool) => pool.sousId)
+    .map((pool) => pool.takedaId)
 
   try {
     const stakingLimits = await fetchPoolsStakingLimits(poolsWithStakingLimit)
 
     const stakingLimitData = poolsConfig.map((pool) => {
-      if (poolsWithStakingLimit.includes(pool.sousId)) {
-        return { sousId: pool.sousId }
+      if (poolsWithStakingLimit.includes(pool.takedaId)) {
+        return { takedaId: pool.takedaId }
       }
-      const { stakingLimit, numberBlocksForUserLimit } = stakingLimits[pool.sousId] || {
+      const { stakingLimit, numberBlocksForUserLimit } = stakingLimits[pool.takedaId] || {
         stakingLimit: BIG_ZERO,
         numberBlocksForUserLimit: 0,
       }
       return {
-        sousId: pool.sousId,
+        takedaId: pool.takedaId,
         stakingLimit: stakingLimit.toJSON(),
         numberBlocksForUserLimit,
       }
@@ -224,7 +224,7 @@ export const fetchPoolsStakingLimitsAsync = () => async (dispatch, getState) => 
 }
 
 export const fetchPoolsUserDataAsync = createAsyncThunk<
-  { sousId: number; allowance: any; stakingTokenBalance: any; stakedBalance: any; pendingReward: any }[],
+  { takedaId: number; allowance: any; stakingTokenBalance: any; stakedBalance: any; pendingReward: any }[],
   string
 >('pool/fetchPoolsUserData', async (account, { rejectWithValue }) => {
   try {
@@ -236,11 +236,11 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
     ])
 
     const userData = poolsConfig.map((pool) => ({
-      sousId: pool.sousId,
-      allowance: allowances[pool.sousId],
-      stakingTokenBalance: stakingTokenBalances[pool.sousId],
-      stakedBalance: stakedBalances[pool.sousId],
-      pendingReward: pendingRewards[pool.sousId],
+      takedaId: pool.takedaId,
+      allowance: allowances[pool.takedaId],
+      stakingTokenBalance: stakingTokenBalances[pool.takedaId],
+      stakedBalance: stakedBalances[pool.takedaId],
+      pendingReward: pendingRewards[pool.takedaId],
     }))
     return userData
   } catch (e) {
@@ -249,35 +249,35 @@ export const fetchPoolsUserDataAsync = createAsyncThunk<
 })
 
 export const updateUserAllowance = createAsyncThunk<
-  { sousId: number; field: string; value: any },
-  { sousId: number; account: string }
->('pool/updateUserAllowance', async ({ sousId, account }) => {
+  { takedaId: number; field: string; value: any },
+  { takedaId: number; account: string }
+>('pool/updateUserAllowance', async ({ takedaId, account }) => {
   const allowances = await fetchPoolsAllowance(account)
-  return { sousId, field: 'allowance', value: allowances[sousId] }
+  return { takedaId, field: 'allowance', value: allowances[takedaId] }
 })
 
 export const updateUserBalance = createAsyncThunk<
-  { sousId: number; field: string; value: any },
-  { sousId: number; account: string }
->('pool/updateUserBalance', async ({ sousId, account }) => {
+  { takedaId: number; field: string; value: any },
+  { takedaId: number; account: string }
+>('pool/updateUserBalance', async ({ takedaId, account }) => {
   const tokenBalances = await fetchUserBalances(account)
-  return { sousId, field: 'stakingTokenBalance', value: tokenBalances[sousId] }
+  return { takedaId, field: 'stakingTokenBalance', value: tokenBalances[takedaId] }
 })
 
 export const updateUserStakedBalance = createAsyncThunk<
-  { sousId: number; field: string; value: any },
-  { sousId: number; account: string }
->('pool/updateUserStakedBalance', async ({ sousId, account }) => {
+  { takedaId: number; field: string; value: any },
+  { takedaId: number; account: string }
+>('pool/updateUserStakedBalance', async ({ takedaId, account }) => {
   const stakedBalances = await fetchUserStakeBalances(account)
-  return { sousId, field: 'stakedBalance', value: stakedBalances[sousId] }
+  return { takedaId, field: 'stakedBalance', value: stakedBalances[takedaId] }
 })
 
 export const updateUserPendingReward = createAsyncThunk<
-  { sousId: number; field: string; value: any },
-  { sousId: number; account: string }
->('pool/updateUserPendingReward', async ({ sousId, account }) => {
+  { takedaId: number; field: string; value: any },
+  { takedaId: number; account: string }
+>('pool/updateUserPendingReward', async ({ takedaId, account }) => {
   const pendingRewards = await fetchUserPendingRewards(account)
-  return { sousId, field: 'pendingReward', value: pendingRewards[sousId] }
+  return { takedaId, field: 'pendingReward', value: pendingRewards[takedaId] }
 })
 
 export const fetchRechVaultPublicData = createAsyncThunk<SerializedRechVault>('rechVault/fetchPublicData', async () => {
@@ -303,17 +303,17 @@ export const PoolsSlice = createSlice({
   initialState,
   reducers: {
     setPoolPublicData: (state, action) => {
-      const { sousId } = action.payload
-      const poolIndex = state.data.findIndex((pool) => pool.sousId === sousId)
+      const { takedaId } = action.payload
+      const poolIndex = state.data.findIndex((pool) => pool.takedaId === takedaId)
       state.data[poolIndex] = {
         ...state.data[poolIndex],
         ...action.payload.data,
       }
     },
     setPoolUserData: (state, action) => {
-      const { sousId } = action.payload
+      const { takedaId } = action.payload
       state.data = state.data.map((pool) => {
-        if (pool.sousId === sousId) {
+        if (pool.takedaId === takedaId) {
           return { ...pool, userDataLoaded: true, userData: action.payload.data }
         }
         return pool
@@ -322,7 +322,7 @@ export const PoolsSlice = createSlice({
     setPoolsPublicData: (state, action) => {
       const livePoolsData: SerializedPool[] = action.payload
       state.data = state.data.map((pool) => {
-        const livePoolData = livePoolsData.find((entry) => entry.sousId === pool.sousId)
+        const livePoolData = livePoolsData.find((entry) => entry.takedaId === pool.takedaId)
         return { ...pool, ...livePoolData }
       })
     },
@@ -341,12 +341,12 @@ export const PoolsSlice = createSlice({
       (
         state,
         action: PayloadAction<
-          { sousId: number; allowance: any; stakingTokenBalance: any; stakedBalance: any; pendingReward: any }[]
+          { takedaId: number; allowance: any; stakingTokenBalance: any; stakedBalance: any; pendingReward: any }[]
         >,
       ) => {
         const userData = action.payload
         state.data = state.data.map((pool) => {
-          const userPoolData = userData.find((entry) => entry.sousId === pool.sousId)
+          const userPoolData = userData.find((entry) => entry.takedaId === pool.takedaId)
           return { ...pool, userDataLoaded: true, userData: userPoolData }
         })
         state.userDataLoaded = true
@@ -377,9 +377,9 @@ export const PoolsSlice = createSlice({
         updateUserStakedBalance.fulfilled,
         updateUserPendingReward.fulfilled,
       ),
-      (state, action: PayloadAction<{ sousId: number; field: string; value: any }>) => {
-        const { field, value, sousId } = action.payload
-        const index = state.data.findIndex((p) => p.sousId === sousId)
+      (state, action: PayloadAction<{ takedaId: number; field: string; value: any }>) => {
+        const { field, value, takedaId } = action.payload
+        const index = state.data.findIndex((p) => p.takedaId === takedaId)
 
         if (index >= 0) {
           state.data[index] = { ...state.data[index], userData: { ...state.data[index].userData, [field]: value } }

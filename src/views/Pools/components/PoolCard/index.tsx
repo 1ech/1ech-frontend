@@ -13,7 +13,7 @@ import PoolCardHeader, { PoolCardHeaderTitle } from './PoolCardHeader'
 import CardActions from './CardActions'
 
 const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool, account }) => {
-  const { sousId, stakingToken, earningToken, isFinished, userData } = pool
+  const { takedaId, stakingToken, earningToken, isFinished, userData } = pool
   const { t } = useTranslation()
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
   const accountHasStakedBalance = stakedBalance.gt(0)
@@ -22,10 +22,10 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
 
   return (
     <StyledCard
-      isFinished={isFinished && sousId !== 0}
+      isFinished={isFinished && takedaId !== 0}
       ribbon={isFinished && <CardRibbon variantColor="textDisabled" text={t('Finished')} />}
     >
-      <PoolCardHeader isStaking={accountHasStakedBalance} isFinished={isFinished && sousId !== 0}>
+      <PoolCardHeader isStaking={accountHasStakedBalance} isFinished={isFinished && takedaId !== 0}>
         <PoolCardHeaderTitle
           title={isCakePool ? t('Manual') : t('Earn %asset%', { asset: earningToken.symbol })}
           subTitle={isCakePool ? t('Earn RECH, stake RECH') : t('Stake %symbol%', { symbol: stakingToken.symbol })}

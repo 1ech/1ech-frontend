@@ -41,7 +41,7 @@ const useGetTopPoolsByApr = (isIntersecting: boolean) => {
   }, [dispatch, setFetchStatus, fetchStatus, topPools, isIntersecting, initialBlock])
 
   useEffect(() => {
-    const [cakePool, otherPools] = partition(pools, (pool) => pool.sousId === 0)
+    const [cakePool, otherPools] = partition(pools, (pool) => pool.takedaId === 0)
     const getTopPoolsByApr = (activePools: DeserializedPool[]) => {
       const sortedByApr = orderBy(activePools, (pool: DeserializedPool) => pool.apr || 0, 'desc')
       setTopPools([...cakePool, ...sortedByApr.slice(0, 4)])

@@ -19,7 +19,7 @@ const cakeContract = getRechContract()
 
 const initialData = {
   data: {
-    sousId: 0,
+    takedaId: 0,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.rech,
     contractAddress: {
@@ -49,7 +49,7 @@ export const useFetchUserPools = (account) => {
           ])
 
           const userData = {
-            sousId: initialData.data.sousId,
+            takedaId: initialData.data.takedaId,
             allowance: '0',
             stakingTokenBalance: '0',
             stakedBalance: stakedBalances,

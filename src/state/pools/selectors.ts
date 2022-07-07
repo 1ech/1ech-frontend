@@ -4,12 +4,12 @@ import { transformPool, transformLockedVault } from './helpers'
 import { initialPoolVaultState } from './index'
 
 const selectPoolsData = (state: State) => state.pools.data
-const selectPoolData = (sousId) => (state: State) => state.pools.data.find((p) => p.sousId === sousId)
+const selectPoolData = (takedaId) => (state: State) => state.pools.data.find((p) => p.takedaId === takedaId)
 const selectUserDataLoaded = (state: State) => state.pools.userDataLoaded
 const selectVault = (key: VaultKey) => (state: State) => key ? state.pools[key] : initialPoolVaultState
 
-export const makePoolWithUserDataLoadingSelector = (sousId) =>
-  createSelector([selectPoolData(sousId), selectUserDataLoaded], (pool, userDataLoaded) => {
+export const makePoolWithUserDataLoadingSelector = (takedaId) =>
+  createSelector([selectPoolData(takedaId), selectUserDataLoaded], (pool, userDataLoaded) => {
     return { pool: transformPool(pool), userDataLoaded }
   })
 
@@ -26,8 +26,8 @@ export const poolsWithVaultSelector = createSelector(
   [poolsWithUserDataLoadingSelector, makeVaultPoolByKey(VaultKey.RechVault)],
   (poolsWithUserDataLoading, deserializedRechVault) => {
     const { pools, userDataLoaded } = poolsWithUserDataLoading
-    const cakePool = pools.find((pool) => !pool.isFinished && pool.sousId === 0)
-    const withoutCakePool = pools.filter((pool) => pool.sousId !== 0)
+    const cakePool = pools.find((pool) => !pool.isFinished && pool.takedaId === 0)
+    const withoutCakePool = pools.filter((pool) => pool.takedaId !== 0)
 
     const rechAutoVault = {
       ...cakePool,

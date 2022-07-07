@@ -145,7 +145,7 @@ const sortPools = (account: string, sortOption: string, pools: DeserializedPool[
       )
     }
     case 'latest':
-      return orderBy(poolsToSort, (pool: DeserializedPool) => Number(pool.sousId), 'desc')
+      return orderBy(poolsToSort, (pool: DeserializedPool) => Number(pool.takedaId), 'desc')
     default:
       return poolsToSort
   }
@@ -245,7 +245,7 @@ const Pools: React.FC = () => {
         pool.vaultKey ? (
           <RechVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
         ) : (
-          <PoolCard key={pool.sousId} pool={pool} account={account} />
+          <PoolCard key={pool.takedaId} pool={pool} account={account} />
         ),
       )}
     </CardLayout>

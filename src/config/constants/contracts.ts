@@ -7,9 +7,9 @@ export default {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
     3000: '0x08DC98B6bca7ffA22a218Cc8656E691b1EBc13a6',
   },
-  sousChef: {
+  genTakeda: {
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-    3000: '0x2e211ea69356c077d110b043eca46b41cf3b1fa2',
+    3000: '0x3082470aA3086b2cef67571A948054C56DFF4c08',
   },
   lotteryV2: {
     97: '0x5790c3534F30437641541a0FA04C992799602998',
@@ -64,7 +64,7 @@ export default {
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
   rechVault: {
-    3000: '0x1C3EfED4dcCCe9E5F4AeBe61bb2E3952e1F6B373',
+    3000: '0x88334382Ccf1aFBc0c99fe0EB95b50E1A4Bb5445',
     97: '',
   },
   predictions: {

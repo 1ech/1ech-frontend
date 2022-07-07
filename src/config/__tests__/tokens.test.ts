@@ -5,7 +5,7 @@ import tokens from 'config/constants/tokens'
 import { Token } from '@1ech/sdk'
 import multicall from 'utils/multicall'
 
-// remove ECH because it's not a Bep20 token
+// remove ECH because it's not a Erc20 token
 // remove ONE because there are two tokens with the symbol ONE (Harmony ONE and BigONE)
 // remove HERO because there are two tokens with the symbol HERO (StepHero and Hero)
 const tokensToTest = omitBy(

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import {
-  getBep20Contract,
+  getErc20Contract,
   getRechContract,
   getBunnyFactoryContract,
   getBunnySpecialContract,
@@ -12,7 +12,7 @@ import {
   getMasterchiefContract,
   getMasterchiefV1Contract,
   getPointCenterIfoContract,
-  getSouschefContract,
+  getGentakedaContract,
   getClaimRefundContract,
   getTradingCompetitionContractEaster,
   getTradingCompetitionContractFanToken,
@@ -71,7 +71,7 @@ export const useERC20 = (address: string, withSignerIfPossible = true) => {
     () => (withSignerIfPossible ? getProviderOrSigner(library, account) : null),
     [withSignerIfPossible, library, account],
   )
-  return useMemo(() => getBep20Contract(address, signer), [address, signer])
+  return useMemo(() => getErc20Contract(address, signer), [address, signer])
 }
 
 /**
@@ -135,9 +135,9 @@ export const useMasterchiefV1 = () => {
   return useMemo(() => getMasterchiefV1Contract(library.getSigner()), [library])
 }
 
-export const useSousChef = (id) => {
+export const useGenTakeda = (id) => {
   const { library } = useActiveWeb3React()
-  return useMemo(() => getSouschefContract(id, library.getSigner()), [id, library])
+  return useMemo(() => getGentakedaContract(id, library.getSigner()), [id, library])
 }
 
 export const usePointCenterIfoContract = () => {

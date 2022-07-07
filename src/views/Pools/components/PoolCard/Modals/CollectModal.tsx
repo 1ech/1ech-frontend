@@ -29,7 +29,7 @@ interface CollectModalProps {
   fullBalance: string
   earningToken: Token
   earningsDollarValue: number
-  sousId: number
+  takedaId: number
   isEchPool: boolean
   isCompoundPool?: boolean
   onDismiss?: () => void
@@ -40,7 +40,7 @@ const CollectModal: React.FC<CollectModalProps> = ({
   fullBalance,
   earningToken,
   earningsDollarValue,
-  sousId,
+  takedaId,
   isEchPool,
   isCompoundPool = false,
   onDismiss,
@@ -51,8 +51,8 @@ const CollectModal: React.FC<CollectModalProps> = ({
   const { account } = useWeb3React()
   const dispatch = useAppDispatch()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
-  const { onReward } = useHarvestPool(sousId, isEchPool)
-  const { onStake } = useStakePool(sousId, isEchPool)
+  const { onReward } = useHarvestPool(takedaId, isEchPool)
+  const { onStake } = useStakePool(takedaId, isEchPool)
   const [shouldCompound, setShouldCompound] = useState(isCompoundPool)
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>
@@ -85,9 +85,9 @@ const CollectModal: React.FC<CollectModalProps> = ({
           </ToastDescriptionWithTx>,
         )
       }
-      dispatch(updateUserStakedBalance({ sousId, account }))
-      dispatch(updateUserPendingReward({ sousId, account }))
-      dispatch(updateUserBalance({ sousId, account }))
+      dispatch(updateUserStakedBalance({ takedaId, account }))
+      dispatch(updateUserPendingReward({ takedaId, account }))
+      dispatch(updateUserBalance({ takedaId, account }))
       onDismiss?.()
     }
   }

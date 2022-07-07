@@ -22,8 +22,16 @@ interface CardActionsProps {
 }
 
 const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
-  const { sousId, stakingToken, earningToken, harvest, poolCategory, userData, earningTokenPrice, profileRequirement } =
-    pool
+  const {
+    takedaId,
+    stakingToken,
+    earningToken,
+    harvest,
+    poolCategory,
+    userData,
+    earningTokenPrice,
+    profileRequirement,
+  } = pool
   // Pools using native ECH behave differently than pools using a token
   const isEchPool = poolCategory === PoolCategory.BINANCE
   const { t } = useTranslation()
@@ -52,7 +60,7 @@ const CardActions: React.FC<CardActionsProps> = ({ pool, stakedBalance }) => {
             <HarvestActions
               earnings={earnings}
               earningToken={earningToken}
-              sousId={sousId}
+              takedaId={takedaId}
               earningTokenPrice={earningTokenPrice}
               isEchPool={isEchPool}
               isLoading={isLoading}

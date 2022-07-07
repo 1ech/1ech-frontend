@@ -40,7 +40,7 @@ const PoolsTable: React.FC<PoolsTableProps> = ({ pools, userDataReady, account }
         )}
         {account &&
           userDataReady &&
-          pools.map((pool) => <PoolRow key={pool.vaultKey ?? pool.sousId} pool={pool} account={account} />)}
+          pools.map((pool) => <PoolRow key={pool.vaultKey ?? pool.takedaId} pool={pool} account={account} />)}
       </TableStyle>
     </Container>
   )

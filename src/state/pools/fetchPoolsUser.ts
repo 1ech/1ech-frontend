@@ -1,5 +1,5 @@
 import poolsConfig from 'config/constants/pools'
-import sousChefABI from 'config/abi/sousChef.json'
+import genTakedaABI from 'config/abi/genTakeda.json'
 import erc20ABI from 'config/abi/erc20.json'
 import multicall from 'utils/multicall'
 import { getAddress } from 'utils/addressHelpers'
@@ -11,7 +11,7 @@ import uniq from 'lodash/uniq'
 // ECH pools use the native ECH token (wrapping ? unwrapping is done at the contract level)
 const nonEchPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'ECH')
 const echPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'ECH')
-const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 0)
+const nonMasterPools = poolsConfig.filter((pool) => pool.takedaId !== 0)
 
 export const fetchPoolsAllowance = async (account) => {
   const calls = nonEchPools.map((pool) => ({
@@ -22,7 +22,7 @@ export const fetchPoolsAllowance = async (account) => {
 
   const allowances = await multicall(erc20ABI, calls)
   return nonEchPools.reduce(
-    (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
+    (acc, pool, index) => ({ ...acc, [pool.takedaId]: new BigNumber(allowances[index]).toJSON() }),
     {},
   )
 }
@@ -41,7 +41,7 @@ export const fetchUserBalances = async (account) => {
     (acc, pool) => ({
       ...acc,
       ...(tokenBalances[pool.stakingToken.address] && {
-        [pool.sousId]: new BigNumber(tokenBalances[pool.stakingToken.address]).toJSON(),
+        [pool.takedaId]: new BigNumber(tokenBalances[pool.stakingToken.address]).toJSON(),
       }),
     }),
     {},
@@ -50,7 +50,7 @@ export const fetchUserBalances = async (account) => {
   // ECH pools
   const echBalance = await simpleRpcProvider.getBalance(account)
   const echBalances = echPools.reduce(
-    (acc, pool) => ({ ...acc, [pool.sousId]: new BigNumber(echBalance.toString()).toJSON() }),
+    (acc, pool) => ({ ...acc, [pool.takedaId]: new BigNumber(echBalance.toString()).toJSON() }),
     {},
   )
 
@@ -63,11 +63,11 @@ export const fetchUserStakeBalances = async (account) => {
     name: 'userInfo',
     params: [account],
   }))
-  const userInfo = await multicall(sousChefABI, calls)
+  const userInfo = await multicall(genTakedaABI, calls)
   return nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(userInfo[index].amount._hex).toJSON(),
+      [pool.takedaId]: new BigNumber(userInfo[index].amount._hex).toJSON(),
     }),
     {},
   )
@@ -79,11 +79,11 @@ export const fetchUserPendingRewards = async (account) => {
     name: 'pendingReward',
     params: [account],
   }))
-  const res = await multicall(sousChefABI, calls)
+  const res = await multicall(genTakedaABI, calls)
   return nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
-      [pool.sousId]: new BigNumber(res[index]).toJSON(),
+      [pool.takedaId]: new BigNumber(res[index]).toJSON(),
     }),
     {},
   )

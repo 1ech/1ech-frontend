@@ -18,7 +18,7 @@ const NewPool: React.FC = () => {
   const rechVault = useRechVault()
 
   const stakedOnlyOpenPools = useMemo(
-    () => pools.filter((pool) => pool.userData && pool.sousId === 0 && !pool.isFinished),
+    () => pools.filter((pool) => pool.userData && pool.takedaId === 0 && !pool.isFinished),
     [pools],
   )
 

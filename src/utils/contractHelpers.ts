@@ -42,7 +42,7 @@ import profileABI from 'config/abi/pancakeProfile.json'
 import pancakeBunniesAbi from 'config/abi/pancakeBunnies.json'
 import bunnyFactoryAbi from 'config/abi/bunnyFactory.json'
 import bunnySpecialAbi from 'config/abi/bunnySpecial.json'
-import bep20Abi from 'config/abi/erc20.json'
+import erc20Abi from 'config/abi/erc20.json'
 import erc721Abi from 'config/abi/erc721.json'
 import lpTokenAbi from 'config/abi/lpToken.json'
 import rechAbi from 'config/abi/rech.json'
@@ -52,9 +52,9 @@ import pointCenterIfo from 'config/abi/pointCenterIfo.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
 import masterChief from 'config/abi/masterchief.json'
 import masterChiefV1 from 'config/abi/masterchiefV1.json'
-import sousChef from 'config/abi/sousChef.json'
-import sousChefV2 from 'config/abi/sousChefV2.json'
-import sousChefEch from 'config/abi/sousChefEch.json'
+import genTakeda from 'config/abi/genTakeda.json'
+import genTakedaV2 from 'config/abi/genTakedaV2.json'
+import genTakedaEch from 'config/abi/genTakedaEch.json'
 import claimRefundAbi from 'config/abi/claimRefund.json'
 import tradingCompetitionEasterAbi from 'config/abi/tradingCompetitionEaster.json'
 import tradingCompetitionFanTokenAbi from 'config/abi/tradingCompetitionFanToken.json'
@@ -94,8 +94,8 @@ import type {
   LotteryV2,
   Masterchief,
   MasterchiefV1,
-  SousChef,
-  SousChefV2,
+  GenTakeda,
+  GenTakedaV2,
   BunnySpecial,
   LpToken,
   ClaimRefund,
@@ -122,8 +122,8 @@ export const getContract = (abi: any, address: string, signer?: Signer | Provide
   return new Contract(address, abi, signerOrProvider)
 }
 
-export const getBep20Contract = (address: string, signer?: Signer | Provider) => {
-  return getContract(bep20Abi, address, signer) as Erc20
+export const getErc20Contract = (address: string, signer?: Signer | Provider) => {
+  return getContract(erc20Abi, address, signer) as Erc20
 }
 export const getErc721Contract = (address: string, signer?: Signer | Provider) => {
   return getContract(erc721Abi, address, signer) as Erc721
@@ -137,14 +137,14 @@ export const getIfoV1Contract = (address: string, signer?: Signer | Provider) =>
 export const getIfoV2Contract = (address: string, signer?: Signer | Provider) => {
   return getContract(ifoV2Abi, address, signer) as IfoV2
 }
-export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
-  const config = poolsConfig.find((pool) => pool.sousId === id)
-  const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefEch : sousChef
-  return getContract(abi, getAddress(config.contractAddress), signer) as SousChef
+export const getGentakedaContract = (id: number, signer?: Signer | Provider) => {
+  const config = poolsConfig.find((pool) => pool.takedaId === id)
+  const abi = config.poolCategory === PoolCategory.BINANCE ? genTakedaEch : genTakeda
+  return getContract(abi, getAddress(config.contractAddress), signer) as GenTakeda
 }
-export const getSouschefV2Contract = (id: number, signer?: Signer | Provider) => {
-  const config = poolsConfig.find((pool) => pool.sousId === id)
-  return getContract(sousChefV2, getAddress(config.contractAddress), signer) as SousChefV2
+export const getGentakedaV2Contract = (id: number, signer?: Signer | Provider) => {
+  const config = poolsConfig.find((pool) => pool.takedaId === id)
+  return getContract(genTakedaV2, getAddress(config.contractAddress), signer) as GenTakedaV2
 }
 
 export const getPointCenterIfoContract = (signer?: Signer | Provider) => {

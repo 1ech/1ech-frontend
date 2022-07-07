@@ -36,7 +36,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'USDS-ECH LP',
     lpAddresses: {
       97: '',
-      3000: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
+      3000: '0xbcB1b372a870289CA17ba5b355477d9546aFa6AA',
     },
     token: serializedTokens.usds,
     quoteToken: serializedTokens.wech,

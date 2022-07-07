@@ -17,14 +17,14 @@ const StyledCell = styled(BaseCell)`
 `
 
 const EndsInCell: React.FC<FinishCellProps> = ({ pool }) => {
-  const { sousId, totalStaked, startBlock, endBlock, isFinished } = pool
+  const { takedaId, totalStaked, startBlock, endBlock, isFinished } = pool
   const currentBlock = useCurrentBlock()
   const { t } = useTranslation()
 
   const { shouldShowBlockCountdown, blocksUntilStart, blocksRemaining, hasPoolStarted, blocksToDisplay } =
     getPoolBlockInfo(pool, currentBlock)
 
-  const isCakePool = sousId === 0
+  const isCakePool = takedaId === 0
 
   const renderBlocks = shouldShowBlockCountdown ? (
     <Flex alignItems="center">

@@ -100,9 +100,9 @@ const FarmsPoolsRow = () => {
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 title={topPool && getPoolText(topPool)}
-                percentage={topPool?.sousId === 0 ? +lockedApy : topPool?.apr}
+                percentage={topPool?.takedaId === 0 ? +lockedApy : topPool?.apr}
                 index={index}
-                isApy={topPool?.sousId === 0}
+                isApy={topPool?.takedaId === 0}
                 visible={!showFarms}
               />
             ))}

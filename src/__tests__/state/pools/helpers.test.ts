@@ -49,12 +49,12 @@ describe('transformUserData', () => {
 })
 
 describe('transformPool', () => {
-  // Transform pool object with the sous id for a label. For display purposes only.
+  // Transform pool object with the takeda id for a label. For display purposes only.
   const poolTable: [number, SerializedPoolConfig][] = poolsConfig.map((poolsConfigItem) => [
-    poolsConfigItem.sousId,
+    poolsConfigItem.takedaId,
     poolsConfigItem,
   ])
-  it.each(poolTable)('transforms pool %d correctly', (sousId, config) => {
+  it.each(poolTable)('transforms pool %d correctly', (takedaId, config) => {
     const pool = {
       ...config,
       totalStaked: '10',
@@ -70,7 +70,7 @@ describe('transformPool', () => {
     } as SerializedPool
     const transformedPool = transformPool(pool)
 
-    expect(transformedPool).toHaveProperty('sousId', sousId)
+    expect(transformedPool).toHaveProperty('takedaId', takedaId)
     expect(transformedPool).toHaveProperty('contractAddress')
     expect(transformedPool).toHaveProperty('contractAddress.56')
     expect(transformedPool).toHaveProperty('stakingToken.symbol')

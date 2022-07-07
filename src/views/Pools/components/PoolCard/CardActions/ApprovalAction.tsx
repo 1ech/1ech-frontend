@@ -10,10 +10,10 @@ interface ApprovalActionProps {
 }
 
 const ApprovalAction: React.FC<ApprovalActionProps> = ({ pool, isLoading = false }) => {
-  const { sousId, stakingToken, earningToken } = pool
+  const { takedaId, stakingToken, earningToken } = pool
   const { t } = useTranslation()
   const stakingTokenContract = useERC20(stakingToken.address || '')
-  const { handleApprove, pendingTx } = useApprovePool(stakingTokenContract, sousId, earningToken.symbol)
+  const { handleApprove, pendingTx } = useApprovePool(stakingTokenContract, takedaId, earningToken.symbol)
 
   return (
     <>

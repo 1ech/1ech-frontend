@@ -23,7 +23,7 @@ export interface UnstakeButtonProps {
 }
 
 const UnstakeButton: React.FC<UnstakeButtonProps> = ({ pool }) => {
-  const { sousId, stakingToken, earningToken, userData, vaultKey } = pool
+  const { takedaId, stakingToken, earningToken, userData, vaultKey } = pool
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const { library } = useActiveWeb3React()
@@ -41,7 +41,7 @@ const UnstakeButton: React.FC<UnstakeButtonProps> = ({ pool }) => {
       : getContract(ifoPoolAbi, ifoPoolV1Contract, library.getSigner())
   }, [library, vaultKey])
 
-  const { onUnstake } = useUnstakePool(sousId, pool.enableEmergencyWithdraw)
+  const { onUnstake } = useUnstakePool(takedaId, pool.enableEmergencyWithdraw)
 
   const isNeedUnstake = vaultKey ? userShares && userShares.gt(0) : new BigNumber(userData.stakedBalance).gt(0)
 

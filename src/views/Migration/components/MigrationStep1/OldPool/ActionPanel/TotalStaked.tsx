@@ -25,9 +25,9 @@ interface TotalStakedProps {
 
 const TotalStaked: React.FC<TotalStakedProps> = ({ pool, totalRechInVault, cakeInVaults }) => {
   const { t } = useTranslation()
-  const { sousId, stakingToken, totalStaked, vaultKey } = pool
+  const { takedaId, stakingToken, totalStaked, vaultKey } = pool
 
-  const isManualCakePool = sousId === 0
+  const isManualCakePool = takedaId === 0
 
   const totalStakedBalance = useMemo(() => {
     if (vaultKey) {

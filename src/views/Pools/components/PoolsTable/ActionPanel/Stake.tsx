@@ -54,7 +54,7 @@ interface StackedActionProps {
 
 const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const {
-    sousId,
+    takedaId,
     stakingToken,
     earningToken,
     stakingLimit,
@@ -73,7 +73,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const stakingTokenContract = useERC20(stakingToken.address || '')
   const { handleApprove: handlePoolApprove, pendingTx: pendingPoolTx } = useApprovePool(
     stakingTokenContract,
-    sousId,
+    takedaId,
     earningToken.symbol,
   )
 

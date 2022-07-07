@@ -55,7 +55,7 @@ export function useVaultApy({ duration = MAX_LOCK_DURATION }: { duration?: numbe
     const calls = [
       {
         address: masterChiefAddress,
-        name: 'cakePerBlock',
+        name: 'rechPerBlock',
         params: [false],
       },
       {

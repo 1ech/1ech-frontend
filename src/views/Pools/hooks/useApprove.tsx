@@ -5,25 +5,25 @@ import { MaxUint256 } from '@ethersproject/constants'
 import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { useTranslation } from 'contexts/Localization'
-import { useRech, useSousChef, useVaultPoolContract } from 'hooks/useContract'
+import { useRech, useGenTakeda, useVaultPoolContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import { useSWRContract, UseSWRContractKey } from 'hooks/useSWRContract'
 
-export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol) => {
+export const useApprovePool = (lpContract: Contract, takedaId, earningTokenSymbol) => {
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const { callWithGasPrice } = useCallWithGasPrice()
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
-  const sousChefContract = useSousChef(sousId)
+  const genTakedaContract = useGenTakeda(takedaId)
 
   const handleApprove = useCallback(async () => {
     const receipt = await fetchWithCatchTxError(() => {
-      return callWithGasPrice(lpContract, 'approve', [sousChefContract.address, MaxUint256])
+      return callWithGasPrice(lpContract, 'approve', [genTakedaContract.address, MaxUint256])
     })
     if (receipt?.status) {
       toastSuccess(
@@ -32,14 +32,14 @@ export const useApprovePool = (lpContract: Contract, sousId, earningTokenSymbol)
           {t('You can now stake in the %symbol% pool!', { symbol: earningTokenSymbol })}
         </ToastDescriptionWithTx>,
       )
-      dispatch(updateUserAllowance({ sousId, account }))
+      dispatch(updateUserAllowance({ takedaId, account }))
     }
   }, [
     account,
     dispatch,
     lpContract,
-    sousChefContract,
-    sousId,
+    genTakedaContract,
+    takedaId,
     earningTokenSymbol,
     t,
     toastSuccess,

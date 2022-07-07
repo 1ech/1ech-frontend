@@ -96,7 +96,7 @@ export interface DeserializedFarmConfig extends FarmConfigBaseProps {
 }
 
 interface PoolConfigBaseProps {
-  sousId: number
+  takedaId: number
   contractAddress: Address
   poolCategory: PoolCategory
   tokenPerBlock: string

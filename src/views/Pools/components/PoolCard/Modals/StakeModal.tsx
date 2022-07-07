@@ -64,13 +64,13 @@ const StakeModal: React.FC<StakeModalProps> = ({
   isRemovingStake = false,
   onDismiss,
 }) => {
-  const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
+  const { takedaId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
   const { account } = useWeb3React()
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
   const { theme } = useTheme()
-  const { onStake } = useStakePool(sousId, isEchPool)
-  const { onUnstake } = useUnstakePool(sousId, pool.enableEmergencyWithdraw)
+  const { onStake } = useStakePool(takedaId, isEchPool)
+  const { onUnstake } = useUnstakePool(takedaId, pool.enableEmergencyWithdraw)
   const { toastSuccess } = useToast()
   const { fetchWithCatchTxError, loading: pendingTx } = useCatchTxError()
   const [stakeAmount, setStakeAmount] = useState('')
@@ -164,9 +164,9 @@ const StakeModal: React.FC<StakeModalProps> = ({
           </ToastDescriptionWithTx>,
         )
       }
-      dispatch(updateUserStakedBalance({ sousId, account }))
-      dispatch(updateUserPendingReward({ sousId, account }))
-      dispatch(updateUserBalance({ sousId, account }))
+      dispatch(updateUserStakedBalance({ takedaId, account }))
+      dispatch(updateUserPendingReward({ takedaId, account }))
+      dispatch(updateUserBalance({ takedaId, account }))
       onDismiss?.()
     }
   }

@@ -2,42 +2,42 @@ import BigNumber from 'bignumber.js'
 import { useCallback } from 'react'
 import { DEFAULT_GAS_LIMIT, DEFAULT_TOKEN_DECIMAL } from 'config'
 import { parseUnits } from '@ethersproject/units'
-import { useMasterchiefV1, useSousChef } from 'hooks/useContract'
+import { useMasterchiefV1, useGenTakeda } from 'hooks/useContract'
 import getGasPrice from 'utils/getGasPrice'
 
-const sousUnstake = (sousChefContract: any, amount: string, decimals: number) => {
+const takedaUnstake = (genTakedaContract: any, amount: string, decimals: number) => {
   const gasPrice = getGasPrice()
   const units = parseUnits(amount, decimals)
 
-  return sousChefContract.withdraw(units.toString(), {
+  return genTakedaContract.withdraw(units.toString(), {
     gasPrice,
   })
 }
 
-const sousEmergencyUnstake = (sousChefContract: any) => {
+const takedaEmergencyUnstake = (genTakedaContract: any) => {
   const gasPrice = getGasPrice()
-  return sousChefContract.emergencyWithdraw({ gasPrice })
+  return genTakedaContract.emergencyWithdraw({ gasPrice })
 }
 
-const useUnstakePool = (sousId: number, enableEmergencyWithdraw = false) => {
+const useUnstakePool = (takedaId: number, enableEmergencyWithdraw = false) => {
   const masterChiefV1Contract = useMasterchiefV1()
-  const sousChefContract = useSousChef(sousId)
+  const genTakedaContract = useGenTakeda(takedaId)
 
   const handleUnstake = useCallback(
     async (amount: string, decimals: number) => {
-      if (sousId === 0) {
+      if (takedaId === 0) {
         const gasPrice = getGasPrice()
         const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
         return masterChiefV1Contract.leaveStaking(value, { gasLimit: DEFAULT_GAS_LIMIT, gasPrice })
       }
 
       if (enableEmergencyWithdraw) {
-        return sousEmergencyUnstake(sousChefContract)
+        return takedaEmergencyUnstake(genTakedaContract)
       }
 
-      return sousUnstake(sousChefContract, amount, decimals)
+      return takedaUnstake(genTakedaContract, amount, decimals)
     },
-    [enableEmergencyWithdraw, masterChiefV1Contract, sousChefContract, sousId],
+    [enableEmergencyWithdraw, masterChiefV1Contract, genTakedaContract, takedaId],
   )
 
   return { onUnstake: handleUnstake }
