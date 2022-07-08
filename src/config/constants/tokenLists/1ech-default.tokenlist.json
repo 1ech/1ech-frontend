@@ -34,6 +34,14 @@
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {
+      "name": "Moonech",
+      "symbol": "Moonech",
+      "address": "0xD2B1000FA990Ffde8fa916d21a1Fc9D5AD3FF516",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
       "name": "Rech Token",
       "symbol": "RECH",
       "address": "0x363a6FD45e39cCD1be3220dc9550975C247BBC5F",

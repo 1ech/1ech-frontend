@@ -60,6 +60,14 @@ export const mainnetTokens = defineTokens({
     'Metronotes',
     'https://app.metroswap.org',
   ),
+  moonech: new Token(
+    MAINNET,
+    '0xCf153fC756D062bc6c8F0712c4E8c348ca9Be214',
+    18,
+    'MOONECH',
+    'Moonech',
+    'https://app.metroswap.org',
+  ),
   dust: new Token(MAINNET, '0x4414c6EB45762bc7AE167eeaba7A89E538d0aD32', 18, 'DUST', 'Dust Token', 'https://dust.llc'),
   // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
   ech: new Token(MAINNET, '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343', 18, 'ECH', 'ECH', 'https://ech.network/'),
