@@ -78,7 +78,7 @@
       "symbol": "DRONE",
       "address": "0xA444281032AA476e6e052f4C7caA02d0901C8ae3",
       "chainId": 3000,
-      "decimals": 18,
+      "decimals": 9,
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {

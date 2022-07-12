@@ -95,7 +95,7 @@ export const mainnetTokens = defineTokens({
   drone: new Token(
     MAINNET,
     '0xA444281032AA476e6e052f4C7caA02d0901C8ae3',
-    18,
+    9,
     'DRONE',
     'Drone Token',
     'https://app.metroswap.org',
