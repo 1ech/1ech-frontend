@@ -70,10 +70,10 @@ export const mainnetTokens = defineTokens({
   ),
   rail: new Token(
     MAINNET,
-    '0x6e4AafB9e35A9582625dE29d7836DA83d183AF0E',
+    '0x03C83A0c77Ab21B7A401F2f882702a0c35049dFC',
     9,
     'RAIL',
-    'Rail',
+    'Rail Token',
     'https://app.metroswap.org',
   ),
   mtc: new Token(

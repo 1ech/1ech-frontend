@@ -50,9 +50,9 @@
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {
-      "name": "Rail",
+      "name": "Rail Token",
       "symbol": "RAIL",
-      "address": "0x6e4AafB9e35A9582625dE29d7836DA83d183AF0E",
+      "address": "0x03C83A0c77Ab21B7A401F2f882702a0c35049dFC",
       "chainId": 3000,
       "decimals": 9,
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
