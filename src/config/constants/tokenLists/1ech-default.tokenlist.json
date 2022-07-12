@@ -34,11 +34,51 @@
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {
+      "name": "HCE <> ECH",
+      "symbol": "HCE",
+      "address": "0xBD58c54657cd753EeE336f7eD7cB57567704CD48",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
       "name": "Moonech",
       "symbol": "Moonech",
       "address": "0xD2B1000FA990Ffde8fa916d21a1Fc9D5AD3FF516",
       "chainId": 3000,
       "decimals": 9,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
+      "name": "Rail",
+      "symbol": "RAIL",
+      "address": "0x6e4AafB9e35A9582625dE29d7836DA83d183AF0E",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
+      "name": "Metrocoin",
+      "symbol": "MTC",
+      "address": "0xdD219f8883De3E7AB86B9147BcCEAD6523302b65",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
+      "name": "Robot Token",
+      "symbol": "BOT",
+      "address": "0xd422089785ada2762343B209b43bC48dd7ad4AE9",
+      "chainId": 3000,
+      "decimals": 18,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
+      "name": "Drone Token",
+      "symbol": "DRONE",
+      "address": "0xA444281032AA476e6e052f4C7caA02d0901C8ae3",
+      "chainId": 3000,
+      "decimals": 18,
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {
