@@ -259,7 +259,7 @@
     },
     {
       "chainId": 3000,
-      "address": "0xc78F1E234165432dB5BD9f28951A9020C8E4353b",
+      "address": "0x9fc5D6f2c252828259f9a8CFF82BF56132D8cA69",
       "name": "Wrapped AVAX",
       "symbol": "WAVAX",
       "decimals": 18,
