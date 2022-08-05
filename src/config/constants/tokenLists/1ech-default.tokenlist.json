@@ -34,7 +34,7 @@
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {
-      "name": "HCE <> ECH",
+      "name": "HCE <-> ECH",
       "symbol": "HCE",
       "address": "0xBD58c54657cd753EeE336f7eD7cB57567704CD48",
       "chainId": 3000,
@@ -47,7 +47,15 @@
       "address": "0xD2B1000FA990Ffde8fa916d21a1Fc9D5AD3FF516",
       "chainId": 3000,
       "decimals": 9,
-      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+      "logoURI": "https://freesvg.org/img/1551733615.png"
+    },
+    {
+      "name": "Lunar",
+      "symbol": "LUNAR",
+      "address": "0x007f74b6A9FDBd5B95D251C7Ce6dce091B6499F7",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://freesvg.org/img/1451749620.png"
     },
     {
       "name": "Rail Token",
@@ -55,7 +63,23 @@
       "address": "0x03C83A0c77Ab21B7A401F2f882702a0c35049dFC",
       "chainId": 3000,
       "decimals": 9,
-      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+      "logoURI": "https://freesvg.org/img/railroad-1587328.png"
+    },
+    {
+      "name": "Emperor Token",
+      "symbol": "EMP",
+      "address": "0xb35602e99cd065C6b15eB29C519d01bA0C066F58",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://freesvg.org/img/1487936526.png"
+    },
+    {
+      "name": "Imperial Token",
+      "symbol": "IMP",
+      "address": "0x89857D8470Cb69Aa91c92C0b84F195b4C728d831",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://freesvg.org/img/Chromatic-Tribal-Eagle-2-11-No-Background.png"
     },
     {
       "name": "Metrocoin",
@@ -63,7 +87,15 @@
       "address": "0xdD219f8883De3E7AB86B9147BcCEAD6523302b65",
       "chainId": 3000,
       "decimals": 9,
-      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+      "logoURI": "https://avatars.githubusercontent.com/u/12598269?s=200&v=4"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x48384fCf005FD341Bd716834ED5be90D5EF67a99",
+      "name": "Steel Token",
+      "symbol": "STEEL",
+      "decimals": 18,
+      "logoURI": "https://freesvg.org/img/i-beam.png"
     },
     {
       "name": "Robot Token",
@@ -77,6 +109,14 @@
       "name": "Drone Token",
       "symbol": "DRONE",
       "address": "0xA444281032AA476e6e052f4C7caA02d0901C8ae3",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
+    },
+    {
+      "name": "Nova Token",
+      "symbol": "NOVA",
+      "address": "0x0B42eBEFe367Cd6A63BA736b943B33E55D16838B",
       "chainId": 3000,
       "decimals": 9,
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
@@ -103,7 +143,7 @@
       "address": "0x4414c6EB45762bc7AE167eeaba7A89E538d0aD32",
       "chainId": 3000,
       "decimals": 18,
-      "logoURI": "https://1ech.com/1ech.png"
+      "logoURI": "https://avatars.githubusercontent.com/u/84519051?s=200&v=4"
     },
     {
       "name": "Metro Wrapped MATIC",
@@ -171,11 +211,59 @@
     },
     {
       "chainId": 3000,
-      "address": "0x521D816260D15bc170e1D36CF8EBC1842DEE18a1",
-      "name": "Simple USD",
-      "symbol": "USDS",
+      "address": "0x02C74CB440E43C30C9DA0E984F146F0334AD4409",
+      "name": "(PoS) Wrapped Bitcoin",
+      "symbol": "WBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    },
+    {
+      "chainId": 3000,
+      "address": "0xb999bFC1ff7568289fEA74e47AAafE30b99C01A7",
+      "name": "Wrapped BTT",
+      "symbol": "WBTT",
       "decimals": 18,
-      "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/usds-200.png"
+      "logoURI": "https://assets.coingecko.com/coins/images/22457/large/btt_logo.png?1643857231"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x681D7971061D26Db2A60D21d5702180EDE974622",
+      "name": "Wrapped IOTX",
+      "symbol": "WIOTX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/3334/large/iotex-logo.png?1547037941"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x7B8B266811757ac627a9AD363604A1ebD90f1c36",
+      "name": "Wrapped FTM",
+      "symbol": "WFTM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/4001/large/Fantom.png?1558015016"
+    },
+    {
+      "chainId": 3000,
+      "address": "0x8e4cF575CFF571DAC10966047243cE427aa7b8F4",
+      "name": "Wrapped BNB",
+      "symbol": "WBNB",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/12591/large/binance-coin-logo.png?1600947313"
+    },
+    {
+      "chainId": 3000,
+      "address": "0xc78F1E234165432dB5BD9f28951A9020C8E4353b",
+      "name": "Binance-Peg BUSD",
+      "symbol": "BUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/9576/large/BUSD.png?1568947766"
+    },
+    {
+      "chainId": 3000,
+      "address": "0xc78F1E234165432dB5BD9f28951A9020C8E4353b",
+      "name": "Wrapped AVAX",
+      "symbol": "WAVAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/15075/large/wrapped-avax.png?1629873618"
     }
   ]
 }

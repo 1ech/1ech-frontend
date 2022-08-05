@@ -100,6 +100,14 @@ export const mainnetTokens = defineTokens({
     'Drone Token',
     'https://app.metroswap.org',
   ),
+  nova: new Token(
+    MAINNET,
+    '0x0B42eBEFe367Cd6A63BA736b943B33E55D16838B',
+    9,
+    'NOVA',
+    'Nova Token',
+    'https://app.metroswap.org',
+  ),
   hce: new Token(
     MAINNET,
     '0xBD58c54657cd753EeE336f7eD7cB57567704CD48',
