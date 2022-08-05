@@ -34,6 +34,22 @@
       "logoURI": "https://github.com/metronotes/metronotes.github.io/raw/main/img/xmn100.png"
     },
     {
+      "name": "Nova Token",
+      "symbol": "NOVA",
+      "address": "0x0B42eBEFe367Cd6A63BA736b943B33E55D16838B",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://freesvg.org/img/1534892626.png"
+    },
+    {
+      "name": "Drone Token",
+      "symbol": "DRONE",
+      "address": "0x77D29ba121D2D09385c329CC1Cf552fce128DBb2",
+      "chainId": 3000,
+      "decimals": 9,
+      "logoURI": "https://freesvg.org/img/AbstractSun.png"
+    },
+    {
       "name": "HCE <-> ECH",
       "symbol": "HCE",
       "address": "0xBD58c54657cd753EeE336f7eD7cB57567704CD48",
