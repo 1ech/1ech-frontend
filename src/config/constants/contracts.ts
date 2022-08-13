@@ -1,7 +1,7 @@
 export default {
   masterChief: {
     97: '',
-    3000: '0x08DC98B6bca7ffA22a218Cc8656E691b1EBc13a6',
+    3000: '0x3a1C86EE827853Fe9061b54e4Fa4916b844Cc1Cc',
   },
   masterChiefV1: {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',
@@ -64,7 +64,7 @@ export default {
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
   rechVault: {
-    3000: '0x88334382Ccf1aFBc0c99fe0EB95b50E1A4Bb5445',
+    3000: '0x99086008c3F096BD26b89F32D19579E19A59156E',
     97: '',
   },
   predictions: {

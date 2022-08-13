@@ -119,7 +119,6 @@ export const mainnetTokens = defineTokens({
   dust: new Token(MAINNET, '0x4414c6EB45762bc7AE167eeaba7A89E538d0aD32', 18, 'DUST', 'Dust Token', 'https://dust.llc'),
   // dust: ech here points to the wech contract. Wherever the currency ECH is required, conditional checks for the symbol 'ECH' can be used
   ech: new Token(MAINNET, '0x1eEDFf2A89e58c5fC4650C2de45DDA0964C3D343', 18, 'ECH', 'ECH', 'https://ech.network/'),
-  // ech here points to the wech contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   rech: new Token(MAINNET, '0x363a6FD45e39cCD1be3220dc9550975C247BBC5F', 18, 'RECH', 'Rech Token', 'https://1ech.com/'),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),

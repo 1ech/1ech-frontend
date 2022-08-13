@@ -21,7 +21,7 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 2,
-    v1pid: 251,
+    v1pid: 1,
     lpSymbol: 'RECH-ECH LP',
     lpAddresses: {
       97: '',
@@ -32,7 +32,7 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 3,
-    v1pid: 252,
+    v1pid: 2,
     lpSymbol: 'USDS-ECH LP',
     lpAddresses: {
       97: '',
@@ -42,6 +42,7 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.wech,
   },
   //    * V3 by order of release (some may be out of PID order due to multiplier boost)
+  /**
   {
     pid: 102,
     lpSymbol: 'PEAK-ECH LP',
@@ -1130,7 +1131,7 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.ada,
     quoteToken: serializedTokens.wech,
-  },
+  }, */
 ].filter((f) => !!f.lpAddresses[CHAIN_ID])
 
 export default farms

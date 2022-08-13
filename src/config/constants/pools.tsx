@@ -53,14 +53,15 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.rech,
     contractAddress: {
       97: '',
-      3000: '0xD700536d41F79a1ec3B24BfCB82355509a56C34d',
+      3000: '0x3a1C86EE827853Fe9061b54e4Fa4916b844Cc1Cc',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
     tokenPerBlock: '10',
     isFinished: false,
   },
-  {
+  /**
+    {
     takedaId: 284,
     stakingToken: serializedTokens.rech,
     earningToken: serializedTokens.antex,
@@ -124,7 +125,7 @@ const pools: SerializedPoolConfig[] = [
     harvest: true,
     tokenPerBlock: '0.09645',
     version: 3,
-  },
+  }, */
 ].filter((p) => !!p.contractAddress[CHAIN_ID])
 
 // known finished pools
